@@ -1,20 +1,17 @@
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import More from './pages/More';
-import VisionMission from './components/More/VisionMission';
-import Products from './components/More/Products';
-import Principles from './components/More/Principles';
-import Technology from './components/More/Technology';
-import AIFeatures from './components/More/AIFeatures';
-import KeyClientele from './components/More/KeyClientele';
-import HomeSection1 from './components/home/HomeSection1';
-import HomeSection2 from './components/Home/homesection2';
-import TopInfoBar from './components/Navbar/TopInfoBar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import More from "./pages/More";
+import VisionMission from "./components/More/VisionMission";
+import Products from "./components/More/Products";
+import Principles from "./components/More/Principles";
+import Technology from "./components/More/Technology";
+import AIFeatures from "./components/More/AIFeatures";
+import KeyClientele from "./components/More/KeyClientele";
+import TopInfoBar from "./components/Navbar/TopInfoBar";
 
 function App() {
   return (
