@@ -1,6 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+
+import aiImage from '../../assets/img/ai.jpg';
+import team from '../../assets/img/team.jpg';
+import ship from '../../assets/img/shipping.jpg';
+
 import { 
   FaGlobe, 
   FaUsers, 
@@ -218,8 +223,8 @@ const HomeSection2 = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-purple-900/90 z-10"></div>
           <img 
-            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-            alt="Container Yard" 
+            src={ship}
+              alt="Container Yard" 
             className="w-full h-full object-cover"
           />
         </div>
@@ -304,21 +309,82 @@ const HomeSection2 = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Client-Focused. Ethically Guided. Excellence Assured.</span>
-            </h2>
-          </motion.div>
-        </div>
-      </section>
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Client-Focused. Ethically Guided. Excellence Assured.</span>
+      </h2>
+    </motion.div>
+    
+    {/* Two small images in one row */}
+    <motion.div 
+      className="grid grid-cols-2 gap-4 mb-12"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div 
+        className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+        whileHover={{ scale: 1.02 }}
+      >
+        <img 
+                src={aiImage} 
+                alt="Professional team collaboration" 
+                className="w-full h-40 object-cover"
+              />
+      </motion.div>
+      <motion.div 
+        className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+        whileHover={{ scale: 1.02 }}
+      >
+        <img 
+          src={team}  
+          alt="Excellence in service delivery" 
+          className="w-full h-40 object-cover"
+        />
+      </motion.div>
+    </motion.div>
+    
+    <motion.div 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {whyChooseUs.map((item, index) => (
+        <motion.div 
+          key={index}
+          className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+          variants={itemVariants}
+          whileHover={{ y: -5 }}
+        >
+          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+          <div className="absolute inset-[1px] rounded-lg bg-white group-hover:bg-white transition-colors duration-300 -z-10"></div>
+          <div className="relative z-10">
+            <div className="flex items-start space-x-4">
+              <div className="p-3 bg-gray-50 rounded-lg shadow-sm">
+                {item.icon}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
       {/* Industries We Serve Section */}
       <section className="py-16 bg-white">
@@ -336,24 +402,29 @@ const HomeSection2 = () => {
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {industries.map((industry, index) => (
-              <motion.div 
-                key={index}
-                className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-300"
-                variants={itemVariants}
-                whileHover={{ x: 5 }}
-              >
-                <FaIndustry className="text-blue-500" />
-                <span className="text-gray-800 font-medium">{industry}</span>
-              </motion.div>
-            ))}
-          </motion.div>
+  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+  variants={containerVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  {industries.map((industry, index) => (
+    <motion.div 
+      key={index}
+      className="bg-white rounded-lg p-4 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+      variants={itemVariants}
+      whileHover={{ y: -5 }}
+    >
+      {/* Gradient border effect with thinner border */}
+      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+      <div className="absolute inset-[1px] rounded-lg bg-white group-hover:bg-white transition-colors duration-300 -z-10"></div>
+      <div className="relative z-10 flex items-center space-x-3">
+        <FaIndustry className="text-blue-500" />
+        <span className="text-gray-800 font-medium">{industry}</span>
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
         </div>
       </section>
 
