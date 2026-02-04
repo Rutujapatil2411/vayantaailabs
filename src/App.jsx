@@ -12,6 +12,9 @@ import Principles from './components/More/Principles';
 import Technology from './components/More/Technology';
 import AIFeatures from './components/More/AIFeatures';
 import KeyClientele from './components/More/KeyClientele';
+import HomeSection1 from './components/home/HomeSection1';
+import HomeSection2 from './components/Home/homesection2';
+import TopInfoBar from './components/Navbar/TopInfoBar';
 
 function App() {
   return (
