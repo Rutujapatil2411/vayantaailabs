@@ -614,7 +614,7 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      {/* Our Clients Section */}
+      {/* Our Clients Section - Updated with new design */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -633,50 +633,64 @@ const HomeSection2 = () => {
           </motion.div>
 
           <motion.div 
-            className="mb-8"
+            className="mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* First row with 5 logos */}
-            <div className="grid grid-cols-5 gap-6 mb-6">
+            {/* First row with 5 logos - no rounded corners */}
+            <div className="grid grid-cols-5 gap-6 mb-3">
               {clientLogos.slice(0, 5).map((client, index) => (
                 <motion.div 
                   key={client.id}
-                  className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  className="flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ 
+                    y: -8, 
+                    scale: 1.05,
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
+                  }}
                 >
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
-                    className="max-h-16 max-w-full object-contain"
-                  />
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name} 
+                      className="max-h-16 max-w-full object-contain transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0 hover:from-blue-600/10 hover:to-purple-600/10 transition-all duration-500"></div>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* Second row with 4 logos */}
+            {/* Second row with 4 logos - no rounded corners */}
             <div className="grid grid-cols-4 gap-6">
               {clientLogos.slice(5, 9).map((client, index) => (
                 <motion.div 
                   key={client.id}
-                  className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  className="flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: (index + 5) * 0.1 }}
-                  whileHover={{ y: -5 }}
+                  whileHover={{ 
+                    y: -8, 
+                    scale: 1.05,
+                    boxShadow: "0 10px 20px rgba(0,0,0,0.1)"
+                  }}
                 >
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
-                    className="max-h-16 max-w-full object-contain"
-                  />
+                  <div className="relative w-full h-full">
+                    <img 
+                      src={client.logo} 
+                      alt={client.name} 
+                      className="max-h-16 max-w-full object-contain transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0 hover:from-blue-600/10 hover:to-purple-600/10 transition-all duration-500"></div>
+                  </div>
                 </motion.div>
               ))}
             </div>
