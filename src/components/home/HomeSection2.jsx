@@ -465,7 +465,7 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      {/* AI Features Section */}
+      {/* AI Features Section - Enhanced with hover effects */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -479,7 +479,8 @@ const HomeSection2 = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Advanced AI Features</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
-Built on computer vision, machine learning, and digital twin technology, our AI platform enables real-time container tracking, predictive yard planning, and automated gate operations, improving overall operational efficiency.            </p>
+              Built on computer vision, machine learning, and digital twin technology, our AI platform enables real-time container tracking, predictive yard planning, and automated gate operations, improving overall operational efficiency.
+            </p>
           </motion.div>
 
           <motion.div 
@@ -492,23 +493,35 @@ Built on computer vision, machine learning, and digital twin technology, our AI 
             {aiFeatures.map((feature, index) => (
               <motion.div 
                 key={index}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden group"
+                className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group"
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                  transition: { 
+                    duration: 0.4,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }
+                }}
               >
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                <div className="absolute inset-[1px] rounded-lg bg-white group-hover:bg-white transition-colors duration-300 -z-10"></div>
+                {/* Wipe effect for gradient background */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10"></div>
+                
+                {/* Card content with enhanced hover effects */}
                 <div className="relative z-10">
                   <div className="flex items-start space-x-4">
-                    <div className="p-3 bg-gray-50 rounded-lg shadow-sm">
+                    <div className="p-3 bg-gray-50 rounded-lg shadow-sm group-hover:bg-white group-hover:shadow-md transition-all duration-500">
                       {feature.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">{feature.title}</h3>
+                      <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">{feature.description}</p>
                     </div>
                   </div>
                 </div>
+                
+                {/* Wipe effect overlay */}
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-purple-400/0 group-hover:from-blue-400/10 group-hover:via-blue-400/5 group-hover:to-purple-400/10 transition-all duration-700 -z-5"></div>
               </motion.div>
             ))}
           </motion.div>
