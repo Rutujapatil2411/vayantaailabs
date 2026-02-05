@@ -43,13 +43,19 @@ import {
   FaWarehouse,
   FaTruck,
   FaAnchor,
-  FaBuilding
+  FaBuilding,
+  FaQuoteLeft,
+  FaQuoteRight,
+  FaStar,
+  FaArrowRight,
+  FaPlay
 } from 'react-icons/fa';
-
 const HomeSection2 = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
-  
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeWhyChoose, setActiveWhyChoose] = useState(0);
+
   const stats = [
     {
       icon: <FaGlobe className="text-3xl text-blue-500" />,
@@ -163,6 +169,55 @@ const HomeSection2 = () => {
       icon: <FaEnvelope className="text-2xl text-purple-500" />,
       title: "WhatsApp / SMS Notifications & Alerts",
       description: "Instant communication system"
+    }
+  ];
+
+  // Why Choose Us data
+  const whyChooseUs = [
+    {
+      icon: <FaCertificate className="text-2xl text-blue-500" />,
+      title: "ISO Certified",
+      description: "Quality management systems that ensure reliable delivery"
+    },
+    {
+      icon: <FaBrain className="text-2xl text-purple-500" />,
+      title: "AI Expertise",
+      description: "Deep knowledge in AI, ML and computer vision technologies"
+    },
+    {
+      icon: <FaHandshake className="text-2xl text-green-500" />,
+      title: "Client-Centric Approach",
+      description: "Customized solutions tailored to your business needs"
+    },
+    {
+      icon: <FaIndustry className="text-2xl text-yellow-500" />,
+      title: "Domain Knowledge",
+      description: "15+ years of logistics and supply chain industry experience"
+    }
+  ];
+
+  // Testimonials data
+  const testimonials = [
+    {
+      name: "John Smith",
+      position: "Operations Director",
+      company: "Global Shipping Co.",
+      content: "Rapportsoft's AI solutions transformed our yard operations. We've reduced processing times by 60% and improved overall efficiency.",
+      rating: 5
+    },
+    {
+      name: "Sarah Johnson",
+      position: "CEO",
+      company: "Smart Logistics Ltd.",
+      content: "The implementation of AI-powered gate operations has been a game-changer for our business. Highly recommend their expertise.",
+      rating: 5
+    },
+    {
+      name: "Michael Chen",
+      position: "CTO",
+      company: "Container Hub Inc.",
+      content: "The digital twin technology provided by Rapportsoft has enabled us to optimize our yard layout and reduce congestion significantly.",
+      rating: 5
     }
   ];
 
@@ -292,14 +347,23 @@ const HomeSection2 = () => {
             <p className="text-xl max-w-3xl mx-auto mb-8">
               Founded in 2009 and headquartered in Pune, Rapportsoft is a trusted AI solutions provider for smart gate operations and yard management. With ISO-certified processes and deep AI expertise, we design and deliver scalable, secure, and intelligent enterprise systems that drive operational efficiency and digital transformation.
             </p>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/about')}
-              className="px-8 py-3 bg-white text-blue-900 font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Know More About Us →
-            </motion.button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/about')}
+                className="px-8 py-3 bg-white text-blue-900 font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Know More About Us →
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <FaPlay /> Watch Demo
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -307,6 +371,21 @@ const HomeSection2 = () => {
       {/* Stats Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Our Achievements</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              15+ years of excellence in delivering AI-powered solutions for the logistics industry
+            </p>
+          </motion.div>
+          
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariants}
@@ -343,8 +422,67 @@ const HomeSection2 = () => {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+     <section className="py-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div 
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Why Choose Rapportsoft</span>
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        We combine industry expertise with cutting-edge AI technology to deliver solutions that transform your operations
+      </p>
+    </motion.div>
+
+    <div className="relative">
+      <div className="overflow-hidden">
+        <motion.div 
+          className="flex"
+          animate={{ x: -activeWhyChoose * 100 + "%" }}
+          transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+        >
+          {whyChooseUs.map((item, index) => (
+            <div key={index} className="w-full flex-shrink-0 px-4">
+              <motion.div 
+                className="bg-gray-50 rounded-lg p-8 max-w-2xl mx-auto hover:bg-white hover:shadow-lg transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.description}</p>
+                </div>
+              </motion.div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+      
+      <div className="flex justify-center mt-6 space-x-2">
+        {whyChooseUs.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveWhyChoose(index)}
+            className={`w-3 h-3 rounded-full ${index === activeWhyChoose ? 'bg-blue-600' : 'bg-gray-300'}`}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
       {/* Modified Products Section - AI-Powered Smart Gate Operation & Yard Management */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -419,7 +557,7 @@ const HomeSection2 = () => {
       </section>
 
       {/* Image Showcase Section - Simplified from "Why Choose Us" */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -466,7 +604,7 @@ const HomeSection2 = () => {
       </section>
 
       {/* AI Features Section - Enhanced with hover effects */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -525,6 +663,68 @@ const HomeSection2 = () => {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">What Our Clients Say</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Don't just take our word for it. Here's what our clients have to say about our solutions.
+            </p>
+          </motion.div>
+
+          <div className="relative">
+            <div className="overflow-hidden">
+              <motion.div 
+                className="flex"
+                animate={{ x: -activeTestimonial * 100 + "%" }}
+                transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+              >
+                {testimonials.map((testimonial, index) => (
+                  <div key={index} className="w-full flex-shrink-0 px-4">
+                    <div className="bg-gray-50 rounded-lg p-8 max-w-3xl mx-auto">
+                      <div className="flex justify-center mb-4">
+                        <FaQuoteLeft className="text-3xl text-blue-500" />
+                      </div>
+                      <p className="text-gray-700 text-center mb-6 italic">
+                        "{testimonial.content}"
+                      </p>
+                      <div className="flex justify-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <FaStar key={i} className="text-yellow-400 text-xl" />
+                        ))}
+                      </div>
+                      <div className="text-center">
+                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+            
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveTestimonial(index)}
+                  className={`w-3 h-3 rounded-full ${index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -726,7 +926,7 @@ const HomeSection2 = () => {
           </motion.div>
         </div>
       </section>
-
+      
       {/* Call to Action Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
