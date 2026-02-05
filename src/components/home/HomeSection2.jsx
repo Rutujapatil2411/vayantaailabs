@@ -50,6 +50,55 @@ import {
   FaArrowRight,
   FaPlay
 } from 'react-icons/fa';
+
+// Animated shapes component - balanced on both sides
+const AnimatedShapes = () => {
+  return (
+    <>
+      {/* Right side shapes */}
+      {/* Green triangle - made smaller */}
+      <div className="absolute bottom-20 right-20 w-0 h-0 opacity-20 animate-bounce" 
+           style={{
+             borderLeft: "15px solid transparent",
+             borderRight: "15px solid transparent",
+             borderBottom: "25px solid #4ade80"
+           }}>
+      </div>
+      
+      {/* Light purple circle - made smaller */}
+      <div className="absolute top-1/3 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-15 animate-pulse"></div>
+      
+      {/* Purple triangle - right side */}
+      <div className="absolute top-1/2 right-1/3 w-0 h-0 opacity-20 animate-pulse" 
+           style={{
+             borderLeft: "12px solid transparent",
+             borderRight: "12px solid transparent",
+             borderBottom: "20px solid #a78bfa"
+           }}>
+      </div>
+      
+      {/* Left side shapes - more prominent */}
+      {/* Blue circle - left side - made more visible */}
+      <div className="absolute bottom-1/3 left-20 w-12 h-12 bg-blue-200 rounded-full opacity-20 animate-ping"></div>
+      
+      {/* Indigo circle - left side - made more visible */}
+      <div className="absolute top-2/3 left-20 w-10 h-10 bg-indigo-200 rounded-full opacity-20 animate-ping"></div>
+      
+      {/* Green circle - left side - new shape */}
+      <div className="absolute top-1/4 left-16 w-8 h-8 bg-green-200 rounded-full opacity-20 animate-pulse"></div>
+      
+      {/* Pink triangle - left side - new shape */}
+      <div className="absolute bottom-1/4 left-1/4 w-0 h-0 opacity-20 animate-bounce" 
+           style={{
+             borderLeft: "10px solid transparent",
+             borderRight: "10px solid transparent",
+             borderBottom: "18px solid #f9a8d4"
+           }}>
+      </div>
+    </>
+  );
+};
+
 const HomeSection2 = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
@@ -356,15 +405,22 @@ const HomeSection2 = () => {
               >
                 Know More About Us →
               </motion.button>
-              
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <FaPlay /> Watch Demo
+              </motion.button>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-gray-50 overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -417,67 +473,70 @@ const HomeSection2 = () => {
       </section>
 
       {/* Why Choose Us Section */}
-     <section className="py-16 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <motion.div 
-      className="text-center mb-12"
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Why Choose Rapportsoft</span>
-      </h2>
-      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-        We combine industry expertise with cutting-edge AI technology to deliver solutions that transform your operations
-      </p>
-    </motion.div>
-
-    <div className="relative">
-      <div className="overflow-hidden">
+     <section className="relative py-16 bg-white overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          className="flex"
-          animate={{ x: -activeWhyChoose * 100 + "%" }}
-          transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          {whyChooseUs.map((item, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-4">
-              <motion.div 
-                className="bg-gray-50 rounded-lg p-8 max-w-2xl mx-auto hover:bg-white hover:shadow-lg transition-all duration-300"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-4">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600">{item.description}</p>
-                </div>
-              </motion.div>
-            </div>
-          ))}
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Why Choose Rapportsoft</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            We combine industry expertise with cutting-edge AI technology to deliver solutions that transform your operations
+          </p>
         </motion.div>
-      </div>
+
+        <div className="relative">
+          <div className="overflow-hidden">
+            <motion.div 
+              className="flex"
+              animate={{ x: -activeWhyChoose * 100 + "%" }}
+              transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+            >
+              {whyChooseUs.map((item, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-4">
+                  <motion.div 
+                    className="bg-gray-50 rounded-lg p-8 max-w-2xl mx-auto hover:bg-white hover:shadow-lg transition-all duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="flex flex-col items-center text-center">
+                      <div className="mb-4">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </motion.div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+          
+          <div className="flex justify-center mt-6 space-x-2">
+            {whyChooseUs.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveWhyChoose(index)}
+                className={`w-3 h-3 rounded-full ${index === activeWhyChoose ? 'bg-blue-600' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
+        </div>
+        </div>
+      </section>
       
-      <div className="flex justify-center mt-6 space-x-2">
-        {whyChooseUs.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveWhyChoose(index)}
-            className={`w-3 h-3 rounded-full ${index === activeWhyChoose ? 'bg-blue-600' : 'bg-gray-300'}`}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
       {/* Modified Products Section - AI-Powered Smart Gate Operation & Yard Management */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-gray-50 overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -551,8 +610,9 @@ const HomeSection2 = () => {
       </section>
 
       {/* Image Showcase Section - Simplified from "Why Choose Us" */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-white overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -598,8 +658,9 @@ const HomeSection2 = () => {
       </section>
 
       {/* AI Features Section - Enhanced with hover effects */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-gray-50 overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -660,69 +721,7 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">What Our Clients Say</span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Don't just take our word for it. Here's what our clients have to say about our solutions.
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            <div className="overflow-hidden">
-              <motion.div 
-                className="flex"
-                animate={{ x: -activeTestimonial * 100 + "%" }}
-                transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
-              >
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-4">
-                    <div className="bg-gray-50 rounded-lg p-8 max-w-3xl mx-auto">
-                      <div className="flex justify-center mb-4">
-                        <FaQuoteLeft className="text-3xl text-blue-500" />
-                      </div>
-                      <p className="text-gray-700 text-center mb-6 italic">
-                        "{testimonial.content}"
-                      </p>
-                      <div className="flex justify-center mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <FaStar key={i} className="text-yellow-400 text-xl" />
-                        ))}
-                      </div>
-                      <div className="text-center">
-                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-gray-600">{testimonial.position}, {testimonial.company}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-            
-            <div className="flex justify-center mt-6 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-3 h-3 rounded-full ${index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve Section - Updated with background image and new layout */}
+         {/* Industries We Serve Section - Updated with background image and new layout */}
       <section className="relative py-16 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
@@ -732,6 +731,11 @@ const HomeSection2 = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 z-10"></div>
+        </div>
+        
+        {/* Add animated shapes on top of the background image */}
+        <div className="absolute inset-0 z-15">
+          <AnimatedShapes />
         </div>
         
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -784,8 +788,9 @@ const HomeSection2 = () => {
       </section>
 
       {/* Global Presence Section - Increased padding to ensure proper display */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 bg-gray-50 overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -821,8 +826,9 @@ const HomeSection2 = () => {
       </section>
 
       {/* Our Clients Section - Updated with new design */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-white overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
             initial={{ opacity: 0, y: -20 }}
@@ -922,8 +928,9 @@ const HomeSection2 = () => {
       </section>
       
       {/* Call to Action Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 bg-gray-50 overflow-hidden">
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 20 }}
