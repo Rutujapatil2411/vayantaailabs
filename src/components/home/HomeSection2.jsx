@@ -478,9 +478,8 @@ const HomeSection2 = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Advanced AI Features</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our AI-powered features deliver measurable results with 30-40% faster truck turnaround, 25-35% reduction in re-handling costs, and 20-30% higher yard throughput.
-            </p>
+            <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
+Built on computer vision, machine learning, and digital twin technology, our AI platform enables real-time container tracking, predictive yard planning, and automated gate operations, improving overall operational efficiency.            </p>
           </motion.div>
 
           <motion.div 
