@@ -356,13 +356,7 @@ const HomeSection2 = () => {
               >
                 Know More About Us →
               </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-transparent border-2 border-white text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <FaPlay /> Watch Demo
-              </motion.button>
+              
             </div>
           </motion.div>
         </div>
