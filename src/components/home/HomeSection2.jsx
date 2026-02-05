@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import aiImage from '../../assets/img/ai.jpg';
 import team from '../../assets/img/team.jpg';
 import ship from '../../assets/img/shipping.jpg';
+import Ai from '../../assets/img/ai.jpg'
 
 import { 
   FaGlobe, 
@@ -169,46 +170,6 @@ const HomeSection2 = () => {
     }
   };
 
-  // Text animation variants
-  const textVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const letterVariants = {
-    hidden: { y: 50, opacity: 0, rotate: 10 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        damping: 10,
-        stiffness: 100
-      }
-    },
-    hover: {
-      scale: 1.2,
-      color: "#8B5CF6",
-      transition: {
-        type: "spring",
-        damping: 5,
-        stiffness: 400
-      }
-    }
-  };
-
-  // Split text into letters for animation
-  const text = "Trusted Shipping Software Across 11+ Countries.";
-  const letters = text.split("");
-
   const handleLearnMoreClick = () => {
     // Set a flag in localStorage to indicate we want to open the More dropdown
     localStorage.setItem('openMoreDropdown', 'true');
@@ -336,9 +297,9 @@ const HomeSection2 = () => {
         whileHover={{ scale: 1.02 }}
       >
         <img 
-                src={aiImage} 
+                src={Ai } 
                 alt="Professional team collaboration" 
-                className="w-full h-40 object-cover"
+                className="w-full h-64 object-cover"
               />
       </motion.div>
       <motion.div 
@@ -348,7 +309,7 @@ const HomeSection2 = () => {
         <img 
           src={team}  
           alt="Excellence in service delivery" 
-          className="w-full h-40 object-cover"
+          className="w-full h-64 object-cover"
         />
       </motion.div>
     </motion.div>
@@ -465,8 +426,6 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      
-
       {/* Call to Action Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -477,30 +436,7 @@ const HomeSection2 = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Enhanced text with animation and hover effects */}
-            <motion.div 
-              className="flex items-center justify-center mb-6"
-              variants={textVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <FaShip className="text-3xl text-blue-600 mr-3" />
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent inline-block">
-                {letters.map((letter, index) => (
-                  <motion.span
-                    key={index}
-                    variants={letterVariants}
-                    whileHover="hover"
-                    className="inline-block"
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.span>
-                ))}
-              </h3>
-            </motion.div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -508,14 +444,6 @@ const HomeSection2 = () => {
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Learn More About Our Success
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/contact')}
-                className="px-8 py-3 bg-white text-blue-600 font-medium rounded-lg shadow-md hover:shadow-lg border border-blue-200 hover:border-blue-300 transition-all duration-300"
-              >
-                Send us a message
               </motion.button>
             </div>
           </motion.div>
