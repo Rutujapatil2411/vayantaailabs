@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -11,12 +12,30 @@ import Principles from "./components/More/Principles";
 import Technology from "./components/More/Technology";
 import AIFeatures from "./components/More/AIFeatures";
 import KeyClientele from "./components/More/KeyClientele";
-import TopInfoBar from "./components/Navbar/TopInfoBar";
 
 function App() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Router>
-      <Navbar />
+      {/* Navbar  */}
+      <div
+        className={`sticky top-0 z-200 transition-all duration-500 ${
+          scrolled ? "shadow-xl" : ""
+        }`}
+      >
+        <Navbar scrolled={scrolled} />
+      </div>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
