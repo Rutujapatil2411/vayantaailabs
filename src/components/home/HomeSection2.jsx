@@ -925,85 +925,91 @@ const HomeSection2 = () => {
       </section>
 
       {/* AI Features Section */}
-      <section className="relative py-16 bg-gray-50 overflow-hidden">
-        <AnimatedShapes />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Advanced AI Features
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
-              Built on computer vision, machine learning, and digital twin
-              technology, our AI platform enables real-time container tracking,
-              predictive yard planning, and automated gate operations, improving
-              overall operational efficiency.
+<section className="relative py-16 bg-gray-50 overflow-hidden">
+  <AnimatedShapes />
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-center mb-12"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          Advanced AI Features
+        </span>
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
+        Built on computer vision, machine learning, and digital twin
+        technology, our AI platform enables real-time container tracking,
+        predictive yard planning, and automated gate operations, improving
+        overall operational efficiency.
+      </p>
+    </motion.div>
+
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {aiFeatures.map((feature, index) => (
+        <motion.div
+          key={index}
+          className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group border border-gray-100"
+          variants={itemVariants}
+          whileHover={{
+            scale: 1.05,
+            boxShadow:
+              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transition: {
+              duration: 0.4,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            },
+          }}
+          style={{
+            /* 1. Create a gradient with blue and purple colors */
+            backgroundImage: "linear-gradient(to right, #c181f5 50%, #ffffff 50%)",
+            /* 2. Make the gradient twice the width of the container */
+            backgroundSize: "200% 100%",
+            /* 3. Initially show the right side (white color) */
+            backgroundPosition: "100% 0",
+            /* 4. Set the transition speed for changing position */
+            transition: "background-position 0.5s ease",
+          }}
+          /* 5. On hover, move the gradient to the left */
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundPosition = "0 0";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundPosition = "100% 0";
+          }}
+        >
+          <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
+            <motion.div
+              className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 group-hover:bg-white group-hover:shadow-md transition-all duration-500"
+              whileHover={{
+                scale: 1.2,
+                rotate: [0, 10, -10, 0],
+                transition: { duration: 0.5 },
+              }}
+            >
+              {feature.icon}
+            </motion.div>
+            <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">
+              {feature.title}
+            </h3>
+            <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">
+              {feature.description}
             </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {aiFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group border border-gray-100"
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow:
-                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                  transition: {
-                    duration: 0.4,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  },
-                }}
-              >
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-all duration-700 -z-10"></div>
-
-                <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
-                  <motion.div
-                    className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 group-hover:bg-white group-hover:shadow-md transition-all duration-500"
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: [0, 10, -10, 0],
-                      transition: { duration: 0.5 },
-                    }}
-                  >
-                    {feature.icon}
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">
-                    {feature.description}
-                  </p>
-                </div>
-
-                <motion.div
-                  className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-400/0 via-blue-400/0 to-purple-400/0 -z-5"
-                  whileHover={{
-                    background:
-                      "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.05), rgba(167, 139, 250, 0.1))",
-                    transition: { duration: 0.7 },
-                  }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
 
       {/* Industries We Serve Section */}
       <section className="relative py-16 overflow-hidden">
