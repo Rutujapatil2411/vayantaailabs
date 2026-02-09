@@ -1,16 +1,11 @@
-import { Outlet } from 'react-router-dom';
-import React from 'react'
-import KeyClients from '../components/More/KeyClients';
+import { Outlet } from "react-router-dom";
 
 function More() {
   return (
-    <>
     <div className="min-h-screen">
-      <KeyClients />
-      
+      <Outlet />
     </div>
-    </>
-  )
+  );
 }
 
 export default More;
