@@ -11,8 +11,7 @@ import Products from "./components/More/Products";
 import Principles from "./components/More/Principles";
 import Technology from "./components/More/Technology";
 import AIFeatures from "./components/More/AIFeatures";
-import KeyClientele from "./components/More/KeyClientele";
-
+import KeyClients from "./components/More/KeyClients";
 function App() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,7 +46,7 @@ function App() {
           <Route path="principles" element={<Principles />} />
           <Route path="technology" element={<Technology />} />
           <Route path="ai-features" element={<AIFeatures />} />
-          <Route path="key-clientele" element={<KeyClientele />} />
+          <Route path="key-clientele" element={<KeyClients />} />
         </Route>
       </Routes>
     </Router>
