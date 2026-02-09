@@ -53,10 +53,75 @@ const clients = [
   c37, c38, c39, c40, c41
 ];
 
+// NEW COMPONENT: Animated Triangles for Background
+const AnimatedTriangles = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={`triangle-${i}`}
+          className="absolute"
+          style={{
+            width: 0,
+            height: 0,
+            borderLeft: "10px solid transparent",
+            borderRight: "10px solid transparent",
+            borderBottom: `15px solid ${i % 2 === 0 ? "#a855f7" : "#6366f1"}`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            filter: "drop-shadow(0 0 6px rgba(168, 85, 247, 0.8))",
+            opacity: 0.7,
+          }}
+          animate={{
+            rotate: [0, 360],
+            x: [0, Math.random() * 30 - 15],
+            y: [0, Math.random() * 30 - 15],
+            opacity: [0.3, 0.7, 0.3],
+          }}
+          transition={{
+            duration: 10 + Math.random() * 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+      
+      {[...Array(4)].map((_, i) => (
+        <motion.div
+          key={`big-triangle-${i}`}
+          className="absolute"
+          style={{
+            width: 0,
+            height: 0,
+            borderLeft: "15px solid transparent",
+            borderRight: "15px solid transparent",
+            borderBottom: `25px solid ${i % 2 === 0 ? "#9333ea" : "#4f46e5"}`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            filter: "drop-shadow(0 0 10px rgba(147, 51, 234, 0.8))",
+            opacity: 0.5,
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, -360],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 15 + Math.random() * 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const KeyClients = () => {
   const [showAll, setShowAll] = useState(false);
 
- 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -72,7 +137,7 @@ const KeyClients = () => {
 
   return (
     <div className="w-full">
-    
+      {/* ========== TOP BANNER ========== */}
       <div className="relative w-full h-[75vh] overflow-hidden">
         <div className="absolute inset-0 bg-black">
           <div
@@ -102,10 +167,16 @@ const KeyClients = () => {
         </motion.div>
       </div>
 
-      
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-         
+      {/* ========== OUR CLIENTS SECTION ========== */}
+      {/* CHANGES: Added 'relative overflow-hidden' and the animated background */}
+      <section className="py-16 bg-gray-50 relative overflow-hidden">
+        {/* NEW: Animated Triangles Background */}
+        <div className="absolute inset-0 z-0">
+          <AnimatedTriangles />
+        </div>
+        
+        {/* CHANGES: Added 'relative z-10' to bring content to the front */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.h2
             className="text-4xl font-bold text-center mb-6"
             initial={{ opacity: 0, y: 30 }}
@@ -117,7 +188,6 @@ const KeyClients = () => {
             </span>
           </motion.h2>
           
-          
           <motion.div 
             className="text-center max-w-3xl mx-auto mb-12"
             initial="hidden"
@@ -128,10 +198,8 @@ const KeyClients = () => {
             <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 text-lg font-medium">
               We are proud to partner with industry leaders across logistics, shipping, and supply chain sectors. Our AI-powered solutions have transformed operations for enterprises seeking innovation and efficiency.
             </p>
-           
           </motion.div>
 
-       
           <motion.div
             className="mb-6"
             initial={{ opacity: 0 }}
@@ -140,9 +208,8 @@ const KeyClients = () => {
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             {showAll ? (
-            
               <>
-               
+                {/* Row 1: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(0, 5).map((logo, index) => (
                     <motion.div
@@ -179,7 +246,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-               
+                {/* Row 2: 4 items */}
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(5, 9).map((logo, index) => (
                     <motion.div
@@ -216,7 +283,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 3: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(9, 14).map((logo, index) => (
                     <motion.div
@@ -253,7 +320,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 4: 4 items */}
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(14, 18).map((logo, index) => (
                     <motion.div
@@ -290,7 +357,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 5: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(18, 23).map((logo, index) => (
                     <motion.div
@@ -327,7 +394,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 6: 4 items */}
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(23, 27).map((logo, index) => (
                     <motion.div
@@ -364,7 +431,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-               
+                {/* Row 7: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(27, 32).map((logo, index) => (
                     <motion.div
@@ -401,7 +468,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 8: 4 items */}
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(32, 36).map((logo, index) => (
                     <motion.div
@@ -438,7 +505,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 9: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(36, 41).map((logo, index) => (
                     <motion.div
@@ -476,9 +543,8 @@ const KeyClients = () => {
                 </div>
               </>
             ) : (
-              
               <>
-               
+                {/* Row 1: 5 items */}
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(0, 5).map((logo, index) => (
                     <motion.div
@@ -515,7 +581,7 @@ const KeyClients = () => {
                   ))}
                 </div>
                 
-                
+                {/* Row 2: 4 items */}
                 <div className="grid grid-cols-4 gap-6">
                   {clients.slice(5, 9).map((logo, index) => (
                     <motion.div
@@ -554,7 +620,6 @@ const KeyClients = () => {
               </>
             )}
           </motion.div>
-          
           
           <motion.div
             className="text-center"
