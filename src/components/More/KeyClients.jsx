@@ -53,8 +53,8 @@ const clients = [
   c37, c38, c39, c40, c41
 ];
 
-// NEW COMPONENT: Outline Triangle with Neon Effect
-const OutlineTriangle = ({ size = 40, color = "#a855f7" }) => {
+
+const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
   return (
     <svg 
       width={size} 
@@ -85,11 +85,11 @@ const OutlineTriangle = ({ size = 40, color = "#a855f7" }) => {
   );
 };
 
-// NEW COMPONENT: Animated Triangles for Background
+
 const AnimatedTriangles = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-      {/* Small Outline Triangles - replacing the filled ones */}
+     
       {[...Array(8)].map((_, i) => (
         <motion.div
           key={`triangle-${i}`}
@@ -112,13 +112,13 @@ const AnimatedTriangles = () => {
           }}
         >
           <OutlineTriangle 
-            size={40} 
+            size={20} 
             color={i % 2 === 0 ? "#a855f7" : "#6366f1"} 
           />
         </motion.div>
       ))}
       
-      {/* Medium Outline Triangles - replacing the big filled ones */}
+      
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={`big-triangle-${i}`}
@@ -140,7 +140,7 @@ const AnimatedTriangles = () => {
           }}
         >
           <OutlineTriangle 
-            size={60} 
+            size={30} 
             color={i % 2 === 0 ? "#9333ea" : "#4f46e5"} 
           />
         </motion.div>
@@ -197,9 +197,9 @@ const KeyClients = () => {
         </motion.div>
       </div>
 
-      {/* ========== OUR CLIENTS SECTION ========== */}
+      
       <section className="py-16 bg-gray-50 relative overflow-hidden">
-        {/* Animated Triangles Background */}
+        
         <div className="absolute inset-0 z-0">
           <AnimatedTriangles />
         </div>
