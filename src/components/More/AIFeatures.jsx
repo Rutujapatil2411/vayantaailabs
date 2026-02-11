@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import aiFeaturesBg from "../../assets/img/AIFeatures.jpg";
 
+import controlPanelImg from "../../assets/img/Features.png"; 
 
 const steps = [
   {
@@ -162,37 +163,19 @@ const AIFeatures = () => {
             </div>
           </motion.div>
 
-          {/* Right */}
+       
           <motion.div
-            className={`relative bg-white/5 backdrop-blur-xl p-8 rounded-2xl border border-white/10 ${glow}`}
+       
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            
           >
-
-            <div className="grid grid-cols-2 gap-6 text-center">
-
-              {[
-                ["78%", "Yard Utilization"],
-                ["42m", "Avg. Dwell Time"],
-                ["124", "Active Assets"],
-                ["3", "Critical Alerts"],
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-black/40 rounded-xl p-5 border border-white/10"
-                >
-                  <h3 className="text-2xl font-bold text-cyan-400 mb-1">
-                    {item[0]}
-                  </h3>
-                  <p className="text-sm text-gray-400">
-                    {item[1]}
-                  </p>
-                </div>
-              ))}
-
-            </div>
-
+            <img
+              src={controlPanelImg}
+              alt="Cognitive Command & Control Interface"
+              className="w-full h-auto object-cover rounded-xl shadow-2xl shadow-cyan-500/20"
+            />
           </motion.div>
 
         </div>
