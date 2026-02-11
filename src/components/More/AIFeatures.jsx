@@ -1,8 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import aiFeaturesBg from "../../assets/img/AIFeatures.jpg";
-
-import controlPanelImg from "../../assets/img/Features.png"; 
+import controlPanelImg from "../../assets/img/Features.png";
 
 const steps = [
   {
@@ -52,14 +51,17 @@ const AIFeatures = () => {
     <div className="w-full bg-[#050B1A] text-white overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center">
+      {/* --- बदल: सेक्शनची उंची कमी केली (min-h-screen ऐवजी h-[90vh]) --- */}
+      <section className="relative h-[90vh] md:h-[80vh] flex items-center">
 
+        {/* --- बदल: इमेजवरून scale-110 हटवला --- */}
         <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
+          className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${aiFeaturesBg})` }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/40" />
+        {/* --- बदल: ग्रेडिएंट बदलला, आता फक्त खाली गडद --- */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
         <motion.div
           className="relative z-10 max-w-4xl px-8"
@@ -165,11 +167,9 @@ const AIFeatures = () => {
 
        
           <motion.div
-       
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            
           >
             <img
               src={controlPanelImg}
