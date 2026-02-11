@@ -148,7 +148,7 @@ const StatCard = ({ item, index }) => {
   return (
     <motion.div
       ref={ref}
-      className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group"
+className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group min-w-[360px]"
       variants={cardVariants}
       initial="hidden"
       animate={controls}
