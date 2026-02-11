@@ -1,5 +1,7 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 import aiFeaturesBg from "../../assets/img/AIFeatures.jpg";
 import controlPanelImg from "../../assets/img/Features.png";
 
@@ -45,31 +47,191 @@ const stats = [
 
 const glow =
   "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-cyan-500 before:to-purple-600 before:blur-xl before:opacity-30 before:-z-10";
+const AnimatedCounter = ({ value, duration = 2 }) => {
+  const [count, setCount] = React.useState(0);
+  const numericValue = parseFloat(value);
+  const isDecimal = value.includes(".");
+  const endValue = numericValue;
+  
+  React.useEffect(() => {
+    let startTime;
+    let animationFrame;
+    
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      
+     
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(easeOutQuart * endValue);
+      
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+    
+    animationFrame = requestAnimationFrame(animate);
+    
+    return () => {
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [endValue, duration]);
+  
+  return (
+    <span>
+      {isDecimal ? count.toFixed(1) : Math.floor(count)}%
+    </span>
+  );
+};
+
+const StatCard = ({ item, index }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+  
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.7,
+      y: 50
+    },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      y: 0,
+      transition: { 
+        duration: 0.6,
+        delay: index * 0.15,
+        type: "spring",
+        stiffness: 100
+      }
+    },
+    hover: {
+      scale: 1.05,
+      y: -10,
+      boxShadow: "0 20px 40px rgba(0, 255, 255, 0.3)",
+      transition: {
+        duration: 0.3,
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
+  
+  const glowVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 0.3,
+      transition: {
+        delay: index * 0.15 + 0.3,
+        duration: 0.8
+      }
+    },
+    hover: {
+      opacity: 0.6,
+      scale: 1.2,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+  
+  return (
+    <motion.div
+      ref={ref}
+      className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group"
+      variants={cardVariants}
+      initial="hidden"
+      animate={controls}
+      whileHover="hover"
+    >
+      
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl blur-xl -z-10"
+        variants={glowVariants}
+        initial="hidden"
+        animate={controls}
+        whileHover="hover"
+      />
+      
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 2 + i * 0.5,
+              repeat: Infinity,
+              delay: i * 0.2,
+            }}
+          />
+        ))}
+      </div>
+      
+      <div className="relative z-10">
+        <motion.h3 
+          className="text-4xl font-bold text-cyan-400 mb-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: index * 0.15 + 0.5, duration: 0.5 }}
+        >
+          <AnimatedCounter value={item.value} />
+        </motion.h3>
+        
+        <motion.p 
+          className="text-gray-300 tracking-wide"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: index * 0.15 + 0.7, duration: 0.5 }}
+        >
+          {item.label}
+        </motion.p>
+      </div>
+      
+      
+      <motion.div
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500"
+        initial={{ width: 0 }}
+        whileHover={{ width: "100%" }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
+  );
+};
 
 const AIFeatures = () => {
   return (
     <div className="w-full bg-[#050B1A] text-white overflow-hidden">
+      <section className="relative h-[1100vh] md:h-[100vh] flex items-center">
 
-      {/* ================= HERO ================= */}
-      {/* --- बदल: सेक्शनची उंची कमी केली (min-h-screen ऐवजी h-[90vh]) --- */}
-      <section className="relative h-[90vh] md:h-[80vh] flex items-center">
-
-        {/* --- बदल: इमेजवरून scale-110 हटवला --- */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${aiFeaturesBg})` }}
         />
-
-        {/* --- बदल: ग्रेडिएंट बदलला, आता फक्त खाली गडद --- */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
         <motion.div
           className="relative z-10 max-w-4xl px-8"
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-         
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
               Cognitive AI Ecosystem
@@ -84,7 +246,6 @@ const AIFeatures = () => {
 
       </section>
 
-      {/* ================= TIMELINE ================= */}
       <section className="py-28 relative">
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.15),transparent_70%)]" />
@@ -187,28 +348,9 @@ const AIFeatures = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-purple-900/20" />
 
         <div className="max-w-7xl mx-auto px-6 relative grid md:grid-cols-4 gap-10 text-center">
-
           {stats.map((item, i) => (
-            <motion.div
-              key={i}
-              className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10"
-              initial={{ opacity: 0, scale: 0.7 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.15 }}
-              viewport={{ once: true }}
-            >
-
-              <h3 className="text-4xl font-bold text-cyan-400 mb-2">
-                {item.value}
-              </h3>
-
-              <p className="text-gray-300 tracking-wide">
-                {item.label}
-              </p>
-
-            </motion.div>
+            <StatCard key={i} item={item} index={i} />
           ))}
-
         </div>
       </section>
     </div>
