@@ -13,18 +13,18 @@ const steps = [
   },
   {
     title: "High-Fidelity Vision Analytics",
-    desc: "Leveraging state-of-the-art computer vision, the system performs meticulous, real-time diagnostics of vehicle integrity, container identification, and compliance verification at the gate.",
+    desc: "Leveraging state-of-the-art computer vision (YOLO, OpenCV), the system performs meticulous, real-time diagnostics of vehicle integrity, container identification, and compliance verification at the gate.",
     icon: "👁️",
   },
   {
     title: "Intelligent Asset Orchestration",
-    desc: "A proprietary machine learning engine dynamically calculates and assigns optimal yard positions (slots), maximizing spatial utilization and minimizing asset dwell times.",
+    desc: "A proprietary machine learning engine (XGBoost) dynamically calculates and assigns optimal yard positions (slots), maximizing spatial utilization and minimizing asset dwell times.",
     icon: "⚙️",
   },
   {
-    title: "Dynamic Flow Optimization",
-    desc: "The 'Traffic Brain' AI module continuously analyzes and optimizes vehicular flow dynamics, implementing predictive routing and real-time traffic decongestion protocols.",
-    icon: "🧭",
+    title: "Digital Twin Simulation",
+    desc: "Simulate congestion scenarios and 'what-if' strategies before applying them to the real yard. Visualize outcomes to reduce risks and optimize operations without physical disruption.",
+    icon: "🌐",
   },
   {
     title: "Cognitive Command Nexus",
@@ -32,51 +32,59 @@ const steps = [
     icon: "🖥️",
   },
   {
-    title: "Autonomous Reinforcement Learning",
-    desc: "The system is built on a self-improving neural architecture that continuously refines its predictive models and operational strategies through autonomous learning cycles.",
-    icon: "♻️",
+    title: "NLP Driver Assistant",
+    desc: "AI-powered Chatbot integrated with WhatsApp and SMS APIs, allowing truck drivers to query entry status, slot info, and instructions instantly without manual intervention.",
+    icon: "💬",
   },
 ];
 
+
+const aiModels = [
+  { name: "YOLO / OpenCV", type: "Computer Vision", desc: "Gate OCR & Damage Detection" },
+  { name: "XGBoost / OR-Tools", type: "Supervised ML", desc: "Slot Allocation & Optimization" },
+  { name: "DQN / PPO", type: "Reinforcement Learning", desc: "Traffic Flow & Routing" },
+  { name: "Prophet / ARIMA", type: "Time Series AI", desc: "Demand Forecasting" },
+];
+
 const stats = [
-  { value: "40%", label: "Operational Velocity Augmentation" },
-  { value: "35%", label: "Capital Expenditure Reduction" },
-  { value: "30%", label: "Asset Throughput Amplification" },
-  { value: "99.9%", label: "Predictive Model Precision" },
+  { value: "40%", label: "Faster Turnaround" },
+  { value: "35%", label: "Cost Reduction" },
+  { value: "30%", label: "Throughput Increase" },
+  { value: "25%", label: "Manual Effort Reduction" },
 ];
 
 const glow =
   "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-cyan-500 before:to-purple-600 before:blur-xl before:opacity-30 before:-z-10";
+
 const AnimatedCounter = ({ value, duration = 2 }) => {
   const [count, setCount] = React.useState(0);
   const numericValue = parseFloat(value);
   const isDecimal = value.includes(".");
   const endValue = numericValue;
-  
+
   React.useEffect(() => {
     let startTime;
     let animationFrame;
-    
+
     const animate = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      
-     
+
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       setCount(easeOutQuart * endValue);
-      
+
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);
       }
     };
-    
+
     animationFrame = requestAnimationFrame(animate);
-    
+
     return () => {
       cancelAnimationFrame(animationFrame);
     };
   }, [endValue, duration]);
-  
+
   return (
     <span>
       {isDecimal ? count.toFixed(1) : Math.floor(count)}%
@@ -90,24 +98,24 @@ const StatCard = ({ item, index }) => {
     threshold: 0.1,
     triggerOnce: true
   });
-  
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     }
   }, [controls, inView]);
-  
+
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       scale: 0.7,
       y: 50
     },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       scale: 1,
       y: 0,
-      transition: { 
+      transition: {
         duration: 0.6,
         delay: index * 0.15,
         type: "spring",
@@ -126,10 +134,10 @@ const StatCard = ({ item, index }) => {
       }
     }
   };
-  
+
   const glowVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 0.3,
       transition: {
         delay: index * 0.15 + 0.3,
@@ -144,17 +152,17 @@ const StatCard = ({ item, index }) => {
       }
     }
   };
-  
+
   return (
     <motion.div
       ref={ref}
-className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group min-w-[360px]"
+      className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group min-w-[350px]"
       variants={cardVariants}
       initial="hidden"
       animate={controls}
       whileHover="hover"
     >
-      
+
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl blur-xl -z-10"
         variants={glowVariants}
@@ -162,7 +170,7 @@ className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-whi
         animate={controls}
         whileHover="hover"
       />
-      
+
       <div className="absolute inset-0 overflow-hidden rounded-xl">
         {[...Array(5)].map((_, i) => (
           <motion.div
@@ -184,9 +192,9 @@ className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-whi
           />
         ))}
       </div>
-      
+
       <div className="relative z-10">
-        <motion.h3 
+        <motion.h3
           className="text-4xl font-bold text-cyan-400 mb-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -194,8 +202,8 @@ className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-whi
         >
           <AnimatedCounter value={item.value} />
         </motion.h3>
-        
-        <motion.p 
+
+        <motion.p
           className="text-gray-300 tracking-wide"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -204,8 +212,8 @@ className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-whi
           {item.label}
         </motion.p>
       </div>
-      
-      
+
+
       <motion.div
         className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500"
         initial={{ width: 0 }}
@@ -287,7 +295,27 @@ const AIFeatures = () => {
       </section>
 
       
-      <section className="py-28 bg-gradient-to-b from-[#050B1A] to-[#0A122A]">
+      <section className="py-20 relative bg-gradient-to-b from-[#050B1A] to-[#0A122A]">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 text-cyan-400">
+            Powered by State-of-the-Art Models
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {aiModels.map((model, i) => (
+              <div
+                key={i}
+                className="bg-white/5 border border-white/10 p-6 rounded-lg hover:bg-white/10 transition duration-300"
+              >
+                <div className="text-cyan-400 font-bold text-lg mb-2">{model.name}</div>
+                <div className="text-xs text-purple-400 uppercase tracking-wider mb-2">{model.type}</div>
+                <div className="text-gray-400 text-sm">{model.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-28 bg-[#0A122A]">
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
@@ -297,7 +325,7 @@ const AIFeatures = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            
+
             <h2 className="text-4xl font-bold mb-6">
               Cognitive Command & Control Interface
             </h2>
@@ -312,11 +340,13 @@ const AIFeatures = () => {
                 "Proactive Queue Forecasting & Mitigation",
                 "Intelligent Anomaly & Compliance Alerting",
                 "Predictive KPI & Performance Modeling",
+                "Digital Twin Simulations (What-if Analysis)", 
+                "NLP Chatbot for Drivers (WhatsApp/SMS)",
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-center gap-3 text-gray-200 cursor-pointer" 
-                  whileHover={{ scale: 1.05, color: "#67e8f9" }} 
+                  className="flex items-center gap-3 text-gray-200 cursor-pointer"
+                  whileHover={{ scale: 1.05, color: "#67e8f9" }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   <span className="text-cyan-400">▸</span>
@@ -326,7 +356,7 @@ const AIFeatures = () => {
             </div>
           </motion.div>
 
-       
+
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
