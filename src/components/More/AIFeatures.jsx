@@ -38,7 +38,6 @@ const steps = [
   },
 ];
 
-
 const aiModels = [
   { name: "YOLO / OpenCV", type: "Computer Vision", desc: "Gate OCR & Damage Detection" },
   { name: "XGBoost / OR-Tools", type: "Supervised ML", desc: "Slot Allocation & Optimization" },
@@ -156,7 +155,7 @@ const StatCard = ({ item, index }) => {
   return (
     <motion.div
       ref={ref}
-      className="relative bg-white/5 backdrop-blur-xl rounded-xl p-8 border border-white/10 overflow-hidden group min-w-[350px]"
+      className="relative bg-[#050B1A] rounded-xl p-8 border border-white/10 overflow-hidden group min-w-[350px]"
       variants={cardVariants}
       initial="hidden"
       animate={controls}
@@ -226,60 +225,68 @@ const StatCard = ({ item, index }) => {
 
 const AIFeatures = () => {
   return (
-    <div className="w-full bg-[#050B1A] text-white overflow-hidden">
-      <section className="relative h-[1100vh] md:h-[100vh] flex items-center">
-
+    <div className="w-full text-white overflow-hidden">
+     
+      <section className="relative h-[1100vh] md:h-[100vh] flex items-center bg-[#050B1A]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${aiFeaturesBg})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <motion.div
-          className="relative z-10 max-w-4xl px-8"
-          initial={{ opacity: 0, y: 80 }}
+          className="absolute bottom-12 left-8 md:left-16 z-10 max-w-xl"
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
             <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-              Cognitive AI Ecosystem
+             AI Features
             </span>
-            <br /> For Next-Generation Logistics Orchestration
           </h1>
 
           <p className="text-gray-300 text-lg mb-8 max-w-xl">
             A sophisticated cognitive AI ecosystem engineered to autonomously orchestrate yard management, gate operations, and vehicular traffic dynamics with unprecedented precision and efficiency.
           </p>
         </motion.div>
-
       </section>
 
-      <section className="py-28 relative">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,255,255,0.15),transparent_70%)]" />
-
+      
+      <section className="py-28 relative bg-white text-gray-900">
+        
         <div className="max-w-7xl mx-auto px-6 relative">
 
-          <h2 className="text-4xl font-bold text-center mb-20">
+         <div className="text-center mb-24 relative">
+          
+          <motion.h2
+            className="text-4xl md:text-5xl font-extrabold text-center mb-20 
+                       bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
+                       bg-clip-text text-transparent tracking-wide"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             AI Processing Pipeline
-          </h2>
+          </motion.h2>
+        </div>
 
           <div className="grid md:grid-cols-3 gap-12">
 
             {steps.map((item, i) => (
               <motion.div
                 key={i}
-                className={`relative bg-white/5 backdrop-blur-xl p-8 rounded-xl border border-white/10 ${glow}`}
+                
+                className={`relative bg-[#050B1A] p-8 rounded-xl border border-white/10 ${glow}`}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, rotate: 1 }}
               >
-
                 <div className="text-5xl mb-6">{item.icon}</div>
 
-                <h3 className="text-xl font-semibold mb-3">
+                <h3 className="text-xl font-semibold mb-3 text-white">
                   {item.title}
                 </h3>
 
@@ -294,17 +301,29 @@ const AIFeatures = () => {
         </div>
       </section>
 
-      
-      <section className="py-20 relative bg-gradient-to-b from-[#050B1A] to-[#0A122A]">
+      <section className="py-20 relative bg-gray-50 text-gray-900">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-cyan-400">
-            Powered by State-of-the-Art Models
-          </h2>
+         <div className="text-center mb-20 relative">
+          
+          <motion.h2
+            className="text-3xl md:text-4xl font-extrabold 
+                       bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+                       bg-clip-text text-transparent tracking-wide"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+           {/* AI & Machine Learning Technology Stack */}
+           Integrated AI Models & Optimization Engines
+          </motion.h2>
+        </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {aiModels.map((model, i) => (
               <div
                 key={i}
-                className="bg-white/5 border border-white/10 p-6 rounded-lg hover:bg-white/10 transition duration-300"
+               
+                className="bg-[#050B1A] border border-white/10 p-6 rounded-lg hover:bg-[#0a1525] transition duration-300"
               >
                 <div className="text-cyan-400 font-bold text-lg mb-2">{model.name}</div>
                 <div className="text-xs text-purple-400 uppercase tracking-wider mb-2">{model.type}</div>
@@ -315,7 +334,8 @@ const AIFeatures = () => {
         </div>
       </section>
 
-      <section className="py-28 bg-[#0A122A]">
+     
+      <section className="py-28 bg-white text-gray-900">
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
@@ -325,12 +345,22 @@ const AIFeatures = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
+            <div className="mb-8 relative">
+             
+              <motion.h2
+                className="text-3xl md:text-4xl font-extrabold
+                           bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+                           bg-clip-text text-transparent tracking-wide"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                Cognitive Command & Control Interface
+              </motion.h2>
+            </div>
 
-            <h2 className="text-4xl font-bold mb-6">
-              Cognitive Command & Control Interface
-            </h2>
-
-            <p className="text-gray-400 mb-8 leading-relaxed">
+            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
               Exert granular control over the entire logistics ecosystem through our unified cognitive dashboard, designed for predictive monitoring, strategic foresight, and automated operational optimization.
             </p>
 
@@ -345,11 +375,11 @@ const AIFeatures = () => {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-center gap-3 text-gray-200 cursor-pointer"
-                  whileHover={{ scale: 1.05, color: "#67e8f9" }}
+                  className="flex items-center gap-3 text-gray-800 font-medium cursor-pointer"
+                  whileHover={{ scale: 1.05, color: "#0891b2" }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
-                  <span className="text-cyan-400">▸</span>
+                  <span className="text-cyan-600 text-xl">▸</span>
                   {item}
                 </motion.div>
               ))}
@@ -365,17 +395,14 @@ const AIFeatures = () => {
             <img
               src={controlPanelImg}
               alt="Cognitive Command & Control Interface"
-              className="w-full h-auto object-cover rounded-xl shadow-2xl shadow-cyan-500/20"
+              className="w-full h-auto object-cover rounded-xl shadow-2xl border border-gray-200"
             />
           </motion.div>
 
         </div>
       </section>
 
-      {/* ================= IMPACT ================= */}
-      <section className="py-28 relative">
-
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/20 to-purple-900/20" />
+      <section className="py-28 relative bg-white text-gray-900">
 
         <div className="max-w-7xl mx-auto px-6 relative grid md:grid-cols-4 gap-10 text-center">
           {stats.map((item, i) => (
