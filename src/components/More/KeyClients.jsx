@@ -43,23 +43,54 @@ import c40 from "../../assets/companies/c40.png";
 import c41 from "../../assets/companies/c41.png";
 
 const clients = [
-  c2, c3, c4, c5, c6,
-  c7, c8, c9, c10, c11,
-  c12, c13, c14, c15, c16,
-  c17, c18, c19, c20, c21,
-  c22, c23, c24, c25, c26,
-  c27, c28, c29, c30, c31,
-  c32, c33, c34, c35, c36,
-  c37, c38, c39, c40, c41
+  c2,
+  c3,
+  c4,
+  c5,
+  c6,
+  c7,
+  c8,
+  c9,
+  c10,
+  c11,
+  c12,
+  c13,
+  c14,
+  c15,
+  c16,
+  c17,
+  c18,
+  c19,
+  c20,
+  c21,
+  c22,
+  c23,
+  c24,
+  c25,
+  c26,
+  c27,
+  c28,
+  c29,
+  c30,
+  c31,
+  c32,
+  c33,
+  c34,
+  c35,
+  c36,
+  c37,
+  c38,
+  c39,
+  c40,
+  c41,
 ];
-
 
 const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="0 0 200 200" 
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 200 200"
       xmlns="http://www.w3.org/2000/svg"
       style={{
         filter: `drop-shadow(0 0 6px ${color})`,
@@ -72,12 +103,12 @@ const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
         strokeWidth="3"
         strokeLinejoin="round"
         initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ 
-          pathLength: 1, 
+        animate={{
+          pathLength: 1,
           opacity: 0.7,
         }}
-        transition={{ 
-          duration: 2, 
+        transition={{
+          duration: 2,
           ease: "easeInOut",
         }}
       />
@@ -85,11 +116,9 @@ const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
   );
 };
 
-
 const AnimatedTriangles = () => {
   return (
     <div className="absolute inset-0 overflow-hidden">
-     
       {[...Array(8)].map((_, i) => (
         <motion.div
           key={`triangle-${i}`}
@@ -111,14 +140,13 @@ const AnimatedTriangles = () => {
             ease: "easeInOut",
           }}
         >
-          <OutlineTriangle 
-            size={20} 
-            color={i % 2 === 0 ? "#a855f7" : "#6366f1"} 
+          <OutlineTriangle
+            size={20}
+            color={i % 2 === 0 ? "#a855f7" : "#6366f1"}
           />
         </motion.div>
       ))}
-      
-      
+
       {[...Array(4)].map((_, i) => (
         <motion.div
           key={`big-triangle-${i}`}
@@ -139,9 +167,9 @@ const AnimatedTriangles = () => {
             ease: "easeInOut",
           }}
         >
-          <OutlineTriangle 
-            size={30} 
-            color={i % 2 === 0 ? "#9333ea" : "#4f46e5"} 
+          <OutlineTriangle
+            size={30}
+            color={i % 2 === 0 ? "#9333ea" : "#4f46e5"}
           />
         </motion.div>
       ))}
@@ -154,20 +182,19 @@ const KeyClients = () => {
 
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "tween",
         duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
   };
 
   return (
     <div className="w-full">
-      
       <div className="relative w-full h-[75vh] overflow-hidden">
         <div className="absolute inset-0 bg-black">
           <div
@@ -178,11 +205,11 @@ const KeyClients = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         </div>
-        
-       <motion.div 
+
+        <motion.div
           className="absolute inset-0 bg-black"
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3}}
+          transition={{ duration: 0.3 }}
         >
           <motion.div
             className="w-full h-full bg-no-repeat bg-center bg-cover"
@@ -194,7 +221,7 @@ const KeyClients = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         </motion.div>
-        
+
         <motion.div
           className="absolute bottom-0 left-0 z-10 p-8 text-left"
           initial={{ opacity: 0, x: -50 }}
@@ -202,23 +229,23 @@ const KeyClients = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.3 }}
         >
-          <motion.h2 
+          <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4"
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
-              textShadow: "0 0 20px rgba(147, 51, 234, 0.5)"
+              textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
             }}
             transition={{ duration: 0.3 }}
           >
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-               Clients
+              Clients
             </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="text-gray-200 max-w-xl"
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
-              textShadow: "0 0 10px rgba(255, 255, 255, 0.5)"
+              textShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
             }}
             transition={{ duration: 0.3 }}
           >
@@ -226,14 +253,12 @@ const KeyClients = () => {
           </motion.p>
         </motion.div>
       </div>
-      
+
       <section className="py-16 bg-gray-50 relative overflow-hidden">
-        
         <div className="absolute inset-0 z-0">
           <AnimatedTriangles />
         </div>
-        
-       
+
         <div className="relative z-10 max-w-7xl mx-auto px-4">
           <motion.h2
             className="text-4xl font-bold text-center mb-6"
@@ -245,8 +270,8 @@ const KeyClients = () => {
               Our Clients
             </span>
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="text-center max-w-5xl mx-auto mb-12"
             initial="hidden"
             whileInView="visible"
@@ -254,8 +279,12 @@ const KeyClients = () => {
             variants={textVariants}
           >
             <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 text-lg font-medium">
-            Every successful organization relies on a strong and scalable foundation of business processes. Our clients leverage optimized workflows and intelligent systems to enhance operational efficiency, ensure long-term sustainability, and maximize return on investment (ROI).
-                </p>
+              Every successful organization relies on a strong and scalable
+              foundation of business processes. Our clients leverage optimized
+              workflows and intelligent systems to enhance operational
+              efficiency, ensure long-term sustainability, and maximize return
+              on investment (ROI).
+            </p>
           </motion.div>
 
           <motion.div
@@ -267,7 +296,6 @@ const KeyClients = () => {
           >
             {showAll ? (
               <>
-              
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(0, 5).map((logo, index) => (
                     <motion.div
@@ -303,8 +331,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-                
+
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(5, 9).map((logo, index) => (
                     <motion.div
@@ -313,7 +340,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.3}}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -340,8 +367,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-               
+
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(9, 14).map((logo, index) => (
                     <motion.div
@@ -370,14 +396,14 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.3},
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(14, 18).map((logo, index) => (
                     <motion.div
@@ -413,8 +439,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-              
+
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(18, 23).map((logo, index) => (
                     <motion.div
@@ -450,8 +475,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-              
+
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(23, 27).map((logo, index) => (
                     <motion.div
@@ -487,8 +511,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-                
+
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(27, 32).map((logo, index) => (
                     <motion.div
@@ -524,7 +547,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="grid grid-cols-4 gap-6 mb-3">
                   {clients.slice(32, 36).map((logo, index) => (
                     <motion.div
@@ -560,7 +583,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(36, 41).map((logo, index) => (
                     <motion.div
@@ -599,7 +622,6 @@ const KeyClients = () => {
               </>
             ) : (
               <>
-               
                 <div className="grid grid-cols-5 gap-6 mb-3">
                   {clients.slice(0, 5).map((logo, index) => (
                     <motion.div
@@ -635,8 +657,7 @@ const KeyClients = () => {
                     </motion.div>
                   ))}
                 </div>
-                
-             
+
                 <div className="grid grid-cols-4 gap-6">
                   {clients.slice(5, 9).map((logo, index) => (
                     <motion.div
@@ -675,7 +696,7 @@ const KeyClients = () => {
               </>
             )}
           </motion.div>
-          
+
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -690,9 +711,14 @@ const KeyClients = () => {
               }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowAll(!showAll)}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+              className="group px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-black hover:from-black hover:to-black hover:text-white"
             >
-              {showAll ? "View Less" : "View All"}
+              <span className="flex items-center justify-center gap-2">
+                {showAll ? "View Less" : "View All"}
+                <span className="opacity-0 group-hover:opacity-100 transform transition-all duration-300 group-hover:translate-x-1">
+                  {showAll ? "←" : "→"}
+                </span>
+              </span>
             </motion.button>
           </motion.div>
         </div>
