@@ -469,8 +469,8 @@ const AIFeatures = () => {
                 "Proactive Queue Forecasting & Mitigation",
                 "Intelligent Anomaly & Compliance Alerting",
                 "Predictive KPI & Performance Modeling",
-                "Digital Twin Simulations (What-if Analysis)", 
-                "NLP Chatbot for Drivers (WhatsApp/SMS)",
+                "Digital Twin Simulations", 
+                "NLP Chatbot for Drivers ",
               ].map((item, i) => (
                 <motion.div
                   key={i}
