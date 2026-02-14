@@ -247,15 +247,15 @@ const KeyClients = () => {
           </motion.h2>
           
           <motion.div 
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="text-center max-w-5xl mx-auto mb-12"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={textVariants}
           >
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 text-lg font-medium">
-              We are proud to partner with industry leaders across logistics, shipping, and supply chain sectors. Our AI-powered solutions have transformed operations for enterprises seeking innovation and efficiency.
-            </p>
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 text-lg font-medium">
+            Every successful organization relies on a strong and scalable foundation of business processes. Our clients leverage optimized workflows and intelligent systems to enhance operational efficiency, ensure long-term sustainability, and maximize return on investment (ROI).
+                </p>
           </motion.div>
 
           <motion.div
