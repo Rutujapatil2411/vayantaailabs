@@ -1,40 +1,88 @@
 import React from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import aiFeaturesBg from "../../assets/img/AIFeatures.jpg";
 import controlPanelImg from "../../assets/img/Features.png";
 
 const steps = [
   {
-    title: "Multi-Modal Data Aggregation",
-    desc: "Our AI ingests and synthesizes heterogeneous data streams from a constellation of IoT sensors, high-precision GPS modules, and advanced CCTV networks to create a unified operational truth.",
-    icon: "🛰",
+    stepNumber: "01",
+    title: "Data Foundation",
+    desc: "Establishing the core data layer by aggregating real-time inputs and historical logs to fuel the AI engine.",
+    icon: "🛰️",
+    features: [
+      "GPS & Telemetry from Trucks/Trailers",
+      "CCTV Sensors for OCR & Safety",
+      "IoT: Weighbridge, Fuel, Gate Scanners",
+      "Data Lake Construction (MySQL/Cloud DB)",
+      "Historical Dataset Aggregation"
+    ]
   },
   {
-    title: "High-Fidelity Vision Analytics",
-    desc: "Leveraging state-of-the-art computer vision (YOLO, OpenCV), the system performs meticulous, real-time diagnostics of vehicle integrity, container identification, and compliance verification at the gate.",
+    stepNumber: "02",
+    title: "Gate Automation",
+    desc: "Automating entry/exit protocols using Computer Vision and Deep Learning to ensure compliance and speed.",
     icon: "👁️",
+    features: [
+      "Computer Vision OCR (Container/Truck Plates)",
+      "Auto Damage Detection (Dents/Rust)",
+      "EIR Copy Data Extraction",
+      "Anomaly Detection (Wrong Truck/Overstay)",
+      "NLP Chatbot for Driver Assistance"
+    ]
   },
   {
-    title: "Intelligent Asset Orchestration",
-    desc: "A proprietary machine learning engine (XGBoost) dynamically calculates and assigns optimal yard positions (slots), maximizing spatial utilization and minimizing asset dwell times.",
+    stepNumber: "03",
+    title: "Smart Slot Allocation",
+    desc: "Using Supervised ML to predict dwell times and optimization algorithms to assign the perfect yard slot.",
     icon: "⚙️",
+    features: [
+      "Supervised ML Prediction Models",
+      "Import vs Export Demand Forecasting",
+      "Seasonal Peak Detection (Diwali/Xmas)",
+      "Optimization Algorithms (Minimize Re-handles)",
+      "Short-Stay Near Gate Logic"
+    ]
   },
   {
-    title: "Digital Twin Simulation",
-    desc: "Simulate congestion scenarios and 'what-if' strategies before applying them to the real yard. Visualize outcomes to reduce risks and optimize operations without physical disruption.",
-    icon: "🌐",
+    stepNumber: "04",
+    title: "Yard Traffic Optimization",
+    desc: "Deploying Reinforcement Learning agents to dynamically manage traffic flow and equipment routing.",
+    icon: "🚦",
+    features: [
+      "Reinforcement Learning (DQN/PPO)",
+      "Real-time Truck Flow Management",
+      "Optimal Route Calculation for Stackers",
+      "Reduced Waiting Times",
+      "Equipment Telemetry Integration"
+    ]
   },
   {
-    title: "Cognitive Command Nexus",
-    desc: "A unified analytics and supervisory hub providing holistic, real-time visibility and predictive insights into all operational facets for strategic decision-making.",
+    stepNumber: "05",
+    title: "Real-Time Visibility",
+    desc: "Creating a digital mirror of the yard to simulate scenarios and provide actionable insights via dashboards.",
     icon: "🖥️",
+    features: [
+      "Digital Twin Yard Simulation",
+      "AI-Powered Dashboard & Heatmaps",
+      "Predicted Truck Turnaround Times",
+      "Bottleneck & Congestion Alerts",
+      "Live Slot Occupancy Tracking"
+    ]
   },
   {
-    title: "NLP Driver Assistant",
-    desc: "AI-powered Chatbot integrated with WhatsApp and SMS APIs, allowing truck drivers to query entry status, slot info, and instructions instantly without manual intervention.",
-    icon: "💬",
+    stepNumber: "06",
+    title: "Continuous Improvement",
+    desc: "Closing the loop with continuous learning systems that retrain and refine operations based on feedback.",
+    icon: "📈",
+    features: [
+      "Weekly/Monthly Model Retraining",
+      "AI vs Manual Benchmarking",
+      "Feedback Loop with Supervisors",
+      "System Self-Learning Capabilities",
+      "KPI Performance Modeling"
+    ]
   },
 ];
 
@@ -53,15 +101,15 @@ const stats = [
 ];
 
 const glow =
-  "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-cyan-500 before:to-purple-600 before:blur-xl before:opacity-30 before:-z-10";
+  "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-cyan-500 before:to-purple-600 before:blur-xl before:opacity-30 before:-z-10 before:transition-opacity before:duration-500 group-hover:before:opacity-60";
 
 const AnimatedCounter = ({ value, duration = 2 }) => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
   const numericValue = parseFloat(value);
   const isDecimal = value.includes(".");
   const endValue = numericValue;
 
-  React.useEffect(() => {
+  useEffect(() => {
     let startTime;
     let animationFrame;
 
@@ -123,9 +171,7 @@ const StatCard = ({ item, index }) => {
       
       <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-2xl blur opacity-20 group-hover:opacity-75 transition duration-500"></div>
       
-      
       <div className="relative h-full bg-[#050B1A] border border-white/5 rounded-2xl p-8 overflow-hidden">
-        
         <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
         
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
@@ -147,6 +193,123 @@ const StatCard = ({ item, index }) => {
           </div>
           <p className="text-gray-400 text-sm font-medium tracking-wider uppercase">{item.label}</p>
         </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const PipelineCard = ({ item, index }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="relative md:col-span-1"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div
+        className={`absolute -inset-1 rounded-2xl blur transition-all duration-500
+        ${
+          isHovered
+            ? "bg-gradient-to-r from-cyan-500 to-purple-600 opacity-40 scale-105"
+            : "opacity-0"
+        }`}
+      ></div>
+
+      
+      <div
+        className={`relative h-full bg-[#050B1A] border border-white/10 rounded-2xl p-6
+        transition-all duration-300 z-10 overflow-hidden
+        ${
+          isHovered
+            ? "scale-105 shadow-2xl shadow-cyan-900/30 border-cyan-500/40"
+            : ""
+        }`}
+      >
+        
+        
+        <div className="absolute top-4 right-4 flex items-center gap-2">
+          <span className="text-xs font-mono text-cyan-500 tracking-widest uppercase">
+            Step
+          </span>
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-900/30 text-cyan-400 text-xs font-bold border border-cyan-500/20">
+            {item.stepNumber}
+          </span>
+        </div>
+
+       
+        <div
+          className={`text-4xl mb-4 relative z-20 transition-transform duration-300
+          ${isHovered ? "scale-110" : ""}`}
+        >
+          {item.icon}
+        </div>
+
+       
+        <h3
+          className={`text-xl font-bold mb-2 relative z-20 transition-colors
+          ${isHovered ? "text-cyan-400" : "text-white"}`}
+        >
+          {item.title}
+        </h3>
+
+        
+        <p className="text-gray-400 text-sm mb-4 leading-relaxed relative z-20 line-clamp-2">
+          {item.desc}
+        </p>
+
+        
+        <AnimatePresence>
+          {isHovered && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden relative z-20"
+            >
+              <ul className="space-y-2 mt-2 border-t border-white/10 pt-4">
+
+                {item.features.map((feature, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="flex items-start gap-2 text-xs text-gray-300"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-500 flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
+                    {feature}
+                  </motion.li>
+                ))}
+
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-800">
+          <motion.div
+            className="h-full bg-gradient-to-r from-cyan-500 to-purple-600"
+            initial={{ width: "0%" }}
+            animate={isHovered ? { width: "100%" } : { width: "0%" }}
+            transition={{ duration: 0.6 }}
+          />
+        </div>
+
+       
+        {isHovered && (
+          <div className="absolute bottom-4 right-4 z-20">
+            <span className="text-[10px] text-cyan-400 uppercase tracking-widest font-bold">
+              Explore →
+            </span>
+          </div>
+        )}
       </div>
     </motion.div>
   );
@@ -181,14 +344,14 @@ const AIFeatures = () => {
       </section>
 
       
-      <section className="py-28 relative bg-white text-gray-900">
-        
-        <div className="max-w-7xl mx-auto px-6 relative">
+     
+      <section className="py-28 relative bg-white text-gray-900 overflow-visible"> 
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
 
          <div className="text-center mb-24 relative">
           
           <motion.h2
-            className="text-4xl md:text-5xl font-extrabold text-center mb-20 
+            className="text-4xl md:text-5xl font-extrabold text-center mb-4 
                        bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
                        bg-clip-text text-transparent tracking-wide"
             initial={{ opacity: 0, y: 40 }}
@@ -198,38 +361,22 @@ const AIFeatures = () => {
           >
             AI Processing Pipeline
           </motion.h2>
+           <p className="text-gray-500 max-w-2xl mx-auto">
+            A step-by-step cognitive journey transforming raw logistics data into intelligent operational decisions.
+          </p>
         </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
 
             {steps.map((item, i) => (
-              <motion.div
-                key={i}
-                
-                className={`relative group bg-[#050B1A] p-8 rounded-xl border border-white/10 ${glow}`}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, rotate: 1 }}
-              >
-                <div className="text-5xl mb-6">{item.icon}</div>
-
-                <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-cyan-400 transition-colors duration-300">
-                  {item.title}
-                </h3>
-
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-
-              </motion.div>
+              <PipelineCard key={i} item={item} index={i} />
             ))}
 
           </div>
         </div>
       </section>
 
+    
       <section className="py-20 relative bg-gray-50 text-gray-900">
         <div className="max-w-7xl mx-auto px-6">
          <div className="text-center mb-20 relative">
@@ -286,11 +433,12 @@ const AIFeatures = () => {
       </section>
 
      
+      
       <section className="py-28 bg-white text-gray-900">
 
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
-          {/* Left */}
+         
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -354,6 +502,7 @@ const AIFeatures = () => {
       </section>
 
      
+      
       <section className="py-24 relative bg-[#020617]">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-30"></div>
         
