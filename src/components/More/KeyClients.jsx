@@ -182,7 +182,7 @@ const KeyClients = () => {
        <motion.div 
           className="absolute inset-0 bg-black"
           whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.3}}
         >
           <motion.div
             className="w-full h-full bg-no-repeat bg-center bg-cover"
@@ -190,7 +190,7 @@ const KeyClients = () => {
               backgroundImage: `url(${keyClientBg})`,
             }}
             whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.3 }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         </motion.div>
@@ -200,7 +200,7 @@ const KeyClients = () => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.h2 
             className="text-4xl md:text-5xl font-bold mb-4"
@@ -263,7 +263,7 @@ const KeyClients = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.3 }}
           >
             {showAll ? (
               <>
@@ -276,7 +276,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -296,7 +296,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -313,7 +313,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 5) * 0.1 }}
+                      transition={{ duration: 0.3}}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -333,7 +333,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -350,7 +350,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 9) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -370,7 +370,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3},
                           }}
                         />
                       </div>
@@ -386,7 +386,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 14) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -406,7 +406,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -423,7 +423,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 18) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -443,7 +443,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -460,7 +460,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 23) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -480,7 +480,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -497,7 +497,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 27) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -517,7 +517,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -533,7 +533,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 32) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -553,7 +553,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -569,7 +569,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: (index + 36) * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -589,7 +589,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
@@ -608,7 +608,7 @@ const KeyClients = () => {
                       initial={{ opacity: 0, y: 20, scale: 0.9 }}
                       whileInView={{ opacity: 1, y: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      transition={{ duration: 0.3 }}
                       whileHover={{
                         y: -8,
                         scale: 1.05,
@@ -628,7 +628,7 @@ const KeyClients = () => {
                           whileHover={{
                             background:
                               "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                            transition: { duration: 0.5 },
+                            transition: { duration: 0.3 },
                           }}
                         />
                       </div>
