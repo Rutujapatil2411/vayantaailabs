@@ -265,18 +265,27 @@ const PipelineCard = ({ item, index }) => {
             >
               <ul className="space-y-2 mt-2 border-t border-white/10 pt-4">
 
-                {item.features.map((feature, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    className="flex items-start gap-2 text-xs text-gray-300"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-500 flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
-                    {feature}
-                  </motion.li>
-                ))}
+               {item.features.map((feature, i) => (
+  <motion.li
+    key={i}
+    initial={{ opacity: 0, x: -10 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: i * 0.05 }}
+    whileHover={{
+      scale: 1.08,
+      color: "#22d3ee", // cyan color
+    }}
+    className="flex items-start gap-2 text-xs text-gray-300 cursor-pointer transition-all duration-200"
+  >
+    <motion.span
+      whileHover={{ scale: 1.3 }}
+      className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-500 flex-shrink-0 shadow-[0_0_8px_rgba(6,182,212,0.8)]"
+    ></motion.span>
+
+    {feature}
+  </motion.li>
+))}
+
 
               </ul>
             </motion.div>
