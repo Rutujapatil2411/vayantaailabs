@@ -230,17 +230,8 @@ const PipelineCard = ({ item, index }) => {
             : ""
         }`}
       >
+      
         
-        
-        <div className="absolute top-4 right-4 flex items-center gap-2">
-          <span className="text-xs font-mono text-cyan-500 tracking-widest uppercase">
-            Step
-          </span>
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-900/30 text-cyan-400 text-xs font-bold border border-cyan-500/20">
-            {item.stepNumber}
-          </span>
-        </div>
-
        
         <div
           className={`text-4xl mb-4 relative z-20 transition-transform duration-300
