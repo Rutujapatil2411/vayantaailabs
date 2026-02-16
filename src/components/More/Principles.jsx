@@ -37,6 +37,143 @@ const Principles = () => {
     }
   ];
 
+
+  
+  const AnimatedShapes = () => {
+    return (
+      <>
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20"
+            style={{
+              width: `${Math.random() * 40 + 10}px`,
+              height: `${Math.random() * 40 + 10}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              x: [0, Math.random() * 100 - 50],
+              y: [0, Math.random() * 100 - 50],
+              opacity: [0.1, 0.3, 0.1],
+            }}
+            transition={{
+              duration: Math.random() * 10 + 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+  
+        <motion.div
+          className="absolute bottom-20 right-20 w-0 h-0 opacity-20"
+          style={{
+            borderLeft: "15px solid transparent",
+            borderRight: "15px solid transparent",
+            borderBottom: "25px solid #4ade80",
+          }}
+          animate={{
+            rotate: [0, 10, 0, -10, 0],
+            y: [0, -10, 0],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+  
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-15"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.15, 0.3, 0.15],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+  
+        <motion.div
+          className="absolute top-1/2 right-1/3 w-0 h-0 opacity-20"
+          style={{
+            borderLeft: "12px solid transparent",
+            borderRight: "12px solid transparent",
+            borderBottom: "20px solid #a78bfa",
+          }}
+          animate={{
+            rotate: [0, -15, 0, 15, 0],
+            x: [0, -10, 0],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/3 left-20 w-12 h-12 bg-blue-200 rounded-full opacity-20"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+  
+        <motion.div
+          className="absolute top-2/3 left-20 w-10 h-10 bg-indigo-200 rounded-full opacity-20"
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.2, 0.5, 0.2],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+  
+        <motion.div
+          className="absolute top-1/4 left-16 w-8 h-8 bg-green-200 rounded-full opacity-20"
+          animate={{
+            y: [0, -15, 0],
+            x: [0, 10, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+  
+        <motion.div
+          className="absolute bottom-1/4 left-1/4 w-0 h-0 opacity-20"
+          style={{
+            borderLeft: "10px solid transparent",
+            borderRight: "10px solid transparent",
+            borderBottom: "18px solid #f9a8d4",
+          }}
+          animate={{
+            rotate: [0, 20, 0, -20, 0],
+            y: [0, 10, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </>
+    );
+  };
+  
  
   const cardHover = {
     whileHover: { y: -10 },
@@ -97,8 +234,7 @@ const Principles = () => {
 
       
       <section className="py-20 bg-white relative overflow-hidden">
-        
-        
+        <AnimatedShapes />
         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-100 rounded-full blur-3xl opacity-50 -z-10"></div>
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-50 -z-10"></div>
 
@@ -112,7 +248,7 @@ const Principles = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
-              Profiles
+              Principles
             </span>
           </motion.h2>
           
@@ -140,11 +276,11 @@ const Principles = () => {
 
               
                 <div 
-                  className="absolute top-6 left-6 w-full h-full 
-                  bg-gradient-to-r from-cyan-500 to-purple-500 
-                  shadow-2xl opacity-90 transition-all duration-500 group-hover:rotate-1" 
-                  
-                />
+  className="absolute top-6 left-6 w-full h-full 
+  bg-[#050B1A] 
+  shadow-2xl opacity-95 transition-all duration-500 group-hover:rotate-1" 
+/>
+
 
                 
                 <motion.div

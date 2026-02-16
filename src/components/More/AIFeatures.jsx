@@ -342,9 +342,6 @@ const AIFeatures = () => {
           </p>
         </motion.div>
       </section>
-
-      
-     
       <section className="py-28 relative bg-white text-gray-900 overflow-visible"> 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
