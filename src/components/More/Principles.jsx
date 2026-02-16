@@ -143,13 +143,13 @@ const Principles = () => {
                   className="absolute top-6 left-6 w-full h-full 
                   bg-gradient-to-r from-cyan-500 to-purple-500 
                   shadow-2xl opacity-90 transition-all duration-500 group-hover:rotate-1" 
-                  // 'rounded-lg' REMOVE KELA AHE
+                  
                 />
 
                 
                 <motion.div
                   className="relative w-full h-full bg-gradient-to-b from-cyan-50 to-white shadow-lg border border-gray-100 overflow-hidden flex flex-col items-center justify-between p-8"
-                  // 'rounded-lg' REMOVE KELA AHE
+                
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.2 }}
