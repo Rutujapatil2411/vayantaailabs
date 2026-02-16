@@ -1,77 +1,216 @@
-import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import techBg from "../../assets/Technology/techbg.png";
 
-const Technology = () => {
-  return (
-    
-    <div className="relative w-full h-[75vh] overflow-hidden rounded-lg shadow-md mb-6">
+import t1 from "../../assets/Technology/t1.png";
+import t2 from "../../assets/Technology/t2.png";
+import t3 from "../../assets/Technology/t3.png";
+import t4 from "../../assets/Technology/t4.png";
+import t5 from "../../assets/Technology/t5.png";
+import t6 from "../../assets/Technology/t6.png";
+import t7 from "../../assets/Technology/t7.png";
+import t8 from "../../assets/Technology/t8.png";
+import t9 from "../../assets/Technology/t9.png";
+import t10 from "../../assets/Technology/t10.png";
+import t11 from "../../assets/Technology/t11.png";
+import t12 from "../../assets/Technology/t12.png";
+import t13 from "../../assets/Technology/t13.png";
+import t14 from "../../assets/Technology/t14.png";
+import t15 from "../../assets/Technology/t15.png";
+import ai1 from "../../assets/Technology/ai1.jpg";
+import ml1 from "../../assets/Technology/ml1.jpg";
+import ai2 from "../../assets/Technology/ai2.jpg";
+import ml2 from "../../assets/Technology/ml2.jpg";
 
-     
-      <div className="absolute inset-0 bg-black">
-        <div
-          className="w-full h-full bg-no-repeat bg-center bg-cover"
-          style={{ backgroundImage: `url(${techBg})` }}
-        />
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+import patternBg from "../../assets/Technology/techbg.png";
+
+const icons = [
+  t1, t2, t3, t4, t5,
+  t6, t7, t8, t9, t10,
+  t11, t12, t13, t14, t15,
+];
+
+const aiMlIcons = [ai1, ml1, ai2, ml2];
+
+const Technology = () => {
+  
+  const iconRows = [
+    icons.slice(0, 3),   
+    icons.slice(3, 7),  
+    icons.slice(7, 11),  
+    icons.slice(11, 15) 
+  ];
+
+  return (
+    <div className="w-full">
+
+      <div className="relative w-full h-[75vh] overflow-hidden rounded-lg shadow-md mb-10">
+
+        <motion.div
+          className="absolute inset-0 bg-black"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className="w-full h-full bg-no-repeat bg-center bg-cover"
+            style={{ backgroundImage: `url(${techBg})` }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        </motion.div>
+
+        <motion.div
+          className="absolute bottom-0 left-0 z-10 p-8 text-left"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            whileHover={{
+              scale: 1.05,
+              textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              Our Technology
+            </span>
+          </motion.h2>
+
+          <motion.p
+            className="text-gray-200 max-w-xl"
+            whileHover={{
+              scale: 1.02,
+              textShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            Empowering businesses with cutting-edge AI and Machine Learning
+            solutions. We build intelligent systems that learn, adapt, and evolve.
+          </motion.p>
+          
+        </motion.div>
+
       </div>
 
-     
-      <motion.div
-        className="absolute inset-0 bg-black"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+        >
+             <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-3xl md:text-4xl tracking-wide">
+                 Technological Expertise & Integrations
+             </h3>
+        </motion.div>
+
         <motion.div
-          className="w-full h-full bg-no-repeat bg-center bg-cover"
-          style={{ backgroundImage: `url(${techBg})` }}
-          whileHover={{ scale: 1.1 }} 
-          transition={{ duration: 0.3 }}
-        />
-       
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-      </motion.div>
+          className="w-full bg-white shadow-2xl rounded-sm overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        > 
 
-      
-      <motion.div
-        className="absolute bottom-0 left-0 z-10 p-8 text-left"
-        initial={{ opacity: 0, x: -50 }} 
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.3 }}
-      >
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-4"
-          whileHover={{
-            scale: 1.05,
-            textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-          }}
-          transition={{ duration: 0.3 }}
+          <div className="relative w-full p-8 md:p-14 min-h-[400px] flex flex-col items-center justify-center">
+            <div
+              className="absolute inset-0 opacity-10 bg-center bg-cover pointer-events-none"
+              style={{
+                backgroundImage: `url(${patternBg})`,
+                backgroundSize: 'contain'
+              }}
+            />
+
+           
+            <div className="relative z-10 flex flex-col items-center gap-y-10 md:gap-y-14 w-full">
+              {iconRows.map((rowGroup, rowIndex) => (
+                <motion.div
+                  key={rowIndex}
+                  className="flex justify-center gap-x-12 md:gap-x-16 w-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
+                >
+                  {rowGroup.map((icon, i) => {
+                   
+                    const isZigZagOffset = i % 2 !== 0;
+                    
+                    
+                    const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
+                    
+                    return (
+                      <div
+                        key={`${rowIndex}-${i}`}
+                        className={`
+                            flex items-center justify-center transition-transform duration-300
+                            ${isZigZagOffset ? "translate-y-8" : ""}
+                            ${isLargerIcon 
+                                ? "w-[150px] h-[100px] md:w-[180px] md:h-[120px]" 
+                                : "w-[110px] h-[70px] md:w-[130px] md:h-[80px]"
+                            }
+                        `}
+                      >
+                       
+                        <motion.img
+                          src={icon}
+                          alt={`tech-${rowIndex}-${i}`}
+                          className="max-w-full max-h-full object-contain transition-all duration-300"
+                          whileHover={{ 
+                            scale: 1.15, 
+                            rotate: 360,  
+                            transition: { duration: 0.2 } 
+                          }}
+                        />
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              ))}
+            </div>
+
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="w-full bg-white shadow-2xl rounded-sm overflow-hidden mt-10"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
-         
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-            Our Technology
-          </span>
-        </motion.h2>
+          <div className="relative w-full p-8 md:p-12 flex items-center justify-center">
+ 
+            <div
+              className="absolute inset-0 opacity-10 bg-center bg-cover pointer-events-none"
+              style={{
+                backgroundImage: `url(${patternBg})`,
+                backgroundSize: 'contain'
+              }}
+            />
 
-        <motion.p
-          className="text-gray-200 max-w-xl"
-          whileHover={{
-            scale: 1.02,
-            textShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
-          }}
-          transition={{ duration: 0.3 }}
-        >
-          Empowering businesses with cutting-edge AI and Machine Learning solutions. We build intelligent systems that learn, adapt, and evolve.
-        </motion.p>
+            <div className="relative z-10 grid grid-cols-2 gap-12 w-full max-w-5xl">
+              {aiMlIcons.map((icon, i) => (
+                <motion.div
+                  key={`aiml-${i}`}
+                  className="flex justify-center items-center"
+                  whileHover={{ scale: 1.05 }}
+                >
+                
+                  <img
+                    src={icon}
+                    alt={`aiml-${i}`}
+                    className="w-full h-32 md:h-48 object-cover rounded-none shadow-md"
+                  />
+                </motion.div>
+              ))}
+            </div>
 
-      
-        <div className="space-y-4 mt-4">
-      
-        </div>
-      </motion.div>
-
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
