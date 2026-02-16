@@ -1,43 +1,216 @@
+import React from "react"; 
+import { motion } from "framer-motion";
+import keyClientBg from "../../assets/bgImages/p1.jpg"; 
+
+import { 
+  FaLightbulb, 
+  FaHandshake, 
+  FaAward, 
+  FaArrowRight,
+  FaQuoteLeft
+} from "react-icons/fa";
+
 const Principles = () => {
+  
+  
+  const principlesData = [
+    {
+      id: 1,
+      icon: <FaLightbulb className="text-4xl text-cyan-700" />,
+      title: "Innovation & Agility",
+      desc: "We constantly explore new frontiers in AI and automation. Our agile methodologies allow us to adapt quickly to changing market dynamics, ensuring we deliver cutting-edge solutions ahead of the curve.",
+      extra: "Driving Future Tech"
+    },
+    {
+      id: 2,
+      icon: <FaHandshake className="text-4xl text-purple-700" />,
+      title: "Integrity & Trust",
+      desc: "Building lasting relationships through transparency and honesty. We believe in ethical business practices that foster trust with our clients, partners, and employees, creating a foundation for long-term success.",
+      extra: "Ethical Business"
+    },
+    {
+      id: 3,
+      icon: <FaAward className="text-4xl text-cyan-600" />,
+      title: "Operational Excellence",
+      desc: "Delivering superior quality in every solution. Our ISO-certified processes and relentless focus on optimization ensure that we not only meet but exceed client expectations consistently.",
+      extra: "Quality Assured"
+    }
+  ];
+
+ 
+  const cardHover = {
+    whileHover: { y: -10 },
+    transition: { type: "spring", stiffness: 300 }
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Principles</h2>
-      <div className="space-y-4">
-        <div className="flex items-start">
-          <div className="flex-shrink-0">
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
-              <span className="font-bold">1</span>
-            </div>
-          </div>
-          <div className="ml-4">
-            <h3 className="text-lg font-medium text-gray-900">Innovation</h3>
-            <p className="mt-1 text-gray-600">We constantly push the boundaries of what's possible with AI technology.</p>
-          </div>
+    <>
+      
+      <div className="relative w-full h-[80vh] overflow-hidden bg-black">
+        
+        
+        <div className="absolute inset-0 bg-black">
+          <div
+            className="w-full h-full bg-no-repeat bg-center bg-cover"
+            style={{ backgroundImage: `url(${keyClientBg})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
         </div>
-        <div className="flex items-start">
-          <div className="flex-shrink-0">
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
-              <span className="font-bold">2</span>
-            </div>
+
+       
+        <motion.div
+          className="absolute inset-0 bg-black"
+          whileHover={{ scale: 1.05 }} 
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <motion.div
+            className="w-full h-full bg-no-repeat bg-center bg-cover"
+            style={{ backgroundImage: `url(${keyClientBg})` }}
+            
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "circOut" }}
+            
+            whileHover={{ scale: 1.1 }} 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+        </motion.div>
+
+        
+        <motion.div
+          className="absolute bottom-0 left-0 z-10 p-8 md:p-16 text-left"
+          initial={{ opacity: 0, y: 50 }}   
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} 
+        >
+          <h2 className="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-2xl">
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Our Principles
+            </span>
+          </h2>
+          <p className="text-gray-200 text-xl max-w-2xl drop-shadow-md font-light">
+            Client-Focused, Ethically Guided, Excellence Assured.
+          </p>
+        </motion.div>
+      </div> 
+
+      
+      <section className="py-20 bg-white relative overflow-hidden">
+        
+        
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-2"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
+              Profiles
+            </span>
+          </motion.h2>
+          
+        
+          <motion.div 
+            className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-6 mb-12 rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 96 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          />
+
+       
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 items-center justify-items-center">
+
+            {principlesData.map((item, index) => (
+              <motion.div 
+                key={item.id}
+                className="relative w-[380px] h-[520px] mx-auto group"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }} 
+              >
+
+              
+                <div 
+                  className="absolute top-6 left-6 w-full h-full 
+                  bg-gradient-to-r from-cyan-500 to-purple-500 
+                  shadow-2xl opacity-90 transition-all duration-500 group-hover:rotate-1" 
+                  // 'rounded-lg' REMOVE KELA AHE
+                />
+
+                
+                <motion.div
+                  className="relative w-full h-full bg-gradient-to-b from-cyan-50 to-white shadow-lg border border-gray-100 overflow-hidden flex flex-col items-center justify-between p-8"
+                  // 'rounded-lg' REMOVE KELA AHE
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.2 + 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  
+                  
+                  <div className="w-full text-center">
+                    <motion.div 
+                      className="w-20 h-20 mx-auto bg-white rounded-full shadow-md flex items-center justify-center mb-6 border border-cyan-100"
+                      whileHover={{ 
+                        scale: 1.1, 
+                        rotate: 360, 
+                        transition: { duration: 0.8 } 
+                      }}
+                    >
+                      {item.icon}
+                    </motion.div>
+
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    
+                    <div className="text-xs font-semibold tracking-widest text-purple-500 uppercase mb-4">
+                      {item.extra}
+                    </div>
+
+                    
+                    <FaQuoteLeft className="text-gray-200 text-2xl mb-4" />
+                  </div>
+
+                 
+                  <motion.p 
+                    className="text-gray-600 text-center leading-relaxed mb-6"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: index * 0.2 + 0.4 }}
+                  >
+                    {item.desc}
+                  </motion.p>
+
+                  
+                  <motion.button 
+                    className="flex items-center gap-2 text-cyan-600 font-semibold text-sm group/btn"
+                    whileHover={{ x: 5 }} 
+                  >
+                    Learn More 
+                    <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+                  </motion.button>
+
+                </motion.div>
+
+              </motion.div>
+            ))}
+
           </div>
-          <div className="ml-4">
-            <h3 className="text-lg font-medium text-gray-900">Ethics</h3>
-            <p className="mt-1 text-gray-600">We develop AI solutions that are fair, transparent, and respect privacy.</p>
-          </div>
+
         </div>
-        <div className="flex items-start">
-          <div className="flex-shrink-0">
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
-              <span className="font-bold">3</span>
-            </div>
-          </div>
-          <div className="ml-4">
-            <h3 className="text-lg font-medium text-gray-900">Collaboration</h3>
-            <p className="mt-1 text-gray-600">We work closely with clients to understand their needs and deliver tailored solutions.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      </section>
+
+    </>
   );
 };
 
