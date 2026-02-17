@@ -93,6 +93,18 @@ const aiModels = [
   { name: "Prophet / ARIMA", type: "Time Series AI", desc: "Demand Forecasting" },
 ];
 
+const documentRAGFeatures = [
+  "Intelligent Document Parsing (PDF, DOCX, Scanned Files)",
+  "OCR + Layout Detection for Structured Extraction",
+  "Context-Aware Chunking & Embedding Generation",
+  "Vector Database Indexing (FAISS / Pinecone)",
+  "Agentic Query Routing & Tool Selection",
+  "Multi-Step Reasoning with Autonomous Agents",
+  "Source Citation & Confidence Scoring",
+  "Secure Enterprise Knowledge Retrieval"
+];
+
+
 const stats = [
   { value: "40%", label: "Faster Turnaround" },
   { value: "35%", label: "Cost Reduction" },
@@ -138,6 +150,9 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
     </span>
   );
 };
+
+
+
 
 const StatCard = ({ item, index }) => {
   const controls = useAnimation();
@@ -452,7 +467,145 @@ const AIFeatures = () => {
         </div>
       </section>
 
-     
+    {/* ================= Document Analysis : Agentic RAG System ================= */}
+
+<section className="relative py-32 text-white overflow-hidden bg-[#0B1220]">
+
+  {/* ===== Animated AI Grid Background ===== */}
+
+  {/* Moving Gradient Mesh */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.15),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.15),transparent_40%)] animate-pulse"></div>
+
+  {/* Neural Grid Lines */}
+  <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(34,211,238,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.15)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+
+  {/* Floating Particles */}
+  <div className="absolute inset-0 overflow-hidden">
+    {[...Array(25)].map((_, i) => (
+      <span
+        key={i}
+        className="absolute w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-60 animate-ping"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          animationDuration: `${2 + Math.random() * 3}s`
+        }}
+      ></span>
+    ))}
+  </div>
+
+  {/* Soft Center Glow */}
+  <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 bg-cyan-500/10 blur-[140px] rounded-full"></div>
+
+  {/* <div className="relative z-10 max-w-7xl mx-auto px-6"> */}
+
+  {/* Subtle Background Glow */}
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+    {/* Section Header */}
+    <motion.div
+      className="text-center mb-24"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
+      <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
+        Advanced Intelligence Layer
+      </p>
+
+      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        Document Analysis
+        <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+          Agentic RAG Architecture
+        </span>
+      </h2>
+
+      <p className="text-gray-400 max-w-3xl mx-auto mt-6 text-lg leading-relaxed">
+        A next-generation Retrieval-Augmented Generation system powered by 
+        autonomous AI agents that parse, understand, reason, and retrieve 
+        enterprise document intelligence in real time.
+      </p>
+    </motion.div>
+
+    {/* Two Column Layout */}
+    <div className="grid md:grid-cols-2 gap-20 items-start">
+
+      {/* LEFT — Process Flow (No Cards) */}
+      <motion.div
+        className="relative border-l border-cyan-500/30 pl-10 space-y-10"
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+      >
+        {documentRAGFeatures.map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            className="relative"
+          >
+            {/* Timeline Dot */}
+            <span className="absolute -left-[46px] top-2 w-4 h-4 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 shadow-[0_0_15px_rgba(34,211,238,0.8)]"></span>
+
+            <h4 className="text-lg font-semibold text-cyan-300 mb-2">
+              {item}
+            </h4>
+
+            <div className="h-[1px] w-24 bg-gradient-to-r from-cyan-400 to-transparent mb-3"></div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* RIGHT — Strategic Explanation */}
+      <motion.div
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+      >
+        <div className="space-y-8 text-gray-300 text-lg leading-relaxed">
+
+          <p>
+            The system intelligently processes PDFs, scanned documents, and structured files 
+            using OCR and layout-aware parsing models. Extracted content is transformed into 
+            semantic embeddings and indexed inside a high-performance vector database.
+          </p>
+
+          <p>
+            Autonomous agents dynamically plan multi-step reasoning workflows — selecting 
+            tools, validating outputs, retrieving contextual references, and ensuring 
+            compliance-grade accuracy.
+          </p>
+
+          <p>
+            Unlike traditional search systems, this Agentic RAG framework continuously 
+            learns from queries, refines retrieval strategies, and delivers explainable, 
+            source-backed responses for enterprise-grade decision support.
+          </p>
+
+          {/* Highlight Metrics Style */}
+          <div className="pt-6 border-t border-white/10 grid grid-cols-2 gap-6 text-sm">
+            <div>
+              <p className="text-cyan-400 font-bold text-2xl">95%+</p>
+              <p className="text-gray-400">Structured Extraction Accuracy</p>
+            </div>
+
+            <div>
+              <p className="text-purple-400 font-bold text-2xl">Real-Time</p>
+              <p className="text-gray-400">Contextual Knowledge Retrieval</p>
+            </div>
+          </div>
+
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
       
       <section className="py-28 bg-white text-gray-900">
 

@@ -16,6 +16,9 @@ import t12 from "../../assets/Technology/t12.png";
 import t13 from "../../assets/Technology/t13.png";
 import t14 from "../../assets/Technology/t14.png";
 import t15 from "../../assets/Technology/t15.png";
+import t16 from "../../assets/Technology/t16.png";
+import t17 from "../../assets/Technology/t17.png";
+import t18 from "../../assets/Technology/t18.png";
 import ai1 from "../../assets/Technology/ai1.jpg";
 import ml1 from "../../assets/Technology/ml1.jpg";
 import ai2 from "../../assets/Technology/ai2.jpg";
@@ -24,6 +27,7 @@ import ml2 from "../../assets/Technology/ml2.jpg";
 import patternBg from "../../assets/Technology/techbg.png";
 
 const icons = [
+  t16, t17, t18,  
   t1, t2, t3, t4, t5,
   t6, t7, t8, t9, t10,
   t11, t12, t13, t14, t15,
@@ -34,11 +38,12 @@ const aiMlIcons = [ai1, ml1, ai2, ml2];
 const Technology = () => {
   
   const iconRows = [
-    icons.slice(0, 3),   
-    icons.slice(3, 7),  
-    icons.slice(7, 11),  
-    icons.slice(11, 15) 
-  ];
+  icons.slice(0, 4),   
+  icons.slice(4, 9),  
+  icons.slice(9, 14),  
+  icons.slice(14, 18) 
+];
+
 
   
   return (
@@ -155,7 +160,7 @@ const Technology = () => {
                         `}
                       >
                        
-                        <motion.img
+                        {/* <motion.img
   src={icon}
   alt={`tech-${rowIndex}-${i}`}
   className="max-w-full max-h-full object-contain"
@@ -167,7 +172,13 @@ const Technology = () => {
     rotate: { duration: 0.6, ease: "easeInOut" },
     scale: { duration: 0.3 }
   }}
+/> */}
+<img
+  src={icon}
+  alt={`tech-${rowIndex}-${i}`}
+  className="max-w-full max-h-full object-contain"
 />
+
 
                       </div>
                     );
