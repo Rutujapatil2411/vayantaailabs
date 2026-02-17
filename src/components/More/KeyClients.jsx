@@ -43,9 +43,46 @@ import c40 from "../../assets/companies/c40.png";
 import c41 from "../../assets/companies/c41.png";
 
 const clients = [
-  c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18,
-  c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32, c33,
-  c34, c35, c36, c37, c38, c39, c40, c41,
+  c2,
+  c3,
+  c4,
+  c5,
+  c6,
+  c7,
+  c8,
+  c9,
+  c10,
+  c11,
+  c12,
+  c13,
+  c14,
+  c15,
+  c16,
+  c17,
+  c18,
+  c19,
+  c20,
+  c21,
+  c22,
+  c23,
+  c24,
+  c25,
+  c26,
+  c27,
+  c28,
+  c29,
+  c30,
+  c31,
+  c32,
+  c33,
+  c34,
+  c35,
+  c36,
+  c37,
+  c38,
+  c39,
+  c40,
+  c41,
 ];
 
 const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
@@ -78,7 +115,10 @@ const AnimatedTriangles = () => {
         <motion.div
           key={`triangle-${i}`}
           className="absolute"
-          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
           animate={{
             rotate: [0, 360],
             x: [0, Math.random() * 30 - 15],
@@ -92,7 +132,10 @@ const AnimatedTriangles = () => {
             ease: "easeInOut",
           }}
         >
-          <OutlineTriangle size={20} color={i % 2 === 0 ? "#a855f7" : "#6366f1"} />
+          <OutlineTriangle
+            size={20}
+            color={i % 2 === 0 ? "#a855f7" : "#6366f1"}
+          />
         </motion.div>
       ))}
 
@@ -100,7 +143,10 @@ const AnimatedTriangles = () => {
         <motion.div
           key={`big-triangle-${i}`}
           className="absolute"
-          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, -360],
@@ -113,7 +159,10 @@ const AnimatedTriangles = () => {
             ease: "easeInOut",
           }}
         >
-          <OutlineTriangle size={30} color={i % 2 === 0 ? "#9333ea" : "#4f46e5"} />
+          <OutlineTriangle
+            size={30}
+            color={i % 2 === 0 ? "#9333ea" : "#4f46e5"}
+          />
         </motion.div>
       ))}
     </div>
@@ -128,11 +177,14 @@ const KeyClients = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "tween", duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+      transition: {
+        type: "tween",
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
     },
   };
 
-  
   const ClientCard = ({ logo, index, delay = 0 }) => {
     return (
       <motion.div
@@ -141,7 +193,11 @@ const KeyClients = () => {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay }}
-        whileHover={{ y: -8, scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
+        whileHover={{
+          y: -8,
+          scale: 1.05,
+          boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+        }}
       >
         <div className="relative w-full h-full flex items-center justify-center">
           <motion.img
@@ -151,22 +207,22 @@ const KeyClients = () => {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.3 }}
           />
-      
+
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
             whileHover={{
-              background: "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
+              background:
+                "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
               transition: { duration: 0.3 },
             }}
           />
 
-        
           <div className="absolute top-0 left-0 h-[50%] w-[2px] bg-gray-900 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-         
+
           <div className="absolute top-0 left-0 w-[50%] h-[2px] bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
 
           <div className="absolute bottom-0 right-0 h-[50%] w-[2px] bg-gray-900 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-          
+
           <div className="absolute bottom-0 right-0 w-[50%] h-[2px] bg-gray-900 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
         </div>
       </motion.div>
@@ -175,47 +231,43 @@ const KeyClients = () => {
 
   return (
     <div className="w-full">
-<div className="relative w-full h-[75vh] flex items-end pb-20 overflow-hidden bg-[#050B1A]">
+      <div className="relative w-full h-[75vh] flex items-end pb-20 overflow-hidden bg-[#050B1A]">
+        <div
+          className="absolute inset-0 bg-cover bg-center scale-105"
+          style={{ backgroundImage: `url(${keyClientBg})` }}
+        />
 
- 
-  <div
-    className="absolute inset-0 bg-cover bg-center scale-105"
-    style={{ backgroundImage: `url(${keyClientBg})` }}
-  />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
 
-  <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
 
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
+        <motion.div
+          className="relative z-10 max-w-5xl px-8"
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+        >
+          <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
+            Strategic Partnerships
+          </p>
 
-<motion.div
-  className="relative z-10 max-w-5xl px-8"
-  initial={{ opacity: 0, y: 60 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ 
-    duration: 0.8, 
-    ease: "easeOut" 
-  }}
->
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white">
+            Trusted by
+            <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              Industry Leaders
+            </span>
+          </h2>
 
-    <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
-      Strategic Partnerships
-    </p>
-
-    <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white">
-      Trusted by
-      <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-        Industry Leaders
-      </span>
-    </h2>
-
-    <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-      Our AI-driven automation ecosystem powers enterprises across logistics,
-      manufacturing, and global supply chain networks — enabling intelligent,
-      data-driven operational excellence.
-    </p>
-  </motion.div>
-</div>
-
+          <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
+            Our AI-driven automation ecosystem powers enterprises across
+            logistics, manufacturing, and global supply chain networks —
+            enabling intelligent, data-driven operational excellence.
+          </p>
+        </motion.div>
+      </div>
 
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -223,17 +275,40 @@ const KeyClients = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4">
-          <motion.h2 className="text-4xl font-bold text-center mb-6" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Our Clients</span>
+          <motion.h2
+            className="text-4xl font-bold text-center mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+              Our Clients
+            </span>
           </motion.h2>
 
-          <motion.div className="text-center max-w-5xl mx-auto mb-12" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={textVariants}>
+          <motion.div
+            className="text-center max-w-5xl mx-auto mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={textVariants}
+          >
             <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 text-lg font-medium">
-              Every successful organization relies on a strong and scalable foundation of business processes. Our clients leverage optimized workflows and intelligent systems to enhance operational efficiency, ensure long-term sustainability, and maximize return on investment (ROI).
+              Every successful organization relies on a strong and scalable
+              foundation of business processes. Our clients leverage optimized
+              workflows and intelligent systems to enhance operational
+              efficiency, ensure long-term sustainability, and maximize return
+              on investment (ROI).
             </p>
           </motion.div>
 
-          <motion.div className="mb-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.3 }}>
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+          >
             {showAll ? (
               <>
                 <div className="grid grid-cols-5 gap-6 mb-3">
@@ -300,16 +375,30 @@ const KeyClients = () => {
 
                 <div className="grid grid-cols-4 gap-6">
                   {clients.slice(5, 9).map((logo, index) => (
-                    <ClientCard key={index + 5} logo={logo} index={index} delay={(index + 5) * 0.1} />
+                    <ClientCard
+                      key={index + 5}
+                      logo={logo}
+                      index={index}
+                      delay={(index + 5) * 0.1}
+                    />
                   ))}
                 </div>
               </>
             )}
           </motion.div>
 
-          <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.5 }}>
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+          >
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+              }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowAll(!showAll)}
               className="group px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-black hover:from-black hover:to-black hover:text-white"
@@ -329,7 +418,6 @@ const KeyClients = () => {
 };
 
 export default KeyClients;
-
 
 // import React, { useState } from "react";
 // import { motion } from "framer-motion";
