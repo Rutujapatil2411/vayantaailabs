@@ -14,28 +14,28 @@ const Principles = () => {
   
   
   const principlesData = [
-    {
-      id: 1,
-      icon: <FaLightbulb className="text-4xl text-cyan-700" />,
-      title: "Innovation & Agility",
-      desc: "We constantly explore new frontiers in AI and automation. Our agile methodologies allow us to adapt quickly to changing market dynamics, ensuring we deliver cutting-edge solutions ahead of the curve.",
-      extra: "Driving Future Tech"
-    },
-    {
-      id: 2,
-      icon: <FaHandshake className="text-4xl text-purple-700" />,
-      title: "Integrity & Trust",
-      desc: "Building lasting relationships through transparency and honesty. We believe in ethical business practices that foster trust with our clients, partners, and employees, creating a foundation for long-term success.",
-      extra: "Ethical Business"
-    },
-    {
-      id: 3,
-      icon: <FaAward className="text-4xl text-cyan-600" />,
-      title: "Operational Excellence",
-      desc: "Delivering superior quality in every solution. Our ISO-certified processes and relentless focus on optimization ensure that we not only meet but exceed client expectations consistently.",
-      extra: "Quality Assured"
-    }
-  ];
+  {
+    id: 1,
+    icon: <FaLightbulb className="text-4xl text-cyan-500" />,
+    title: "Innovation & Strategic Agility",
+    desc: "We continuously pioneer advancements in Artificial Intelligence, leveraging adaptive methodologies that enable us to respond swiftly to evolving market landscapes. Our innovation-driven culture ensures sustainable competitive advantage for our clients.",
+    extra: "Future-Focused Innovation"
+  },
+  {
+    id: 2,
+    icon: <FaHandshake className="text-4xl text-purple-500" />,
+    title: "Integrity & Ethical Leadership",
+    desc: "Trust is the foundation of our organization. We uphold the highest standards of transparency, accountability, and ethical AI governance, fostering long-term partnerships built on credibility and mutual respect.",
+    extra: "Ethical Governance"
+  },
+  {
+    id: 3,
+    icon: <FaAward className="text-4xl text-cyan-500" />,
+    title: "Operational Excellence",
+    desc: "Through disciplined processes, rigorous quality frameworks, and continuous optimization, we deliver scalable AI solutions that consistently exceed performance expectations and industry benchmarks.",
+    extra: "Excellence Delivered"
+  }
+];
 
 
   
@@ -183,54 +183,56 @@ const Principles = () => {
   return (
     <>
       
-      <div className="relative w-full h-[80vh] overflow-hidden bg-black">
-        
-        
-        <div className="absolute inset-0 bg-black">
-          <div
-            className="w-full h-full bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: `url(${keyClientBg})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        </div>
+      <div className="relative w-full h-[85vh] overflow-hidden bg-black">
 
-       
-        <motion.div
-          className="absolute inset-0 bg-black"
-          whileHover={{ scale: 1.05 }} 
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <motion.div
-            className="w-full h-full bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: `url(${keyClientBg})` }}
-            
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1.5, ease: "circOut" }}
-            
-            whileHover={{ scale: 1.1 }} 
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        </motion.div>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: `url(${keyClientBg})` }}
+  />
 
-        
-        <motion.div
-          className="absolute bottom-0 left-0 z-10 p-8 md:p-16 text-left"
-          initial={{ opacity: 0, y: 50 }}   
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} 
-        >
-          <h2 className="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-2xl">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Our Principles
-            </span>
-          </h2>
-          <p className="text-gray-200 text-xl max-w-2xl drop-shadow-md font-light">
-            Client-Focused, Ethically Guided, Excellence Assured.
-          </p>
-        </motion.div>
-      </div> 
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-blue-900/60 to-purple-900/70" />
+
+  {/* Subtle Grid Effect */}
+  <div className="absolute inset-0 opacity-10"
+    style={{
+      backgroundImage: `
+        linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+      `,
+      backgroundSize: "80px 80px"
+    }}
+  />
+
+  {/* Content */}
+  <motion.div
+  className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 px-8 md:px-20 max-w-5xl"
+
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+
+    <p className="uppercase tracking-widest text-sm text-cyan-400 mb-4">
+      OUR CORE FOUNDATION
+    </p>
+
+    <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+      <span className="text-white">Guided by Principles.</span><br />
+      <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+        Driven by Innovation.
+      </span>
+    </h1>
+
+    <p className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+      At Vayanta AI Labs, our principles shape every decision we make — 
+      from responsible AI development to delivering transformative 
+      enterprise solutions built on trust, agility, and operational excellence.
+    </p>
+
+  </motion.div>
+</div>
 
       
       <section className="py-20 bg-white relative overflow-hidden">
@@ -240,17 +242,20 @@ const Principles = () => {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-2"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
-              Principles
-            </span>
-          </motion.h2>
+         <motion.h2
+  className="text-4xl md:text-5xl font-bold mb-4"
+>
+  <span className="text-gray-800">Our Guiding</span>{" "}
+  <span className="bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
+    Principles
+  </span>
+</motion.h2>
+
+<p className="text-gray-600 max-w-2xl mx-auto">
+  The values that define our culture, strengthen our partnerships,
+  and shape the intelligent systems we build.
+</p>
+
           
         
           <motion.div 
@@ -284,7 +289,8 @@ const Principles = () => {
 
                 
                 <motion.div
-                  className="relative w-full h-full bg-gradient-to-b from-cyan-50 to-white shadow-lg border border-gray-100 overflow-hidden flex flex-col items-center justify-between p-8"
+                  className="relative w-full h-full bg-gradient-to-b from-cyan-50 to-white shadow-lg
+                   border border-gray-100 overflow-hidden flex flex-col items-center justify-between p-8"
                 
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}

@@ -40,70 +40,70 @@ const Technology = () => {
     icons.slice(11, 15) 
   ];
 
+  
   return (
     <div className="w-full">
 
-      <div className="relative w-full h-[75vh] overflow-hidden rounded-lg shadow-md mb-10">
+    <div className="relative w-full h-[80vh] overflow-hidden  shadow-2xl mb-16">
 
-        <motion.div
-          className="absolute inset-0 bg-black"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div
-            className="w-full h-full bg-no-repeat bg-center bg-cover"
-            style={{ backgroundImage: `url(${techBg})` }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-          />
+  {/* Background Image */}
+  <motion.div
+    className="absolute inset-0"
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.4 }}
+  >
+    <div
+      className="w-full h-full bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${techBg})`,
+        filter: "brightness(0.5) saturate(1.2)",
+      }}
+    />
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        </motion.div>
+    {/* Premium Gradient Overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/50 to-black/80" />
+    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+  </motion.div>
 
-        <motion.div
-          className="absolute bottom-0 left-0 z-10 p-8 text-left"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            whileHover={{
-              scale: 1.05,
-              textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-              Our Technology
-            </span>
-          </motion.h2>
+  {/* Content */}
+  <motion.div
+    className="absolute inset-0 flex items-center justify-center px-6"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <div className="max-w-4xl text-center">
 
-          <motion.p
-            className="text-gray-200 max-w-xl"
-            whileHover={{
-              scale: 1.02,
-              textShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            Empowering businesses with cutting-edge AI and Machine Learning
-            solutions. We build intelligent systems that learn, adapt, and evolve.
-          </motion.p>
-          
-        </motion.div>
+      <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        <span className="text-white">Driving Innovation Through</span>
+        <br />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+          Advanced Technology & AI
+        </span>
+      </h2>
 
-      </div>
+      <p className="text-gray-200 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+        We leverage cutting-edge Artificial Intelligence, Machine Learning, 
+        and modern digital frameworks to build scalable, secure, and high-performance 
+        solutions. Our technology ecosystem is designed to accelerate transformation, 
+        enhance operational efficiency, and unlock sustainable growth.
+      </p>
+
+    </div>
+  </motion.div>
+</div>
+
 
       <div className="max-w-7xl mx-auto px-4 pb-12">
         <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-        >
-             <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-3xl md:text-4xl tracking-wide">
+  className="text-center mb-8"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+>
+ <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-3xl md:text-4xl tracking-wide">
                  Technological Expertise & Integrations
              </h3>
         </motion.div>

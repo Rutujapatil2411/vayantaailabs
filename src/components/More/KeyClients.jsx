@@ -175,26 +175,47 @@ const KeyClients = () => {
 
   return (
     <div className="w-full">
-      <div className="relative w-full h-[75vh] overflow-hidden">
-        <div className="absolute inset-0 bg-black">
-          <div className="w-full h-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${keyClientBg})` }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        </div>
+<div className="relative w-full h-[75vh] flex items-end pb-20 overflow-hidden bg-[#050B1A]">
 
-        <motion.div className="absolute inset-0 bg-black" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-          <motion.div className="w-full h-full bg-no-repeat bg-center bg-cover" style={{ backgroundImage: `url(${keyClientBg})` }} whileHover={{ scale: 1.1 }} transition={{ duration: 0.3 }} />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
-        </motion.div>
+ 
+  <div
+    className="absolute inset-0 bg-cover bg-center scale-105"
+    style={{ backgroundImage: `url(${keyClientBg})` }}
+  />
 
-        <motion.div className="absolute bottom-0 left-0 z-10 p-8 text-left" initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3 }}>
-          <motion.h2 className="text-4xl md:text-5xl font-bold mb-4" whileHover={{ scale: 1.05, textShadow: "0 0 20px rgba(147, 51, 234, 0.5)" }} transition={{ duration: 0.3 }}>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Clients</span>
-          </motion.h2>
-          <motion.p className="text-gray-200 max-w-xl" whileHover={{ scale: 1.02, textShadow: "0 0 10px rgba(255, 255, 255, 0.5)" }} transition={{ duration: 0.3 }}>
-            Trusted by leading enterprises across industries
-          </motion.p>
-        </motion.div>
-      </div>
+  <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
+
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
+
+<motion.div
+  className="relative z-10 max-w-5xl px-8"
+  initial={{ opacity: 0, y: 60 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ 
+    duration: 0.8, 
+    ease: "easeOut" 
+  }}
+>
+
+    <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
+      Strategic Partnerships
+    </p>
+
+    <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white">
+      Trusted by
+      <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+        Industry Leaders
+      </span>
+    </h2>
+
+    <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
+      Our AI-driven automation ecosystem powers enterprises across logistics,
+      manufacturing, and global supply chain networks — enabling intelligent,
+      data-driven operational excellence.
+    </p>
+  </motion.div>
+</div>
+
 
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 z-0">

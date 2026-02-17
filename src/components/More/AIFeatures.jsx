@@ -319,29 +319,52 @@ const AIFeatures = () => {
   return (
     <div className="w-full text-white overflow-hidden">
      
-      <section className="relative h-[1100vh] md:h-[100vh] flex items-center bg-[#050B1A]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${aiFeaturesBg})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <motion.div
-          className="absolute bottom-12 left-8 md:left-16 z-10 max-w-xl"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-             AI Features
-            </span>
-          </h1>
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050B1A]">
 
-          <p className="text-gray-300 text-lg mb-8 max-w-xl">
-            A sophisticated cognitive AI ecosystem engineered to autonomously orchestrate yard management, gate operations, and vehicular traffic dynamics with unprecedented precision and efficiency.
-          </p>
-        </motion.div>
-      </section>
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center scale-105"
+    style={{ backgroundImage: `url(${aiFeaturesBg})` }}
+  />
+
+  {/* Dark Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
+
+  {/* Grid Overlay */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
+
+  {/* Content */}
+  <motion.div
+    className="relative z-10 max-w-4xl text-center px-6"
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+
+    {/* Small Tagline */}
+    <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
+      Intelligent Logistics Automation
+    </p>
+
+    {/* Main Heading */}
+    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white">
+      Engineering Autonomous
+      <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+        AI-Driven Yard Operations
+      </span>
+    </h1>
+
+    {/* Professional Description */}
+    <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+      Our advanced cognitive AI ecosystem seamlessly integrates Computer Vision, 
+      Machine Learning, and Reinforcement Intelligence to orchestrate gate automation, 
+      smart slot allocation, and real-time traffic optimization — delivering measurable 
+      efficiency, precision, and operational resilience.
+    </p>
+
+  </motion.div>
+</section>
+
       <section className="py-28 relative bg-white text-gray-900 overflow-visible"> 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
