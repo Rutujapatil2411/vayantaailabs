@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import aiFeaturesBg from "../../assets/img/AIFeatures.jpg";
 import controlPanelImg from "../../assets/img/Features.png";
 
+
 const steps = [
   {
     stepNumber: "01",
@@ -115,6 +116,142 @@ const stats = [
 const glow =
   "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-cyan-500 before:to-purple-600 before:blur-xl before:opacity-30 before:-z-10 before:transition-opacity before:duration-500 group-hover:before:opacity-60";
 
+const AnimatedShapes = () => {
+  return (
+    <>
+      {[...Array(6)].map((_, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20"
+          style={{
+            width: `${Math.random() * 40 + 10}px`,
+            height: `${Math.random() * 40 + 10}px`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            x: [0, Math.random() * 100 - 50],
+            y: [0, Math.random() * 100 - 50],
+            opacity: [0.1, 0.3, 0.1],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 10,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      <motion.div
+        className="absolute bottom-20 right-20 w-0 h-0 opacity-20"
+        style={{
+          borderLeft: "15px solid transparent",
+          borderRight: "15px solid transparent",
+          borderBottom: "25px solid #4ade80",
+        }}
+        animate={{
+          rotate: [0, 10, 0, -10, 0],
+          y: [0, -10, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-1/3 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-15"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.3, 0.15],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-1/2 right-1/3 w-0 h-0 opacity-20"
+        style={{
+          borderLeft: "12px solid transparent",
+          borderRight: "12px solid transparent",
+          borderBottom: "20px solid #a78bfa",
+        }}
+        animate={{
+          rotate: [0, -15, 0, 15, 0],
+          x: [0, -10, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/3 left-20 w-12 h-12 bg-blue-200 rounded-full opacity-20"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-2/3 left-20 w-10 h-10 bg-indigo-200 rounded-full opacity-20"
+        animate={{
+          scale: [1, 1.4, 1],
+          opacity: [0.2, 0.5, 0.2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute top-1/4 left-16 w-8 h-8 bg-green-200 rounded-full opacity-20"
+        animate={{
+          y: [0, -15, 0],
+          x: [0, 10, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-0 h-0 opacity-20"
+        style={{
+          borderLeft: "10px solid transparent",
+          borderRight: "10px solid transparent",
+          borderBottom: "18px solid #f9a8d4",
+        }}
+        animate={{
+          rotate: [0, 20, 0, -20, 0],
+          y: [0, 10, 0],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+    </>
+  );
+};
+
+  
 const AnimatedCounter = ({ value, duration = 2 }) => {
   const [count, setCount] = useState(0);
   const numericValue = parseFloat(value);
@@ -288,7 +425,7 @@ const PipelineCard = ({ item, index }) => {
     transition={{ delay: i * 0.05 }}
     whileHover={{
       scale: 1.08,
-      color: "#22d3ee", // cyan color
+      color: "#22d3ee", 
     }}
     className="flex items-start gap-2 text-xs text-gray-300 cursor-pointer transition-all duration-200"
   >
@@ -318,13 +455,13 @@ const PipelineCard = ({ item, index }) => {
         </div>
 
        
-        {isHovered && (
+        {/* {isHovered && (
           <div className="absolute bottom-4 right-4 z-20">
             <span className="text-[10px] text-cyan-400 uppercase tracking-widest font-bold">
               Explore →
             </span>
           </div>
-        )}
+        )} */}
       </div>
     </motion.div>
   );
@@ -336,16 +473,13 @@ const AIFeatures = () => {
      
 <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050B1A]">
 
-  {/* Background Image */}
   <div
     className="absolute inset-0 bg-cover bg-center scale-105"
     style={{ backgroundImage: `url(${aiFeaturesBg})` }}
   />
 
-  {/* Dark Gradient Overlay */}
+  
   <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
-
-  {/* Grid Overlay */}
   <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
 
   {/* Content */}
@@ -356,12 +490,10 @@ const AIFeatures = () => {
     transition={{ duration: 1 }}
   >
 
-    {/* Small Tagline */}
     <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
       Intelligent Logistics Automation
     </p>
 
-    {/* Main Heading */}
     <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 text-white">
       Engineering Autonomous
       <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
@@ -369,7 +501,6 @@ const AIFeatures = () => {
       </span>
     </h1>
 
-    {/* Professional Description */}
     <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
       Our advanced cognitive AI ecosystem seamlessly integrates Computer Vision, 
       Machine Learning, and Reinforcement Intelligence to orchestrate gate automation, 
@@ -381,6 +512,8 @@ const AIFeatures = () => {
 </section>
 
       <section className="py-28 relative bg-white text-gray-900 overflow-visible"> 
+        <AnimatedShapes />
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
 
          <div className="text-center mb-24 relative">
@@ -413,6 +546,8 @@ const AIFeatures = () => {
 
     
       <section className="py-20 relative bg-gray-50 text-gray-900">
+        <AnimatedShapes />
+
         <div className="max-w-7xl mx-auto px-6">
          <div className="text-center mb-20 relative">
           
@@ -471,15 +606,10 @@ const AIFeatures = () => {
 
 <section className="relative py-32 text-white overflow-hidden bg-[#0B1220]">
 
-  {/* ===== Animated AI Grid Background ===== */}
-
-  {/* Moving Gradient Mesh */}
   <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(34,211,238,0.15),transparent_40%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.15),transparent_40%)] animate-pulse"></div>
 
-  {/* Neural Grid Lines */}
   <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(34,211,238,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.15)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
 
-  {/* Floating Particles */}
   <div className="absolute inset-0 overflow-hidden">
     {[...Array(25)].map((_, i) => (
       <span
@@ -494,185 +624,194 @@ const AIFeatures = () => {
     ))}
   </div>
 
-  {/* Soft Center Glow */}
   <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 bg-cyan-500/10 blur-[140px] rounded-full"></div>
-
-  {/* <div className="relative z-10 max-w-7xl mx-auto px-6"> */}
-
-  {/* Subtle Background Glow */}
   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
 
   <div className="max-w-7xl mx-auto px-6 relative z-10">
 
-    {/* Section Header */}
     <motion.div
       className="text-center mb-24"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
+      variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
     >
-      <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
+      <motion.p
+        className="text-cyan-400 uppercase tracking-widest text-sm mb-4"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.6 }}
+      >
         Advanced Intelligence Layer
-      </p>
+      </motion.p>
 
-      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+      <motion.h2
+        className="text-4xl md:text-5xl font-extrabold leading-tight mb-6"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.6 }}
+      >
         Document Analysis
         <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
           Agentic RAG Architecture
         </span>
-      </h2>
+      </motion.h2>
 
-      <p className="text-gray-400 max-w-3xl mx-auto mt-6 text-lg leading-relaxed">
+      <motion.p
+        className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.6 }}
+      >
         A next-generation Retrieval-Augmented Generation system powered by 
         autonomous AI agents that parse, understand, reason, and retrieve 
         enterprise document intelligence in real time.
-      </p>
+      </motion.p>
     </motion.div>
 
-    {/* Two Column Layout */}
-    <div className="grid md:grid-cols-2 gap-20 items-start">
-
-      {/* LEFT — Process Flow (No Cards) */}
+    <div className="grid md:grid-cols-2 gap-20 items-start mt-12">
       <motion.div
         className="relative border-l border-cyan-500/30 pl-10 space-y-10"
-        initial={{ opacity: 0, x: -60 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
+        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
         {documentRAGFeatures.map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.5 }}
             className="relative"
           >
-            {/* Timeline Dot */}
             <span className="absolute -left-[46px] top-2 w-4 h-4 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 shadow-[0_0_15px_rgba(34,211,238,0.8)]"></span>
 
-            <h4 className="text-lg font-semibold text-cyan-300 mb-2">
-              {item}
-            </h4>
+            <h4 className="text-lg font-semibold text-cyan-300 mb-2">{item}</h4>
 
             <div className="h-[1px] w-24 bg-gradient-to-r from-cyan-400 to-transparent mb-3"></div>
           </motion.div>
         ))}
       </motion.div>
 
-      {/* RIGHT — Strategic Explanation */}
       <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        className="space-y-8 text-gray-300 text-lg leading-relaxed"
       >
-        <div className="space-y-8 text-gray-300 text-lg leading-relaxed">
+        {[
+          "The system intelligently processes PDFs, scanned documents, and structured files using OCR and layout-aware parsing models. Extracted content is transformed into semantic embeddings and indexed inside a high-performance vector database.",
+          "Autonomous agents dynamically plan multi-step reasoning workflows — selecting tools, validating outputs, retrieving contextual references, and ensuring compliance-grade accuracy.",
+          "Unlike traditional search systems, this Agentic RAG framework continuously learns from queries, refines retrieval strategies, and delivers explainable, source-backed responses for enterprise-grade decision support."
+        ].map((para, i) => (
+          <motion.p
+            key={i}
+            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.5 }}
+          >
+            {para}
+          </motion.p>
+        ))}
 
-          <p>
-            The system intelligently processes PDFs, scanned documents, and structured files 
-            using OCR and layout-aware parsing models. Extracted content is transformed into 
-            semantic embeddings and indexed inside a high-performance vector database.
-          </p>
-
-          <p>
-            Autonomous agents dynamically plan multi-step reasoning workflows — selecting 
-            tools, validating outputs, retrieving contextual references, and ensuring 
-            compliance-grade accuracy.
-          </p>
-
-          <p>
-            Unlike traditional search systems, this Agentic RAG framework continuously 
-            learns from queries, refines retrieval strategies, and delivers explainable, 
-            source-backed responses for enterprise-grade decision support.
-          </p>
-
-          {/* Highlight Metrics Style */}
-          <div className="pt-6 border-t border-white/10 grid grid-cols-2 gap-6 text-sm">
-            <div>
-              <p className="text-cyan-400 font-bold text-2xl">95%+</p>
-              <p className="text-gray-400">Structured Extraction Accuracy</p>
-            </div>
-
-            <div>
-              <p className="text-purple-400 font-bold text-2xl">Real-Time</p>
-              <p className="text-gray-400">Contextual Knowledge Retrieval</p>
-            </div>
-          </div>
-
+        {/* Stats */}
+        <div className="pt-6 border-t border-white/10 grid grid-cols-2 gap-6 text-sm">
+          {[
+            { value: "95%+", label: "Structured Extraction Accuracy", color: "text-cyan-400" },
+            { value: "Real-Time", label: "Contextual Knowledge Retrieval", color: "text-purple-400" }
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <p className={`${stat.color} font-bold text-2xl`}>{stat.value}</p>
+              <p className="text-gray-400">{stat.label}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
-
     </div>
   </div>
 </section>
 
+
       
-      <section className="py-28 bg-white text-gray-900">
+     <section className="py-28 relative bg-white text-gray-900 overflow-hidden">
 
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+  <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <AnimatedShapes />
+  </div>
 
-         
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+
+    <motion.div
+      className="space-y-8"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+    >
+
+      <motion.h2
+        className="text-3xl md:text-4xl font-extrabold
+                   bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+                   bg-clip-text text-transparent tracking-wide"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.6 }}
+      >
+        Cognitive Command & Control Interface
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-600 mb-8 leading-relaxed text-lg"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.6 }}
+      >
+        Exert granular control over the entire logistics ecosystem through our unified cognitive dashboard, 
+        designed for predictive monitoring, strategic foresight, and automated operational optimization.
+      </motion.p>
+
+      <motion.div
+        className="space-y-4"
+        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+      >
+        {[
+          "Real-Time Asset Density Heatmap",
+          "Proactive Queue Forecasting & Mitigation",
+          "Intelligent Anomaly & Compliance Alerting",
+          "Predictive KPI & Performance Modeling",
+          "Digital Twin Simulations",
+          "NLP Chatbot for Drivers",
+        ].map((item, i) => (
           <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            key={i}
+            className="flex items-center gap-3 text-gray-800 font-medium cursor-pointer"
+            variants={{ hidden: { opacity: 0, x: -10 }, visible: { opacity: 1, x: 0 } }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            whileHover={{ scale: 1.05, color: "#0891b2" }}
           >
-            <div className="mb-8 relative">
-             
-              <motion.h2
-                className="text-3xl md:text-4xl font-extrabold
-                           bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
-                           bg-clip-text text-transparent tracking-wide"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Cognitive Command & Control Interface
-              </motion.h2>
-            </div>
-
-            <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-              Exert granular control over the entire logistics ecosystem through our unified cognitive dashboard, designed for predictive monitoring, strategic foresight, and automated operational optimization.
-            </p>
-
-            <div className="space-y-4">
-              {[
-                "Real-Time Asset Density Heatmap",
-                "Proactive Queue Forecasting & Mitigation",
-                "Intelligent Anomaly & Compliance Alerting",
-                "Predictive KPI & Performance Modeling",
-                "Digital Twin Simulations", 
-                "NLP Chatbot for Drivers ",
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center gap-3 text-gray-800 font-medium cursor-pointer"
-                  whileHover={{ scale: 1.05, color: "#0891b2" }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <span className="text-cyan-600 text-xl">▸</span>
-                  {item}
-                </motion.div>
-              ))}
-            </div>
+            <span className="text-cyan-600 text-xl">▸</span>
+            {item}
           </motion.div>
+        ))}
+      </motion.div>
 
+    </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={controlPanelImg}
-              alt="Cognitive Command & Control Interface"
-              className="w-full h-auto object-cover rounded-xl shadow-2xl border border-gray-200"
-            />
-          </motion.div>
+    
+    <motion.div
+      initial={{ opacity: 0, x: 80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      <img
+        src={controlPanelImg}
+        alt="Cognitive Command & Control Interface"
+        className="w-full h-auto object-cover rounded-xl shadow-2xl border border-gray-200"
+      />
+    </motion.div>
 
-        </div>
-      </section>
+  </div>
+</section>
 
      
       
