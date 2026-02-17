@@ -156,15 +156,19 @@ const Technology = () => {
                       >
                        
                         <motion.img
-                          src={icon}
-                          alt={`tech-${rowIndex}-${i}`}
-                          className="max-w-full max-h-full object-contain transition-all duration-300"
-                          whileHover={{ 
-                            scale: 1.15, 
-                            rotate: 360,  
-                            transition: { duration: 0.2 } 
-                          }}
-                        />
+  src={icon}
+  alt={`tech-${rowIndex}-${i}`}
+  className="max-w-full max-h-full object-contain"
+  whileHover={{ 
+    scale: 1.15,
+    rotate: 360
+  }}
+  transition={{
+    rotate: { duration: 0.6, ease: "easeInOut" },
+    scale: { duration: 0.3 }
+  }}
+/>
+
                       </div>
                     );
                   })}
