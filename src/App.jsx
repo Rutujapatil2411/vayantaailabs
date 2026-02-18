@@ -12,6 +12,12 @@ import Principles from "./components/More/Principles";
 import Technology from "./components/More/Technology";
 import AIFeatures from "./components/More/AIFeatures";
 import KeyClients from "./components/More/KeyClients";
+import Innovation from "./components/Principles/Innovation";
+import Integrity from "./components/Principles/Integrity";
+import Operational from "./components/Principles/Operational";
+
+
+
 function App() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -47,6 +53,12 @@ function App() {
           <Route path="technology" element={<Technology />} />
           <Route path="ai-features" element={<AIFeatures />} />
           <Route path="key-clientele" element={<KeyClients />} />
+
+          <Route path="principles/1" element={<Innovation />} />
+          <Route path="principles/2" element={<Integrity />} />
+          <Route path="principles/3" element={<Operational />} />
+
+
         </Route>
       </Routes>
     </Router>

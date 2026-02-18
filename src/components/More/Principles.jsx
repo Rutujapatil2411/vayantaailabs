@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import keyClientBg from "../../assets/bgImages/p1.jpg";
+import { Link } from "react-router-dom";
+
 
 import {
   FaLightbulb,
@@ -9,6 +11,8 @@ import {
   FaArrowRight,
   FaQuoteLeft,
 } from "react-icons/fa";
+
+
 
 const Principles = () => {
   const principlesData = [
@@ -305,13 +309,16 @@ const Principles = () => {
                     {item.desc}
                   </motion.p>
 
-                  <motion.button
-                    className="flex items-center gap-2 text-cyan-600 font-semibold text-sm group/btn"
-                    whileHover={{ x: 5 }}
-                  >
-                    Learn More
-                    <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-                  </motion.button>
+                  <Link to={`/more/principles/${item.id}`}>
+  <motion.button
+    className="flex items-center gap-2 text-cyan-600 font-semibold text-sm group/btn"
+    whileHover={{ x: 5 }}
+  >
+    Learn More
+    <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
+  </motion.button>
+</Link>
+
                 </motion.div>
               </motion.div>
             ))}
