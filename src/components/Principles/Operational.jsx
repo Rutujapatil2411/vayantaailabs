@@ -70,7 +70,8 @@ const Operational = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-6"
+          className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+
         >
           Excellence in Execution
         </motion.h2>
@@ -95,7 +96,7 @@ const Operational = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-3xl font-bold text-center mb-20"
+          className="text-3xl font-bold text-center mb-20 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"
         >
           Operations Framework
         </motion.h3>
