@@ -183,14 +183,15 @@ const Operational = () => {
       {/* CTA */}
       <section className="py-28 text-center px-6 bg-white">
         <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-4xl font-bold mb-6 text-gray-900"
-        >
-          Elevate Your Operations
-        </motion.h2>
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  className="text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+>
+  Elevate Your Operations
+</motion.h2>
+
 
         <motion.p
           variants={fadeUp}
