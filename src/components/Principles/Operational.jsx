@@ -6,6 +6,142 @@ import { useNavigate } from "react-router-dom";
 const Operational = () => {
   const navigate = useNavigate();
 
+   const AnimatedShapes = () => {
+      return (
+        <>
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={`particle-${i}`}
+              className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20"
+              style={{
+                width: `${Math.random() * 40 + 10}px`,
+                height: `${Math.random() * 40 + 10}px`,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                x: [0, Math.random() * 100 - 50],
+                y: [0, Math.random() * 100 - 50],
+                opacity: [0.1, 0.3, 0.1],
+              }}
+              transition={{
+                duration: Math.random() * 10 + 10,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+  
+          <motion.div
+            className="absolute bottom-20 right-20 w-0 h-0 opacity-20"
+            style={{
+              borderLeft: "15px solid transparent",
+              borderRight: "15px solid transparent",
+              borderBottom: "25px solid #4ade80",
+            }}
+            animate={{
+              rotate: [0, 10, 0, -10, 0],
+              y: [0, -10, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+  
+          <motion.div
+            className="absolute top-1/3 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-15"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.15, 0.3, 0.15],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+  
+          <motion.div
+            className="absolute top-1/2 right-1/3 w-0 h-0 opacity-20"
+            style={{
+              borderLeft: "12px solid transparent",
+              borderRight: "12px solid transparent",
+              borderBottom: "20px solid #a78bfa",
+            }}
+            animate={{
+              rotate: [0, -15, 0, 15, 0],
+              x: [0, -10, 0],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 left-20 w-12 h-12 bg-blue-200 rounded-full opacity-20"
+            animate={{
+              scale: [1, 1.3, 1],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+  
+          <motion.div
+            className="absolute top-2/3 left-20 w-10 h-10 bg-indigo-200 rounded-full opacity-20"
+            animate={{
+              scale: [1, 1.4, 1],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+  
+          <motion.div
+            className="absolute top-1/4 left-16 w-8 h-8 bg-green-200 rounded-full opacity-20"
+            animate={{
+              y: [0, -15, 0],
+              x: [0, 10, 0],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+  
+          <motion.div
+            className="absolute bottom-1/4 left-1/4 w-0 h-0 opacity-20"
+            style={{
+              borderLeft: "10px solid transparent",
+              borderRight: "10px solid transparent",
+              borderBottom: "18px solid #f9a8d4",
+            }}
+            animate={{
+              rotate: [0, 20, 0, -20, 0],
+              y: [0, 10, 0],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </>
+      );
+    };
+
+
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     visible: (i = 0) => ({
@@ -181,7 +317,8 @@ const Operational = () => {
       </section> */}
 
       {/* CTA */}
-      <section className="py-28 text-center px-6 bg-white">
+      <section className="relative py-28 text-center px-6 bg-white overflow-hidden">
+         <AnimatedShapes />
         <motion.h2
   variants={fadeUp}
   initial="hidden"
