@@ -1,6 +1,16 @@
 
-const Services = () => {
-  return <div className="p-8"><h1 className="text-2xl font-bold">Services Page</h1></div>;
-};
+import React from 'react'
+import ServiceSection1 from '../components/service/ServiceSection1'
 
-export default Services;
+function Services() {
+  return (
+    <>
+   
+    <div className='min-h-screen'>
+<ServiceSection1/>
+    </div>
+     </>
+  )
+}
+
+export default Services

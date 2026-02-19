@@ -1,11 +1,13 @@
-import { Outlet } from "react-router-dom";
 
-function More() {
+import { Outlet } from 'react-router-dom';
+
+const More = () => {
   return (
-    <div className="min-h-screen">
+    <div >
+      
       <Outlet />
     </div>
   );
-}
+};
 
 export default More;
