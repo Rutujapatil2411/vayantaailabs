@@ -188,26 +188,30 @@ const KeyClients = () => {
   const ClientCard = ({ logo, index, delay = 0 }) => {
     return (
       <motion.div
-        className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden rounded-lg"
+        className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden "
         initial={{ opacity: 0, y: 20, scale: 0.9 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay }}
-        whileHover={{
-          y: -8,
-          scale: 1.05,
-          boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-        }}
+        // whileHover={{
+        //   y: -8,
+        //   scale: 1.05,
+        //   boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+        // }}
       >
         <div className="relative w-full h-full flex items-center justify-center">
-          <motion.img
+          {/* <motion.img
             src={logo}
             alt="Client"
             className="max-h-16 max-w-full object-contain"
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.3 }}
-          />
-
+          /> */}
+<motion.img
+  src={logo}
+  alt="Client"
+  className="max-h-16 max-w-full object-contain transition-transform duration-300"
+/>
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
             whileHover={{

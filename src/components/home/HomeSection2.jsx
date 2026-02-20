@@ -585,7 +585,7 @@ const HomeSection2 = () => {
 
       {/* Stats Section  */}
       <section className="relative py-16 bg-gray-50 overflow-hidden">
-        <AnimatedShapes />
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -648,11 +648,15 @@ const HomeSection2 = () => {
                   <div className="text-sm text-gray-600">
                     {stat.description}
                   </div>
+
+                  
                 </div>
               </motion.div>
             ))}
           </motion.div>
+         
         </div>
+        
       </section>
 
       {/* Why Choose Us Section  */}
