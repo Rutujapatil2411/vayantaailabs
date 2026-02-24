@@ -98,15 +98,10 @@ const services = [
      
 {/* AI Background Video */}
 <div className="absolute inset-0 z-0 overflow-hidden">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-full object-cover"
-  >
-    <source src="/videos/vid5.mp4" type="video/mp4" />
-  </video>
+  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+  <source src="/videos/vid5.mp4" type="video/mp4" />
+ 
+</video>
 
   {/* Overlay for dark effect */}
   <div className="absolute inset-0 bg-black/60"></div>
