@@ -18,10 +18,7 @@ import c6 from "../../assets/companies/c6.png";
 import c7 from "../../assets/companies/c7.png";
 import c8 from "../../assets/companies/c8.png";
 import c9 from "../../assets/companies/c9.png";
-import heroVideo from "../../assets/bgImages/video (2).mp4";
-import yardVideo from "../../assets/bgImages/vid1.mp4";
-import vid2 from "../../assets/bgImages/vid2.mp4";
-import vid3 from "../../assets/bgImages/vid4.mp4";
+
 
 import {
   FaGlobe,
@@ -495,7 +492,7 @@ const HomeSection2 = () => {
             playsInline
             className="w-full h-full object-cover max-h-[600px]"
           >
-            <source src={heroVideo} type="video/mp4" />
+<source src="/videos/video (2).mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -799,7 +796,7 @@ const HomeSection2 = () => {
                   playsInline
                   className="w-full h-full object-cover"
                 >
-                  <source src={yardVideo} type="video/mp4" />
+                 <source src="/videos/vid1.mp4" type="video/mp4" />
                 </video>
               </div>
             </motion.div>
@@ -897,7 +894,7 @@ const HomeSection2 = () => {
                 playsInline
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               >
-                <source src={vid2} type="video/mp4" />
+                <source src="/videos/vid2.mp4" type="video/mp4" />
               </video>
 
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/0 to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -917,7 +914,7 @@ const HomeSection2 = () => {
                 playsInline
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               >
-                <source src={vid3} type="video/mp4" />
+                <source src="/videos/vid4.mp4" type="video/mp4" />
               </video>
 
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/0 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

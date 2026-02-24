@@ -15,8 +15,8 @@ import {
   FaDatabase,
   FaCloud,
 } from 'react-icons/fa';
-import AiBg from '../../assets/bgImages/aibg.jpg';
-import BgVideo from '../../assets/bgImages/vid5.mp4';
+
+
 
 const HomeSection1 = () => {
   // Animation variants
@@ -105,7 +105,7 @@ const services = [
     playsInline
     className="w-full h-full object-cover"
   >
-    <source src={BgVideo} type="video/mp4" />
+    <source src="/videos/vid5.mp4" type="video/mp4" />
   </video>
 
   {/* Overlay for dark effect */}
