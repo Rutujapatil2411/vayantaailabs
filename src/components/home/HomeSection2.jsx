@@ -492,7 +492,10 @@ const HomeSection2 = () => {
             playsInline
             className="w-full h-full object-cover max-h-[600px]"
           >
-<source src="/videos/video (2).mp4" type="video/mp4" />
+<source
+        src={`${import.meta.env.BASE_URL}videos/video2.mp4`}
+        type="video/mp4"
+      />
           </video>
         </div>
 
