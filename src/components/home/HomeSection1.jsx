@@ -105,7 +105,7 @@ const services = [
     playsInline
     className="w-full h-full object-cover"
   >
-    <source src="public/videos/vid5.mp4" type="video/mp4" />
+    <source src="/videos/vid5.mp4" type="video/mp4" />
   </video>
 
   {/* Overlay for dark effect */}
