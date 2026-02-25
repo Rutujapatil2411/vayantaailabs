@@ -485,7 +485,19 @@ const HomeSection2 = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-purple-600/50 z-10"></div>
 
-          <video
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover max-h-[600px]"
+>
+  <source
+    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/video2.mp4"
+    type="video/mp4"
+  />
+</video>
+          {/* <video
             autoPlay
             loop
             muted
@@ -493,7 +505,7 @@ const HomeSection2 = () => {
             className="w-full h-full object-cover max-h-[600px]"
           >
 <source src="/videos/video2.mp4" type="video/mp4" />
-          </video>
+          </video> */}
         </div>
 
         <div className="absolute inset-0 z-20 overflow-hidden">
@@ -788,8 +800,19 @@ const HomeSection2 = () => {
               <div className="relative w-full h-full">
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent z-10 pointer-events-none"></div>
-
-                <video
+<video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover"
+>
+  <source
+    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid1.mp4"
+    type="video/mp4"
+  />
+</video>
+                {/* <video
                   autoPlay
                   loop
                   muted
@@ -797,7 +820,7 @@ const HomeSection2 = () => {
                   className="w-full h-full object-cover"
                 >
                  <source src="/videos/vid1.mp4" type="video/mp4" />
-                </video>
+                </video> */}
               </div>
             </motion.div>
             {/* Right side - Data containers  */}
@@ -888,6 +911,18 @@ const HomeSection2 = () => {
               }}
             >
               <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+>
+  <source
+    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid2.mp4"
+    type="video/mp4"
+  />
+</video>
+              {/* <video
                 autoPlay
                 loop
                 muted
@@ -895,7 +930,7 @@ const HomeSection2 = () => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               >
                 <source src="/videos/vid2.mp4" type="video/mp4" />
-              </video>
+              </video> */}
 
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/0 to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
@@ -908,6 +943,18 @@ const HomeSection2 = () => {
               }}
             >
               <video
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+>
+  <source
+    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid4.mp4"
+    type="video/mp4"
+  />
+</video>
+              {/* <video
                 autoPlay
                 loop
                 muted
@@ -915,7 +962,7 @@ const HomeSection2 = () => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               >
                 <source src="/videos/vid4.mp4" type="video/mp4" />
-              </video>
+              </video> */}
 
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/0 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>

@@ -98,15 +98,16 @@ const services = [
      
 {/* AI Background Video */}
 <div className="absolute inset-0 z-0 overflow-hidden">
-  <video
+ <video
   autoPlay
   loop
   muted
   playsInline
+  preload="auto"
   className="w-full h-full object-cover"
 >
   <source
-    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid5.mp4"
+    src="https://res.cloudinary.com/dmuisklue/video/upload/f_auto,q_auto/v1772000767/vid5_eb0xcz.mp4"
     type="video/mp4"
   />
 </video>
