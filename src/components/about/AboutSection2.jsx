@@ -76,7 +76,7 @@ return (
               icon: <FaBrain className="text-3xl" />,
               title: "Deep Learning",
               description: "Advanced neural networks, transformers, and generative models for complex pattern recognition and prediction.",
-              metrics: ["15+ Research Papers", "20+ Models Deployed"],
+              metrics: ["High-Accuracy Models", "20+ Models Deployed"],
               color: "from-blue-500 to-cyan-500",
               iconColor: "text-blue-600",
               bgColor: "bg-blue-50"
