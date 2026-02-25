@@ -253,7 +253,7 @@ const HomeSection2 = () => {
       icon: <FaChartLine className="text-xl text-yellow-500" />,
       title: "Real-time Analytics",
       description:
-        "Monitor operations with live dashboards and predictive insights",
+        "Monitor Activities with live dashboards and predictive insights",
     },
     {
       icon: <FaCogs className="text-xl text-red-500" />,
@@ -286,7 +286,7 @@ const HomeSection2 = () => {
     },
     {
       icon: <FaCogs className="text-2xl text-yellow-500" />,
-      title: "Smart Slot Allocation",
+      title: "Advanced Slot Allocation",
       description: "Reduce re-handling by 30%",
     },
     {
@@ -320,7 +320,7 @@ const HomeSection2 = () => {
     },
     {
       icon: <FaBrain className="text-2xl text-purple-500" />,
-      title: "AI Expertise",
+      title: "Technology Expertise",
       description: "Deep knowledge in AI, ML and computer vision technologies",
     },
     {
@@ -352,7 +352,7 @@ const HomeSection2 = () => {
       position: "Operations Director",
       company: "Global Shipping Co.",
       content:
-        "Rapportsoft's AI solutions transformed our yard operations. We've reduced processing times by 60% and improved overall efficiency.",
+        "Rapportsoft's AI solutions transformed our yard Processes. We've reduced processing times by 60% and improved overall efficiency.",
       rating: 5,
     },
     {
@@ -360,7 +360,7 @@ const HomeSection2 = () => {
       position: "CEO",
       company: "Smart Logistics Ltd.",
       content:
-        "The implementation of AI-powered gate operations has been a game-changer for our business. Highly recommend their expertise.",
+        "The implementation of AI-powered gate Workflows has been a game-changer for our business. Highly recommend their expertise.",
       rating: 5,
     },
     {
@@ -496,15 +496,7 @@ const HomeSection2 = () => {
               type="video/mp4"
             />
           </video>
-          {/* <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover max-h-[600px]"
-          >
-<source src="/videos/video2.mp4" type="video/mp4" />
-          </video> */}
+          
         </div>
 
         <div className="absolute inset-0 z-20 overflow-hidden">
@@ -581,8 +573,8 @@ const HomeSection2 = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Founded in 2009 and headquartered in Pune, Rapportsoft is a
-              trusted AI solutions provider for smart gate operations and yard
-              management. With ISO-certified processes and deep AI expertise, we
+              A trusted technology partner delivering intelligent gate automation
+              and terminal management systems. With ISO-certified processes and deep AI expertise, we
               design and deliver scalable, secure, and intelligent enterprise
               systems that drive operational efficiency and digital
               transformation.
@@ -629,7 +621,7 @@ const HomeSection2 = () => {
 
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Delivering innovation, precision, and measurable impact in
-              AI-driven logistics solutions for over 15+ years.
+              Smart logistics systems Products for over 15+ years.
             </p>
           </motion.div>
 
@@ -705,7 +697,7 @@ const HomeSection2 = () => {
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We combine industry expertise with cutting-edge AI technology to
-              deliver solutions that transform your operations
+              deliver solutions that transform your Workflows
             </p>
           </motion.div>
 
@@ -783,8 +775,8 @@ const HomeSection2 = () => {
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our comprehensive suite of AI-driven solutions revolutionizes yard
-              operations, reduces turnaround times, and maximizes efficiency.
+              Our comprehensive suite of AI-driven Technologies revolutionizes yard
+              Activities, reduces turnaround times, and maximizes efficiency.
             </p>
           </motion.div>
 
@@ -811,15 +803,7 @@ const HomeSection2 = () => {
                     type="video/mp4"
                   />
                 </video>
-                {/* <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                 <source src="/videos/vid1.mp4" type="video/mp4" />
-                </video> */}
+               
               </div>
             </motion.div>
             {/* Right side - Data containers  */}
@@ -921,15 +905,7 @@ const HomeSection2 = () => {
                   type="video/mp4"
                 />
               </video>
-              {/* <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              >
-                <source src="/videos/vid2.mp4" type="video/mp4" />
-              </video> */}
+             
 
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/0 to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
@@ -953,16 +929,7 @@ const HomeSection2 = () => {
                   type="video/mp4"
                 />
               </video>
-              {/* <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              >
-                <source src="/videos/vid4.mp4" type="video/mp4" />
-              </video> */}
-
+              
               <div className="absolute inset-0 bg-gradient-to-t from-purple-900/0 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           </motion.div>
@@ -987,8 +954,8 @@ const HomeSection2 = () => {
             </h2>
             <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
               Built on computer vision, machine learning, and digital twin
-              technology, our AI platform enables real-time container tracking,
-              predictive yard planning, and automated gate operations, improving
+              technology, our Intelligent platform enables real-time container tracking,
+              predictive Space Optimization, and automated gate operations, improving
               overall operational efficiency.
             </p>
           </motion.div>
@@ -1142,7 +1109,7 @@ const HomeSection2 = () => {
               >
                 Powered by Artificial Intelligence for smart monitoring,
                 automation, and predictive operations. Enabling faster, safer,
-                and smarter port and yard management.
+                and smarter port and Terminal Management.
               </motion.p>
             </motion.div>
           </div>

@@ -106,29 +106,15 @@ const services = [
   className="w-full h-full object-cover"
 >
   <source
-    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid5.mp4"
+    src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid6.mp4"
     type="video/mp4"
   />
 </video>
-  {/* <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="w-full h-full object-cover"
-  >
-    <source src="/videos/vid5.mp4" type="video/mp4" />
-  </video> */}
 
   {/* Overlay for dark effect */}
   <div className="absolute inset-0 bg-black/60"></div>
-
-        
-        {/* Color Enhancement Overlays */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900/40 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900/60" />
-        
-        {/* Subtle Noise Texture */}
         <div 
           className="absolute inset-0 opacity-5"
           style={{
@@ -136,13 +122,10 @@ const services = [
           }}
         />
         
-        {/* Animated Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-gradient-x opacity-30" />
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10">
-        
         {/* Hero Section - Left Aligned Text */}
         <section className="min-h-[80vh] flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -152,7 +135,7 @@ const services = [
               animate="visible"
               className="max-w-2xl mt-28"
             >
-              {/* Badge - Left Aligned */}
+             
 
 {/* Main Heading - Left Aligned */}
 <motion.h1 
