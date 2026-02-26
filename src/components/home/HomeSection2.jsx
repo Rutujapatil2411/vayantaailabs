@@ -11,14 +11,7 @@ import AI2 from "../../assets/img/ai2.jpg";
 import AI3 from "../../assets/img/ai3.jpg";
 import AI4 from "../../assets/img/ai4.jpg";
 import portBg from "../../assets/img/shipping.jpg";
-import c2 from "../../assets/companies/c2.png";
-import c3 from "../../assets/companies/c3.png";
-import c4 from "../../assets/companies/c4.png";
-import c5 from "../../assets/companies/c5.png";
-import c6 from "../../assets/companies/c6.png";
-import c7 from "../../assets/companies/c7.png";
-import c8 from "../../assets/companies/c8.png";
-import c9 from "../../assets/companies/c9.png";
+
 
 import {
   FaGlobe,
@@ -420,18 +413,7 @@ const HomeSection2 = () => {
     "Madagascar",
   ];
 
-  // Client logos data
-  const clientLogos = [
-    { id: 1, name: "Ashte Logistics", logo: c2 },
-    { id: 2, name: "SBW Logistics", logo: c3 },
-    { id: 3, name: "Mundhra Container", logo: c4 },
-    { id: 4, name: "Contrans Logistic", logo: c5 },
-    { id: 5, name: "Transworld Logistics", logo: c6 },
-    { id: 6, name: "Seaway Logistics", logo: c7 },
-    { id: 7, name: "Global Freight", logo: c8 },
-    { id: 8, name: "Maritime Solutions", logo: c9 },
-    { id: 9, name: "Container Express", logo: c2 },
-  ];
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -457,28 +439,19 @@ const HomeSection2 = () => {
     },
   };
 
-  const cardHoverVariants = {
-    hover: {
-      y: -8,
-      scale: 1.02,
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-      transition: {
-        duration: 0.3,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
+  // const cardHoverVariants = {
+  //   hover: {
+  //     y: -8,
+  //     scale: 1.02,
+  //     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+  //     transition: {
+  //       duration: 0.3,
+  //       ease: [0.25, 0.46, 0.45, 0.94],
+  //     },
+  //   },
+  // };
 
-  const handleLearnMoreClick = () => {
-    localStorage.setItem("openMoreDropdown", "true");
-
-    navigate("/more/key-clientele");
-  };
-
-  const handleViewAllClients = () => {
-    navigate("/more/key-clientele");
-  };
-
+ 
   return (
     <div className="bg-white">
       <section className="relative py-20 overflow-hidden">

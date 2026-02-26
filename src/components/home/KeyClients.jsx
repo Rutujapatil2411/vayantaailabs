@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useMemo } from "react";
+
 import c2 from "../../assets/companies/c2.png";
 import c3 from "../../assets/companies/c3.png";
 import c4 from "../../assets/companies/c4.png";
@@ -84,6 +86,7 @@ const clients = [
   c41,
 ];
 
+
 const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
   return (
     <svg
@@ -108,6 +111,7 @@ const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
 };
 
 const AnimatedTriangles = () => {
+  
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {[...Array(8)].map((_, i) => (
