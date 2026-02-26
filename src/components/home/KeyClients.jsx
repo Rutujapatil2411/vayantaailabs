@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { motion } from "framer-motion";
-import { useMemo } from "react";
 
 import c2 from "../../assets/companies/c2.png";
 import c3 from "../../assets/companies/c3.png";
@@ -44,48 +43,24 @@ import c40 from "../../assets/companies/c40.png";
 import c41 from "../../assets/companies/c41.png";
 
 const clients = [
-  c2,
-  c3,
-  c4,
-  c5,
-  c6,
-  c7,
-  c8,
-  c9,
-  c10,
-  c11,
-  c12,
-  c13,
-  c14,
-  c15,
-  c16,
-  c17,
-  c18,
-  c19,
-  c20,
-  c21,
-  c22,
-  c23,
-  c24,
-  c25,
-  c26,
-  c27,
-  c28,
-  c29,
-  c30,
-  c31,
-  c32,
-  c33,
-  c34,
-  c35,
-  c36,
-  c37,
-  c38,
-  c39,
-  c40,
-  c41,
+  c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17,
+  c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28, c29, c30, c31, c32,
+  c33, c34, c35, c36, c37, c38, c39, c40, c41,
 ];
 
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "tween",
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
+  },
+};
 
 const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
   return (
@@ -111,7 +86,6 @@ const OutlineTriangle = ({ size = 20, color = "#a855f7" }) => {
 };
 
 const AnimatedTriangles = () => {
-  
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {[...Array(8)].map((_, i) => (
@@ -172,74 +146,45 @@ const AnimatedTriangles = () => {
   );
 };
 
+const ClientCard = memo(({ logo, index, delay = 0 }) => {
+ 
+  return (
+    <motion.div
+      className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden "
+      initial={{ opacity: 0, y: 20, scale: 0.9 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3 }}
+    >
+      <div className="relative w-full h-full flex items-center justify-center">
+        <motion.img
+          src={logo}
+          alt="Client"
+          className="max-h-16 max-w-full object-contain transition-transform duration-300"
+        />
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
+          whileHover={{
+            background:
+              "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
+            transition: { duration: 0.3 },
+          }}
+        />
+
+        <div className="absolute top-0 left-0 h-[50%] w-[2px] bg-gray-900 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
+        <div className="absolute top-0 left-0 w-[50%] h-[2px] bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+        <div className="absolute bottom-0 right-0 h-[50%] w-[2px] bg-gray-900 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
+        <div className="absolute bottom-0 right-0 w-[50%] h-[2px] bg-gray-900 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
+      </div>
+    </motion.div>
+  );
+});
+
 const KeyClients = () => {
   const [showAll, setShowAll] = useState(false);
 
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "tween",
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
-  const ClientCard = ({ logo, index, delay = 0 }) => {
-    return (
-      <motion.div
-        className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden "
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.3, delay }}
-        // whileHover={{
-        //   y: -8,
-        //   scale: 1.05,
-        //   boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-        // }}
-      >
-        <div className="relative w-full h-full flex items-center justify-center">
-          {/* <motion.img
-            src={logo}
-            alt="Client"
-            className="max-h-16 max-w-full object-contain"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-          /> */}
-<motion.img
-  src={logo}
-  alt="Client"
-  className="max-h-16 max-w-full object-contain transition-transform duration-300"
-/>
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
-            whileHover={{
-              background:
-                "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-              transition: { duration: 0.3 },
-            }}
-          />
-
-          <div className="absolute top-0 left-0 h-[50%] w-[2px] bg-gray-900 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-          <div className="absolute top-0 left-0 w-[50%] h-[2px] bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-
-          <div className="absolute bottom-0 right-0 h-[50%] w-[2px] bg-gray-900 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-          <div className="absolute bottom-0 right-0 w-[50%] h-[2px] bg-gray-900 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-        </div>
-      </motion.div>
-    );
-  };
-
   return (
     <div className="w-full">
-      
-
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 z-0">
           <AnimatedTriangles />
