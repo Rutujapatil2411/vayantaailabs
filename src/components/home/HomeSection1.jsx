@@ -98,10 +98,10 @@ const HomeSection1 = () => {
 
   return (
     <div className="w-full bg-gray-900">
-      {/* --- HERO SECTION START --- */}
-      {/* Note: Height restriction is ONLY applied to Hero Container now */}
+      {/* --- HERO SECTION--- */}
+      
       <div className="relative min-h-[85vh] lg:min-h-[95vh] overflow-hidden">
-        {/* AI Background Video - Specific to Hero */}
+      
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
@@ -214,18 +214,18 @@ const HomeSection1 = () => {
           </section>
         </div>
       </div>
-      {/* --- HERO SECTION END --- */}
+      
 
-      {/* --- SERVICES SECTION START (NOW SEPARATE) --- */}
+      {/* --- SERVICES SECTION  */}
       <section className="relative py-16 md:py-20 overflow-hidden">
-        {/* Background Image - Specific to Services */}
+        
         <div className="absolute inset-0 z-0">
           <img
             src={serviceBg}
             alt="Services Background"
             className="w-full h-full object-cover"
           />
-          {/* Optional: Add overlay if needed for text readability on image */}
+         
           <div className="absolute inset-0 bg-gray-900/80"></div>
         </div>
 
@@ -326,7 +326,7 @@ const HomeSection1 = () => {
           </motion.div>
         </div>
       </section>
-      {/* --- SERVICES SECTION END --- */}
+      
     </div>
   );
 };
