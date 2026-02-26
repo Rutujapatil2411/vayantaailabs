@@ -123,6 +123,8 @@ const HomeSection1 = () => {
 
       <div className="relative z-10">
         {/* Hero Section - Left Aligned Text */}
+        {/* SPACE CONTROL 1: This 'min-h-[95vh]' forces the section to be 95% of the screen height. 
+            To reduce space, change this to 'min-h-[70vh]' or 'min-auto'. */}
         <section className="min-h-[85vh] lg:min-h-[95vh] flex items-center pb-2">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
@@ -215,6 +217,8 @@ const HomeSection1 = () => {
         {/* Services Section - Moved closer to hero */}
 
         {/* Background Image */}
+        {/* SPACE CONTROL 2: 'py-16 md:py-20' adds padding-top (64px or 80px).
+            To reduce space between sections, change 'py-16' to 'pt-8 pb-16'. */}
         <section className="relative py-16 md:py-20 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
