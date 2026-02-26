@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import KeyClients from "./KeyClients";
 
 import aiImage from "../../assets/img/ai.jpg";
 import team from "../../assets/img/team.jpg";
@@ -352,7 +353,7 @@ const HomeSection2 = () => {
       position: "Operations Director",
       company: "Global Shipping Co.",
       content:
-        "Rapportsoft's AI solutions transformed our yard Processes. We've reduced processing times by 60% and improved overall efficiency.",
+        "Vyantra AI Labs's AI solutions transformed our yard Processes. We've reduced processing times by 60% and improved overall efficiency.",
       rating: 5,
     },
     {
@@ -368,7 +369,7 @@ const HomeSection2 = () => {
       position: "CTO",
       company: "Container Hub Inc.",
       content:
-        "The digital twin technology provided by Rapportsoft has enabled us to optimize our yard layout and reduce congestion significantly.",
+        "The digital twin technology provided by Vyantra AI Labs has enabled us to optimize our yard layout and reduce congestion significantly.",
       rating: 5,
     },
   ];
@@ -526,22 +527,6 @@ const HomeSection2 = () => {
             />
           ))}
 
-          {/* {[0, 1, 2].map((i) => (
-            <motion.div
-              key={`scan-${i}`}
-              className="absolute left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent"
-              style={{ top: `${i * 33}%` }}
-              animate={{
-                x: ["-100%", "100%"],
-                opacity: [0, 0.7, 0],
-              }}
-              transition={{
-                duration: 3 + i,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))} */}
         </div>
 
         <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -572,7 +557,7 @@ const HomeSection2 = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Founded in 2009 and headquartered in Pune, Rapportsoft is a
+              Founded in 2009 and headquartered in Pune, Vyantra AI Labs is a
               A trusted technology partner delivering intelligent gate automation
               and terminal management systems. With ISO-certified processes and deep AI expertise, we
               design and deliver scalable, secure, and intelligent enterprise
@@ -692,7 +677,7 @@ const HomeSection2 = () => {
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Why Choose Rapportsoft
+                Why Choose Vyantra AI Labs
               </span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -1169,180 +1154,9 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      {/* Our Clients Section  */}
-      <section className="relative py-16 bg-white overflow-hidden">
-        <AnimatedShapes />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Our Clients
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Any organization needs a strong solid foundation of their business
-              process implementations for it to sustain in the industry and
-              increase ROI.
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="mb-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            {/* First row with 5 logos */}
-            <div className="grid grid-cols-5 gap-6 mb-3">
-              {clientLogos.slice(0, 5).map((client, index) => (
-                <motion.div
-                  key={client.id}
-                  className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.05,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                  }}
-                >
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-h-16 max-w-full object-contain transition-transform duration-300"
-                      whileHover={{ scale: 1.1 }}
-                    />
-
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
-                      whileHover={{
-                        background:
-                          "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                        transition: { duration: 0.5 },
-                      }}
-                    />
-
-                    <div className="absolute top-0 left-0 h-[50%] w-[2px] bg-gray-900 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute top-0 left-0 w-[50%] h-[2px] bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute bottom-0 right-0 h-[50%] w-[2px] bg-gray-900 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute bottom-0 right-0 w-[50%] h-[2px] bg-gray-900 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Second row with 4 logos  */}
-            <div className="grid grid-cols-4 gap-6">
-              {clientLogos.slice(5, 9).map((client, index) => (
-                <motion.div
-                  key={client.id}
-                  className="group relative flex items-center justify-center p-4 bg-white shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.05,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                  }}
-                >
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <motion.img
-                      src={client.logo}
-                      alt={client.name}
-                      className="max-h-16 max-w-full object-contain transition-transform duration-300"
-                      whileHover={{ scale: 1.1 }}
-                    />
-
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-blue-600/0 to-purple-600/0"
-                      whileHover={{
-                        background:
-                          "linear-gradient(to right, rgba(96, 165, 250, 0.1), rgba(167, 139, 250, 0.1))",
-                        transition: { duration: 0.5 },
-                      }}
-                    />
-                    <div className="absolute top-0 left-0 h-[50%] w-[2px] bg-gray-900 origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute top-0 left-0 w-[50%] h-[2px] bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute bottom-0 right-0 h-[50%] w-[2px] bg-gray-900 origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300 ease-out" />
-
-                    <div className="absolute bottom-0 right-0 w-[50%] h-[2px] bg-gray-900 origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-          >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleViewAllClients}
-              className="group px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:bg-black hover:from-black hover:to-black hover:text-white"
-            >
-              <span className="flex items-center justify-center gap-2">
-                View All Clients
-                <span className="opacity-0 group-hover:opacity-100 transform transition-all duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </span>
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Call to Action Section  */}
-      {/* <section className="relative py-16 bg-gray-50 overflow-hidden">
-        <AnimatedShapes />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <div className="flex justify-center">
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleLearnMoreClick}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-              >
-                Learn More About Our Success
-              </motion.button>
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
+     {/* Our Clients Section */}
+<KeyClients />
+     
     </div>
   );
 };

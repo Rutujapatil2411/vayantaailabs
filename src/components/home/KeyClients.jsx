@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import keyClientBg from "../../assets/img/h1.jpg";
 import c2 from "../../assets/companies/c2.png";
 import c3 from "../../assets/companies/c3.png";
 import c4 from "../../assets/companies/c4.png";
@@ -235,43 +234,7 @@ const KeyClients = () => {
 
   return (
     <div className="w-full">
-      <div className="relative w-full h-[75vh] flex items-end pb-20 overflow-hidden bg-[#050B1A]">
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{ backgroundImage: `url(${keyClientBg})` }}
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/90 via-[#050B1A]/85 to-[#020617]/95" />
-
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:60px_60px] opacity-20"></div>
-
-        <motion.div
-          className="relative z-10 max-w-5xl px-8"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeOut",
-          }}
-        >
-          <p className="text-cyan-400 uppercase tracking-widest text-sm mb-4">
-            Strategic Partnerships
-          </p>
-
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 text-white">
-            Trusted by
-            <span className="block bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-              Industry Leaders
-            </span>
-          </h2>
-
-          <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-            Our AI-driven automation ecosystem powers enterprises across
-            logistics, manufacturing, and global supply chain networks —
-            enabling intelligent, data-driven operational excellence.
-          </p>
-        </motion.div>
-      </div>
+      
 
       <section className="py-16 bg-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 z-0">

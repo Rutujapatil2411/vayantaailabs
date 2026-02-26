@@ -177,12 +177,7 @@ const moreItems = [
     icon: <FaRobot className="text-xl" />,
     color: "text-pink-400"
   },
-  { 
-    path: "/more/key-clientele", 
-    label: "Key Clientele", 
-    icon: <FaUsers className="text-xl" />,
-    color: "text-indigo-400"
-  },
+  
 ];
 
   return (
@@ -400,25 +395,7 @@ const moreItems = [
               </Link>
             </motion.div>
 
-            <motion.div
-              key="key-clientele"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 5 * 0.05 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Link 
-                to="/more/key-clientele"
-                className="flex items-center p-3 rounded-lg bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 border border-gray-800 hover:border-blue-500/30 transition-all duration-300 group"
-              >
-                <FaUsers className="text-xl mr-3 text-indigo-400 group-hover:text-indigo-300 group-hover:scale-110 transition-all duration-300" />
-                <div>
-                  <p className="text-sm font-medium text-white group-hover:text-indigo-300">
-                    Key Clientele
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
+           
           </div>
         </div>
       </motion.div>
@@ -675,13 +652,7 @@ const moreItems = [
         <span className="flex-1">AI Features</span>
       </Link>
       
-      <Link 
-        to="/more/key-clientele"
-        className="flex items-center px-3 py-3 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-gray-800/30 transition-all duration-300 group"
-      >
-        <FaUsers className="text-lg mr-3 text-indigo-400 group-hover:scale-110 transition-transform duration-300" />
-        <span className="flex-1">Key Clientele</span>
-      </Link>
+     
     </motion.div>
   )}
 </AnimatePresence>
