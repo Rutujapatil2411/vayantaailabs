@@ -112,8 +112,8 @@ function Footer() {
             <h3 className="text-white font-bold text-lg mb-6">Our Solutions</h3>
             <ul className="space-y-4">
               {[
-                { name: "Smart Gate Systems", href: "/products" },
-                { name: "Yard Management", href: "/products" },
+                { name: "Smart Gate Systems", href: "/more/products" },
+                { name: "Yard Management", href: "/more/products" },
                 { name: "Computer Vision", href: "/services" },
                 { name: "Predictive Analytics", href: "/services" },
                 { name: "AI Integration", href: "/services" }
