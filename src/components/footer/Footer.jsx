@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // 1. Import Link
 import { 
   FaTwitter, 
   FaLinkedin, 
@@ -49,59 +50,62 @@ function Footer() {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company Info */}
- <div className="space-y-4">
-  {/* Logo Image - Already contains the name */}
-  <div className="flex items-center">
-    <img 
-      src={ailabsLOGO} 
-      alt="Vyantra AI Labs" 
-      className="h-16 w-auto object-contain"
-    />
-  </div>
-  
-  <p className="text-gray-300 text-sm leading-relaxed">
-    Pioneering the future of artificial intelligence through cutting-edge research and innovative solutions that transform industries.
-  </p>
-  
-  {/* Social Links */}
-  <div className="flex space-x-4">
-    {[
-      { icon: <FaTwitter />, href: "#", color: "hover:text-blue-400" },
-      { icon: <FaLinkedin />, href: "#", color: "hover:text-blue-600" },
-      { icon: <FaGithub />, href: "#", color: "hover:text-gray-300" },
-      { icon: <FaEnvelope />, href: "#", color: "hover:text-purple-400" }
-    ].map((social, index) => (
-      <motion.a
-        key={index}
-        href={social.href}
-        whileHover={{ y: -3 }}
-        className={`w-10 h-10 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:border-blue-500/30`}
-      >
-        {social.icon}
-      </motion.a>
-    ))}
-  </div>
-</div>
+          <div className="space-y-4">
+            {/* Logo Image */}
+            <div className="flex items-center">
+              <img 
+                src={ailabsLOGO} 
+                alt="Vyantra AI Labs" 
+                className="h-16 w-auto object-contain"
+              />
+            </div>
+            
+            <p className="text-gray-300 text-sm leading-relaxed">
+              Pioneering the future of artificial intelligence through cutting-edge research and innovative solutions that transform industries.
+            </p>
+            
+            {/* Social Links */}
+            {/* Note: Social links usually go to external sites (Twitter, LinkedIn), so <a> is okay there. 
+                If they are internal routes, change to <Link> as well. */}
+            <div className="flex space-x-4">
+              {[
+                { icon: <FaTwitter />, href: "#", color: "hover:text-blue-400" },
+                { icon: <FaLinkedin />, href: "#", color: "hover:text-blue-600" },
+                { icon: <FaGithub />, href: "#", color: "hover:text-gray-300" },
+                { icon: <FaEnvelope />, href: "#", color: "hover:text-purple-400" }
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  whileHover={{ y: -3 }}
+                  className={`w-10 h-10 rounded-lg bg-gray-800/50 backdrop-blur-sm border border-gray-700 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 hover:border-blue-500/30`}
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </div>
+          </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
             <ul className="space-y-4">
               {[
-                { name: "Home", href: "/" },
-                { name: "About Us", href: "/about" },
-                { name: "Services", href: "/services" },
-                { name: "Products", href: "/more/products" },
-                { name: "Contact", href: "/contact" }
+                { name: "Home", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Services", path: "/services" },
+                { name: "Products", path: "/more/products" },
+                { name: "Contact", path: "/contact" }
               ].map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <a 
-                    href={link.href} 
+                  {/* 2. Changed <a href to <Link to */}
+                  <Link 
+                    to={link.path} 
                     className="text-gray-300 hover:text-blue-300 transition-colors duration-300 flex items-center group"
                   >
                     <FaArrowRight className="text-xs mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -112,20 +116,21 @@ function Footer() {
             <h3 className="text-white font-bold text-lg mb-6">Our Solutions</h3>
             <ul className="space-y-4">
               {[
-                { name: "Smart Gate Systems", href: "/more/products" },
-                { name: "Yard Management", href: "/more/products" },
-                { name: "Computer Vision", href: "/services" },
-                { name: "Predictive Analytics", href: "/services" },
-                { name: "AI Integration", href: "/services" }
+                { name: "Smart Gate Systems", path: "/more/products" },
+                { name: "Yard Management", path: "/more/products" },
+                { name: "Computer Vision", path: "/services" },
+                { name: "Predictive Analytics", path: "/services" },
+                { name: "AI Integration", path: "/services" }
               ].map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <a 
-                    href={link.href} 
+                  {/* 3. Changed <a href to <Link to */}
+                  <Link 
+                    to={link.path} 
                     className="text-gray-300 hover:text-purple-300 transition-colors duration-300 flex items-center group"
                   >
                     <FaArrowRight className="text-xs mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
@@ -188,17 +193,18 @@ function Footer() {
             {/* Legal Links */}
             <div className="flex space-x-6">
               {[
-                { name: "Privacy Policy", href: "#" },
-                { name: "Terms of Service", href: "#" },
-                { name: "Cookie Policy", href: "#" }
+                { name: "Privacy Policy", path: "/privacy" }, // Example path
+                { name: "Terms of Service", path: "/terms" }, // Example path
+                { name: "Cookie Policy", path: "/cookies" }   // Example path
               ].map((link, index) => (
-                <a 
+                // 4. Changed <a href to <Link to
+                <Link 
                   key={index}
-                  href={link.href} 
+                  to={link.path} 
                   className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-300"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
 
