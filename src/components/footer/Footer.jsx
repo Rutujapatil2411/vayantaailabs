@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from "react-router-dom";
 import { 
   FaTwitter, 
   FaLinkedin, 
@@ -96,13 +95,13 @@ function Footer() {
                 { name: "Contact", href: "/contact" }
               ].map((link, index) => (
                 <motion.li key={index} whileHover={{ x: 5 }}>
-                  <Link 
-      to={link.href}
+                  <a 
+                    href={link.href} 
                     className="text-gray-300 hover:text-blue-300 transition-colors duration-300 flex items-center group"
                   >
                     <FaArrowRight className="text-xs mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
-                   </Link>
+                  </a>
                 </motion.li>
               ))}
             </ul>
