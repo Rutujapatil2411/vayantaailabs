@@ -1,7 +1,49 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import serviceBg from "../../assets/bgImages/ser.png";
+
+// Keeping all your imports as is
+import c2 from "../../assets/companies/c2.png";
+import c3 from "../../assets/companies/c3.png";
+import c4 from "../../assets/companies/c4.png";
+import c5 from "../../assets/companies/c5.png";
+import c6 from "../../assets/companies/c6.png";
+import c7 from "../../assets/companies/c7.png";
+import c8 from "../../assets/companies/c8.png";
+import c9 from "../../assets/companies/c9.png";
+import c10 from "../../assets/companies/c10.png";
+import c11 from "../../assets/companies/c11.png";
+import c12 from "../../assets/companies/c12.png";
+import c13 from "../../assets/companies/c13.png";
+import c14 from "../../assets/companies/c14.png";
+import c15 from "../../assets/companies/c15.png";
+import c16 from "../../assets/companies/c16.png";
+import c17 from "../../assets/companies/c17.png";
+import c18 from "../../assets/companies/c18.png";
+import c19 from "../../assets/companies/c19.png";
+import c20 from "../../assets/companies/c20.png";
+import c21 from "../../assets/companies/c21.png";
+import c22 from "../../assets/companies/c22.png";
+import c23 from "../../assets/companies/c23.png";
+import c24 from "../../assets/companies/c24.png";
+import c25 from "../../assets/companies/c25.png";
+import c26 from "../../assets/companies/c26.png";
+import c27 from "../../assets/companies/c27.png";
+import c28 from "../../assets/companies/c28.png";
+import c29 from "../../assets/companies/c29.png";
+import c30 from "../../assets/companies/c30.png";
+import c31 from "../../assets/companies/c31.png";
+import c32 from "../../assets/companies/c32.png";
+import c33 from "../../assets/companies/c33.png";
+import c34 from "../../assets/companies/c34.png";
+import c35 from "../../assets/companies/c35.png";
+import c36 from "../../assets/companies/c36.png";
+import c37 from "../../assets/companies/c37.png";
+import c38 from "../../assets/companies/c38.png";
+import c39 from "../../assets/companies/c39.png";
+import c40 from "../../assets/companies/c40.png";
+import c41 from "../../assets/companies/c41.png";
 
 import {
   FaChartLine,
@@ -19,35 +61,58 @@ import {
 } from "react-icons/fa";
 
 const HomeSection1 = () => {
-  // Animation variants
+  // --- A) PARALLAX & B) PAGE FLIP LOGIC ---
+  const { scrollY } = useScroll();
+
+  // 1. Background moves SLOWLY (Parallax Depth)
+  const yBg = useTransform(scrollY, [300, 1000], [0, 300]); 
+
+  // 2. Text moves FAST (Parallax Depth)
+  const yText = useTransform(scrollY, [300, 1000], [0, -150]);
+
+  // 3. Page Flip Effect: Background Zooms OUT as you scroll
+  // Starts at 1.15 (zoomed in) -> goes to 1.0 (normal)
+  const scaleBg = useTransform(scrollY, [300, 800], [1.15, 1]);
+
+  // 4. Page Flip Effect: Text/Content FADES OUT as you scroll to next section
+  const opacityContent = useTransform(scrollY, [300, 700], [1, 0]);
+
+  // --- D) TEXT REVEAL ANIMATION VARIANTS ---
+  // Updated to include BLUR -> SHARP transition
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.2, // Slightly faster stagger for snappier feel
         delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { 
+      y: 40, 
+      opacity: 0, 
+      filter: "blur(10px)" // START: Blurry
+    },
     visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 },
+      y: 0, 
+      opacity: 1, 
+      filter: "blur(0px)", // END: Sharp
+      transition: { duration: 0.8, ease: "easeOut" }
     },
   };
 
   const cardVariants = {
-    hidden: { y: 40, opacity: 0 },
+    hidden: { y: 40, opacity: 0, filter: "blur(5px)" },
     visible: (i) => ({
       y: 0,
       opacity: 1,
+      filter: "blur(0px)",
       transition: {
-        delay: i * 0.2,
-        duration: 0.5,
+        delay: i * 0.1, // Stagger cards
+        duration: 0.6,
       },
     }),
     hover: {
@@ -96,19 +161,36 @@ const HomeSection1 = () => {
     },
   ];
 
+  const logos = [
+    c2, c3, c4, c5, c6, c7, c8, c9, c10,
+    c11, c12, c13, c14, c15, c16, c17,
+    c18, c19, c20, c21, c22, c23,
+    c24, c25, c26, c27, c28, c29,
+    c30, c31, c32, c33, c34, c35,
+    c36, c37, c38, c39, c40, c41
+  ];
+
   return (
     <div className="w-full bg-gray-900">
-      {/* --- HERO SECTION--- */}
+      {/* --- HERO SECTION --- */}
       
       <div className="relative min-h-[85vh] lg:min-h-[95vh] overflow-hidden">
       
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Parallax Background Div with Page Flip Scale */}
+        <motion.div 
+          style={{ 
+            y: yBg, 
+            scale: scaleBg // Implements Zoom Out (Page Flip)
+          }} 
+          className="absolute inset-0 z-0 overflow-hidden origin-center"
+        >
           <video
             autoPlay
             loop
             muted
             playsInline
             className="w-full h-full object-cover"
+            // Removed scale-[1.15] from class because we control it via motion.div style
           >
             <source
               src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid6.mp4"
@@ -121,9 +203,16 @@ const HomeSection1 = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900/40 mix-blend-overlay" />
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-gradient-x opacity-30" />
-        </div>
+        </motion.div>
 
-        <div className="relative z-10">
+        {/* Parallax Foreground Div with Fade Out */}
+        <motion.div 
+          style={{ 
+            y: yText, 
+            opacity: opacityContent // Implements Fade Out (Page Flip)
+          }} 
+          className="relative z-10"
+        >
           {/* Hero Content */}
           <section className="min-h-[85vh] lg:min-h-[95vh] flex items-center pb-2">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -135,8 +224,8 @@ const HomeSection1 = () => {
               >
                 {/* Main Heading - Left Aligned */}
                 <motion.h1
-                  variants={itemVariants}
-                  className="text-5xl md:text-7xl lg:text-8xl font-bold mt-8 mb-6"
+                  variants={itemVariants} // Now uses Blur variants
+                  className="text-4xl md:text-6xl lg:text-8xl font-bold mt-8 mb-6"
                 >
                   <span className="text-white">Artificial</span>
                   <br />
@@ -154,7 +243,7 @@ const HomeSection1 = () => {
                 {/* Description - Left Aligned */}
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl md:text-2xl text-gray-200 mb-10 max-w-xl leading-relaxed"
+                  className="text-xl md:text-xl text-gray-200 mb-10 max-w-xl leading-relaxed"
                 >
                   Transform complex challenges into intelligent solutions with
                   cutting-edge AI research and scalable implementations that drive
@@ -209,14 +298,44 @@ const HomeSection1 = () => {
                     </motion.div>
                   ))}
                 </motion.div>
+                
               </motion.div>
             </div>
           </section>
-        </div>
-      </div>
-      
 
-      {/* --- SERVICES SECTION  */}
+          {/* Logo Sliding Strip - FULL WIDTH */}
+          <div className="mt-10 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
+            {/* Left Text */}
+            <div className="flex flex-col justify-center mr-8 leading-tight">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-sm md:text-base font-medium">
+                Trusted by
+              </span>
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-lg md:text-xl font-semibold">
+                Global Brands
+              </span>
+            </div>
+
+            {/* Divider */}
+            <div className="h-12 w-[3px] bg-gradient-to-b from-blue-500 to-purple-500 mr-8"></div>
+
+            {/* Logos */}
+            <div className="overflow-hidden flex-1">
+              <div className="flex w-max animate-scroll space-x-12 items-center">
+                {[...logos, ...logos].map((logo, index) => (
+                  <img
+                    key={index}
+                    src={logo}
+                    alt="company logo"
+                    className="h-12 md:h-14 object-contain opacity-80 hover:opacity-100 transition duration-300"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* --- SERVICES SECTION  --- */}
       <section className="relative py-16 md:py-20 overflow-hidden">
         
         <div className="absolute inset-0 z-0">
@@ -225,28 +344,29 @@ const HomeSection1 = () => {
             alt="Services Background"
             className="w-full h-full object-cover"
           />
-         
+          
           <div className="absolute inset-0 bg-gray-900/80"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
+            variants={containerVariants} // Use container for stagger
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-white">Our </span>
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Core Services
               </span>
-            </h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            </motion.h2>
+            <motion.p variants={itemVariants} className="text-gray-300 text-lg max-w-2xl mx-auto">
               Delivering excellence through innovative solutions and proven
               methodologies
-            </p>
+            </motion.p>
           </motion.div>
 
           {/* Services Cards */}
@@ -258,7 +378,7 @@ const HomeSection1 = () => {
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }} // Trigger slightly before view
                 whileHover="hover"
                 className="relative group"
               >
