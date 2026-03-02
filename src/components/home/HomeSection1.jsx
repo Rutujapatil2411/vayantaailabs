@@ -221,7 +221,7 @@ const HomeSection1 = () => {
                
                 <motion.h1
                   variants={itemVariants} 
-                  className="text-4xl md:text-6xl lg:text-8xl font-bold mt-8 mb-6"
+                  className="text-4xl md:text-6xl lg:text-7xl font-bold mt-8 mb-6"
                   // className="text-3xl md:text-5xl lg:text-6xl font-bold mt-8 mb-6"
                 >
                   <span className="text-white">Artificial</span>
@@ -240,35 +240,14 @@ const HomeSection1 = () => {
                 {/* Description - Left Aligned */}
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl md:text-xl text-gray-200 mb-10 max-w-xl leading-relaxed"
+                  className="text-lg md:text-lg text-gray-200 mb-10 max-w-xl leading-relaxed"
                 >
                   Transform complex challenges into intelligent solutions with
                   cutting-edge AI research and scalable implementations that drive
                   real business impact.
                 </motion.p>
 
-                {/* CTA Buttons */}
-                {/* <motion.div
-                  variants={itemVariants}
-                  className="flex flex-col sm:flex-row gap-4 mb-8"
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center justify-center space-x-3 group"
-                  >
-                    <span className="text-lg">Contact Us</span>
-                  </motion.button>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-8 py-4 bg-gray-900/60 backdrop-blur-lg border border-gray-700/50 text-white font-bold rounded-xl hover:bg-gray-800/70 hover:border-blue-500/30 transition-all duration-300 flex items-center justify-center space-x-3 group"
-                  >
-                    <span className="text-lg">Our Services</span>
-                    <FaArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-                  </motion.button>
-                </motion.div> */}
+               
 
                 {/* Stats Bar */}
                 <motion.div
