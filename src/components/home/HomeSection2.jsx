@@ -192,6 +192,8 @@ const HomeSection2 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeWhyChoose, setActiveWhyChoose] = useState(0);
+
+
 const WorkflowNode = ({ icon, title, desc, position }) => {
   return (
     <div className={`absolute ${position} group`}>
@@ -233,6 +235,62 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
   );
 };
 
+
+const [rotation, setRotation] = useState(0);
+const [isPaused, setIsPaused] = useState(false);
+useEffect(() => {
+  if (isPaused) return;   
+
+  const interval = setInterval(() => {
+    setRotation(prev => (prev + 1) % workflowData.length);
+  }, 2500);
+
+  return () => clearInterval(interval);
+}, [isPaused]);
+
+const workflowData = [
+  {
+    icon: <FaTruck />,
+    title: "Automated Gate Operations",
+    desc: "Reduce gate processing time by 60% with AI-powered automation."
+  },
+  {
+    icon: <FaCrosshairs />,
+    title: "Container Recognition",
+    desc: "OCR technology for accurate container identification in seconds."
+  },
+  {
+    icon: <FaMicrochip />,
+    title: "Intelligent Yard Planning",
+    desc: "AI algorithms optimize container placement for maximum efficiency"
+  },
+  {
+    icon: <FaMapMarkedAlt />,
+    title: "Digital Twin Technology",
+    desc: "Virtual yard simulation for scenario planning and optimization"
+  },
+  {
+    icon: <FaSearchLocation />,
+    title: "Equipment Optimization",
+    desc: "Reduce equipment idle time by 35% through smart scheduling"
+  },
+  {
+    icon: <FaSatelliteDish />,
+    title: "Real-time Analytics",
+    desc: "Monitor Activities with live dashboards and predictive insights"
+  }
+];
+
+const circlePositions = [
+  "top-6 left-52",      
+  "top-[35%] left-10",  
+  "top-[70%] left-60",   
+  "top-[70%] right-60",  
+  "top-[35%] right-10",  
+  "top-6 right-52",     
+];
+
+
   const stats = [
     {
       icon: <FaGlobe className="text-3xl text-blue-500" />,
@@ -272,43 +330,6 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
     },
   ];
 
-  // const yardManagementData = [
-  //   {
-  //     icon: <FaRobot className="text-xl text-blue-500" />,
-  //     title: "Automated Gate Operations",
-  //     description:
-  //       "Reduce gate processing time by 60% with AI-powered automation",
-  //   },
-  //   {
-  //     icon: <FaEye className="text-xl text-purple-500" />,
-  //     title: "Container Recognition",
-  //     description:
-  //       "OCR technology for accurate container identification in seconds",
-  //   },
-  //   {
-  //     icon: <FaBrain className="text-xl text-green-500" />,
-  //     title: "Intelligent Yard Planning",
-  //     description:
-  //       "AI algorithms optimize container placement for maximum efficiency",
-  //   },
-  //   {
-  //     icon: <FaChartLine className="text-xl text-yellow-500" />,
-  //     title: "Real-time Analytics",
-  //     description:
-  //       "Monitor Activities with live dashboards and predictive insights",
-  //   },
-  //   {
-  //     icon: <FaCogs className="text-xl text-red-500" />,
-  //     title: "Equipment Optimization",
-  //     description: "Reduce equipment idle time by 35% through smart scheduling",
-  //   },
-  //   {
-  //     icon: <FaWarehouse className="text-xl text-indigo-500" />,
-  //     title: "Digital Twin Technology",
-  //     description:
-  //       "Virtual yard simulation for scenario planning and optimization",
-  //   },
-  // ];
 
   const aiFeatures = [
     {
@@ -764,8 +785,6 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
       </section>
 
       {/*  AI-Powered Smart Gate Operation & Yard Management section */}
-  
-
 <section className="relative py-24 bg-gray-50 overflow-hidden">
   <AnimatedShapes />
 
@@ -795,25 +814,37 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
     </motion.div>
 
     {/* TREE CONTAINER */}
-   <div className="relative h-[750px] hidden md:block">
+   <div
+  className="relative h-[750px] hidden md:block"
+  onMouseEnter={() => setIsPaused(true)}
+  onMouseLeave={() => setIsPaused(false)}
+>
 
   {/* SVG CONNECTION LINES */}
-  <svg className="absolute inset-0 w-full h-full pointer-events-none">
+ <svg className="absolute inset-0 w-full h-full pointer-events-none">
 
-  {/* Left Branch */}
-  <line x1="50%" y1="46%" x2="22%" y2="18%" stroke="#3b82f6" strokeWidth="2" />
-  <line x1="46%" y1="50%" x2="15%" y2="40%" stroke="#8b5cf6" strokeWidth="2" />
-  <line x1="50%" y1="54%" x2="20%" y2="65%" stroke="#06b6d4" strokeWidth="2" />
+  {/* Left Top */}
+  <line x1="50%" y1="50%" x2="26%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
 
-  {/* Right Branch */}
-  <line x1="50%" y1="46%" x2="78%" y2="18%" stroke="#3b82f6" strokeWidth="2" />
-  <line x1="54%" y1="50%" x2="85%" y2="40%" stroke="#8b5cf6" strokeWidth="2" />
-  <line x1="50%" y1="54%" x2="80%" y2="65%" stroke="#06b6d4" strokeWidth="2" />
+  {/* Left Middle */}
+ <line x1="50%" y1="50%" x2="18%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
+
+  {/* Left Bottom */}
+  <line x1="50%" y1="50%" x2="26%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
+
+  {/* Right Top */}
+  <line x1="50%" y1="50%" x2="74%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
+
+  {/* Right Middle */}
+  <line x1="50%" y1="50%" x2="82%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
+
+  {/* Right Bottom */}
+  <line x1="50%" y1="50%" x2="74%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
 
 </svg>
 
   {/* CENTER AI CORE */}
-{/* CENTER AI CORE */}
+
 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
   <div
     className="
@@ -859,50 +890,80 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
 </div>
 
   {/* LEFT SIDE */}
+{workflowData.map((item, index) => {
+  const positionIndex = (index + rotation) % workflowData.length;
 
-  <WorkflowNode
-    icon={<FaTruck />}
-    title="Automated Gate Operations"
-    desc="Reduce gate processing time by 60% with AI-powered automation."
-    position="top-10 left-36"
-  />
+  return (
+    // <motion.div
+    //   key={index}
+    //   className={`absolute ${circlePositions[positionIndex]}`}
+    //   animate={{}}
+    //   transition={{ duration: 0.8, ease: "easeInOut" }}
+    // >
+    <motion.div
+  key={item.title}   
+  layout
+  transition={{
+    type: "spring",
+    stiffness: 120,
+    damping: 20
+  }}
+  className={`absolute ${circlePositions[positionIndex]}`} 
+>
+      <div
+  className="
+    w-56 h-56
+    bg-white
+    rounded-full
+    border-4
+    border-gray-200
+    shadow-md
+    flex flex-col
+    items-center
+    justify-center
+    text-center
+    p-6
+    transition-all
+    duration-300
+    ease-in-out
+    hover:border-blue-500
+    hover:shadow-xl
+    hover:scale-105
+  "
+>
+        <div className="text-3xl text-blue-600 mb-3">
+          {item.icon}
+        </div>
 
-  <WorkflowNode
-    icon={<FaCrosshairs />}
-    title="Container Recognition"
-    desc="OCR technology for accurate container identification in seconds."
-    position="top-[35%] left-10"
-  />
+        <h3 className="font-bold text-sm mb-2 text-gray-800">
+          {item.title}
+        </h3>
 
-  <WorkflowNode
-    icon={<FaMicrochip />}
-    title="Intelligent Yard Planning"
-    desc="AI algorithms optimize container placement for maximum efficiency"
-    position="top-[65%] left-36"
-  />
-
-  {/* RIGHT SIDE */}
-
-  <WorkflowNode
-    icon={<FaSatelliteDish />}
-    title="Real-time Analytics"
-    desc="Monitor Activities with live dashboards and predictive insights"
-    position="top-10 right-36"
-  />
-
-  <WorkflowNode
-    icon={<FaSearchLocation />}
-    title="Equipment Optimization"
-    desc="Reduce equipment idle time by 35% through smart scheduling"
-    position="top-[35%] right-10"
-  />
-
-  <WorkflowNode
-    icon={<FaMapMarkedAlt />}
-    title="Digital Twin Technology"
-    desc="Virtual yard simulation for scenario planning and optimization"
-    position="top-[65%] right-36"
-  />
+        <p className="text-xs text-gray-500 leading-snug">
+          {item.desc}
+        </p>
+         <span
+  className="
+    absolute
+    -bottom-4
+    w-10 h-10
+    flex items-center justify-center
+    rounded-full
+    bg-gradient-to-r from-blue-600 to-purple-600
+    text-white
+    text-sm
+    font-bold
+    shadow-lg
+    transition-all duration-300
+    group-hover:scale-110
+  "
+>
+  {index + 1}
+</span>
+      </div>
+    </motion.div>
+  );
+})}
 
 </div>
 
