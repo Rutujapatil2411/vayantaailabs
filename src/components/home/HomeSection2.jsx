@@ -1036,7 +1036,7 @@ const HomeSection2 = () => {
 </section>
 
       {/* Image Showcase Section */}
-      <section className="relative py-16 bg-white overflow-hidden">
+      {/* <section className="relative py-16 bg-white overflow-hidden">
         <AnimatedShapes />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1108,7 +1108,7 @@ const HomeSection2 = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* AI Features Section */}
       <section className="relative py-16 bg-gray-50 overflow-hidden">
