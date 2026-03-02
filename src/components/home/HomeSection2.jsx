@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
+import { FaSearchLocation } from "react-icons/fa";
 import {
   FaClipboardList,
   FaCrosshairs,
@@ -191,6 +192,46 @@ const HomeSection2 = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeWhyChoose, setActiveWhyChoose] = useState(0);
+const WorkflowNode = ({ icon, title, desc, position }) => {
+  return (
+    <div className={`absolute ${position} group`}>
+      <div
+        className="
+        w-56 h-56
+        bg-white
+        rounded-full
+        border-4
+        border-gray-200
+        shadow-md
+        flex flex-col
+        items-center
+        justify-center
+        text-center
+        p-6
+        transition-all
+        duration-300
+        ease-in-out
+        group-hover:shadow-xl
+        group-hover:-translate-y-2
+        group-hover:scale-105
+        group-hover:border-blue-500
+        "
+      >
+        <div className="text-3xl text-blue-600 mb-3 transition-transform duration-300 group-hover:rotate-6">
+          {icon}
+        </div>
+
+        <h3 className="font-bold text-sm mb-2 text-gray-800">
+          {title}
+        </h3>
+
+        <p className="text-xs text-gray-500 leading-snug">
+          {desc}
+        </p>
+      </div>
+    </div>
+  );
+};
 
   const stats = [
     {
@@ -231,43 +272,43 @@ const HomeSection2 = () => {
     },
   ];
 
-  const yardManagementData = [
-    {
-      icon: <FaRobot className="text-xl text-blue-500" />,
-      title: "Automated Gate Operations",
-      description:
-        "Reduce gate processing time by 60% with AI-powered automation",
-    },
-    {
-      icon: <FaEye className="text-xl text-purple-500" />,
-      title: "Container Recognition",
-      description:
-        "OCR technology for accurate container identification in seconds",
-    },
-    {
-      icon: <FaBrain className="text-xl text-green-500" />,
-      title: "Intelligent Yard Planning",
-      description:
-        "AI algorithms optimize container placement for maximum efficiency",
-    },
-    {
-      icon: <FaChartLine className="text-xl text-yellow-500" />,
-      title: "Real-time Analytics",
-      description:
-        "Monitor Activities with live dashboards and predictive insights",
-    },
-    {
-      icon: <FaCogs className="text-xl text-red-500" />,
-      title: "Equipment Optimization",
-      description: "Reduce equipment idle time by 35% through smart scheduling",
-    },
-    {
-      icon: <FaWarehouse className="text-xl text-indigo-500" />,
-      title: "Digital Twin Technology",
-      description:
-        "Virtual yard simulation for scenario planning and optimization",
-    },
-  ];
+  // const yardManagementData = [
+  //   {
+  //     icon: <FaRobot className="text-xl text-blue-500" />,
+  //     title: "Automated Gate Operations",
+  //     description:
+  //       "Reduce gate processing time by 60% with AI-powered automation",
+  //   },
+  //   {
+  //     icon: <FaEye className="text-xl text-purple-500" />,
+  //     title: "Container Recognition",
+  //     description:
+  //       "OCR technology for accurate container identification in seconds",
+  //   },
+  //   {
+  //     icon: <FaBrain className="text-xl text-green-500" />,
+  //     title: "Intelligent Yard Planning",
+  //     description:
+  //       "AI algorithms optimize container placement for maximum efficiency",
+  //   },
+  //   {
+  //     icon: <FaChartLine className="text-xl text-yellow-500" />,
+  //     title: "Real-time Analytics",
+  //     description:
+  //       "Monitor Activities with live dashboards and predictive insights",
+  //   },
+  //   {
+  //     icon: <FaCogs className="text-xl text-red-500" />,
+  //     title: "Equipment Optimization",
+  //     description: "Reduce equipment idle time by 35% through smart scheduling",
+  //   },
+  //   {
+  //     icon: <FaWarehouse className="text-xl text-indigo-500" />,
+  //     title: "Digital Twin Technology",
+  //     description:
+  //       "Virtual yard simulation for scenario planning and optimization",
+  //   },
+  // ];
 
   const aiFeatures = [
     {
@@ -723,145 +764,192 @@ const HomeSection2 = () => {
       </section>
 
       {/*  AI-Powered Smart Gate Operation & Yard Management section */}
-    
-      {/* --- UPDATED SECTION: AI-POWERED ANIMATED FLOW DESIGN --- */}
-      <section className="relative py-24 bg-gray-50 overflow-hidden">
-        <AnimatedShapes />
-        
-        {/* Background Tech Gradients */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px] -z-10 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] -z-10" style={{ animation: 'pulse 4s infinite' }}></div>
+  
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Section Header with AI Badge */}
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <div className="inline-flex items-center gap-2 
-                          px-4 py-2 mb-6
-                          bg-gray-900 
-                          rounded-full 
-                          text-white 
-                          font-bold uppercase tracking-wide text-xs shadow-lg border border-gray-800">
-              <FaMicrochip className="text-blue-400 animate-pulse" />
-              <span>Intelligent Workflow</span>
-            </div>
+<section className="relative py-24 bg-gray-50 overflow-hidden">
+  <AnimatedShapes />
 
-            <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-               AI-Powered Smart Gate Operation & Yard Management
- 
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Experience the seamless integration of AI logic from gate entry to final placement.
-            </p>
-          </motion.div>
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          {/* --- FLOW CONTAINER --- */}
-          <div className="relative">
-            
-            {/* ANIMATED VERTICAL LINE (Grows on scroll) */}
-            <motion.div 
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.5, ease: "circInOut" }}
-              className="absolute left-4 md:left-1/2 top-0 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-transparent origin-top -translate-x-1/2 hidden md:block rounded-full"
-            ></motion.div>
-            <motion.div 
-               initial={{ scaleY: 0 }}
-               whileInView={{ scaleY: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 1.5, ease: "circInOut" }}
-               className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 origin-top md:hidden rounded-full"
-            ></motion.div>
+    {/* Section Header */}
+    <motion.div
+      className="text-center mb-20"
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
+        <FaMicrochip className="text-blue-400 animate-pulse" />
+        <span>Intelligent Workflow</span>
+      </div>
 
-            {/* Flow Items Loop */}
-            {yardManagementData.map((item, index) => {
-              const isEven = index % 2 === 0;
+      <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        AI-Powered Smart Gate Operation & Yard Management
+      </h2>
 
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className={`relative flex items-center justify-between w-full mb-12 md:mb-20
-                              ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                >
-                  
-                  {/* 1. The AI Glass Card */}
-                  <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-                    <motion.div 
-                      className="relative bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/50 overflow-hidden group hover:shadow-2xl hover:border-blue-200 transition-all duration-300"
-                      whileHover={{ y: -5 }}
-                    >
-                      {/* Subtle Glow behind card */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      
-                      {/* Connector Arrow */}
-                      <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white/90 border-t border-r border-gray-300 transform z-20
-                                      ${isEven ? '-left-2 -rotate-135 md:left-auto md:-right-2 md:rotate-45' : '-left-2 -rotate-45 md:left-auto md:-right-2 md:-rotate-135'}`}></div>
-                      
-                      <div className="flex items-start gap-4 relative z-10">
-                        {/* Glowing Icon */}
-                        <div className={`relative w-12 h-12 rounded-xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center shrink-0 border border-gray-100 shadow-inner group-hover:shadow-blue-200/50 transition-all duration-300`}>
-                          <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                          <div className={`text-xl transition-colors duration-300 ${item.color}`}>
-                            {item.icon}
-                          </div>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-900 transition-colors">{item.title}</h3>
-                          <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
+      <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+        A centralized AI decision engine that processes real-time vision,
+        tracking, and yard intelligence.
+      </p>
+    </motion.div>
 
-                  {/* 2. The AI Node (Tech Pulse) */}
-                  <div className="absolute left-4 md:left-1/2 w-10 h-10 -translate-x-1/2 z-20 flex items-center justify-center">
-                    {/* Outer Spinning Ring */}
-                    <motion.div 
-                       animate={{ rotate: 360 }}
-                       transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-                       className="absolute inset-0 border-2 border-dashed border-blue-200 rounded-full"
-                    ></motion.div>
-                    {/* Inner Pulsing Circle */}
-                    <motion.div
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ repeat: Infinity, duration: 2 }}
-                      className="w-6 h-6 rounded-full bg-white border-4 border-blue-500 flex items-center justify-center shadow-md z-10"
-                    >
-                      <span className="text-[10px] font-bold text-blue-600">{index + 1}</span>
-                    </motion.div>
-                  </div>
+    {/* TREE CONTAINER */}
+   <div className="relative h-[750px] hidden md:block">
 
-                  {/* 3. Empty Space */}
-                  <div className="hidden md:block w-[45%]"></div>
+  {/* SVG CONNECTION LINES */}
+  <svg className="absolute inset-0 w-full h-full pointer-events-none">
 
-                </motion.div>
-              );
-            })}
+  {/* Left Branch */}
+  <line x1="50%" y1="46%" x2="22%" y2="18%" stroke="#3b82f6" strokeWidth="2" />
+  <line x1="46%" y1="50%" x2="15%" y2="40%" stroke="#8b5cf6" strokeWidth="2" />
+  <line x1="50%" y1="54%" x2="20%" y2="65%" stroke="#06b6d4" strokeWidth="2" />
 
-            {/* End Node */}
-            <motion.div 
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                className="absolute left-4 md:left-1/2 bottom-0 w-4 h-4 rounded-full bg-purple-500 -translate-x-1/2 shadow-[0_0_10px_rgba(168,85,247,0.8)] z-20"
-            ></motion.div>
+  {/* Right Branch */}
+  <line x1="50%" y1="46%" x2="78%" y2="18%" stroke="#3b82f6" strokeWidth="2" />
+  <line x1="54%" y1="50%" x2="85%" y2="40%" stroke="#8b5cf6" strokeWidth="2" />
+  <line x1="50%" y1="54%" x2="80%" y2="65%" stroke="#06b6d4" strokeWidth="2" />
 
+</svg>
+
+  {/* CENTER AI CORE */}
+{/* CENTER AI CORE */}
+<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+  <div
+    className="
+      w-40 h-40
+      rounded-full
+      bg-gradient-to-r from-blue-600 to-purple-600
+      flex flex-col
+      items-center
+      justify-center
+      text-center
+      shadow-2xl
+      px-4
+      transition-all
+      duration-300
+      ease-in-out
+      group-hover:scale-110
+      group-hover:from-yellow-300
+      group-hover:to-orange-400
+    "
+  >
+    <FaBrain className="
+      text-white
+      text-4xl
+      mb-2
+      transition-all
+      duration-300
+      group-hover:text-black
+      group-hover:rotate-12
+    " />
+
+    <span className="
+      text-white
+      text-sm
+      font-semibold
+      leading-tight
+      transition-all
+      duration-300
+      group-hover:text-black
+    ">
+      Processing Core
+    </span>
+  </div>
+</div>
+
+  {/* LEFT SIDE */}
+
+  <WorkflowNode
+    icon={<FaTruck />}
+    title="Automated Gate Operations"
+    desc="Reduce gate processing time by 60% with AI-powered automation."
+    position="top-10 left-36"
+  />
+
+  <WorkflowNode
+    icon={<FaCrosshairs />}
+    title="Container Recognition"
+    desc="OCR technology for accurate container identification in seconds."
+    position="top-[35%] left-10"
+  />
+
+  <WorkflowNode
+    icon={<FaMicrochip />}
+    title="Intelligent Yard Planning"
+    desc="AI algorithms optimize container placement for maximum efficiency"
+    position="top-[65%] left-36"
+  />
+
+  {/* RIGHT SIDE */}
+
+  <WorkflowNode
+    icon={<FaSatelliteDish />}
+    title="Real-time Analytics"
+    desc="Monitor Activities with live dashboards and predictive insights"
+    position="top-10 right-36"
+  />
+
+  <WorkflowNode
+    icon={<FaSearchLocation />}
+    title="Equipment Optimization"
+    desc="Reduce equipment idle time by 35% through smart scheduling"
+    position="top-[35%] right-10"
+  />
+
+  <WorkflowNode
+    icon={<FaMapMarkedAlt />}
+    title="Digital Twin Technology"
+    desc="Virtual yard simulation for scenario planning and optimization"
+    position="top-[65%] right-36"
+  />
+
+</div>
+
+    {/* MOBILE FALLBACK (Stacked) */}
+    <div className="md:hidden space-y-6">
+      {[
+        {
+          icon: <FaTruck />,
+          title: "Gate Entry",
+          desc: "Container enters yard.",
+        },
+        {
+          icon: <FaCrosshairs />,
+          title: "YOLO Detection",
+          desc: "Container detection & code isolation.",
+        },
+        {
+          icon: <FaBrain />,
+          title: "AI Processing Core",
+          desc: "Central AI decision engine.",
+        },
+        {
+          icon: <FaSatelliteDish />,
+          title: "GPS Tracking",
+          desc: "Real-time yard movement tracking.",
+        },
+        {
+          icon: <FaMapMarkedAlt />,
+          title: "Map Update",
+          desc: "Automatic TOS updates.",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="bg-white p-6 rounded-xl shadow-md text-center"
+        >
+          <div className="text-3xl text-blue-600 mb-3">
+            {item.icon}
           </div>
-
+          <h3 className="font-bold mb-2">{item.title}</h3>
+          <p className="text-sm text-gray-500">{item.desc}</p>
         </div>
-      </section>
+      ))}
+    </div>
 
+  </div>
+</section>
     
 {/* AUTOMATED CONTAINER TRACKING SYSTEM SECTION */}
 <section id="project" className="relative py-24 bg-white overflow-hidden">
@@ -1035,80 +1123,6 @@ const HomeSection2 = () => {
   </div>
 </section>
 
-      {/* Image Showcase Section */}
-      {/* <section className="relative py-16 bg-white overflow-hidden">
-        <AnimatedShapes />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Client-Focused. Ethically Guided. Excellence Assured.
-              </span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-2 gap-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <motion.div
-              className="overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 relative group h-[420px]"
-              whileHover={{
-                scale: 1.03,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-              }}
-            >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              >
-                <source
-                  src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid2.mp4"
-                  type="video/mp4"
-                />
-              </video>
-             
-
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/0 to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-
-            <motion.div
-              className="overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 relative group h-[420px] mt-32"
-              whileHover={{
-                scale: 1.03,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
-              }}
-            >
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              >
-                <source
-                  src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid4.mp4"
-                  type="video/mp4"
-                />
-              </video>
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/0 to-purple-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-          </motion.div>
-        </div>
-      </section> */}
 
       {/* AI Features Section */}
       <section className="relative py-16 bg-gray-50 overflow-hidden">

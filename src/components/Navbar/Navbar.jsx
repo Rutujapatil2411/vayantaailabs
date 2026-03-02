@@ -193,15 +193,15 @@ const moreItems = [
           : 'bg-transparent py-4'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+<div className="w-full px-6 lg:px-16">
+            <div className="flex justify-between items-center h-16">
             {/* Left Side - Logo */}
 <motion.div
   variants={logoVariants}
   initial="initial"
   animate="animate"
   whileHover="hover"
-  className="flex items-center -ml-12 md:-ml-28"
+ className="flex items-center -ml-6 lg:-ml-18"
 >
   <Link to="/" className="flex items-center">
     <motion.div 
@@ -220,7 +220,7 @@ const moreItems = [
 </motion.div>
 
             {/* Right Side - Desktop Menu Items */}
-            <div className="hidden lg:flex items-center space-x-8 -mr-14">
+            <div className="hidden lg:flex items-center space-x-8 ml-auto">
               {menuItems.map((item, index) => (
                 <motion.div
                   key={item.path}
