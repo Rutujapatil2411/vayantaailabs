@@ -61,7 +61,7 @@ import {
 } from "react-icons/fa";
 
 const HomeSection1 = () => {
-  // --- A) PARALLAX & B) PAGE FLIP LOGIC ---
+ 
   const { scrollY } = useScroll();
 
   // 1. Background moves SLOWLY (Parallax Depth)
@@ -78,13 +78,12 @@ const HomeSection1 = () => {
   const opacityContent = useTransform(scrollY, [300, 700], [1, 0]);
 
   // --- D) TEXT REVEAL ANIMATION VARIANTS ---
-  // Updated to include BLUR -> SHARP transition
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Slightly faster stagger for snappier feel
+        staggerChildren: 0.2, 
         delayChildren: 0.2,
       },
     },
@@ -94,12 +93,12 @@ const HomeSection1 = () => {
     hidden: { 
       y: 40, 
       opacity: 0, 
-      filter: "blur(10px)" // START: Blurry
+      filter: "blur(10px)" 
     },
     visible: {
       y: 0, 
       opacity: 1, 
-      filter: "blur(0px)", // END: Sharp
+      filter: "blur(0px)", 
       transition: { duration: 0.8, ease: "easeOut" }
     },
   };
@@ -111,7 +110,7 @@ const HomeSection1 = () => {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.1, // Stagger cards
+        delay: i * 0.1, 
         duration: 0.6,
       },
     }),
@@ -172,15 +171,12 @@ const HomeSection1 = () => {
 
   return (
     <div className="w-full bg-gray-900">
-      {/* --- HERO SECTION --- */}
-      
       <div className="relative min-h-[85vh] lg:min-h-[95vh] overflow-hidden">
-      
-        {/* Parallax Background Div with Page Flip Scale */}
+     
         <motion.div 
           style={{ 
             y: yBg, 
-            scale: scaleBg // Implements Zoom Out (Page Flip)
+            scale: scaleBg 
           }} 
           className="absolute inset-0 z-0 overflow-hidden origin-center"
         >
@@ -190,7 +186,7 @@ const HomeSection1 = () => {
             muted
             playsInline
             className="w-full h-full object-cover"
-            // Removed scale-[1.15] from class because we control it via motion.div style
+          
           >
             <source
               src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid6.mp4"
@@ -209,7 +205,7 @@ const HomeSection1 = () => {
         <motion.div 
           style={{ 
             y: yText, 
-            opacity: opacityContent // Implements Fade Out (Page Flip)
+            opacity: opacityContent 
           }} 
           className="relative z-10"
         >
@@ -222,10 +218,11 @@ const HomeSection1 = () => {
                 animate="visible"
                 className="max-w-2xl mt-28"
               >
-                {/* Main Heading - Left Aligned */}
+               
                 <motion.h1
-                  variants={itemVariants} // Now uses Blur variants
+                  variants={itemVariants} 
                   className="text-4xl md:text-6xl lg:text-8xl font-bold mt-8 mb-6"
+                  // className="text-3xl md:text-5xl lg:text-6xl font-bold mt-8 mb-6"
                 >
                   <span className="text-white">Artificial</span>
                   <br />
@@ -303,7 +300,7 @@ const HomeSection1 = () => {
             </div>
           </section>
 
-          {/* Logo Sliding Strip - FULL WIDTH */}
+          {/* Logo Sliding Strip */}
           <div className="mt-10 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
             {/* Left Text */}
             <div className="flex flex-col justify-center mr-8 leading-tight">
@@ -354,7 +351,7 @@ const HomeSection1 = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={containerVariants} // Use container for stagger
+            variants={containerVariants} 
             className="text-center mb-12"
           >
             <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
@@ -378,7 +375,7 @@ const HomeSection1 = () => {
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }} // Trigger slightly before view
+                viewport={{ once: true, margin: "-50px" }} 
                 whileHover="hover"
                 className="relative group"
               >
