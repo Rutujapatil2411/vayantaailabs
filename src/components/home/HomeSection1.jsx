@@ -248,7 +248,7 @@ const HomeSection1 = () => {
                 </motion.p>
 
                 {/* CTA Buttons */}
-                <motion.div
+                {/* <motion.div
                   variants={itemVariants}
                   className="flex flex-col sm:flex-row gap-4 mb-8"
                 >
@@ -268,7 +268,7 @@ const HomeSection1 = () => {
                     <span className="text-lg">Our Services</span>
                     <FaArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </motion.button>
-                </motion.div>
+                </motion.div> */}
 
                 {/* Stats Bar */}
                 <motion.div
