@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearchLocation } from "react-icons/fa";
+
 import {
   FaClipboardList,
   FaCrosshairs,
@@ -785,10 +786,22 @@ const circlePositions = [
       </section>
 
       {/*  AI-Powered Smart Gate Operation & Yard Management section */}
-<section className="relative py-24 bg-gray-50 overflow-hidden">
+<section className="relative pt-24 pb-12 bg-white overflow-hidden">
   <AnimatedShapes />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+ <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+  {/* OUTER CONTAINER START */}
+  <div className="
+      relative
+      bg-gray-50
+      rounded-3xl
+      shadow-xl
+      border border-gray-200
+      px-6 md:px-12
+py-10
+      overflow-hidden
+  ">
 
     {/* Section Header */}
     <motion.div
@@ -1010,14 +1023,30 @@ const circlePositions = [
     </div>
 
   </div>
+  </div>
 </section>
     
 {/* AUTOMATED CONTAINER TRACKING SYSTEM SECTION */}
-<section id="project" className="relative py-24 bg-white overflow-hidden">
+<section id="project" className="relative py-14 bg-white overflow-hidden">
   <AnimatedShapes />
+
   <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
   <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-50"></div>
+
   <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* OUTER CONTAINER START */}
+    <div className="
+        relative
+        bg-gray-50
+        rounded-3xl
+        shadow-xl
+        border border-gray-200
+        px-8 md:px-14
+py-10
+        overflow-hidden
+    ">
+    
 
     {/* Heading */}
     <motion.div
@@ -1106,14 +1135,14 @@ const circlePositions = [
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {/* Desktop Connecting Lines */}
-<div className="hidden md:block absolute left-0 right-0 top-12 -z-10">
+  {/* Desktop Connecting Lines */}
+<div className="hidden md:block absolute left-0 right-0 top-12 z-0">
 
-  {/* Upper Short Line (between first & last icon only) */}
   <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
 
-  {/* Center Full Line (existing one) */}
   <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
+
+
 
 </div>
         {[
@@ -1182,13 +1211,25 @@ const circlePositions = [
       </motion.div>
     </motion.div>
   </div>
+   </div>
 </section>
 
 
       {/* AI Features Section */}
-      <section className="relative py-16 bg-gray-50 overflow-hidden">
+     <section className="relative py-14 bg-white overflow-hidden">
         <AnimatedShapes />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           {/* OUTER CONTAINER START */}
+    <div className="
+        relative
+        bg-gray-50
+        rounded-3xl
+        shadow-xl
+        border border-gray-200
+        px-8 md:px-16
+py-10
+        overflow-hidden
+    ">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: -30 }}
@@ -1268,6 +1309,7 @@ const circlePositions = [
               </motion.div>
             ))}
           </motion.div>
+        </div>
         </div>
       </section>
 
