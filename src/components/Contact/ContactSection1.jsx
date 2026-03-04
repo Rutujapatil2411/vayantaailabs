@@ -75,10 +75,10 @@ const ContactSection1 = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden"
+            className="bg-white/5 backdrop-blur-xl  shadow-2xl border border-white/10 overflow-hidden"
           >
             
-            <div
+            {/* <div
               className="p-12 text-center 
                 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900"
             >
@@ -104,21 +104,23 @@ const ContactSection1 = () => {
                 Visit our office or schedule a meeting with our experts . Let’s collaborate
                 and build intelligent digital solutions together.
               </motion.p>
-            </div>
+            </div> */}
 
+           
             {/* MAP SECTION */}
-            <div className="w-full h-[450px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5860675932972!2d73.7449598!3d18.592691300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb8f19f03b7b%3A0x13da2894436bf943!2sRapportsoft%20Consulting%20%26%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1772599969782!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Rapportsoft Location"
-              ></iframe>
-            </div>
+<div className="w-full h-[450px]">
+  <iframe
+    title="Company Location"
+    src="https://www.google.com/maps?q=YOUR_LOCATION&output=embed"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+   
+  ></iframe>
+</div>
           </motion.div>
         </div>
       </section>

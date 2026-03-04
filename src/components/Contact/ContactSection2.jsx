@@ -263,9 +263,28 @@ const ContactSection2 = () => {
 
                   <p className="text-gray-600">+91-90110 75932</p>
                   <p className="text-gray-600">+91-83294 69330</p>
+
+                  
                 </div>
+                
               </div>
             </motion.div>
+            {/* Google Map */}
+<motion.div
+  variants={itemVariants}
+  className="mt-10  overflow-hidden shadow-lg border border-gray-200"
+>
+  <iframe
+    title="Company Location"
+   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5860675932972!2d73.7449598!3d18.592691300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb8f19f03b7b%3A0x13da2894436bf943!2sRapportsoft%20Consulting%20%26%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1772599969782!5m2!1sen!2sin"
+    width="100%"
+    height="250"
+    style={{ border: 0 }}
+    allowFullScreen=""
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</motion.div>
           </motion.div>
 
           {/*  Contact Form */}

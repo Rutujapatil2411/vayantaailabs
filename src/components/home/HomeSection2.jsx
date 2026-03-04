@@ -259,17 +259,7 @@ const HomeSection2 = () => {
     );
   };
 
-  // const [rotation, setRotation] = useState(0);
-  // const [isPaused, setIsPaused] = useState(false);
-  // useEffect(() => {
-  //   if (isPaused) return;
 
-  //   const interval = setInterval(() => {
-  //     setRotation(prev => (prev + 1) % workflowData.length);
-  //   }, 2500);
-
-  //   return () => clearInterval(interval);
-  // }, [isPaused]);
 
   const workflowData = [
     {
@@ -527,18 +517,7 @@ const HomeSection2 = () => {
     },
   };
 
-  // const cardHoverVariants = {
-  //   hover: {
-  //     y: -8,
-  //     scale: 1.02,
-  //     boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-  //     transition: {
-  //       duration: 0.3,
-  //       ease: [0.25, 0.46, 0.45, 0.94],
-  //     },
-  //   },
-  // };
-
+ 
   return (
     <div className="bg-white">
       <section className="relative py-20 overflow-hidden">
@@ -847,8 +826,7 @@ const HomeSection2 = () => {
             {/* TREE CONTAINER */}
             <div
               className="relative h-[600px] hidden md:block"
-              // onMouseEnter={() => setIsPaused(true)}
-              // onMouseLeave={() => setIsPaused(false)}
+             
             >
               {/* SVG CONNECTION LINES */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -965,20 +943,11 @@ const HomeSection2 = () => {
 
               {/* LEFT SIDE */}
               {workflowData.map((item, index) => {
-                // const positionIndex = (index + rotation) % workflowData.length;
+              
                 const positionIndex = index;
 
                 return (
-                  //     <motion.div
-                  //   key={item.title}
-                  //   layout
-                  //   transition={{
-                  //     type: "spring",
-                  //     stiffness: 120,
-                  //     damping: 20
-                  //   }}
-                  //   className={`absolute ${circlePositions[positionIndex]}`}
-                  // >
+                 
                   <div
                     key={item.title}
                     className={`absolute ${circlePositions[index]}`}
@@ -1524,8 +1493,7 @@ py-10
           </motion.div>
         </div>
       </section>
-      {/* Our Clients Section */}
-      {/* <KeyClients /> */}
+     
     </div>
   );
 };
