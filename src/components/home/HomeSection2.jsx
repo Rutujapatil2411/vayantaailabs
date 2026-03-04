@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearchLocation } from "react-icons/fa";
+import { useParallax } from "react-scroll-parallax";
+import {  useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 import {
   FaClipboardList,
   FaCrosshairs,
   FaSatelliteDish,
-  FaMapMarkedAlt
+  FaMapMarkedAlt,
 } from "react-icons/fa";
 import { FaMicrochip } from "react-icons/fa";
 import { useEffect } from "react";
@@ -20,7 +23,6 @@ import AI2 from "../../assets/img/ai2.jpg";
 import AI3 from "../../assets/img/ai3.jpg";
 import AI4 from "../../assets/img/ai4.jpg";
 import portBg from "../../assets/img/shipping.jpg";
-
 
 import {
   FaGlobe,
@@ -188,18 +190,41 @@ const AnimatedShapes = () => {
   );
 };
 
+const ParallaxCard = ({ children }) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 75%", "end 25%"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.65]);
+
+  const opacity = useTransform(scrollYProgress, [0.7, 1], [1, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ scale, opacity }}
+      className="relative"
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 const HomeSection2 = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeWhyChoose, setActiveWhyChoose] = useState(0);
 
-
-const WorkflowNode = ({ icon, title, desc, position }) => {
-  return (
-    <div className={`absolute ${position} group`}>
-      <div
-        className="
+ 
+  const WorkflowNode = ({ icon, title, desc, position }) => {
+    return (
+      <div className={`absolute ${position} group`}>
+        <div
+          className="
         w-56 h-56
         bg-white
         rounded-full
@@ -219,78 +244,72 @@ const WorkflowNode = ({ icon, title, desc, position }) => {
         group-hover:scale-105
         group-hover:border-blue-500
         "
-      >
-        <div className="text-3xl text-blue-600 mb-3 transition-transform duration-300 group-hover:rotate-6">
-          {icon}
+        >
+          <div className="text-3xl text-blue-600 mb-3 transition-transform duration-300 group-hover:rotate-6">
+            {icon}
+          </div>
+
+          <h3 className="font-bold text-sm mb-2 text-gray-800">{title}</h3>
+
+          <p className="text-xs text-gray-500 leading-snug">{desc}</p>
         </div>
-
-        <h3 className="font-bold text-sm mb-2 text-gray-800">
-          {title}
-        </h3>
-
-        <p className="text-xs text-gray-500 leading-snug">
-          {desc}
-        </p>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
+  // const [rotation, setRotation] = useState(0);
+  // const [isPaused, setIsPaused] = useState(false);
+  // useEffect(() => {
+  //   if (isPaused) return;
 
-const [rotation, setRotation] = useState(0);
-const [isPaused, setIsPaused] = useState(false);
-useEffect(() => {
-  if (isPaused) return;   
+  //   const interval = setInterval(() => {
+  //     setRotation(prev => (prev + 1) % workflowData.length);
+  //   }, 2500);
 
-  const interval = setInterval(() => {
-    setRotation(prev => (prev + 1) % workflowData.length);
-  }, 2500);
+  //   return () => clearInterval(interval);
+  // }, [isPaused]);
 
-  return () => clearInterval(interval);
-}, [isPaused]);
+  const workflowData = [
+    {
+      icon: <FaTruck />,
+      title: "Automated Gate Operations",
+      desc: "Reduce gate processing time by 60% with AI-powered automation.",
+    },
+    {
+      icon: <FaCrosshairs />,
+      title: "Container Recognition",
+      desc: "OCR technology for accurate container identification in seconds.",
+    },
+    {
+      icon: <FaMicrochip />,
+      title: "Intelligent Yard Planning",
+      desc: "AI algorithms optimize container placement for maximum efficiency",
+    },
+    {
+      icon: <FaMapMarkedAlt />,
+      title: "Digital Twin Technology",
+      desc: "Virtual yard simulation for scenario planning and optimization",
+    },
+    {
+      icon: <FaSearchLocation />,
+      title: "Equipment Optimization",
+      desc: "Reduce equipment idle time by 35% through smart scheduling",
+    },
+    {
+      icon: <FaSatelliteDish />,
+      title: "Real-time Analytics",
+      desc: "Monitor Activities with live dashboards and predictive insights",
+    },
+  ];
 
-const workflowData = [
-  {
-    icon: <FaTruck />,
-    title: "Automated Gate Operations",
-    desc: "Reduce gate processing time by 60% with AI-powered automation."
-  },
-  {
-    icon: <FaCrosshairs />,
-    title: "Container Recognition",
-    desc: "OCR technology for accurate container identification in seconds."
-  },
-  {
-    icon: <FaMicrochip />,
-    title: "Intelligent Yard Planning",
-    desc: "AI algorithms optimize container placement for maximum efficiency"
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Digital Twin Technology",
-    desc: "Virtual yard simulation for scenario planning and optimization"
-  },
-  {
-    icon: <FaSearchLocation />,
-    title: "Equipment Optimization",
-    desc: "Reduce equipment idle time by 35% through smart scheduling"
-  },
-  {
-    icon: <FaSatelliteDish />,
-    title: "Real-time Analytics",
-    desc: "Monitor Activities with live dashboards and predictive insights"
-  }
-];
-
-const circlePositions = [
-  "top-6 left-52",      
-  "top-[35%] left-10",  
-  "top-[70%] left-60",   
-  "top-[70%] right-60",  
-  "top-[35%] right-10",  
-  "top-6 right-52",     
-];
-
+  const circlePositions = [
+    "top-6 left-52",
+    "top-[35%] left-10",
+    "top-[70%] left-60",
+    "top-[70%] right-60",
+    "top-[35%] right-10",
+    "top-6 right-52",
+  ];
 
   const stats = [
     {
@@ -330,7 +349,6 @@ const circlePositions = [
       description: "Expert developers and consultants",
     },
   ];
-
 
   const aiFeatures = [
     {
@@ -483,8 +501,6 @@ const circlePositions = [
     "Madagascar",
   ];
 
-  
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -521,7 +537,6 @@ const circlePositions = [
   //   },
   // };
 
- 
   return (
     <div className="bg-white">
       <section className="relative py-20 overflow-hidden">
@@ -540,7 +555,6 @@ const circlePositions = [
               type="video/mp4"
             />
           </video>
-          
         </div>
 
         <div className="absolute inset-0 z-20 overflow-hidden">
@@ -569,7 +583,6 @@ const circlePositions = [
               }}
             />
           ))}
-
         </div>
 
         <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -593,20 +606,20 @@ const circlePositions = [
               </span>{" "}
               in Smart Gate & Yard Management
             </motion.h1>
-           <motion.p
-  className="text-xl max-w-3xl mx-auto mb-8 text-justify"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8, delay: 0.4 }}
->
-  Founded in 2020 and headquartered in Pune, Vyantra AI Labs is a
-  trusted technology partner delivering intelligent gate automation
-  and terminal management systems. With ISO-certified processes and deep AI expertise, we
-  design and deliver scalable, secure, and intelligent enterprise
-  systems that drive operational efficiency and digital
-  transformation.
-</motion.p>
+            <motion.p
+              className="text-xl max-w-3xl mx-auto mb-8 text-justify"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Founded in 2020 and headquartered in Pune, Vyantra AI Labs is a
+              trusted technology partner delivering intelligent gate automation
+              and terminal management systems. With ISO-certified processes and
+              deep AI expertise, we design and deliver scalable, secure, and
+              intelligent enterprise systems that drive operational efficiency
+              and digital transformation.
+            </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
@@ -648,8 +661,8 @@ const circlePositions = [
             </h2>
 
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Delivering innovation, precision, and measurable impact in
-              Smart logistics systems Products for over 15+ years.
+              Delivering innovation, precision, and measurable impact in Smart
+              logistics systems Products for over 15+ years.
             </p>
           </motion.div>
 
@@ -786,82 +799,124 @@ const circlePositions = [
       </section>
 
       {/*  AI-Powered Smart Gate Operation & Yard Management section */}
+      
 <section className="relative pt-24 pb-12 bg-white overflow-hidden">
-  <AnimatedShapes />
+  <ParallaxCard>
+        <AnimatedShapes />
 
- <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* OUTER CONTAINER START */}
+          <div
+            className="
+    relative
+    bg-gray-50
+    rounded-3xl
+    shadow-xl
+    border border-gray-200
+    px-6 md:px-12
+    py-10
+    overflow-hidden
+    transition-all duration-500
+  "
+          >
+            {/* Section Header */}
+            <motion.div
+              className="text-center "
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
+                <FaMicrochip className="text-blue-400 animate-pulse" />
+                <span>Intelligent Workflow</span>
+              </div>
 
-  {/* OUTER CONTAINER START */}
-  <div className="
-      relative
-      bg-gray-50
-      rounded-3xl
-      shadow-xl
-      border border-gray-200
-      px-6 md:px-12
-py-10
-      overflow-hidden
-  ">
+              <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                AI-Powered Smart Gate Operation & Yard Management
+              </h2>
 
-    {/* Section Header */}
-    <motion.div
-      className="text-center mb-20"
-      initial={{ opacity: 0, y: -30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-    >
-      <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
-        <FaMicrochip className="text-blue-400 animate-pulse" />
-        <span>Intelligent Workflow</span>
-      </div>
+              <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+                A centralized AI decision engine that processes real-time
+                vision, tracking, and yard intelligence.
+              </p>
+            </motion.div>
 
-      <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        AI-Powered Smart Gate Operation & Yard Management
-      </h2>
+            {/* TREE CONTAINER */}
+            <div
+              className="relative h-[600px] hidden md:block"
+              // onMouseEnter={() => setIsPaused(true)}
+              // onMouseLeave={() => setIsPaused(false)}
+            >
+              {/* SVG CONNECTION LINES */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                {/* Left Top */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="26%"
+                  y2="16%"
+                  stroke="#3b82f6"
+                  strokeWidth="2"
+                />
 
-      <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-        A centralized AI decision engine that processes real-time vision,
-        tracking, and yard intelligence.
-      </p>
-    </motion.div>
+                {/* Left Middle */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="18%"
+                  y2="49%"
+                  stroke="#8b5cf6"
+                  strokeWidth="2"
+                />
 
-    {/* TREE CONTAINER */}
-   <div
-  className="relative h-[750px] hidden md:block"
-  onMouseEnter={() => setIsPaused(true)}
-  onMouseLeave={() => setIsPaused(false)}
->
+                {/* Left Bottom */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="26%"
+                  y2="80%"
+                  stroke="#06b6d4"
+                  strokeWidth="2"
+                />
 
-  {/* SVG CONNECTION LINES */}
- <svg className="absolute inset-0 w-full h-full pointer-events-none">
+                {/* Right Top */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="74%"
+                  y2="16%"
+                  stroke="#3b82f6"
+                  strokeWidth="2"
+                />
 
-  {/* Left Top */}
-  <line x1="50%" y1="50%" x2="26%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
+                {/* Right Middle */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="82%"
+                  y2="49%"
+                  stroke="#8b5cf6"
+                  strokeWidth="2"
+                />
 
-  {/* Left Middle */}
- <line x1="50%" y1="50%" x2="18%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
+                {/* Right Bottom */}
+                <line
+                  x1="50%"
+                  y1="50%"
+                  x2="74%"
+                  y2="80%"
+                  stroke="#06b6d4"
+                  strokeWidth="2"
+                />
+              </svg>
 
-  {/* Left Bottom */}
-  <line x1="50%" y1="50%" x2="26%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
+              {/* CENTER AI CORE */}
 
-  {/* Right Top */}
-  <line x1="50%" y1="50%" x2="74%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
-
-  {/* Right Middle */}
-  <line x1="50%" y1="50%" x2="82%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
-
-  {/* Right Bottom */}
-  <line x1="50%" y1="50%" x2="74%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
-
-</svg>
-
-  {/* CENTER AI CORE */}
-
-<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
-  <div
-    className="
-      w-40 h-40
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+                <div
+                  className="
+      w-32 h-32
       rounded-full
       bg-gradient-to-r from-blue-600 to-purple-600
       flex flex-col
@@ -877,18 +932,21 @@ py-10
       group-hover:from-yellow-300
       group-hover:to-orange-400
     "
-  >
-    <FaBrain className="
+                >
+                  <FaBrain
+                    className="
       text-white
-      text-4xl
+      text-3xl
       mb-2
       transition-all
       duration-300
       group-hover:text-black
       group-hover:rotate-12
-    " />
+    "
+                  />
 
-    <span className="
+                  <span
+                    className="
       text-white
       text-sm
       font-semibold
@@ -896,36 +954,36 @@ py-10
       transition-all
       duration-300
       group-hover:text-black
-    ">
-      Processing Core
-    </span>
-  </div>
-</div>
+    "
+                  >
+                    Processing Core
+                  </span>
+                </div>
+              </div>
 
-  {/* LEFT SIDE */}
-{workflowData.map((item, index) => {
-  const positionIndex = (index + rotation) % workflowData.length;
+              {/* LEFT SIDE */}
+              {workflowData.map((item, index) => {
+                // const positionIndex = (index + rotation) % workflowData.length;
+                const positionIndex = index;
 
-  return (
-    // <motion.div
-    //   key={index}
-    //   className={`absolute ${circlePositions[positionIndex]}`}
-    //   animate={{}}
-    //   transition={{ duration: 0.8, ease: "easeInOut" }}
-    // >
-    <motion.div
-  key={item.title}   
-  layout
-  transition={{
-    type: "spring",
-    stiffness: 120,
-    damping: 20
-  }}
-  className={`absolute ${circlePositions[positionIndex]}`} 
->
-      <div
-  className="
-    w-56 h-56
+                return (
+                  //     <motion.div
+                  //   key={item.title}
+                  //   layout
+                  //   transition={{
+                  //     type: "spring",
+                  //     stiffness: 120,
+                  //     damping: 20
+                  //   }}
+                  //   className={`absolute ${circlePositions[positionIndex]}`}
+                  // >
+                  <div
+                    key={item.title}
+                    className={`absolute ${circlePositions[index]}`}
+                  >
+                    <div
+                      className="
+    w-44 h-44
     bg-white
     rounded-full
     border-4
@@ -935,7 +993,7 @@ py-10
     items-center
     justify-center
     text-center
-    p-6
+    p-4
     transition-all
     duration-300
     ease-in-out
@@ -943,20 +1001,20 @@ py-10
     hover:shadow-xl
     hover:scale-105
   "
->
-        <div className="text-3xl text-blue-600 mb-3">
-          {item.icon}
-        </div>
+                    >
+                      <div className="text-2xl text-blue-600 mb-3">
+                        {item.icon}
+                      </div>
 
-        <h3 className="font-bold text-sm mb-2 text-gray-800">
-          {item.title}
-        </h3>
+                      <h3 className="font-bold text-sm mb-2 text-gray-800">
+                        {item.title}
+                      </h3>
 
-        <p className="text-xs text-gray-500 leading-snug">
-          {item.desc}
-        </p>
-         <span
-  className="
+                      <p className="text-xs text-gray-500 leading-snug">
+                        {item.desc}
+                      </p>
+                      <span
+                        className="
     absolute
     -bottom-4
     w-10 h-10
@@ -970,73 +1028,75 @@ py-10
     transition-all duration-300
     group-hover:scale-110
   "
->
-  {index + 1}
-</span>
-      </div>
-    </motion.div>
-  );
-})}
+                      >
+                        {index + 1}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-</div>
-
-    {/* MOBILE FALLBACK (Stacked) */}
-    <div className="md:hidden space-y-6">
-      {[
-        {
-          icon: <FaTruck />,
-          title: "Gate Entry",
-          desc: "Container enters yard.",
-        },
-        {
-          icon: <FaCrosshairs />,
-          title: "YOLO Detection",
-          desc: "Container detection & code isolation.",
-        },
-        {
-          icon: <FaBrain />,
-          title: "AI Processing Core",
-          desc: "Central AI decision engine.",
-        },
-        {
-          icon: <FaSatelliteDish />,
-          title: "GPS Tracking",
-          desc: "Real-time yard movement tracking.",
-        },
-        {
-          icon: <FaMapMarkedAlt />,
-          title: "Map Update",
-          desc: "Automatic TOS updates.",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="bg-white p-6 rounded-xl shadow-md text-center"
-        >
-          <div className="text-3xl text-blue-600 mb-3">
-            {item.icon}
+            {/* MOBILE FALLBACK (Stacked) */}
+            <div className="md:hidden space-y-6">
+              {[
+                {
+                  icon: <FaTruck />,
+                  title: "Gate Entry",
+                  desc: "Container enters yard.",
+                },
+                {
+                  icon: <FaCrosshairs />,
+                  title: "YOLO Detection",
+                  desc: "Container detection & code isolation.",
+                },
+                {
+                  icon: <FaBrain />,
+                  title: "AI Processing Core",
+                  desc: "Central AI decision engine.",
+                },
+                {
+                  icon: <FaSatelliteDish />,
+                  title: "GPS Tracking",
+                  desc: "Real-time yard movement tracking.",
+                },
+                {
+                  icon: <FaMapMarkedAlt />,
+                  title: "Map Update",
+                  desc: "Automatic TOS updates.",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white p-6 rounded-xl shadow-md text-center"
+                >
+                  <div className="text-3xl text-blue-600 mb-3">{item.icon}</div>
+                  <h3 className="font-bold mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-500">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <h3 className="font-bold mb-2">{item.title}</h3>
-          <p className="text-sm text-gray-500">{item.desc}</p>
         </div>
-      ))}
-    </div>
+        </ParallaxCard>
+     </section>
 
-  </div>
-  </div>
-</section>
+
+
+
+      {/* AUTOMATED CONTAINER TRACKING SYSTEM SECTION */}
     
-{/* AUTOMATED CONTAINER TRACKING SYSTEM SECTION */}
 <section id="project" className="relative py-14 bg-white overflow-hidden">
-  <AnimatedShapes />
+   <ParallaxCard>
+        <AnimatedShapes />
 
-  <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-  <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-purple-50 rounded-full blur-3xl opacity-50"></div>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    {/* OUTER CONTAINER START */}
-    <div className="
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* OUTER CONTAINER START */}
+          <div
+            className="
         relative
         bg-gray-50
         rounded-3xl
@@ -1045,18 +1105,18 @@ py-10
         px-8 md:px-14
 py-10
         overflow-hidden
-    ">
-    
-
-    {/* Heading */}
-    <motion.div
-      className="text-center mb-16"
-      initial={{ opacity: 0, y: -40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-    >
-       <div className="inline-flex items-center gap-1.5 
+    "
+          >
+            {/* Heading */}
+            <motion.div
+              className="text-center mb-8"
+              initial={{ opacity: 0, y: -40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
+              <div
+                className="inline-flex items-center gap-1.5 
                 px-5 py-2 
                 bg-blue-100/70 
                 border border-blue-300 
@@ -1064,163 +1124,163 @@ py-10
                 text-blue-700 
                 font-medium
                 shadow-sm 
-                transition-all duration-300">
+                transition-all duration-300"
+              >
+                <svg
+                  className="w-4 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M10 2a5 5 0 015 5v1h1a3 3 0 110 6h-1v1a5 5 0 11-10 0v-1H4a3 3 0 110-6h1V7a5 5 0 015-5z" />
+                </svg>
 
-  <svg
-    className="w-4 h-5"
-    fill="currentColor"
-    viewBox="0 0 20 20"
-  >
-    <path d="M10 2a5 5 0 015 5v1h1a3 3 0 110 6h-1v1a5 5 0 11-10 0v-1H4a3 3 0 110-6h1V7a5 5 0 015-5z" />
-  </svg>
+                <span className="tracking-wide uppercase text-xs">
+                  Project Overview
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-4xl font-bold mt-2 mb-6 text-gray-900">
+                Automated Container{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  Tracking System
+                </span>
+              </h2>
 
-  <span className="tracking-wide uppercase text-xs">
-     Project Overview
-  </span>
-</div>
-      <h2 className="text-4xl md:text-4xl font-bold mt-2 mb-6 text-gray-900">
-        Automated Container{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-          Tracking System
-        </span>
-      </h2>
+              {/* Project Summary Card */}
+              <motion.div
+                className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-xl border-l-4 border-blue-600 shadow-sm"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h3 className="text-xl font-bold text-gray-800  flex items-center justify-center">
+                  <FaClipboardList className="mr-2 text-blue-600" />
+                  Core Concept
+                </h3>
 
-      {/* Project Summary Card */}
-      <motion.div
-        className="max-w-4xl mx-auto bg-gray-50 p-6 rounded-xl border-l-4 border-blue-600 shadow-sm"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center justify-center">
-          <FaClipboardList className="mr-2 text-blue-600" />
-          Core Concept
-        </h3>
+                <p className="text-gray-600 text-lg leading-relaxed text-justify">
+                  Your system replaces manual, error-prone container logging
+                  with an automated real-time "Digital Twin" of your yard. By
+                  mounting cameras on handling equipment like reach stackers or
+                  straddle carriers, the system captures data at the point of
+                  action, ensuring complete visibility and accuracy.
+                </p>
+              </motion.div>
+            </motion.div>
 
-        <p className="text-gray-600 text-lg leading-relaxed text-justify">
-          Your system replaces manual, error-prone container logging with an
-          automated real-time "Digital Twin" of your yard. By mounting cameras
-          on handling equipment like reach stackers or straddle carriers, the
-          system captures data at the point of action, ensuring complete
-          visibility and accuracy.
-        </p>
-      </motion.div>
-    </motion.div>
-
-    {/* Workflow Section */}
-    <motion.div
-      className="mb-12"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <motion.h3
-  className="text-2xl md:text-3xl font-bold text-center mb-12 
+            {/* Workflow Section */}
+            <motion.div
+              className="mb-0"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.h3
+                className="text-2xl md:text-3xl font-bold text-center mb-10 
              bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 
              bg-clip-text text-transparent"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7, ease: "easeOut" }}
->
-  The Operational Workflow
-</motion.h3>
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                The Operational Workflow
+              </motion.h3>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-5 gap-8 relative"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-  {/* Desktop Connecting Lines */}
-<div className="hidden md:block absolute left-0 right-0 top-12 z-0">
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-5 gap-8 relative"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {/* Desktop Connecting Lines */}
+                <div className="hidden md:block absolute left-0 right-0 top-12 z-0">
+                  <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
 
-  <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
+                  <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
+                </div>
+                {[
+                  {
+                    icon: <FaTruck className="text-3xl text-blue-600" />,
+                    title: "1. Pick-up",
+                    desc: "Equipment (e.g., Kalmar reach stacker) approaches container. Camera feed starts processing.",
+                    border: "border-blue-100 group-hover:border-blue-500",
+                    hoverColor: "group-hover:text-blue-600",
+                  },
+                  {
+                    icon: <FaCrosshairs className="text-3xl text-purple-600" />,
+                    title: "2. YOLO Detection",
+                    desc: "YOLO model identifies container and isolates the BIC code area instantly.",
+                    border: "border-purple-100 group-hover:border-purple-500",
+                    hoverColor: "group-hover:text-purple-600",
+                  },
+                  {
+                    icon: <FaBrain className="text-3xl text-green-600" />,
+                    title: "3. OCR / AI Reading",
+                    desc: "OCR engine trained on container fonts extracts the alphanumeric ID.",
+                    border: "border-green-100 group-hover:border-green-500",
+                    hoverColor: "group-hover:text-green-600",
+                  },
+                  {
+                    icon: (
+                      <FaSatelliteDish className="text-3xl text-yellow-600" />
+                    ),
+                    title: "4. Real-Time Tracking",
+                    desc: "Sensor fusion (GPS + AI) tracks the container's path across the yard.",
+                    border: "border-yellow-100 group-hover:border-yellow-500",
+                    hoverColor: "group-hover:text-yellow-600",
+                  },
+                  {
+                    icon: <FaMapMarkedAlt className="text-3xl text-red-600" />,
+                    title: "5. Map Update",
+                    desc: "TOS map updates automatically based on final coordinates.",
+                    border: "border-red-100 group-hover:border-red-500",
+                    hoverColor: "group-hover:text-red-600",
+                  },
+                ].map((step, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ y: -8, scale: 1.05 }}
+                    className="relative text-center group"
+                  >
+                    <div
+                      className={`w-24 h-24 mx-auto bg-white border-4 ${step.border} rounded-full flex items-center justify-center mb-4 transition-all duration-300 shadow-lg relative z-10`}
+                    >
+                      {step.icon}
+                    </div>
 
-  <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
-
-
-
-</div>
-        {[
-  {
-    icon: <FaTruck className="text-3xl text-blue-600" />,
-    title: "1. Pick-up",
-    desc: "Equipment (e.g., Kalmar reach stacker) approaches container. Camera feed starts processing.",
-    border: "border-blue-100 group-hover:border-blue-500",
-    hoverColor: "group-hover:text-blue-600",
-  },
-  {
-    icon: <FaCrosshairs className="text-3xl text-purple-600" />,
-    title: "2. YOLO Detection",
-   desc: "YOLO model identifies container and isolates the BIC code area instantly.",
-    border: "border-purple-100 group-hover:border-purple-500",
-    hoverColor: "group-hover:text-purple-600",
-  },
-  {
-    icon: <FaBrain className="text-3xl text-green-600" />,
-    title: "3. OCR / AI Reading",
-   desc: "OCR engine trained on container fonts extracts the alphanumeric ID.",
-    border: "border-green-100 group-hover:border-green-500",
-    hoverColor: "group-hover:text-green-600",
-  },
-  {
-    icon: <FaSatelliteDish className="text-3xl text-yellow-600" />,
-    title: "4. Real-Time Tracking",
-    desc: "Sensor fusion (GPS + AI) tracks the container's path across the yard.",
-    border: "border-yellow-100 group-hover:border-yellow-500",
-    hoverColor: "group-hover:text-yellow-600",
-  },
-  {
-    icon: <FaMapMarkedAlt className="text-3xl text-red-600" />,
-    title: "5. Map Update",
-    desc: "TOS map updates automatically based on final coordinates.",
-    border: "border-red-100 group-hover:border-red-500",
-    hoverColor: "group-hover:text-red-600",
-  },
-].map((step, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover={{ y: -8, scale: 1.05 }}
-            className="relative text-center group"
-          >
-            <div
-              className={`w-24 h-24 mx-auto bg-white border-4 ${step.border} rounded-full flex items-center justify-center mb-4 transition-all duration-300 shadow-lg relative z-10`}
-            >
-              {step.icon}
-            </div>
-
-            <h4
-  className={`font-bold text-lg mb-2 
+                    <h4
+                      className={`font-bold text-lg mb-2 
               text-gray-800 
               ${step.hoverColor}
               transition-colors duration-300`}
->
-  {step.title}
-</h4>
+                    >
+                      {step.title}
+                    </h4>
 
-            <p className="text-sm text-gray-500 px-2">
-              {step.desc}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.div>
-  </div>
-   </div>
-</section>
+                    <p className="text-sm text-gray-500 px-2">{step.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+        </ParallaxCard>
+      </section>
+
 
 
       {/* AI Features Section */}
-     <section className="relative py-14 bg-white overflow-hidden">
+      
+<section className="relative h-[120vh] bg-white">  <ParallaxCard >
         <AnimatedShapes />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           {/* OUTER CONTAINER START */}
-    <div className="
+          {/* OUTER CONTAINER START */}
+          <div
+            className="
         relative
         bg-gray-50
         rounded-3xl
@@ -1229,89 +1289,92 @@ py-10
         px-8 md:px-16
 py-10
         overflow-hidden
-    ">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+    "
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Advanced AI Features
-              </span>
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
-              Built on computer vision, machine learning, and digital twin
-              technology, our Intelligent platform enables real-time container tracking,
-              predictive Space Optimization, and automated gate operations, improving
-              overall operational efficiency.
-            </p>
-          </motion.div>
+            <motion.div
+              className="text-center mb-12"
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  Advanced AI Features
+                </span>
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3.5xl mx-auto">
+                Built on computer vision, machine learning, and digital twin
+                technology, our Intelligent platform enables real-time container
+                tracking, predictive Space Optimization, and automated gate
+                operations, improving overall operational efficiency.
+              </p>
+            </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {aiFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group border border-gray-100"
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow:
-                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                  transition: {
-                    duration: 0.4,
-                    ease: [0.25, 0.46, 0.45, 0.94],
-                  },
-                }}
-                style={{
-                  backgroundImage:
-                    "linear-gradient(to right, #c181f5 50%, #ffffff 50%)",
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {aiFeatures.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group border border-gray-100"
+                  variants={itemVariants}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow:
+                      "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                    transition: {
+                      duration: 0.4,
+                      ease: [0.25, 0.46, 0.45, 0.94],
+                    },
+                  }}
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(to right, #c181f5 50%, #ffffff 50%)",
 
-                  backgroundSize: "200% 100%",
+                    backgroundSize: "200% 100%",
 
-                  backgroundPosition: "100% 0",
+                    backgroundPosition: "100% 0",
 
-                  transition: "background-position 0.5s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundPosition = "0 0";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundPosition = "100% 0";
-                }}
-              >
-                <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
-                  <motion.div
-                    className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 group-hover:bg-white group-hover:shadow-md transition-all duration-500"
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: [0, 10, -10, 0],
-                      transition: { duration: 0.5 },
-                    }}
-                  >
-                    {feature.icon}
-                  </motion.div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                    transition: "background-position 0.5s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundPosition = "0 0";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundPosition = "100% 0";
+                  }}
+                >
+                  <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
+                    <motion.div
+                      className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 group-hover:bg-white group-hover:shadow-md transition-all duration-500"
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: [0, 10, -10, 0],
+                        transition: { duration: 0.5 },
+                      }}
+                    >
+                      {feature.icon}
+                    </motion.div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">
+                      {feature.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
-        </div>
+        </ParallaxCard>
       </section>
+      
 
       {/* Industries We Serve Section */}
       <section className="relative py-16 overflow-hidden">
@@ -1405,7 +1468,8 @@ py-10
             </motion.div>
           </div>
         </div>
-      </section>
+     </section>
+
 
       {/* Global Presence Section  */}
       <section className="relative py-20 bg-gray-50 overflow-hidden">
@@ -1458,8 +1522,8 @@ py-10
           </motion.div>
         </div>
       </section>
-     {/* Our Clients Section */}
-     {/* <KeyClients /> */}
+      {/* Our Clients Section */}
+      {/* <KeyClients /> */}
     </div>
   );
 };
