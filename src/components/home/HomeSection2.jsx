@@ -213,6 +213,8 @@ const ParallaxCard = ({ children }) => {
   );
 };
 
+
+
 const HomeSection2 = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);

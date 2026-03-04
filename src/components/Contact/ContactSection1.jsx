@@ -101,8 +101,7 @@ const ContactSection1 = () => {
                 viewport={{ once: true }}
                 className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
               >
-                Visit our office or schedule a meeting with our experts at
-                Rapportsoft Consulting & Technology Pvt. Ltd. Let’s collaborate
+                Visit our office or schedule a meeting with our experts . Let’s collaborate
                 and build intelligent digital solutions together.
               </motion.p>
             </div>
