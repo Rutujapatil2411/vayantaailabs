@@ -192,32 +192,22 @@ const AnimatedShapes = () => {
 
 const ParallaxCard = ({ children, index, progress }) => {
   const start = index * 0.33;
-const mid = start + 0.15;
-const end = start + 0.33;
+  const mid = start + 0.15;
+  const end = start + 0.33;
 
-const scale = useTransform(
-  progress,
-  [start, mid, end],
-  [1, 1, 0.8]
-);
-const opacity = useTransform(
-  progress,
-  [end - 0.05, end + 0.05],
-  [1, 0]
-);
+  const scale = useTransform(progress, [start, mid, end], [1, 1, 0.8]);
+  const opacity = useTransform(progress, [end - 0.05, end + 0.05], [1, 0]);
 
   return (
     <motion.div
       className="sticky top-32 flex justify-center"
       style={{
-  scale,
-  opacity,
-  zIndex: index,
-}}
+        scale,
+        opacity,
+        zIndex: index,
+      }}
     >
-      <div className="w-full max-w-6xl">
-        {children}
-      </div>
+      <div className="w-full max-w-6xl">{children}</div>
     </motion.div>
   );
 };
@@ -232,27 +222,9 @@ const HomeSection2 = () => {
     return (
       <div className={`absolute ${position} group`}>
         <div
-          className="
-        w-56 h-56
-        bg-white
-        rounded-full
-        border-4
-        border-gray-200
-        shadow-md
-        flex flex-col
-        items-center
-        justify-center
-        text-center
-        p-6
-        transition-all
-        duration-300
-        ease-in-out
-        group-hover:shadow-xl
-        group-hover:-translate-y-2
-        group-hover:scale-105
-        group-hover:border-blue-500
-        "
-        >
+          className="  w-56 h-56  bg-white rounded-full  border-4 border-gray-200 shadow-md
+        flex flex-col  items-center justify-center  text-center p-6  transition-all duration-300 ease-in-out
+        group-hover:shadow-xl  group-hover:-translate-y-2  group-hover:scale-105 group-hover:border-blue-500 " >
           <div className="text-3xl text-blue-600 mb-3 transition-transform duration-300 group-hover:rotate-6">
             {icon}
           </div>
@@ -264,38 +236,38 @@ const HomeSection2 = () => {
       </div>
     );
   };
-const workflowData = [
-  {
-    icon: <FaTruck />,
-    title: "Gate Automation",
-    desc: "60% faster processing",
-  },
-  {
-    icon: <FaCrosshairs />,
-    title: "Container OCR",
-    desc: "Instant identification",
-  },
-  {
-    icon: <FaMicrochip />,
-    title: "Smart Yard Planning",
-    desc: "Optimized placement",
-  },
-  {
-    icon: <FaMapMarkedAlt />,
-    title: "Digital Twin",
-    desc: "Virtual yard simulation",
-  },
-  {
-    icon: <FaSearchLocation />,
-    title: "Equipment Tracking",
-    desc: "35% less idle time",
-  },
-  {
-    icon: <FaSatelliteDish />,
-    title: "Live Analytics",
-    desc: "Real-time insights",
-  },
-];
+  const workflowData = [
+    {
+      icon: <FaTruck />,
+      title: "Gate Automation",
+      desc: "60% faster processing",
+    },
+    {
+      icon: <FaCrosshairs />,
+      title: "Container OCR",
+      desc: "Instant identification",
+    },
+    {
+      icon: <FaMicrochip />,
+      title: "Smart Yard Planning",
+      desc: "Optimized placement",
+    },
+    {
+      icon: <FaMapMarkedAlt />,
+      title: "Digital Twin",
+      desc: "Virtual yard simulation",
+    },
+    {
+      icon: <FaSearchLocation />,
+      title: "Equipment Tracking",
+      desc: "35% less idle time",
+    },
+    {
+      icon: <FaSatelliteDish />,
+      title: "Live Analytics",
+      desc: "Real-time insights",
+    },
+  ];
 
   const circlePositions = [
     "top-6 left-52",
@@ -520,13 +492,12 @@ const workflowData = [
     },
   };
 
-
   const sectionRef = useRef(null);
 
-const { scrollYProgress } = useScroll({
-  target: sectionRef,
-  offset: ["start center", "end center"],
-});
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"],
+  });
 
   return (
     <div className="bg-white">
@@ -788,312 +759,315 @@ const { scrollYProgress } = useScroll({
           </div>
         </div>
       </section>
-  
 
+      <section ref={sectionRef} className="relative bg-white h-[300vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100"  >
+        <AnimatedShapes />
+<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 space-y-16">
 
-  
-<section ref={sectionRef} className="relative bg-white h-[340vh]">
-          <AnimatedShapes />
+            {/* CARD 1: AI-Powered Smart Gate Operation   */}
+          <ParallaxCard index={0} progress={scrollYProgress}>
+            <div
+              className="  relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-12 py-6
+              overflow-hidden transition-all duration-500 ">
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* CARD 1: AI-Powered Smart Gate Operation   */}
-       <ParallaxCard index={0} progress={scrollYProgress}>
-          <div
-            className="
-              relative
-              bg-gray-50
-              rounded-3xl
-              shadow-xl
-              border border-gray-200
-              px-6 md:px-12
-              py-6
-              overflow-hidden
-              transition-all duration-500
-            "
-          >
-            {/* Section Header */}
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
-                <FaMicrochip className="text-blue-400" />
-                <span>Intelligent Workflow</span>
-              </div>
-
-              <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                AI-Powered Smart Gate Operation & Yard Management
-              </h2>
-
-              <p className="text-gray-600 mt-1 max-w-2xl mx-auto">
-                A centralized AI decision engine that processes real-time
-                vision, tracking, and yard intelligence.
-              </p>
-            </div>
-
-            {/* TREE CONTAINER (Desktop) */}
-            <div className="relative h-[480px] hidden md:block mt-6">
-            
-              <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
-              
-                <line x1="50%" y1="50%" x2="26%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
-               
-                <line x1="50%" y1="50%" x2="18%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
-               
-                <line x1="50%" y1="50%" x2="26%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
-                
-                <line x1="50%" y1="50%" x2="74%" y2="16%" stroke="#3b82f6" strokeWidth="2" />
-                
-                <line x1="50%" y1="50%" x2="82%" y2="49%" stroke="#8b5cf6" strokeWidth="2" />
-              
-                <line x1="50%" y1="50%" x2="74%" y2="80%" stroke="#06b6d4" strokeWidth="2" />
-              </svg>
-
-              {/* CENTER AI CORE */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center text-center shadow-2xl px-4">
-                  <FaBrain className="text-white text-2xl mb-2" />
-                  <span className="text-white text-sm font-semibold leading-tight">
-                    Processing Core
-                  </span>
+              {/* Section Header */}
+              <div className="text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
+                  <FaMicrochip className="text-blue-400" />
+                  <span>Intelligent Workflow</span>
                 </div>
-              </div>
 
-              {/* ORBITING CARDS */}
-              {workflowData.map((item, index) => (
-                <div
-                  key={item.title}
-                  className={`absolute ${circlePositions[index]} z-10`}
-                >
-                  <div className="w-36 h-36 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-3 relative">
-                    <div className="text-1xl text-blue-600 mb-3">{item.icon}</div>
-                    <h3 className="font-bold text-sm mb-2 text-gray-800">{item.title}</h3>
-                    <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>
-                    <span className="absolute -bottom-3 w-7 h-7 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold shadow-md">
-  {index + 1}
-</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  AI-Powered Smart Gate Operation & Yard Management
+                </h2>
 
-            {/* MOBILE FALLBACK (Stacked) */}
-            <div className="md:hidden space-y-6 mt-8">
-              {workflowData.map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-6 rounded-xl shadow-md text-center"
-                >
-                  <div className="text-3xl text-blue-600 mb-3">{item.icon}</div>
-                  <h3 className="font-bold mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </ParallaxCard>
-
-       
-        {/* CARD 2: Automated Container Tracking      */}
-        
-       <ParallaxCard index={1} progress={scrollYProgress}>
-          <div
-            className="
-              relative
-              bg-gray-50
-              rounded-3xl
-              shadow-xl
-              border border-gray-200
-              px-8 md:px-14
-              py-10
-              overflow-hidden
-            "
-          >
-            {/* Heading */}
-            <div className="text-center mb-8">
-              <div className="inline-flex items-center gap-1.5 px-5 py-2 bg-blue-100/70 border border-blue-300 rounded-full text-blue-700 font-medium shadow-sm">
-                <svg className="w-4 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2a5 5 0 015 5v1h1a3 3 0 110 6h-1v1a5 5 0 11-10 0v-1H4a3 3 0 110-6h1V7a5 5 0 015-5z" />
-                </svg>
-                <span className="tracking-wide uppercase text-xs">Project Overview</span>
-              </div>
-
-              <h2 className="text-4xl font-bold mt-2 mb-6 text-gray-900">
-                Automated Container{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  Tracking System
-                </span>
-              </h2>
-
-              {/* Project Summary Card */}
-              <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl border-l-4 border-blue-600 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-800 flex items-center justify-center">
-                  <FaClipboardList className="mr-2 text-blue-600" />
-                  Core Concept
-                </h3>
-                <p className="text-gray-600 text-lg leading-relaxed text-justify mt-2">
-                  Your system replaces manual, error-prone container logging
-                  with an automated real-time "Digital Twin" of your yard. By
-                  mounting cameras on handling equipment like reach stackers
-                  or straddle carriers, the system captures data at the point
-                  of action, ensuring complete visibility and accuracy.
+                <p className="text-gray-600 mt-1 max-w-2xl mx-auto">
+                  A centralized AI decision engine that processes real-time
+                  vision, tracking, and yard intelligence.
                 </p>
               </div>
-            </div>
 
-            {/* Workflow Section */}
-            <motion.div
-              className="mb-0"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
-                The Operational Workflow
-              </h3>
+              {/* TREE CONTAINER (Desktop) */}
+              <div className="relative h-[480px] hidden md:block mt-6">
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="26%"
+                    y2="16%"
+                    stroke="#3b82f6"
+                    strokeWidth="2"
+                  />
 
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-                {/* Desktop Connecting Lines */}
-                <div className="hidden md:block absolute left-0 right-0 top-12 z-0">
-                  <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
-                  <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="18%"
+                    y2="49%"
+                    stroke="#8b5cf6"
+                    strokeWidth="2"
+                  />
+
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="26%"
+                    y2="80%"
+                    stroke="#06b6d4"
+                    strokeWidth="2"
+                  />
+
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="74%"
+                    y2="16%"
+                    stroke="#3b82f6"
+                    strokeWidth="2"
+                  />
+
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="82%"
+                    y2="49%"
+                    stroke="#8b5cf6"
+                    strokeWidth="2"
+                  />
+
+                  <line
+                    x1="50%"
+                    y1="50%"
+                    x2="74%"
+                    y2="80%"
+                    stroke="#06b6d4"
+                    strokeWidth="2"
+                  />
+                </svg>
+
+                {/* CENTER AI CORE */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center text-center shadow-2xl px-4">
+                    <FaBrain className="text-white text-2xl mb-2" />
+                    <span className="text-white text-sm font-semibold leading-tight">
+                      Processing Core
+                    </span>
+                  </div>
                 </div>
 
-                {[
-                  {
-                    icon: <FaTruck className="text-3xl text-blue-600" />,
-                    title: "1. Pick-up",
-                    desc: "Equipment approaches container. Camera feed starts processing.",
-                  },
-                  {
-                    icon: <FaCrosshairs className="text-3xl text-purple-600" />,
-                    title: "2. YOLO Detection",
-                    desc: "YOLO model identifies container and isolates the BIC code area.",
-                  },
-                  {
-                    icon: <FaBrain className="text-3xl text-green-600" />,
-                    title: "3. OCR / AI Reading",
-                    desc: "OCR engine extracts the alphanumeric ID from container font.",
-                  },
-                  {
-                    icon: <FaSatelliteDish className="text-3xl text-yellow-600" />,
-                    title: "4. Real-Time Tracking",
-                    desc: "Sensor fusion (GPS + AI) tracks path across the yard.",
-                  },
-                  {
-                    icon: <FaMapMarkedAlt className="text-3xl text-red-600" />,
-                    title: "5. Map Update",
-                    desc: "TOS map updates automatically based on final coordinates.",
-                  },
-                ].map((step, index) => (
-                  <div key={index} className="relative text-center z-10">
-                    <div className="w-24 h-24 mx-auto bg-white border-4 border-gray-200 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                      {step.icon}
+                {/* ORBITING CARDS */}
+                {workflowData.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className={`absolute ${circlePositions[index]} z-10`}
+                  >
+                    <div className="w-36 h-36 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-3 relative">
+                      <div className="text-1xl text-blue-600 mb-3">
+                        {item.icon}
+                      </div>
+                      <h3 className="font-bold text-sm mb-2 text-gray-800">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-gray-500 leading-snug">
+                        {item.desc}
+                      </p>
+                      <span className="absolute -bottom-3 w-7 h-7 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold shadow-md">
+                        {index + 1}
+                      </span>
                     </div>
-                    <h4 className="font-bold text-lg mb-2 text-gray-800">{step.title}</h4>
-                    <p className="text-sm text-gray-500 px-2">{step.desc}</p>
                   </div>
                 ))}
               </div>
-            </motion.div>
-          </div>
-        </ParallaxCard>
 
-      
-        {/* CARD 3: Advanced AI Features              */}
-      
-       <ParallaxCard index={2}progress={scrollYProgress}>
-          <div
-            className="
-              relative
-              bg-gray-50
-              rounded-3xl
-              shadow-xl
-              border border-gray-200
-              px-8 md:px-16
-              py-10
-              overflow-hidden
-            "
-          >
-            <motion.div
-              className="text-center mb-12"
-              initial={{ opacity: 0, y: -30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  Advanced AI Features
-                </span>
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Built on computer vision, machine learning, and digital twin
-                technology, our Intelligent platform enables real-time
-                container tracking, predictive Space Optimization, and
-                automated gate operations, improving overall operational
-                efficiency.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              {aiFeatures.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden group border border-gray-100 cursor-pointer"
-                  variants={itemVariants}
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow:
-                      "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                    transition: {
-                      duration: 0.4,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                    },
-                  }}
-                  style={{
-                    backgroundImage: "linear-gradient(to right, #c181f5 50%, #ffffff 50%)",
-                    backgroundSize: "200% 100%",
-                    backgroundPosition: "100% 0",
-                    transition: "background-position 0.5s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundPosition = "0 0";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundPosition = "100% 0";
-                  }}
-                >
-                  <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
-                    <motion.div
-                      className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 group-hover:bg-white group-hover:shadow-md transition-all duration-500 text-2xl text-gray-700"
-                      whileHover={{
-                        scale: 1.2,
-                        rotate: [0, 10, -10, 0],
-                        transition: { duration: 0.5 },
-                      }}
-                    >
-                      {feature.icon}
-                    </motion.div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-500">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-500">
-                      {feature.description}
-                    </p>
+              {/* MOBILE FALLBACK (Stacked) */}
+              <div className="md:hidden space-y-6 mt-8">
+                {workflowData.map((item, i) => (
+                  <div
+                    key={i}
+                    className="bg-white p-6 rounded-xl shadow-md text-center"
+                  >
+                    <div className="text-3xl text-blue-600 mb-3">
+                      {item.icon}
+                    </div>
+                    <h3 className="font-bold mb-2">{item.title}</h3>
+                    <p className="text-sm text-gray-500">{item.desc}</p>
                   </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </ParallaxCard>
+                ))}
+              </div>
+            </div>
+          </ParallaxCard>
 
-      </div>
-    </section>
+          {/* CARD 2: Automated Container Tracking      */}
+
+          <ParallaxCard index={1} progress={scrollYProgress}>
+            <div
+              className=" relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-10 py-6 overflow-hidden " >
+
+              {/* Heading */}
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-1.5 px-5 py-2 bg-blue-100/70 border border-blue-300 rounded-full text-blue-700 font-medium shadow-sm">
+                  <svg
+                    className="w-4 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10 2a5 5 0 015 5v1h1a3 3 0 110 6h-1v1a5 5 0 11-10 0v-1H4a3 3 0 110-6h1V7a5 5 0 015-5z" />
+                  </svg>
+                  <span className="tracking-wide uppercase text-xs">
+                    Project Overview
+                  </span>
+                </div>
+
+                <h2 className="text-2xl md:text-3xl font-bold mt-2 mb-4 text-gray-900">
+                  Automated Container{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                    Tracking System
+                  </span>
+                </h2>
+
+                {/* Project Summary Card */}
+                <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl border-l-4 border-blue-600 shadow-sm">
+                  <h3 className="text-xl font-bold text-gray-800 flex items-center justify-center">
+                    <FaClipboardList className="mr-2 text-blue-600" />
+                    Core Concept
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed text-justify mt-2">
+                    Your system replaces manual, error-prone container logging
+                    with an automated real-time "Digital Twin" of your yard. By
+                    mounting cameras on handling equipment like reach stackers
+                    or straddle carriers, the system captures data at the point
+                    of action, ensuring complete visibility and accuracy.
+                  </p>
+                </div>
+              </div>
+
+              {/* Workflow Section */}
+              <motion.div
+                className="mb-0"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h3 className="text-xl md:text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  The Operational Workflow
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+                  {/* Desktop Connecting Lines */}
+                  <div className="hidden md:block absolute left-0 right-0 top-12 z-0">
+                    <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
+                    <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
+                  </div>
+
+                  {[
+                    {
+                      icon: <FaTruck className="text-3xl text-blue-600" />,
+                      title: "1. Pick-up",
+                      desc: "Equipment approaches container. Camera feed starts processing.",
+                    },
+                    {
+                      icon: (
+                        <FaCrosshairs className="text-3xl text-purple-600" />
+                      ),
+                      title: "2. YOLO Detection",
+                      desc: "YOLO model identifies container and isolates the BIC code area.",
+                    },
+                    {
+                      icon: <FaBrain className="text-3xl text-green-600" />,
+                      title: "3. OCR / AI Reading",
+                      desc: "OCR engine extracts the alphanumeric ID from container font.",
+                    },
+                    {
+                      icon: (
+                        <FaSatelliteDish className="text-3xl text-yellow-600" />
+                      ),
+                      title: "4. Real-Time Tracking",
+                      desc: "Sensor fusion (GPS + AI) tracks path across the yard.",
+                    },
+                    {
+                      icon: (
+                        <FaMapMarkedAlt className="text-3xl text-red-600" />
+                      ),
+                      title: "5. Map Update",
+                      desc: "TOS map updates automatically based on final coordinates.",
+                    },
+                  ].map((step, index) => (
+                    <div key={index} className="relative text-center z-10">
+                      <div className="w-22 h-22 mx-auto bg-white border-4 border-gray-200 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                        {step.icon}
+                      </div>
+                      <h4 className="font-bold text-lg mb-2 text-gray-800">
+                        {step.title}
+                      </h4>
+                      <p className="text-sm text-gray-500 px-2">{step.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </ParallaxCard>
+
+          {/* CARD 3: Advanced AI Features              */}
+
+          <ParallaxCard index={2} progress={scrollYProgress}>
+            <div
+              className=" relative bg-gray-50 rounded-3xl  shadow-xl border border-gray-200  px-6 md:px-10  py-6  overflow-hidden " >
+              <motion.div
+                className="text-center mb-12"
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                    Advanced AI Features
+                  </span>
+                </h2>
+                <p className="text-sm text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                  Built on computer vision, machine learning, and digital twin
+                  technology, our Intelligent platform enables real-time
+                  container tracking, predictive Space Optimization, and
+                  automated gate operations, improving overall operational
+                  efficiency.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
+                {aiFeatures.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden border border-gray-300"
+                    variants={itemVariants}
+                    style={{
+                      backgroundColor: "#ffffff", 
+                    }}
+                  >
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
+                      <div className="p-3 bg-gray-50 rounded-lg shadow-sm mb-4 text-2xl text-gray-700">
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </ParallaxCard>
+        </div>
+      </section>
 
       {/* Industries We Serve Section */}
       <section className="relative py-16 overflow-hidden">
