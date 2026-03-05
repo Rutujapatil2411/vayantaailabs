@@ -456,17 +456,17 @@ const HomeSection2 = () => {
   ];
   
   const countryLocations = [
-  { name: "India", top: "50%", left: "68%" },
-  { name: "UAE", top: "45%", left: "58%" },
-  { name: "Qatar", top: "44.5%", left: "57.5%" },
-  { name: "Kuwait", top: "43.5%", left: "56.5%" },
-  { name: "Oman", top: "47.5%", left: "59.5%" },
-  { name: "Kenya", top: "55%", left: "54.5%" },
-  { name: "Sri Lanka", top: "58%", left: "69%" },
-  { name: "Bangladesh", top: "48%", left: "71.5%" },
-  { name: "Nepal", top: "45.5%", left: "69.5%" },
-  { name: "Senegal", top: "50%", left: "42.5%" },
-  { name: "Madagascar", top: "68%", left: "57.5%" },
+  { name: "India", top: "52%", left: "68%" },
+  { name: "UAE", top: "45%", left: "59%" },
+  { name: "Qatar", top: "44%", left: "58.5%" },
+  { name: "Kuwait", top: "41%", left: "57%" },
+  { name: "Oman", top: "48%", left: "60%" },
+  { name: "Kenya", top: "58%", left: "56%" },
+  { name: "Sri Lanka", top: "60%", left: "69%" },
+  { name: "Bangladesh", top: "49%", left: "72%" },
+  { name: "Nepal", top: "47%", left: "70%" },
+  { name: "Senegal", top: "51%", left: "42%" },
+  { name: "Madagascar", top: "73%", left: "61%" }, 
 ];
 
   const containerVariants = {
