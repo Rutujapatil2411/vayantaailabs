@@ -494,7 +494,6 @@ const HomeSection2 = () => {
   };
 
   const sectionRef = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
