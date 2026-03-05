@@ -23,6 +23,7 @@ import AI2 from "../../assets/img/ai2.jpg";
 import AI3 from "../../assets/img/ai3.jpg";
 import AI4 from "../../assets/img/ai4.jpg";
 import portBg from "../../assets/img/shipping.jpg";
+import worldMap from "../../assets/img/world-map1.png";
 
 import {
   FaGlobe,
@@ -453,20 +454,20 @@ const HomeSection2 = () => {
       icon: <FaBuilding className="text-green-500" />,
     },
   ];
-
-  const countries = [
-    "India",
-    "UAE",
-    "Qatar",
-    "Kuwait",
-    "Oman",
-    "Kenya",
-    "Sri Lanka",
-    "Bangladesh",
-    "Nepal",
-    "Senegal",
-    "Madagascar",
-  ];
+  
+  const countryLocations = [
+  { name: "India", top: "50%", left: "68%" },
+  { name: "UAE", top: "45%", left: "58%" },
+  { name: "Qatar", top: "44.5%", left: "57.5%" },
+  { name: "Kuwait", top: "43.5%", left: "56.5%" },
+  { name: "Oman", top: "47.5%", left: "59.5%" },
+  { name: "Kenya", top: "55%", left: "54.5%" },
+  { name: "Sri Lanka", top: "58%", left: "69%" },
+  { name: "Bangladesh", top: "48%", left: "71.5%" },
+  { name: "Nepal", top: "45.5%", left: "69.5%" },
+  { name: "Senegal", top: "50%", left: "42.5%" },
+  { name: "Madagascar", top: "68%", left: "57.5%" },
+];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -844,7 +845,6 @@ const HomeSection2 = () => {
                     strokeWidth="2"
                   />
                 </svg>
-
                 {/* CENTER AI CORE */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center text-center shadow-2xl px-4">
@@ -854,13 +854,11 @@ const HomeSection2 = () => {
                     </span>
                   </div>
                 </div>
-
                 {/* ORBITING CARDS */}
                 {workflowData.map((item, index) => (
                   <div
                     key={item.title}
-                    className={`absolute ${circlePositions[index]} z-10`}
-                  >
+                    className={`absolute ${circlePositions[index]} z-10`} >
                     <div className="w-36 h-36 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-3 relative">
                       <div className="text-1xl text-blue-600 mb-3">
                         {item.icon}
@@ -878,7 +876,6 @@ const HomeSection2 = () => {
                   </div>
                 ))}
               </div>
-
               {/* MOBILE FALLBACK (Stacked) */}
               <div className="md:hidden space-y-6 mt-8">
                 {workflowData.map((item, i) => (
@@ -898,11 +895,8 @@ const HomeSection2 = () => {
           </ParallaxCard>
 
           {/* CARD 2: Automated Container Tracking      */}
-
           <ParallaxCard index={1} progress={scrollYProgress}>
-            <div
-              className=" relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-10 py-6 overflow-hidden " >
-
+            <div className=" relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-10 py-6 overflow-hidden " >
               {/* Heading */}
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-1.5 px-5 py-2 bg-blue-100/70 border border-blue-300 rounded-full text-blue-700 font-medium shadow-sm">
@@ -947,14 +941,11 @@ const HomeSection2 = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
+                transition={{ duration: 0.6 }}   >
                 <h3 className="text-xl md:text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
                   The Operational Workflow
                 </h3>
-
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
-                  {/* Desktop Connecting Lines */}
                   <div className="hidden md:block absolute left-0 right-0 top-12 z-0">
                     <div className="absolute left-[10%] right-[10%] -top-6 h-[2px] bg-gray-300"></div>
                     <div className="absolute left-0 right-0 h-[4px] bg-gray-200"></div>
@@ -1008,11 +999,9 @@ const HomeSection2 = () => {
             </div>
           </ParallaxCard>
 
-          {/* CARD 3: Advanced AI Features              */}
-
+          {/* CARD 3: Advanced AI Features   */}
           <ParallaxCard index={2} progress={scrollYProgress}>
-            <div
-              className=" relative bg-gray-50 rounded-3xl  shadow-xl border border-gray-200  px-6 md:px-10  py-6  overflow-hidden " >
+            <div className=" relative bg-gray-50 rounded-3xl  shadow-xl border border-gray-200  px-6 md:px-10  py-6  overflow-hidden " >
               <motion.div
                 className="text-center mb-12"
                 initial={{ opacity: 0, y: -30 }}
@@ -1079,12 +1068,9 @@ const HomeSection2 = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 z-10"></div>
         </div>
-
         <div className="absolute inset-0 z-15"></div>
-
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left side - Industry Data  */}
             <motion.div
               className="space-y-4"
               initial={{ opacity: 0, x: -50 }}
@@ -1164,58 +1150,51 @@ const HomeSection2 = () => {
       </section>
 
       {/* Global Presence Section  */}
-      <section className="relative py-20 bg-gray-50 overflow-hidden">
-        <AnimatedShapes />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Global Presence Across 11+ Countries
-              </span>
-            </h2>
-          </motion.div>
-          <motion.div
-            className="flex flex-wrap justify-center gap-3"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {countries.map((country, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center space-x-2 px-4 py-2 bg-white rounded-full shadow-sm hover:shadow-md transition-shadow duration-300"
-                variants={itemVariants}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
-                }}
-              >
-                <motion.div
-                  whileHover={{
-                    scale: 1.2,
-                    rotate: [0, 10, -10, 0],
-                    transition: { duration: 0.5 },
-                  }}
-                >
-                  <FaMapMarkerAlt className="text-red-500" />
-                </motion.div>
-                <span className="text-gray-800 font-medium whitespace-nowrap">
-                  {country}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+<section className="relative py-20 bg-gray-50 overflow-hidden">
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Heading */}
+    <div className="text-center mb-14">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+          Global Presence Across 11+ Countries
+        </span>
+      </h2>
+    </div>
+
+    {/* Map Container */}
+    <div className="relative w-full max-w-5xl mx-auto">
+
+      <img
+        src={worldMap}
+        alt="World Map"
+        className="w-full opacity-80"
+      />
+
+    
+    {/* MARKERS */}
+{countryLocations.map((country, index) => (
+  <div 
+    key={index} 
+    className="absolute flex flex-col items-center" 
+    style={{ top: country.top, left: country.left, transform: 'translate(-50%, -50%)' }}
+  >
+    {/* Red Marker with Glow */}
+    <div className="relative flex items-center justify-center">
+      <span className="w-4 h-4 bg-red-500 rounded-full block animate-ping opacity-40 absolute"></span>
+      <FaMapMarkerAlt className="text-red-600 text-sm md:text-base relative z-10 drop-shadow-md" />
+    </div>
+
+    {/* Location Label */}
+    <span className="mt-0.5 bg-white/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-[8px] md:text-[10px] font-bold text-gray-800 border border-gray-100 whitespace-nowrap">
+      {country.name}
+    </span>
+  </div>
+))}
+
+    </div>
+  </div>
+</section>
     </div>
   );
 };
-
 export default HomeSection2;
