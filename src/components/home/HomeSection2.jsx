@@ -456,17 +456,17 @@ const HomeSection2 = () => {
   ];
   
   const countryLocations = [
-  { name: "India", top: "52%", left: "68%" },
-  { name: "UAE", top: "45%", left: "59%" },
-  { name: "Qatar", top: "44%", left: "58.5%" },
-  { name: "Kuwait", top: "41%", left: "57%" },
-  { name: "Oman", top: "48%", left: "60%" },
-  { name: "Kenya", top: "58%", left: "56%" },
-  { name: "Sri Lanka", top: "60%", left: "69%" },
-  { name: "Bangladesh", top: "49%", left: "72%" },
-  { name: "Nepal", top: "47%", left: "70%" },
-  { name: "Senegal", top: "51%", left: "42%" },
-  { name: "Madagascar", top: "73%", left: "61%" }, 
+  { name: "India", top: "52%", left: "68%", labelPos: "bottom-left" },
+  { name: "UAE", top: "45%", left: "59%", labelPos: "left" },
+  { name: "Qatar", top: "44%", left: "58.5%", labelPos: "top-right" },
+  { name: "Kuwait", top: "41%", left: "57%", labelPos: "top-left" },
+  { name: "Oman", top: "48%", left: "60%", labelPos: "bottom-right" },
+  { name: "Kenya", top: "58%", left: "56%", labelPos: "bottom" },
+  { name: "Sri Lanka", top: "60%", left: "69%", labelPos: "bottom" },
+  { name: "Bangladesh", top: "49%", left: "72%", labelPos: "right" },
+  { name: "Nepal", top: "47%", left: "70%", labelPos: "top" },
+  { name: "Senegal", top: "51%", left: "42%", labelPos: "bottom" },
+  { name: "Madagascar", top: "73%", left: "61%", labelPos: "bottom" }, 
 ];
 
   const containerVariants = {
@@ -1172,24 +1172,43 @@ const HomeSection2 = () => {
 
     
     {/* MARKERS */}
-{countryLocations.map((country, index) => (
-  <div 
-    key={index} 
-    className="absolute flex flex-col items-center" 
-    style={{ top: country.top, left: country.left, transform: 'translate(-50%, -50%)' }}
-  >
-    {/* Red Marker with Glow */}
-    <div className="relative flex items-center justify-center">
-      <span className="w-4 h-4 bg-red-500 rounded-full block animate-ping opacity-40 absolute"></span>
-      <FaMapMarkerAlt className="text-red-600 text-sm md:text-base relative z-10 drop-shadow-md" />
-    </div>
 
-    {/* Location Label */}
-    <span className="mt-0.5 bg-white/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-[8px] md:text-[10px] font-bold text-gray-800 border border-gray-100 whitespace-nowrap">
-      {country.name}
-    </span>
-  </div>
-))}
+{countryLocations.map((country, index) => {
+  
+  const getLabelClass = (pos) => {
+    switch (pos) {
+      case "top-right": return "bottom-full left-full ml-1 mb-1";
+      case "top-left": return "bottom-full right-full mr-1 mb-1";
+      case "top": return "bottom-full mb-1 left-1/2 -translate-x-1/2";
+      case "bottom-right": return "top-full left-full ml-1 mt-1";
+      case "bottom-left": return "top-full right-full mr-1 mt-1";
+      case "left": return "right-full mr-2 top-1/2 -translate-y-1/2";
+      case "right": return "left-full ml-2 top-1/2 -translate-y-1/2";
+      default: return "top-full mt-1 left-1/2 -translate-x-1/2"; 
+    }
+  };
+
+  return (
+    <div 
+      key={index} 
+      className="absolute" 
+      style={{ top: country.top, left: country.left, transform: 'translate(-50%, -50%)' }}
+    >
+      <div className="relative flex items-center justify-center">
+        {/* Red Marker Icon */}
+        <div className="relative flex items-center justify-center">
+          <span className="w-4 h-4 bg-red-500 rounded-full block animate-ping opacity-40 absolute"></span>
+          <FaMapMarkerAlt className="text-red-600 text-sm md:text-base relative z-10 drop-shadow-md" />
+        </div>
+
+        {/* Dynamic Location Label */}
+        <span className={`absolute whitespace-nowrap bg-white/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-[8px] md:text-[10px] font-bold text-gray-800 border border-gray-100 z-20 ${getLabelClass(country.labelPos)}`}>
+          {country.name}
+        </span>
+      </div>
+    </div>
+  );
+})}
 
     </div>
   </div>
