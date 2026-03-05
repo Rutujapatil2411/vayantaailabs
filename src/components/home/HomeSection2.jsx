@@ -760,7 +760,7 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      <section ref={sectionRef} className="relative bg-white min-h-[3200px] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100"  >
+      <section ref={sectionRef} className="relative bg-white h-[320vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100"  >
         <AnimatedShapes />
 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 space-y-16">
 
