@@ -264,46 +264,45 @@ const HomeSection2 = () => {
       </div>
     );
   };
-
-  const workflowData = [
-    {
-      icon: <FaTruck />,
-      title: "Automated Gate Operations",
-      desc: "Reduce gate processing time by 60% with AI-powered automation.",
-    },
-    {
-      icon: <FaCrosshairs />,
-      title: "Container Recognition",
-      desc: "OCR technology for accurate container identify in seconds.",
-    },
-    {
-      icon: <FaMicrochip />,
-      title: "Intelligent Yard Planning",
-      desc: "AI algorithms optimize container placement for maximum efficiency",
-    },
-    {
-      icon: <FaMapMarkedAlt />,
-      title: "Digital Twin Technology",
-      desc: "Virtual yard simulation for scenario planning and optimization",
-    },
-    {
-      icon: <FaSearchLocation />,
-      title: "Equipment Optimization",
-      desc: "Reduce equipment idle time by 35% through smart scheduling",
-    },
-    {
-      icon: <FaSatelliteDish />,
-      title: "Real-time Analytics",
-      desc: "Monitor Activities with live dashboards and predictive insights",
-    },
-  ];
+const workflowData = [
+  {
+    icon: <FaTruck />,
+    title: "Gate Automation",
+    desc: "60% faster processing",
+  },
+  {
+    icon: <FaCrosshairs />,
+    title: "Container OCR",
+    desc: "Instant identification",
+  },
+  {
+    icon: <FaMicrochip />,
+    title: "Smart Yard Planning",
+    desc: "Optimized placement",
+  },
+  {
+    icon: <FaMapMarkedAlt />,
+    title: "Digital Twin",
+    desc: "Virtual yard simulation",
+  },
+  {
+    icon: <FaSearchLocation />,
+    title: "Equipment Tracking",
+    desc: "35% less idle time",
+  },
+  {
+    icon: <FaSatelliteDish />,
+    title: "Live Analytics",
+    desc: "Real-time insights",
+  },
+];
 
   const circlePositions = [
     "top-6 left-52",
-    "top-[35%] left-10",
-    "top-[70%] left-60",
-    "top-[70%] right-60",
-    "top-[35%] right-10",
+    "top-[35%] left-12",
+    "top-[60%] left-50",
+    "top-[60%] right-50",
+    "top-[35%] right-12",
     "top-6 right-52",
   ];
 
@@ -526,7 +525,7 @@ const HomeSection2 = () => {
 
 const { scrollYProgress } = useScroll({
   target: sectionRef,
-  offset: ["start start", "end end"],
+  offset: ["start center", "end center"],
 });
 
   return (
@@ -790,7 +789,10 @@ const { scrollYProgress } = useScroll({
         </div>
       </section>
   
-<section ref={sectionRef} className="relative bg-white h-[320vh]">
+
+
+  
+<section ref={sectionRef} className="relative bg-white h-[340vh]">
           <AnimatedShapes />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -804,7 +806,7 @@ const { scrollYProgress } = useScroll({
               shadow-xl
               border border-gray-200
               px-6 md:px-12
-              py-10
+              py-6
               overflow-hidden
               transition-all duration-500
             "
@@ -820,14 +822,14 @@ const { scrollYProgress } = useScroll({
                 AI-Powered Smart Gate Operation & Yard Management
               </h2>
 
-              <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+              <p className="text-gray-600 mt-1 max-w-2xl mx-auto">
                 A centralized AI decision engine that processes real-time
                 vision, tracking, and yard intelligence.
               </p>
             </div>
 
             {/* TREE CONTAINER (Desktop) */}
-            <div className="relative h-[600px] hidden md:block mt-8">
+            <div className="relative h-[480px] hidden md:block mt-6">
             
               <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
               
@@ -846,8 +848,8 @@ const { scrollYProgress } = useScroll({
 
               {/* CENTER AI CORE */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center text-center shadow-2xl px-4">
-                  <FaBrain className="text-white text-3xl mb-2" />
+                <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex flex-col items-center justify-center text-center shadow-2xl px-4">
+                  <FaBrain className="text-white text-2xl mb-2" />
                   <span className="text-white text-sm font-semibold leading-tight">
                     Processing Core
                   </span>
@@ -860,13 +862,13 @@ const { scrollYProgress } = useScroll({
                   key={item.title}
                   className={`absolute ${circlePositions[index]} z-10`}
                 >
-                  <div className="w-44 h-44 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-4 relative">
-                    <div className="text-2xl text-blue-600 mb-3">{item.icon}</div>
+                  <div className="w-36 h-36 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-3 relative">
+                    <div className="text-1xl text-blue-600 mb-3">{item.icon}</div>
                     <h3 className="font-bold text-sm mb-2 text-gray-800">{item.title}</h3>
                     <p className="text-xs text-gray-500 leading-snug">{item.desc}</p>
-                    <span className="absolute -bottom-4 w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-bold shadow-lg">
-                      {index + 1}
-                    </span>
+                    <span className="absolute -bottom-3 w-7 h-7 flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold shadow-md">
+  {index + 1}
+</span>
                   </div>
                 </div>
               ))}
