@@ -66,64 +66,6 @@ const ContactSection1 = () => {
           </motion.p>
         </motion.div>
       </section>
-
-      {/*  MAP  SECTION */}
-      <section className="bg-gray-100 py-24 px-6 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 80 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-xl  shadow-2xl border border-white/10 overflow-hidden"
-          >
-            
-            {/* <div
-              className="p-12 text-center 
-                bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900"
-            >
-              <motion.h2
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="text-4xl md:text-5xl font-bold mb-6"
-              >
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">
-                  Get in Touch
-                </span>
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
-              >
-                Visit our office or schedule a meeting with our experts . Let’s collaborate
-                and build intelligent digital solutions together.
-              </motion.p>
-            </div> */}
-
-           
-            {/* MAP SECTION */}
-<div className="w-full h-[450px]">
-  <iframe
-    title="Company Location"
-    src="https://www.google.com/maps?q=YOUR_LOCATION&output=embed"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen=""
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-   
-  ></iframe>
-</div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 };
