@@ -24,7 +24,6 @@
     "react-parallax-tilt": "^1.7.319",
     "react-router-dom": "^7.13.0",
     "react-scroll-parallax": "^3.5.0",
-    "react-simple-maps": "^3.0.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
