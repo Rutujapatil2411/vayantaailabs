@@ -456,17 +456,17 @@ const HomeSection2 = () => {
   ];
   
   const countryLocations = [
-  { name: "India", top: "52%", left: "68%", labelPos: "bottom-left" },
-  { name: "UAE", top: "45%", left: "59%", labelPos: "left" },
-  { name: "Qatar", top: "44%", left: "58.5%", labelPos: "top-right" },
-  { name: "Kuwait", top: "41%", left: "57%", labelPos: "top-left" },
-  { name: "Oman", top: "48%", left: "60%", labelPos: "bottom-right" },
-  { name: "Kenya", top: "58%", left: "56%", labelPos: "bottom" },
-  { name: "Sri Lanka", top: "60%", left: "69%", labelPos: "bottom" },
-  { name: "Bangladesh", top: "49%", left: "72%", labelPos: "right" },
-  { name: "Nepal", top: "47%", left: "70%", labelPos: "top" },
-  { name: "Senegal", top: "51%", left: "42%", labelPos: "bottom" },
-  { name: "Madagascar", top: "73%", left: "61%", labelPos: "bottom" }, 
+  { name: "India", top: "55%", left: "68%", labelPos: "bottom-left" },
+  { name: "UAE", top: "48%", left: "59%", labelPos: "left" },
+  { name: "Qatar", top: "47%", left: "58.5%", labelPos: "top-right" },
+  { name: "Kuwait", top: "44%", left: "57%", labelPos: "top-left" },
+  { name: "Oman", top: "51%", left: "60%", labelPos: "bottom-right" },
+  { name: "Kenya", top: "61%", left: "56%", labelPos: "bottom" },
+  { name: "Sri Lanka", top: "63%", left: "69%", labelPos: "bottom" },
+  { name: "Bangladesh", top: "52%", left: "72%", labelPos: "right" },
+  { name: "Nepal", top: "50%", left: "70%", labelPos: "top" },
+  { name: "Senegal", top: "54%", left: "42%", labelPos: "bottom" },
+  { name: "Madagascar", top: "75%", left: "61%", labelPos: "bottom" },
 ];
 
   const containerVariants = {
@@ -1149,10 +1149,10 @@ const HomeSection2 = () => {
       </section>
 
       {/* Global Presence Section  */}
-<section className="relative py-20 bg-gray-50 overflow-hidden">
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section className="relative py-12 bg-gray-50 overflow-hidden">
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Heading */}
-    <div className="text-center mb-14">
+    <div className="text-center mb-1">
       <h2 className="text-3xl font-bold text-gray-900 mb-4">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
           Global Presence Across 11+ Countries
@@ -1161,8 +1161,7 @@ const HomeSection2 = () => {
     </div>
 
     {/* Map Container */}
-    <div className="relative w-full max-w-5xl mx-auto">
-
+<div className="relative w-full max-w-5xl mx-auto -mt-16">
       <img
         src={worldMap}
         alt="World Map"

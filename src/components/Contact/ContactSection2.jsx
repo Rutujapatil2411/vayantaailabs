@@ -158,21 +158,21 @@ const ContactSection2 = () => {
       <div className="relative z-10">
 
         {/* Top Center Heading */}
-        <motion.div
+        {/* <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="text-center mb-16"
-        >
-          <motion.h2
+        > */}
+          {/* <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent"
           >
             Contact Our Team
-          </motion.h2>
+          </motion.h2> */}
 
-          <motion.p
+          {/* <motion.p
             variants={itemVariants}
             className="text-gray-600 mt-4 max-w-3xl mx-auto"
           >
@@ -180,8 +180,8 @@ const ContactSection2 = () => {
             solutions, we are committed to delivering excellence. Reach out to
             us for product inquiries, enterprise solutions, or strategic
             partnerships.
-          </motion.p>
-        </motion.div>
+          </motion.p> */}
+        {/* </motion.div> */}
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.3fr] gap-20 items-start">
           {/*  Contact Info */}
@@ -293,7 +293,7 @@ const ContactSection2 = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="bg-gray-100 p-12 shadow-xl border border-gray-200 "
+            className="bg-gray-100 p-12 shadow-xl border border-gray-200 min-h-[750px]"
           >
             <motion.h3
               variants={itemVariants}
@@ -356,8 +356,7 @@ const ContactSection2 = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="group block mx-auto px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
-              >
+               className="group block mx-auto mt-20 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"   >
                 Send Message
               </motion.button>
             </motion.form>
