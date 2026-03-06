@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ailabs from '../../assets/logo/AiLabs.png';
 
+
 import { 
   FaEye,          
   FaRocket,       
@@ -24,14 +25,37 @@ const Navbar = () => {
   const toggleMore = () => setIsMoreOpen(!isMoreOpen);
   const toggleMobileMore = () => setIsMobileMoreOpen(!isMobileMoreOpen);
 
+  const [showNavbar, setShowNavbar] = useState(true);
+const [lastScrollY, setLastScrollY] = useState(0);
+
   // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+ useEffect(() => {
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // hide navbar when scrolling down
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      setShowNavbar(false);
+      setScrolled(true); 
+    } 
+    // show navbar when scrolling up
+    else {
+      setShowNavbar(true);
+      setScrolled(false); // keep transparent
+    }
+
+    // when at very top
+    if (currentScrollY <= 10) {
+      setScrolled(false);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [lastScrollY]);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -187,11 +211,13 @@ const moreItems = [
         initial="hidden"
         animate="visible"
         variants={navVariants}
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled 
-          ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl py-3 border-b border-gray-800' 
-          : 'bg-transparent py-4'
-        }`}
+        className={`fixed top-0 w-full z-50 transition-all duration-500 transform
+${showNavbar ? "translate-y-0" : "-translate-y-full"}
+${
+  scrolled
+    ? "bg-gray-900/80 backdrop-blur-md shadow-xl border-b border-gray-800 py-3"
+    : "bg-transparent py-4"
+}`}
       >
 <div className="w-full px-6 lg:px-16">
             <div className="flex justify-between items-center h-16">
