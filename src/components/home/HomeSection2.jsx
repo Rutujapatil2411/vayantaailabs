@@ -23,7 +23,7 @@ import AI2 from "../../assets/img/ai2.jpg";
 import AI3 from "../../assets/img/ai3.jpg";
 import AI4 from "../../assets/img/ai4.jpg";
 import portBg from "../../assets/img/shipping.jpg";
-import worldMap from "../../assets/img/world-map1.png";
+import worldMap from "../../assets/img/map2.png";
 
 import {
   FaGlobe,
@@ -223,7 +223,7 @@ const ParallaxCard = ({ children, index, progress }) => {
   return (
     <motion.div
       // Changed from "sticky top-32" to allow natural scrolling on mobile
-      className="relative md:sticky top-auto md:top-32 flex justify-center mb-12 md:mb-0" 
+      className="relative md:sticky top-auto md:top-32 flex justify-center mb-12 md:mb-0"
       style={{
         scale,
         opacity,
@@ -247,7 +247,8 @@ const HomeSection2 = () => {
         <div
           className="  w-56 h-56  bg-white rounded-full  border-4 border-gray-200 shadow-md
         flex flex-col  items-center justify-center  text-center p-6  transition-all duration-300 ease-in-out
-        group-hover:shadow-xl  group-hover:-translate-y-2  group-hover:scale-105 group-hover:border-blue-500 " >
+        group-hover:shadow-xl  group-hover:-translate-y-2  group-hover:scale-105 group-hover:border-blue-500 "
+        >
           <div className="text-3xl text-blue-600 mb-3 transition-transform duration-300 group-hover:rotate-6">
             {icon}
           </div>
@@ -476,20 +477,20 @@ const HomeSection2 = () => {
       icon: <FaBuilding className="text-green-500" />,
     },
   ];
-  
+
   const countryLocations = [
-  { name: "India", top: "55%", left: "68%", labelPos: "bottom-left" },
-  { name: "UAE", top: "48%", left: "59%", labelPos: "left" },
-  { name: "Qatar", top: "47%", left: "58.5%", labelPos: "top-right" },
-  { name: "Kuwait", top: "44%", left: "57%", labelPos: "top-left" },
-  { name: "Oman", top: "51%", left: "60%", labelPos: "bottom-right" },
-  { name: "Kenya", top: "61%", left: "56%", labelPos: "bottom" },
-  { name: "Sri Lanka", top: "63%", left: "69%", labelPos: "bottom" },
-  { name: "Bangladesh", top: "52%", left: "72%", labelPos: "right" },
-  { name: "Nepal", top: "50%", left: "70%", labelPos: "top" },
-  { name: "Senegal", top: "54%", left: "42%", labelPos: "bottom" },
-  { name: "Madagascar", top: "75%", left: "61%", labelPos: "bottom" },
-];
+    { name: "India", top: "42%", left: "65%", labelPos: "bottom-right" },
+    { name: "UAE", top: "40%", left: "58%", labelPos: "bottom-left" },
+    { name: "Qatar", top: "38.5%", left: "57%", labelPos: "top-right" },
+    { name: "Kuwait", top: "35.7%", left: "55.8%", labelPos: "top-left" },
+    { name: "Oman", top: "43%", left: "58.5%", labelPos: "bottom-right" },
+    { name: "Kenya", top: "57%", left: "53%", labelPos: "top-left" },
+    { name: "Sri Lanka", top: "52%", left: "66.5%", labelPos: "bottom-right" },
+    { name: "Bangladesh", top: "40%", left: "69%", labelPos: "right" },
+    { name: "Nepal", top: "37%", left: "67%", labelPos: "top" },
+    { name: "Senegal", top: "46%", left: "37%", labelPos: "top-left" },
+    { name: "Madagascar", top: "72%", left: "55.5%", labelPos: "bottom-right" },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -782,18 +783,19 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-<section 
-  ref={sectionRef} 
-  className="relative bg-white h-auto md:h-[320vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100 pb-20 md:pb-0"  
->        <AnimatedShapes />
-<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 space-y-16">
-
-            {/* CARD 1: AI-Powered Smart Gate Operation   */}
+      <section
+        ref={sectionRef}
+        className="relative bg-white h-auto md:h-[320vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100 pb-20 md:pb-0"
+      >
+        {" "}
+        <AnimatedShapes />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 space-y-16">
+          {/* CARD 1: AI-Powered Smart Gate Operation   */}
           <ParallaxCard index={0} progress={scrollYProgress}>
             <div
               className="  relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-12 py-6
-              overflow-hidden transition-all duration-500 ">
-
+              overflow-hidden transition-all duration-500 "
+            >
               {/* Section Header */}
               <div className="text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-gray-900 rounded-full text-white text-xs uppercase tracking-wide shadow-lg">
@@ -881,7 +883,8 @@ const HomeSection2 = () => {
                 {workflowData.map((item, index) => (
                   <div
                     key={item.title}
-                    className={`absolute ${circlePositions[index]} z-10`} >
+                    className={`absolute ${circlePositions[index]} z-10`}
+                  >
                     <div className="w-36 h-36 bg-white rounded-full border-4 border-gray-200 shadow-md flex flex-col items-center justify-center text-center p-3 relative">
                       <div className="text-1xl text-blue-600 mb-3">
                         {item.icon}
@@ -919,7 +922,7 @@ const HomeSection2 = () => {
 
           {/* CARD 2: Automated Container Tracking      */}
           <ParallaxCard index={1} progress={scrollYProgress}>
-            <div className=" relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-10 py-6 overflow-hidden " >
+            <div className=" relative bg-gray-50 rounded-3xl shadow-xl border border-gray-200 px-6 md:px-10 py-6 overflow-hidden ">
               {/* Heading */}
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-1.5 px-5 py-2 bg-blue-100/70 border border-blue-300 rounded-full text-blue-700 font-medium shadow-sm">
@@ -964,7 +967,8 @@ const HomeSection2 = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}   >
+                transition={{ duration: 0.6 }}
+              >
                 <h3 className="text-xl md:text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
                   The Operational Workflow
                 </h3>
@@ -1024,7 +1028,7 @@ const HomeSection2 = () => {
 
           {/* CARD 3: Advanced AI Features   */}
           <ParallaxCard index={2} progress={scrollYProgress}>
-            <div className=" relative bg-gray-50 rounded-3xl  shadow-xl border border-gray-200  px-6 md:px-10  py-6  overflow-hidden " >
+            <div className=" relative bg-gray-50 rounded-3xl  shadow-xl border border-gray-200  px-6 md:px-10  py-6  overflow-hidden ">
               <motion.div
                 className="text-center mb-12"
                 initial={{ opacity: 0, y: -30 }}
@@ -1059,7 +1063,7 @@ const HomeSection2 = () => {
                     className="bg-white rounded-lg p-6 shadow-md relative overflow-hidden border border-gray-300"
                     variants={itemVariants}
                     style={{
-                      backgroundColor: "#ffffff", 
+                      backgroundColor: "#ffffff",
                     }}
                   >
                     <div className="relative z-10 flex flex-col items-center justify-center text-center h-full">
@@ -1173,68 +1177,75 @@ const HomeSection2 = () => {
       </section>
 
       {/* Global Presence Section  */}
-<section className="relative py-12 bg-gray-50 overflow-hidden">
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {/* Heading */}
-    <div className="text-center mb-1">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-          Global Presence Across 11+ Countries
-        </span>
-      </h2>
-    </div>
+      <section className="relative py-12 bg-white-50 overflow-hidden">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
+          <div className="text-center mb-20">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                Global Presence Across 11+ Countries
+              </span>
+            </h2>
+          </div>
 
-    {/* Map Container */}
-<div className="relative w-full max-w-5xl mx-auto mt-0 md:-mt-16 pb-12">
-  <img
-    src={worldMap}
-    alt="World Map"
-    className="w-full opacity-80"
-  />
+          {/* Map Container */}
+          <div className="relative w-full max-w-5xl mx-auto -mt-16">
+            <img src={worldMap} alt="World Map" className="w-full opacity-80" />
 
-    
-    {/* MARKERS */}
+            {/* MARKERS */}
 
-{countryLocations.map((country, index) => {
-  
-  const getLabelClass = (pos) => {
-    switch (pos) {
-      case "top-right": return "bottom-full left-full ml-1 mb-1";
-      case "top-left": return "bottom-full right-full mr-1 mb-1";
-      case "top": return "bottom-full mb-1 left-1/2 -translate-x-1/2";
-      case "bottom-right": return "top-full left-full ml-1 mt-1";
-      case "bottom-left": return "top-full right-full mr-1 mt-1";
-      case "left": return "right-full mr-2 top-1/2 -translate-y-1/2";
-      case "right": return "left-full ml-2 top-1/2 -translate-y-1/2";
-      default: return "top-full mt-1 left-1/2 -translate-x-1/2"; 
-    }
-  };
+            {countryLocations.map((country, index) => {
+              const getLabelClass = (pos) => {
+                switch (pos) {
+                  case "top-right":
+                    return "bottom-full left-full ml-0.5 mb-0.5";
+                  case "top-left":
+                    return "bottom-full right-full mr-0.5 mb-0.5";
+                  case "top":
+                    return "bottom-full mb-0.5 left-1/2 -translate-x-1/2";
+                  case "bottom-right":
+                    return "top-full left-full ml-0.5 mt-0.5";
+                  case "bottom-left":
+                    return "top-full right-full mr-0.5 mt-0.5";
+                  case "left":
+                    return "right-full mr-1 top-1/2 -translate-y-1/2";
+                  case "right":
+                    return "left-full ml-1 top-1/2 -translate-y-1/2";
+                  default:
+                    return "top-full mt-0.5 left-1/2 -translate-x-1/2";
+                }
+              };
 
-  return (
-    <div 
-      key={index} 
-      className="absolute" 
-      style={{ top: country.top, left: country.left, transform: 'translate(-50%, -50%)' }}
-    >
-      <div className="relative flex items-center justify-center">
-        {/* Red Marker Icon */}
-        <div className="relative flex items-center justify-center">
-          <span className="w-4 h-4 bg-red-500 rounded-full block animate-ping opacity-40 absolute"></span>
-          <FaMapMarkerAlt className="text-red-600 text-sm md:text-base relative z-10 drop-shadow-md" />
+              return (
+                <div
+                  key={index}
+                  className="absolute"
+                  style={{
+                    top: country.top,
+                    left: country.left,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <div className="relative flex items-center justify-center">
+                    {/* Red Marker Icon */}
+                    <div className="relative flex items-center justify-center">
+                      <span className="w-4 h-4 bg-red-500 rounded-full block animate-ping opacity-40 absolute"></span>
+                      <FaMapMarkerAlt className="text-red-600 text-sm md:text-base relative z-10 drop-shadow-md" />
+                    </div>
+
+                    {/* Dynamic Location Label */}
+                    <span
+                      className={`absolute whitespace-nowrap bg-white/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-[8px] md:text-[10px] font-bold text-gray-800 border border-gray-100 z-20 ${getLabelClass(country.labelPos)}`}
+                    >
+                      {country.name}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
-
-        {/* Dynamic Location Label */}
-        <span className={`absolute whitespace-nowrap bg-white/90 backdrop-blur-[2px] px-1.5 py-0.5 rounded shadow-[0_1px_3px_rgba(0,0,0,0.1)] text-[8px] md:text-[10px] font-bold text-gray-800 border border-gray-100 z-20 ${getLabelClass(country.labelPos)}`}>
-          {country.name}
-        </span>
-      </div>
-    </div>
-  );
-})}
-
-    </div>
-  </div>
-</section>
+      </section>
     </div>
   );
 };
