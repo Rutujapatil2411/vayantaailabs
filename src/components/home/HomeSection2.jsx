@@ -191,6 +191,27 @@ const AnimatedShapes = () => {
   );
 };
 
+// const ParallaxCard = ({ children, index, progress }) => {
+//   const start = index * 0.33;
+//   const mid = start + 0.15;
+//   const end = start + 0.33;
+
+//   const scale = useTransform(progress, [start, mid, end], [1, 1, 0.8]);
+//   const opacity = useTransform(progress, [end - 0.05, end + 0.05], [1, 0]);
+
+//   return (
+//     <motion.div
+//       className="sticky top-32 flex justify-center"
+//       style={{
+//         scale,
+//         opacity,
+//         zIndex: index,
+//       }}
+//     >
+//       <div className="w-full max-w-6xl">{children}</div>
+//     </motion.div>
+//   );
+// };
 const ParallaxCard = ({ children, index, progress }) => {
   const start = index * 0.33;
   const mid = start + 0.15;
@@ -201,7 +222,8 @@ const ParallaxCard = ({ children, index, progress }) => {
 
   return (
     <motion.div
-      className="sticky top-32 flex justify-center"
+      // Changed from "sticky top-32" to allow natural scrolling on mobile
+      className="relative md:sticky top-auto md:top-32 flex justify-center mb-12 md:mb-0" 
       style={{
         scale,
         opacity,
@@ -760,8 +782,10 @@ const HomeSection2 = () => {
         </div>
       </section>
 
-      <section ref={sectionRef} className="relative bg-white h-[320vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100"  >
-        <AnimatedShapes />
+<section 
+  ref={sectionRef} 
+  className="relative bg-white h-auto md:h-[320vh] bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100 pb-20 md:pb-0"  
+>        <AnimatedShapes />
 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 space-y-16">
 
             {/* CARD 1: AI-Powered Smart Gate Operation   */}
@@ -1161,12 +1185,12 @@ const HomeSection2 = () => {
     </div>
 
     {/* Map Container */}
-<div className="relative w-full max-w-5xl mx-auto -mt-16">
-      <img
-        src={worldMap}
-        alt="World Map"
-        className="w-full opacity-80"
-      />
+<div className="relative w-full max-w-5xl mx-auto mt-0 md:-mt-16 pb-12">
+  <img
+    src={worldMap}
+    alt="World Map"
+    className="w-full opacity-80"
+  />
 
     
     {/* MARKERS */}
