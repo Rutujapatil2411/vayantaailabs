@@ -485,7 +485,7 @@ const HomeSection2 = () => {
     { name: "Kuwait", top: "35.7%", left: "55.8%", labelPos: "top-left" },
     { name: "Oman", top: "43%", left: "58.5%", labelPos: "bottom-right" },
     { name: "Kenya", top: "57%", left: "53%", labelPos: "top-left" },
-    { name: "Sri Lanka", top: "52%", left: "66.5%", labelPos: "bottom-right" },
+    { name: "Sri Lanka", top: "51%", left: "66.3%", labelPos: "bottom-right" },
     { name: "Bangladesh", top: "40%", left: "69%", labelPos: "right" },
     { name: "Nepal", top: "37%", left: "67%", labelPos: "top" },
     { name: "Senegal", top: "46%", left: "37%", labelPos: "top-left" },
