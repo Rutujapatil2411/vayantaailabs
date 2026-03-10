@@ -156,7 +156,6 @@ const ContactSection2 = () => {
       <AnimatedShapes />
 
       <div className="relative z-10">
-
         {/* Top Center Heading */}
         {/* <motion.div
           variants={containerVariants}
@@ -165,14 +164,14 @@ const ContactSection2 = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         > */}
-          {/* <motion.h2
+        {/* <motion.h2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent"
           >
             Contact Our Team
           </motion.h2> */}
 
-          {/* <motion.p
+        {/* <motion.p
             variants={itemVariants}
             className="text-gray-600 mt-4 max-w-3xl mx-auto"
           >
@@ -192,7 +191,6 @@ const ContactSection2 = () => {
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants} className="space-y-8">
-
               {/* Address */}
               <div className="flex items-center gap-4 group">
                 <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 bg-green-100 rounded-full text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
@@ -263,28 +261,25 @@ const ContactSection2 = () => {
 
                   <p className="text-gray-600">+91-90110 75932</p>
                   <p className="text-gray-600">+91-83294 69330</p>
-
-                  
                 </div>
-                
               </div>
             </motion.div>
             {/* Google Map */}
-<motion.div
-  variants={itemVariants}
-  className="mt-10  overflow-hidden shadow-lg border border-gray-200"
->
-  <iframe
-    title="Company Location"
-   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5860675932972!2d73.7449598!3d18.592691300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb8f19f03b7b%3A0x13da2894436bf943!2sRapportsoft%20Consulting%20%26%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1772599969782!5m2!1sen!2sin"
-    width="100%"
-    height="250"
-    style={{ border: 0 }}
-    allowFullScreen=""
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  ></iframe>
-</motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="mt-10  overflow-hidden shadow-lg border border-gray-200"
+            >
+              <iframe
+                title="Company Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5860675932972!2d73.7449598!3d18.592691300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb8f19f03b7b%3A0x13da2894436bf943!2sRapportsoft%20Consulting%20%26%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1772599969782!5m2!1sen!2sin"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </motion.div>
           </motion.div>
 
           {/*  Contact Form */}
@@ -356,7 +351,8 @@ const ContactSection2 = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-               className="group block mx-auto mt-20 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"   >
+                className="group block mx-auto mt-20 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
+              >
                 Send Message
               </motion.button>
             </motion.form>
