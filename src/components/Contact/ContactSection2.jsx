@@ -16,9 +16,8 @@ const iconHover = {
   transition: { type: "spring", stiffness: 300 },
 };
 
-
 const Sparkles = () => {
-  const particles = Array.from({ length: 20 });
+  const particles = Array.from({ length: 35 });
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -29,16 +28,16 @@ const Sparkles = () => {
           initial={{
             y: -20,
             x: Math.random() * 300,
-            opacity: 0
+            opacity: 0,
           }}
           animate={{
             y: 320,
-            opacity: [0, 1, 0]
+            opacity: [0, 1, 0],
           }}
           transition={{
             duration: 2 + Math.random() * 2,
             repeat: Infinity,
-            delay: Math.random() * 2
+            delay: Math.random() * 2,
           }}
         />
       ))}
@@ -46,73 +45,64 @@ const Sparkles = () => {
   );
 };
 
-
 const ContactSection2 = () => {
   return (
     <section className="py-16 px-6 bg-gradient-to-br from-cyan-100 via-white to-purple-200">
       <div className="max-w-7xl mx-auto">
-
-
         {/* CONTACT FORM */}
         <div className="bg-[#c7e4e8] mt-4 p-12 shadow-2xl max-w-3xl mx-auto ">
-
-        <h2 className="text-3xl font-bold text-center mt-4 mb-8 bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
-  Send Us a Business Inquiry
-</h2>
+          <h2 className="text-3xl font-bold text-center mt-4 mb-8 bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
+            Send Us a Business Inquiry
+          </h2>
 
           <form className="space-y-6">
-
             <div className="grid md:grid-cols-2 gap-4">
-  <input
-  type="text"
-  placeholder="First Name"
-  className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
-/>
+              <input
+                type="text"
+                placeholder="First Name"
+                className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+              />
 
-  <input
-    type="text"
-    placeholder="Last Name"
-    className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
-
-  />
-</div>
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+              />
+            </div>
 
             <input
               type="email"
               placeholder="Enter a valid email address"
-             className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
-/>
+              className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+            />
 
             <textarea
               rows="4"
               placeholder="Enter your message"
               className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
-/>
+            />
 
             <motion.button
-  whileHover={{
-    scale: 1.05,
-    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-  }}
-  whileTap={{ scale: 0.95 }}
-  type="submit"
-  className="group block mx-auto mt-6 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
->
- Send Message
-</motion.button>
-
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              type="submit"
+              className="group block mx-auto mt-6 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
+            >
+              Send Message
+            </motion.button>
           </form>
         </div>
 
         {/* Bottom  CARDS */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
-
           {/* MAIN OFFICE */}
           <motion.div
             {...cardHover}
-           className="bg-white shadow-xl p-4 text-center cursor-pointer"
+            className="bg-white shadow-xl p-4 text-center cursor-pointer"
           >
-            
             <motion.div {...iconHover}>
               <FaMapMarkerAlt className="text-2xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
@@ -135,22 +125,18 @@ const ContactSection2 = () => {
             className=" group relative overflow-hidden bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
           >
             {/** Sparkles */}
-<div className="opacity-0 group-hover:opacity-100 transition duration-500">
-  <Sparkles/>
-</div>
+            <div className="opacity-0 group-hover:opacity-100 transition duration-500">
+              <Sparkles />
+            </div>
             <motion.div {...iconHover}>
               <FaPhoneAlt className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
 
             <h3 className="font-bold mb-2">PHONE NUMBER</h3>
 
-            <p className="text-gray-600 text-sm">
-              +91-90110 75932
-            </p>
+            <p className="text-gray-600 text-sm">+91-90110 75932</p>
 
-            <p className="text-gray-600 text-sm">
-              +91-83294 69330
-            </p>
+            <p className="text-gray-600 text-sm">+91-83294 69330</p>
           </motion.div>
 
           {/* ADDRESS */}
@@ -159,19 +145,18 @@ const ContactSection2 = () => {
             className=" group relative overflow-hidden bg-white shadow-xl p-6 text-center  cursor-pointer"
           >
             {/** Sparkles */}
-<div className="opacity-0 group-hover:opacity-100 transition duration-500">
-  <Sparkles/>
-</div>
+            <div className="opacity-0 group-hover:opacity-100 transition duration-500">
+              <Sparkles />
+            </div>
             <motion.div {...iconHover}>
               <FaFax className="text-xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
 
             <h3 className="font-bold mb-2">OFFICE LOCATIONS</h3>
 
-            <p className="text-gray-600 mb-3" >
-              Rapportsoft Consulting & Technology Pvt Ltd,
-              Office No-321, XION, Hinjawadi,Pune,
-              Maharashtra-411057
+            <p className="text-gray-600 mb-3">
+              Rapportsoft Consulting & Technology Pvt Ltd, Office No-321, XION,
+              Hinjawadi,Pune, Maharashtra-411057
             </p>
 
             <p className="text-gray-600 mb-3">
@@ -179,8 +164,7 @@ const ContactSection2 = () => {
             </p>
 
             <p className="text-gray-600">
-              Shree Heritage A 501, Sangam Nagar, Sangavi, Pune,
-              India - 411027
+              Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, India - 411027
             </p>
           </motion.div>
 
@@ -190,9 +174,9 @@ const ContactSection2 = () => {
             className="group relative overflow-hidden bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
           >
             {/** Sparkles */}
-<div className="opacity-0 group-hover:opacity-100 transition duration-500">
-  <Sparkles/>
-</div>
+            <div className="opacity-0 group-hover:opacity-100 transition duration-500">
+              <Sparkles />
+            </div>
             <motion.div {...iconHover}>
               <FaEnvelope className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
@@ -213,7 +197,6 @@ const ContactSection2 = () => {
               shivraj@rapportsoft.co.in
             </a>
           </motion.div>
-
         </div>
       </div>
     </section>
