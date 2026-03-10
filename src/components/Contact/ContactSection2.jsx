@@ -54,6 +54,30 @@ const containerVariants = {
   },
 };
 
+const textContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.18,
+      delayChildren: 0.35,
+    },
+  },
+};
+
+const textItem = {
+  hidden: {
+    y: 30,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.35,
+    },
+  },
+};
+
 const cardVariants = {
   hidden: {
     y: 80,
@@ -179,17 +203,19 @@ const ContactSection2 = () => {
               <FaPhoneAlt className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
 
-            <motion.h3 variants={textVariants} className="font-bold mb-2">
-  PHONE NUMBER
-</motion.h3>
+            <motion.div variants={textContainer}>
+  <motion.h3 variants={textItem} className="font-bold mb-2">
+    PHONE NUMBER
+  </motion.h3>
 
-           <motion.p variants={textVariants} className="text-gray-600 text-sm">
-  +91-90110 75932
-</motion.p>
+  <motion.p variants={textItem} className="text-gray-600 text-sm">
+    +91-90110 75932
+  </motion.p>
 
-<motion.p variants={textVariants} className="text-gray-600 text-sm">
-  +91-83294 69330
-</motion.p>
+  <motion.p variants={textItem} className="text-gray-600 text-sm">
+    +91-83294 69330
+  </motion.p>
+</motion.div>
           </motion.div>
 
           {/* ADDRESS */}
@@ -206,20 +232,24 @@ const ContactSection2 = () => {
               <FaFax className="text-xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
 
-           <motion.h3 variants={textVariants} className="font-bold mb-2">
-  OFFICE LOCATIONS
-</motion.h3>
+           <motion.div variants={textContainer}>
+  <motion.h3 variants={textItem} className="font-bold mb-2">
+    OFFICE LOCATIONS
+  </motion.h3>
 
-            <motion.p variants={textVariants} className="text-gray-600 mb-3">
-  Rapportsoft Consulting & Technology Pvt Ltd, Office No-321, XION,
-  Hinjawadi,Pune, Maharashtra-411057
-</motion.p>
-<motion.p variants={textVariants} className="text-gray-600 mb-3">
-  Akansha Plaza, Talegaon Pune, India - 410507
-</motion.p>
-<motion.p variants={textVariants} className="text-gray-600 mb-3">
-  Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, India - 411027
-</motion.p>
+  <motion.p variants={textItem} className="text-gray-600 mb-3">
+    Rapportsoft Consulting & Technology Pvt Ltd, Office No-321, XION,
+    Hinjawadi,Pune, Maharashtra-411057
+  </motion.p>
+
+  <motion.p variants={textItem} className="text-gray-600 mb-3">
+    Akansha Plaza, Talegaon Pune, India - 410507
+  </motion.p>
+
+  <motion.p variants={textItem} className="text-gray-600">
+    Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, India - 411027
+  </motion.p>
+</motion.div>
 
           </motion.div>
 
@@ -237,23 +267,27 @@ const ContactSection2 = () => {
               <FaEnvelope className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
 
-            <motion.h3 variants={textVariants} className="font-bold mb-2">
-  EMAIL
-</motion.h3>
+            <motion.div variants={textContainer}>
+  <motion.h3 variants={textItem} className="font-bold mb-2">
+    EMAIL
+  </motion.h3>
 
-          <motion.a variants={textVariants}
-              href="mailto:corp@rapportsoft.co.in"
-              className="text-gray-600 text-sm hover:text-cyan-600 transition block"
-            >
-              corp@rapportsoft.co.in
-           </motion.a>
+  <motion.a
+    variants={textItem}
+    href="mailto:corp@rapportsoft.co.in"
+    className="text-gray-600 text-sm hover:text-cyan-600 transition block"
+  >
+    corp@rapportsoft.co.in
+  </motion.a>
 
-          <motion.a variants={textVariants}
-              href="mailto:shivraj@rapportsoft.co.in"
-              className="text-gray-600 text-sm hover:text-cyan-600 transition block"
-            >
-              shivraj@rapportsoft.co.in
-             </motion.a>
+  <motion.a
+    variants={textItem}
+    href="mailto:shivraj@rapportsoft.co.in"
+    className="text-gray-600 text-sm hover:text-cyan-600 transition block"
+  >
+    shivraj@rapportsoft.co.in
+  </motion.a>
+</motion.div>
           </motion.div>
         </motion.div>  
       </div>
