@@ -74,7 +74,7 @@ const ContactSection2 = () => {
               <FaFax className="text-xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
 
-            <h3 className="font-bold mb-2">OFFICE LOCATION</h3>
+            <h3 className="font-bold mb-2">OFFICE LOCATIONS</h3>
 
             <p className="text-gray-600 mb-3" >
               Rapportsoft Consulting & Technology Pvt Ltd,
