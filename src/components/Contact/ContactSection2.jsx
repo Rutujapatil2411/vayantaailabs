@@ -1,363 +1,176 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaFax } from "react-icons/fa";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.2 },
+const cardHover = {
+  whileHover: {
+    y: -10,
+    scale: 1.03,
+    boxShadow: "0px 20px 40px rgba(0,0,0,0.15)",
   },
+  transition: { type: "spring", stiffness: 200 },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-};
-
-const AnimatedShapes = () => {
-  return (
-    <>
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={`particle-${i}`}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20"
-          style={{
-            width: `${Math.random() * 40 + 10}px`,
-            height: `${Math.random() * 40 + 10}px`,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            x: [0, Math.random() * 100 - 50],
-            y: [0, Math.random() * 100 - 50],
-            opacity: [0.1, 0.3, 0.1],
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      <motion.div
-        className="absolute bottom-20 right-20 w-0 h-0 opacity-20"
-        style={{
-          borderLeft: "15px solid transparent",
-          borderRight: "15px solid transparent",
-          borderBottom: "25px solid #4ade80",
-        }}
-        animate={{
-          rotate: [0, 10, 0, -10, 0],
-          y: [0, -10, 0],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute top-1/3 right-1/4 w-10 h-10 bg-purple-300 rounded-full opacity-15"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute top-1/2 right-1/3 w-0 h-0 opacity-20"
-        style={{
-          borderLeft: "12px solid transparent",
-          borderRight: "12px solid transparent",
-          borderBottom: "20px solid #a78bfa",
-        }}
-        animate={{
-          rotate: [0, -15, 0, 15, 0],
-          x: [0, -10, 0],
-        }}
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/3 left-20 w-12 h-12 bg-blue-200 rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute top-2/3 left-20 w-10 h-10 bg-indigo-200 rounded-full opacity-20"
-        animate={{
-          scale: [1, 1.4, 1],
-          opacity: [0.2, 0.5, 0.2],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute top-1/4 left-16 w-8 h-8 bg-green-200 rounded-full opacity-20"
-        animate={{
-          y: [0, -15, 0],
-          x: [0, 10, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-1/4 left-1/4 w-0 h-0 opacity-20"
-        style={{
-          borderLeft: "10px solid transparent",
-          borderRight: "10px solid transparent",
-          borderBottom: "18px solid #f9a8d4",
-        }}
-        animate={{
-          rotate: [0, 20, 0, -20, 0],
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-    </>
-  );
+const iconHover = {
+  whileHover: { scale: 1.2, rotate: 5 },
+  transition: { type: "spring", stiffness: 300 },
 };
 
 const ContactSection2 = () => {
   return (
-    <section className="relative py-24 px-6 bg-gradient-to-br from-gray-100 via-white to-gray-100 overflow-hidden">
-      <AnimatedShapes />
+    <section className="py-24 px-6 bg-gradient-to-br from-cyan-100 via-white to-purple-200">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="relative z-10">
-        {/* Top Center Heading */}
-        {/* <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        > */}
-        {/* <motion.h2
-            variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent"
-          >
-            Contact Our Team
-          </motion.h2> */}
+        {/* TOP CARDS */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 -mb-30 relative z-10">
 
-        {/* <motion.p
-            variants={itemVariants}
-            className="text-gray-600 mt-4 max-w-3xl mx-auto"
-          >
-            With 15+ years of expertise in logistics and enterprise IT
-            solutions, we are committed to delivering excellence. Reach out to
-            us for product inquiries, enterprise solutions, or strategic
-            partnerships.
-          </motion.p> */}
-        {/* </motion.div> */}
-
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.3fr] gap-20 items-start">
-          {/*  Contact Info */}
+          {/* MAIN OFFICE */}
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            {...cardHover}
+           className="bg-white shadow-xl p-4 text-center cursor-pointer"
           >
-            <motion.div variants={itemVariants} className="space-y-8">
-              {/* Address */}
-              <div className="flex items-center gap-4 group">
-                <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 bg-green-100 rounded-full text-green-600 group-hover:bg-green-600 group-hover:text-white transition duration-300">
-                  <FaMapMarkerAlt className="text-2xl" />
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Address
-                  </h4>
-
-                  <p className="text-gray-600 mb-3">
-                    Rapportsoft Consulting & Technology Pvt Ltd,
-                    <br />
-                    Office No-321, XION, Hinjawadi,Pune,
-                    <br />
-                    Maharashtra-411057
-                  </p>
-
-                  <p className="text-gray-600 mb-3">
-                    Akansha Plaza, Talegaon Pune, India - 410 507
-                  </p>
-
-                  <p className="text-gray-600">
-                    Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, <br />
-                    India - 411 027
-                  </p>
-                </div>
-              </div>
-
-              {/* Email */}
-
-              <div className="flex items-center gap-4 group">
-                <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
-                  <FaEnvelope className="text-2xl" />
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Email
-                  </h4>
-
-                  <a
-                    href="mailto:corp@rapportsoft.co.in"
-                    className="block text-gray-600 hover:text-blue-600 transition duration-300"
-                  >
-                    corp@rapportsoft.co.in
-                  </a>
-
-                  <a
-                    href="mailto:shivraj@rapportsoft.co.in"
-                    className="block text-gray-600 hover:text-blue-600 transition duration-300 mt-2"
-                  >
-                    shivraj@rapportsoft.co.in
-                  </a>
-                </div>
-              </div>
-
-              {/* Phone */}
-              <div className="flex items-center gap-4 group">
-                <div className="flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition duration-300">
-                  <FaPhoneAlt className="text-2xl" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">
-                    Contact Numbers
-                  </h4>
-
-                  <p className="text-gray-600">+91-90110 75932</p>
-                  <p className="text-gray-600">+91-83294 69330</p>
-                </div>
-              </div>
+            <motion.div {...iconHover}>
+              <FaMapMarkerAlt className="text-2xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
-            {/* Google Map */}
-            <motion.div
-              variants={itemVariants}
-              className="mt-10  overflow-hidden shadow-lg border border-gray-200"
-            >
+
+            <div className="overflow-hidden ">
               <iframe
                 title="Company Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5860675932972!2d73.7449598!3d18.592691300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bb8f19f03b7b%3A0x13da2894436bf943!2sRapportsoft%20Consulting%20%26%20Technology%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1772599969782!5m2!1sen!2sin"
                 width="100%"
-                height="250"
+                height="260"
                 style={{ border: 0 }}
-                allowFullScreen=""
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </motion.div>
+              />
+            </div>
           </motion.div>
 
-          {/*  Contact Form */}
+          {/* PHONE */}
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="bg-gray-100 p-12 shadow-xl border border-gray-200 min-h-[750px]"
+            {...cardHover}
+            className="bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
           >
-            <motion.h3
-              variants={itemVariants}
-              className="text-2xl font-semibold mb-8 text-center bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent"
-            >
-              Send Us a Business Inquiry
-            </motion.h3>
+            <motion.div {...iconHover}>
+              <FaPhoneAlt className="text-3xl text-cyan-500 mb-4" />
+            </motion.div>
 
-            <motion.form variants={itemVariants} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your full name"
-                  className="w-full px-4 py-3 bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
-                />
-              </div>
+            <h3 className="font-bold mb-2">PHONE NUMBER</h3>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full px-4 py-3 bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
-                  />
-                </div>
+            <p className="text-gray-600 text-sm">
+              +91-90110 75932
+            </p>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Phone
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your phone number"
-                    className="w-full px-4 py-3 bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
-                </label>
-                <textarea
-                  rows="4"
-                  placeholder="Describe your requirements..."
-                  className="w-full px-4 py-3 bg-white border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition "
-                ></textarea>
-              </div>
-
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="group block mx-auto mt-20 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
-              >
-                Send Message
-              </motion.button>
-            </motion.form>
+            <p className="text-gray-600 text-sm">
+              +91-83294 69330
+            </p>
           </motion.div>
+
+          {/* ADDRESS */}
+          <motion.div
+            {...cardHover}
+            className="bg-white shadow-xl p-6 text-center  cursor-pointer"
+          >
+            <motion.div {...iconHover}>
+              <FaFax className="text-xl text-cyan-500 mx-auto mb-4" />
+            </motion.div>
+
+            <h3 className="font-bold mb-2">OFFICE LOCATION</h3>
+
+            <p className="text-gray-600 mb-3" >
+              Rapportsoft Consulting & Technology Pvt Ltd,
+              Office No-321, XION, Hinjawadi,Pune,
+              Maharashtra-411057
+            </p>
+
+            <p className="text-gray-600 mb-3">
+              Akansha Plaza, Talegaon Pune, India - 410507
+            </p>
+
+            <p className="text-gray-600">
+              Shree Heritage A 501, Sangam Nagar, Sangavi, Pune,
+              India - 411027
+            </p>
+          </motion.div>
+
+          {/* EMAIL */}
+          <motion.div
+            {...cardHover}
+            className="bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
+          >
+            <motion.div {...iconHover}>
+              <FaEnvelope className="text-3xl text-cyan-500 mb-4" />
+            </motion.div>
+
+            <h3 className="font-bold mb-2">EMAIL</h3>
+
+            <a
+              href="mailto:corp@rapportsoft.co.in"
+              className="text-gray-600 text-sm hover:text-cyan-600 transition block"
+            >
+              corp@rapportsoft.co.in
+            </a>
+
+            <a
+              href="mailto:shivraj@rapportsoft.co.in"
+              className="text-gray-600 text-sm hover:text-cyan-600 transition block"
+            >
+              shivraj@rapportsoft.co.in
+            </a>
+          </motion.div>
+
         </div>
+
+        {/* CONTACT FORM */}
+        <div className="bg-[#c7e4e8] mt-20 p-12 shadow-2xl max-w-3xl mx-auto ">
+
+        <h2 className="text-3xl font-bold text-center mt-4 mb-8 bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
+  Send Us a Business Inquiry
+</h2>
+
+          <form className="space-y-6">
+
+            <div className="grid md:grid-cols-2 gap-4">
+  <input
+  type="text"
+  placeholder="First Name"
+  className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+/>
+
+  <input
+    type="text"
+    placeholder="Last Name"
+    className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+
+  />
+</div>
+
+            <input
+              type="email"
+              placeholder="Enter a valid email address"
+             className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+/>
+
+            <textarea
+              rows="4"
+              placeholder="Enter your message"
+              className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
+/>
+
+            <motion.button
+  whileHover={{
+    scale: 1.05,
+    boxShadow: "0 10px 20px rgba(0,0,0,0.2)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  type="submit"
+  className="group block mx-auto mt-6 px-10 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:from-black hover:to-black hover:text-white"
+>
+ Send Message
+</motion.button>
+
+          </form>
+        </div>
+
       </div>
     </section>
   );
