@@ -45,6 +45,46 @@ const Sparkles = () => {
   );
 };
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    y: 80,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 15,
+    },
+  },
+};
+
+const textVariants = {
+  hidden: {
+    y: 40,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.4,
+      duration: 0.4,
+    },
+  },
+};
+
 const ContactSection2 = () => {
   return (
     <section className="py-16 px-6 bg-gradient-to-br from-cyan-100 via-white to-purple-200">
@@ -97,10 +137,16 @@ const ContactSection2 = () => {
         </div>
 
         {/* Bottom  CARDS */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+       <motion.div
+  className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
           {/* MAIN OFFICE */}
           <motion.div
             {...cardHover}
+            variants={cardVariants}
             className="bg-white shadow-xl p-4 text-center cursor-pointer"
           >
             <motion.div {...iconHover}>
@@ -122,6 +168,7 @@ const ContactSection2 = () => {
           {/* PHONE */}
           <motion.div
             {...cardHover}
+            variants={cardVariants}
             className=" group relative overflow-hidden bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
           >
             {/** Sparkles */}
@@ -132,16 +179,23 @@ const ContactSection2 = () => {
               <FaPhoneAlt className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
 
-            <h3 className="font-bold mb-2">PHONE NUMBER</h3>
+            <motion.h3 variants={textVariants} className="font-bold mb-2">
+  PHONE NUMBER
+</motion.h3>
 
-            <p className="text-gray-600 text-sm">+91-90110 75932</p>
+           <motion.p variants={textVariants} className="text-gray-600 text-sm">
+  +91-90110 75932
+</motion.p>
 
-            <p className="text-gray-600 text-sm">+91-83294 69330</p>
+<motion.p variants={textVariants} className="text-gray-600 text-sm">
+  +91-83294 69330
+</motion.p>
           </motion.div>
 
           {/* ADDRESS */}
           <motion.div
             {...cardHover}
+            variants={cardVariants}
             className=" group relative overflow-hidden bg-white shadow-xl p-6 text-center  cursor-pointer"
           >
             {/** Sparkles */}
@@ -152,25 +206,27 @@ const ContactSection2 = () => {
               <FaFax className="text-xl text-cyan-500 mx-auto mb-4" />
             </motion.div>
 
-            <h3 className="font-bold mb-2">OFFICE LOCATIONS</h3>
+           <motion.h3 variants={textVariants} className="font-bold mb-2">
+  OFFICE LOCATIONS
+</motion.h3>
 
-            <p className="text-gray-600 mb-3">
-              Rapportsoft Consulting & Technology Pvt Ltd, Office No-321, XION,
-              Hinjawadi,Pune, Maharashtra-411057
-            </p>
+            <motion.p variants={textVariants} className="text-gray-600 mb-3">
+  Rapportsoft Consulting & Technology Pvt Ltd, Office No-321, XION,
+  Hinjawadi,Pune, Maharashtra-411057
+</motion.p>
+<motion.p variants={textVariants} className="text-gray-600 mb-3">
+  Akansha Plaza, Talegaon Pune, India - 410507
+</motion.p>
+<motion.p variants={textVariants} className="text-gray-600 mb-3">
+  Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, India - 411027
+</motion.p>
 
-            <p className="text-gray-600 mb-3">
-              Akansha Plaza, Talegaon Pune, India - 410507
-            </p>
-
-            <p className="text-gray-600">
-              Shree Heritage A 501, Sangam Nagar, Sangavi, Pune, India - 411027
-            </p>
           </motion.div>
 
           {/* EMAIL */}
           <motion.div
             {...cardHover}
+            variants={cardVariants}
             className="group relative overflow-hidden bg-white shadow-xl p-6 text-center flex flex-col items-center justify-center  cursor-pointer"
           >
             {/** Sparkles */}
@@ -181,23 +237,25 @@ const ContactSection2 = () => {
               <FaEnvelope className="text-3xl text-cyan-500 mb-4" />
             </motion.div>
 
-            <h3 className="font-bold mb-2">EMAIL</h3>
+            <motion.h3 variants={textVariants} className="font-bold mb-2">
+  EMAIL
+</motion.h3>
 
-            <a
+          <motion.a variants={textVariants}
               href="mailto:corp@rapportsoft.co.in"
               className="text-gray-600 text-sm hover:text-cyan-600 transition block"
             >
               corp@rapportsoft.co.in
-            </a>
+           </motion.a>
 
-            <a
+          <motion.a variants={textVariants}
               href="mailto:shivraj@rapportsoft.co.in"
               className="text-gray-600 text-sm hover:text-cyan-600 transition block"
             >
               shivraj@rapportsoft.co.in
-            </a>
+             </motion.a>
           </motion.div>
-        </div>
+        </motion.div>  
       </div>
     </section>
   );
