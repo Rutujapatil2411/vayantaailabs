@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import bgg from "../../assets/bgImages/bgg.jpg"; 
 import { 
   FaBrain, 
   FaEye, 
@@ -34,8 +35,12 @@ function AboutSection2() {
     }
   };
 
-return (
-    <section className="py-18 bg-white overflow-hidden">
+ return (
+    <section
+      className="py-18 overflow-hidden bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: `url(${bgg})` }}
+    >
+    
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}

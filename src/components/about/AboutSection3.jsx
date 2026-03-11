@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import bgg from "../../assets/bgImages/bgg.jpg"; 
+
 import { 
   FaLinkedin, 
   FaTwitter, 
@@ -11,7 +13,10 @@ import {
 
 function AboutSection3() {
   return (
-    <section className="py-12 bg-gradient-to-b from-white to-gray-50">
+    <section
+      className="py-12 bg-fixed bg-center bg-cover"
+      style={{ backgroundImage: `url(${bgg})` }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
