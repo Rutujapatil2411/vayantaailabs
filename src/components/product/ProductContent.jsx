@@ -45,15 +45,14 @@ if (!product) {
           </div>
           
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="text-white">What </span>
+            <span className="text-white">What our </span>
             <span className="text-transparent bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text">
-              We Do
+              Product Does
             </span>
           </h1>
           
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We architect intelligent systems that transform complex challenges into competitive advantages 
-            through cutting-edge AI, machine learning, and computer vision technologies.
+            Our AI-powered platform automates container verification, analyzes EIR documents, and optimizes yard operations to improve efficiency, reduce manual work, and ensure faster container processing.
           </p>
         </motion.div>
 
@@ -64,29 +63,30 @@ if (!product) {
           transition={{ delay: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
         >
-          {[
-            {
-              title: "Computer Vision",
-              description: "Advanced image recognition, OCR, object detection, and real-time visual analytics for automated operations.",
-              icon: <FaEye className="text-3xl" />,
-              color: "from-blue-500/20 to-cyan-500/20",
-              iconColor: "text-cyan-400"
-            },
-            {
-              title: "Machine Learning",
-              description: "Predictive models, demand forecasting, and optimization algorithms that learn and adapt from your data.",
-              icon: <FaBrain className="text-3xl" />,
-              color: "from-purple-500/20 to-pink-500/20",
-              iconColor: "text-purple-400"
-            },
-            {
-              title: "Intelligent Automation",
-              description: "End-to-end automation of gate operations, slot allocation, and yard traffic with reinforcement learning.",
-              icon: <FaRobot className="text-3xl" />,
-              color: "from-green-500/20 to-emerald-500/20",
-              iconColor: "text-green-400"
-            }
-          ].map((item, index) => (
+          {
+          [
+  {
+    title: "Smart Gate Verification",
+    description: "Automatically verifies container entry using AI-powered image recognition and OCR, reducing manual checks and improving gate efficiency.",
+    icon: <FaEye className="text-3xl" />,
+    color: "from-blue-500/20 to-cyan-500/20",
+    iconColor: "text-cyan-400"
+  },
+  {
+    title: "EIR Document Analysis",
+    description: "Extracts and analyzes data from EIR receipts to validate container details and identify suspicious or non-suspicious container entries.",
+    icon: <FaDatabase className="text-3xl" />,
+    color: "from-purple-500/20 to-pink-500/20",
+    iconColor: "text-purple-400"
+  },
+  {
+    title: "Automated Yard Operations",
+    description: "Optimizes yard slot allocation and container movement using intelligent automation to reduce congestion and improve throughput.",
+    icon: <FaCogs className="text-3xl" />,
+    color: "from-green-500/20 to-emerald-500/20",
+    iconColor: "text-green-400"
+  }
+].map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ y: -8, scale: 1.02 }}
@@ -110,47 +110,46 @@ if (!product) {
           ))}
         </motion.div>
 
-        {/* Technologies & Impact */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
-        >
-          {/* Tech Stack */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6">Technologies We Use</h3>
-            <div className="flex flex-wrap gap-3">
-              {[
-                "TensorFlow", "PyTorch", "OpenCV", "YOLO", "XGBoost", 
-                "Prophet", "LSTM", "DQN", "PPO", "OR-Tools", 
-                "AWS AI", "Azure ML", "Docker", "Kubernetes"
-              ].map((tech, index) => (
-                <span key={index} className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-blue-300 text-sm">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Impact Stats */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-blue-500/20">
-            <h3 className="text-2xl font-bold text-white mb-6">Proven Impact</h3>
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { value: "30-40%", label: "Faster Turnaround" },
-                { value: "25-35%", label: "Cost Reduction" },
-                { value: "20-30%", label: "Higher Throughput" },
-                { value: "99.9%", label: "System Uptime" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300 mb-2">{stat.value}</div>
-                  <div className="text-gray-300 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        {/* Key Product Benefits */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+>
+  {[
+    {
+      title: "Reduced Manual Work",
+      description: "Automates container verification and documentation to minimize human intervention.",
+      icon: <FaRobot className="text-3xl text-blue-400" />
+    },
+    {
+      title: "Faster Gate Processing",
+      description: "Speeds up container entry and exit operations with AI-powered validation.",
+      icon: <FaRocket className="text-3xl text-purple-400" />
+    },
+    {
+      title: "Higher Operational Accuracy",
+      description: "Detects inconsistencies in EIR and container data with advanced AI models.",
+      icon: <FaShieldAlt className="text-3xl text-green-400" />
+    },
+    {
+      title: "Scalable Architecture",
+      description: "Designed to handle large-scale yard operations and growing container traffic.",
+      icon: <FaCloud className="text-3xl text-cyan-400" />
+    }
+  ].map((item, index) => (
+    <motion.div
+      key={index}
+      whileHover={{ y: -6 }}
+      className="p-6 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700"
+    >
+      <div className="mb-4">{item.icon}</div>
+      <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+      <p className="text-gray-300 text-sm">{item.description}</p>
+    </motion.div>
+  ))}
+</motion.div>
 
         {/* CTA */}
         <motion.div

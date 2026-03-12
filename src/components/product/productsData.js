@@ -289,7 +289,205 @@ export const productsData = {
           }
         }
       ]
+    },
+    {
+  id: '2',
+  name: 'Document Intelligence',
+  icon: 'FaDatabase',
+  description: 'AI document processing & container inspection',
+  products: [
+    {
+      id: 'ai-document-container-analysis',
+      name: 'AI Document Intelligence & Container Inspection System',
+      shortName: 'Document AI Inspection',
+      tagline: 'Automated EIR document extraction and container risk analysis',
+      description:
+        'AI system that extracts data from EIR receipts, analyzes container inspection images, detects suspicious containers, and generates automated inspection reports for ports, CFS yards, and logistics operations.',
+
+      hero: {
+        title: 'AI Document Intelligence',
+        subtitle: '& Container Inspection System',
+        description:
+          'A comprehensive system that streamlines EIR document processing by extracting key information, evaluates container conditions through computer vision–based inspection, and uses advanced analytics to detect irregularities and identify potentially suspicious or high-risk containers.',
+      },
+
+      overview: {
+        problem:
+          'Manual verification of EIR receipts and container inspections leads to delays, human errors, and disputes between logistics operators and shipping lines.',
+        solution:
+          'Our AI-powered document intelligence system automatically extracts EIR data, verifies container details, analyzes inspection images, and flags suspicious containers.',
+        valueProposition: [
+          'Automated EIR receipt data extraction',
+          'AI-based suspicious container detection',
+          'Reduced manual inspection workload',
+          'Automatic inspection reports with image evidence',
+          'Lower dispute risk with shipping lines',
+          'Real-time document verification'
+        ]
+      },
+
+      expectedGains: [
+        { value: '90%', label: 'Faster Document Processing', icon: 'FaRocket' },
+        { value: '95%', label: 'OCR Accuracy', icon: 'FaEye' },
+        { value: '70%', label: 'Reduced Manual Verification', icon: 'FaRobot' },
+        { value: '100%', label: 'Digital Inspection Reports', icon: 'FaDatabase' }
+      ],
+
+      roadmap: [
+        {
+          step: 1,
+          title: 'Document Collection',
+          description:
+            'Capture EIR receipts and inspection documents using scanners or mobile apps and store them in a centralized document database.',
+          icon: 'FaDatabase',
+          color: 'from-blue-500 to-cyan-500'
+        },
+        {
+          step: 2,
+          title: 'AI OCR Processing',
+          description:
+            'Vision Language Models extract container numbers, truck numbers, timestamps, and inspection notes from EIR receipts.',
+          icon: 'FaEye',
+          color: 'from-purple-500 to-pink-500'
+        },
+        {
+          step: 3,
+          title: 'Container Image Analysis',
+          description:
+            'Computer vision models analyze container images to detect rust, dents, cuts, holes, and structural damage.',
+          icon: 'FaBrain',
+          color: 'from-green-500 to-emerald-500'
+        },
+        {
+          step: 4,
+          title: 'Suspicious Container Detection',
+          description:
+            'Machine learning models classify containers as suspicious or safe based on damage severity and inspection rules.',
+          icon: 'FaShieldAlt',
+          color: 'from-orange-500 to-red-500'
+        },
+        {
+          step: 5,
+          title: 'AI Inspection Report',
+          description:
+            'Generate automated inspection reports with extracted EIR data and image evidence.',
+          icon: 'FaChartLine',
+          color: 'from-indigo-500 to-purple-500'
+        },
+        {
+          step: 6,
+          title: 'Continuous Learning',
+          description:
+            'AI models continuously improve accuracy by learning from new inspection data and user feedback.',
+          icon: 'FaCogs',
+          color: 'from-cyan-500 to-blue-500'
+        }
+      ],
+
+      aiFeatures: [
+        {
+          category: 'Document AI',
+          techniques: ['OCR', 'Document Intelligence', 'NLP'],
+          models: ['TrOCR', 'LayoutLM', 'Vision Transformer'],
+          implementation: 'Cloud AI',
+          description:
+            'Extract container details automatically from EIR receipts and logistics documents.',
+          icon: 'FaDatabase'
+        },
+        {
+          category: 'Container Damage Detection',
+          techniques: ['Computer Vision', 'Object Detection'],
+          models: ['YOLOv8', 'CNN'],
+          implementation: 'Edge AI + Cameras',
+          description:
+            'Detect rust, dents, cuts, and structural damage on containers.',
+          icon: 'FaEye'
+        },
+        {
+          category: 'Suspicious Container Detection',
+          techniques: ['Machine Learning', 'Anomaly Detection'],
+          models: ['Random Forest', 'Isolation Forest'],
+          implementation: 'ML Risk Engine',
+          description:
+            'Identify suspicious or high-risk containers automatically.',
+          icon: 'FaShieldAlt'
+        }
+      ],
+
+      aiCapabilities: [
+        {
+          title: 'Document Intelligence',
+          icon: 'FaDatabase',
+          items: [
+            'Automatic EIR receipt data extraction',
+            'Container number recognition',
+            'Truck and driver information extraction',
+            'Automated document classification'
+          ]
+        },
+        {
+          title: 'AI Container Inspection',
+          icon: 'FaEye',
+          items: [
+            'Container damage detection',
+            'Internal container inspection analysis',
+            'Image evidence storage',
+            'Automated inspection report generation'
+          ]
+        },
+        {
+          title: 'Risk Detection AI',
+          icon: 'FaShieldAlt',
+          items: [
+            'Suspicious container identification',
+            'Anomaly detection using ML models',
+            'Container misuse detection',
+            'Risk alerts for operators'
+          ]
+        }
+      ],
+
+      technicalSpecs: {
+        aiModels: [
+          { name: 'OCR Models', value: 'TrOCR, Tesseract OCR' },
+          { name: 'Vision Models', value: 'YOLOv8, CNN' },
+          { name: 'ML Models', value: 'Random Forest, Isolation Forest' }
+        ],
+        integration: [
+          { name: 'Document Sources', value: 'Scanners, Mobile Apps, PDFs' },
+          { name: 'Integration', value: 'CFS Software, ERP Systems' },
+          { name: 'Deployment', value: 'Cloud + Edge AI' }
+        ],
+        performance: [
+          { metric: 'OCR Accuracy', value: '95%' },
+          { metric: 'Damage Detection Accuracy', value: '93%' },
+          { metric: 'Processing Time', value: '<2 seconds' }
+        ]
+      },
+
+      useCases: [
+        {
+          title: 'EIR Receipt Processing',
+          description:
+            'Automated extraction of container and truck details from EIR receipts.',
+          industry: 'Container Freight Stations'
+        },
+        {
+          title: 'Container Inspection',
+          description:
+            'AI analysis of container damage before reuse.',
+          industry: 'Shipping Lines'
+        },
+        {
+          title: 'Suspicious Container Detection',
+          description:
+            'Identify containers with unusual damage or risk indicators.',
+          industry: 'Ports & Logistics'
+        }
+      ]
     }
+  ]
+}
   ],
   
 };
