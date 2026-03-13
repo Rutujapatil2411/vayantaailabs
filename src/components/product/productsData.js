@@ -409,6 +409,166 @@ export const productsData = {
       ]
     }
   ]
+},
+{
+  id: '3',
+  name: 'Kalmar Operations',
+  icon: 'FaCogs',
+  description: 'AI tracking for Kalmar reach stacker container movements',
+  products: [
+    {
+      id: 'ai-kalmar-yard-operations',
+      name: 'AI-Powered Kalmar Operations & Container Movement Tracking System',
+      shortName: 'Kalmar AI Operations',
+      tagline: 'Real-time container movement verification using AI vision',
+
+      description:
+        'AI system that tracks Kalmar reach stacker movements, verifies container numbers using OCR, and automatically updates yard inventory using digital twin technology.',
+
+      hero: {
+        title: 'AI-Powered',
+        subtitle: 'Kalmar Operations Monitoring System',
+        description:
+          'Track every container movement performed by Kalmar reach stackers using computer vision and AI-powered OCR verification to ensure accurate inventory and real-time yard visibility.'
+      },
+
+      overview: {
+        problem:
+          'Manual recording of container movements by Kalmar operators often leads to incorrect inventory data, misplaced containers, and operational delays.',
+        solution:
+          'Our AI system automatically detects Kalmar container pick and drop operations using computer vision and updates the yard inventory map instantly.',
+        valueProposition: [
+          'Real-time container movement tracking',
+          'Automatic container number verification',
+          'Reduced manual logging and errors',
+          'Accurate digital yard inventory',
+          'Lower dispute risk with shipping lines',
+          'Faster and more reliable yard operations'
+        ]
+      },
+
+      expectedGains: [
+        { value: '100%', label: 'Real-time Movement Tracking', icon: 'FaEye' },
+        { value: '80%', label: 'Reduced Manual Logging', icon: 'FaRobot' },
+        { value: '95%', label: 'Container Identification Accuracy', icon: 'FaBrain' },
+        { value: '30%', label: 'Faster Yard Operations', icon: 'FaRocket' }
+      ],
+
+      roadmap: [
+        {
+          step: 1,
+          title: 'Kalmar Camera Setup',
+          description:
+            'Install AI cameras to monitor Kalmar reach stackers and capture container handling events.',
+          icon: 'FaEye',
+          color: 'from-blue-500 to-cyan-500'
+        },
+        {
+          step: 2,
+          title: 'Movement Recognition',
+          description:
+            'Computer vision models detect when a Kalmar picks or places a container in the yard.',
+          icon: 'FaRobot',
+          color: 'from-purple-500 to-pink-500'
+        },
+        {
+          step: 3,
+          title: 'Dynamic OCR Verification',
+          description:
+            'OCR models verify the container number every time the Kalmar interacts with a container.',
+          icon: 'FaDatabase',
+          color: 'from-green-500 to-emerald-500'
+        },
+        {
+          step: 4,
+          title: 'Inventory Update',
+          description:
+            'The digital yard map is updated automatically with the new container position.',
+          icon: 'FaMapMarkedAlt',
+          color: 'from-orange-500 to-red-500'
+        },
+        {
+          step: 5,
+          title: 'Movement History Tracking',
+          description:
+            'AI logs every container movement event with timestamp and operator activity.',
+          icon: 'FaChartLine',
+          color: 'from-indigo-500 to-purple-500'
+        },
+        {
+          step: 6,
+          title: 'Continuous AI Learning',
+          description:
+            'Models improve movement detection accuracy using new operational data.',
+          icon: 'FaCogs',
+          color: 'from-cyan-500 to-blue-500'
+        }
+      ],
+
+      aiCapabilities: [
+        {
+          title: 'Container Movement Recognition',
+          icon: 'FaRobot',
+          items: [
+            'Detects Kalmar container pick and drop actions',
+            'Tracks container movement events automatically',
+            'Links physical operations to digital records'
+          ]
+        },
+        {
+          title: 'Dynamic OCR Verification',
+          icon: 'FaEye',
+          items: [
+            'Re-verifies container number every movement',
+            'Detects incorrect container handling',
+            'Ensures correct container is moved'
+          ]
+        },
+        {
+          title: 'Digital Yard Inventory',
+          icon: 'FaMapMarkedAlt',
+          items: [
+            'Real-time container location updates',
+            'Digital twin yard mapping',
+            'Accurate automated inventory tracking'
+          ]
+        }
+      ],
+
+      technicalSpecs: {
+        aiModels: [
+          { name: 'Computer Vision', value: 'YOLOv8, OpenCV' },
+          { name: 'OCR Models', value: 'TrOCR, Tesseract OCR' },
+          { name: 'Movement Detection', value: 'Custom CNN Models' }
+        ],
+        integration: [
+          { name: 'Cameras', value: 'Yard CCTV / Kalmar Cameras' },
+          { name: 'Systems', value: 'Yard Management Software' },
+          { name: 'Deployment', value: 'Edge AI + Cloud Platform' }
+        ],
+        performance: [
+          { metric: 'OCR Accuracy', value: '97%' },
+          { metric: 'Movement Detection', value: '96%' },
+          { metric: 'Processing Time', value: '<1 second' }
+        ]
+      },
+
+      useCases: [
+        {
+          title: 'Container Yard Operations',
+          description:
+            'Automatically track Kalmar reach stacker container handling in large container yards.',
+          industry: 'Ports & CFS'
+        },
+        {
+          title: 'Inventory Accuracy',
+          description:
+            'Ensure real-time yard inventory updates whenever containers are moved.',
+          industry: 'Logistics Yards'
+        }
+      ]
+    }
+  ]
 }
   ],
   

@@ -170,14 +170,8 @@ const moreItems = [
     label: "Our Technology", 
     icon: <FaBolt className="text-xl" />,
     color: "text-green-400"
-  },
-  // { 
-  //   path: "/more/ai-features", 
-  //   label: "AI Features", 
-  //   icon: <FaRobot className="text-xl" />,
-  //   color: "text-pink-400"
-  // },
-  
+  }
+ 
 ];
 
   return (
@@ -291,7 +285,7 @@ const moreItems = [
         initial="hidden"
         animate="visible"
         exit="exit"
-        className="absolute left-0 mt-2 w-96 rounded-xl shadow-2xl bg-gray-900/95 backdrop-blur-xl border border-gray-800 overflow-hidden"
+        className="absolute left-0 mt-2 w-[420px] rounded-xl shadow-2xl bg-gray-900/95 backdrop-blur-xl border border-gray-800 overflow-hidden"
       >
         <div className="p-4">
           <div className="grid grid-cols-2 gap-3">
@@ -375,25 +369,7 @@ const moreItems = [
               </Link>
             </motion.div>
 
-            {/* <motion.div
-              key="ai-features"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 4 * 0.05 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Link 
-                to="/more/ai-features"
-                className="flex items-center p-3 rounded-lg bg-gray-800/50 hover:bg-gradient-to-r hover:from-blue-600/20 hover:to-purple-600/20 border border-gray-800 hover:border-blue-500/30 transition-all duration-300 group"
-              >
-                <FaRobot className="text-xl mr-3 text-pink-400 group-hover:text-pink-300 group-hover:scale-110 transition-all duration-300" />
-                <div>
-                  <p className="text-sm font-medium text-white group-hover:text-pink-300">
-                    AI Features
-                  </p>
-                </div>
-              </Link>
-            </motion.div> */}
+  
 
            
           </div>
@@ -643,15 +619,6 @@ const moreItems = [
         <FaBolt className="text-lg mr-3 text-green-400 group-hover:scale-110 transition-transform duration-300" />
         <span className="flex-1">Our Technology</span>
       </Link>
-      
-      <Link 
-        to="/more/ai-features"
-        className="flex items-center px-3 py-3 rounded-lg text-sm text-gray-400 hover:text-white hover:bg-gray-800/30 transition-all duration-300 group"
-      >
-        <FaRobot className="text-lg mr-3 text-pink-400 group-hover:scale-110 transition-transform duration-300" />
-        <span className="flex-1">AI Features</span>
-      </Link>
-      
      
     </motion.div>
   )}
