@@ -171,12 +171,12 @@ const moreItems = [
     icon: <FaBolt className="text-xl" />,
     color: "text-green-400"
   },
-  { 
-    path: "/more/ai-features", 
-    label: "AI Features", 
-    icon: <FaRobot className="text-xl" />,
-    color: "text-pink-400"
-  },
+  // { 
+  //   path: "/more/ai-features", 
+  //   label: "AI Features", 
+  //   icon: <FaRobot className="text-xl" />,
+  //   color: "text-pink-400"
+  // },
   
 ];
 
@@ -375,7 +375,7 @@ const moreItems = [
               </Link>
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               key="ai-features"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -393,7 +393,7 @@ const moreItems = [
                   </p>
                 </div>
               </Link>
-            </motion.div>
+            </motion.div> */}
 
            
           </div>

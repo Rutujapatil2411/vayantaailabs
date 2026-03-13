@@ -98,57 +98,7 @@ export const productsData = {
             }
           ],
           
-          // AI Features with Techniques & Tools
-          aiFeatures: [
-            {
-              category: 'Gate OCR & Safety',
-              techniques: ['Computer Vision', 'Deep Learning', 'Object Detection'],
-              models: ['YOLO', 'OpenCV', 'CNN'],
-              implementation: 'CCTV + Edge AI',
-              description: 'Automated container number and truck plate recognition with real-time damage detection.',
-              icon: 'FaEye'
-            },
-            {
-              category: 'Slot Allocation',
-              techniques: ['Supervised ML', 'Optimization Algorithms'],
-              models: ['XGBoost', 'OR-Tools', 'Gradient Boosting'],
-              implementation: 'Cloud/Edge',
-              description: 'AI assigns containers to optimal slots minimizing future re-handles based on predicted dwell times.',
-              icon: 'FaChartLine'
-            },
-            {
-              category: 'Traffic Flow',
-              techniques: ['Reinforcement Learning', 'Path Optimization'],
-              models: ['DQN', 'PPO', 'Deep Q-Networks'],
-              implementation: 'Real-time RL',
-              description: 'Optimal route planning for trucks and stackers reducing travel distance and waiting time.',
-              icon: 'FaRoute'
-            },
-            {
-              category: 'Equipment Maintenance',
-              techniques: ['Predictive ML', 'Time Series Analysis'],
-              models: ['Random Forest', 'LSTM', 'XGBoost'],
-              implementation: 'Predictive Analytics',
-              description: 'Predict equipment failures and schedule maintenance proactively.',
-              icon: 'FaCogs'
-            },
-            {
-              category: 'Demand Forecasting',
-              techniques: ['Time Series AI', 'Seasonal Analysis'],
-              models: ['Prophet', 'ARIMA', 'LSTM'],
-              implementation: 'Cloud ML',
-              description: 'Predict container inflow/outflow volumes and peak yard utilization hours.',
-              icon: 'FaChartBar'
-            },
-            {
-              category: 'Digital Twin Simulation',
-              techniques: ['Simulation + RL', 'What-If Analysis'],
-              models: ['AnyLogic', 'Unity ML', 'Digital Twin'],
-              implementation: 'Simulation Engine',
-              description: 'Simulate congestion scenarios before applying in real yard operations.',
-              icon: 'FaCloud'
-            }
-          ],
+        
           
           // AI/ML/DL Capabilities
           aiCapabilities: [
@@ -384,35 +334,7 @@ export const productsData = {
         }
       ],
 
-      aiFeatures: [
-        {
-          category: 'Document AI',
-          techniques: ['OCR', 'Document Intelligence', 'NLP'],
-          models: ['TrOCR', 'LayoutLM', 'Vision Transformer'],
-          implementation: 'Cloud AI',
-          description:
-            'Extract container details automatically from EIR receipts and logistics documents.',
-          icon: 'FaDatabase'
-        },
-        {
-          category: 'Container Damage Detection',
-          techniques: ['Computer Vision', 'Object Detection'],
-          models: ['YOLOv8', 'CNN'],
-          implementation: 'Edge AI + Cameras',
-          description:
-            'Detect rust, dents, cuts, and structural damage on containers.',
-          icon: 'FaEye'
-        },
-        {
-          category: 'Suspicious Container Detection',
-          techniques: ['Machine Learning', 'Anomaly Detection'],
-          models: ['Random Forest', 'Isolation Forest'],
-          implementation: 'ML Risk Engine',
-          description:
-            'Identify suspicious or high-risk containers automatically.',
-          icon: 'FaShieldAlt'
-        }
-      ],
+      
 
       aiCapabilities: [
         {

@@ -224,7 +224,7 @@ if (!product) {
           transition={{ delay: 0.1 }}
           className="flex flex-wrap gap-2 mb-8 border-b border-gray-800 pb-2"
         >
-          {['overview', 'roadmap', 'ai-features', 'capabilities', 'specs', 'use-cases'].map((tab) => (
+          {['overview', 'roadmap',  'capabilities', 'specs', 'use-cases'].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -339,53 +339,6 @@ if (!product) {
             </motion.div>
           )}
 
-          {activeTab === 'ai-features' && (
-            <motion.div
-              key="ai-features"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="space-y-8"
-            >
-              <h2 className="text-2xl font-bold text-white mb-8">AI Features & Techniques</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {product.aiFeatures.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -5 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700"
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div className="text-blue-300 text-2xl">{getIcon(feature.icon)}</div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-white mb-2">{feature.category}</h3>
-                        <p className="text-gray-300 text-sm mb-3">{feature.description}</p>
-                        <div className="space-y-2">
-                          <div className="flex flex-wrap gap-2">
-                            {feature.techniques.map((tech, i) => (
-                              <span key={i} className="px-2 py-1 text-xs rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                          <div className="flex flex-wrap gap-2">
-                            {feature.models.map((model, i) => (
-                              <span key={i} className="px-2 py-1 text-xs rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
-                                {model}
-                              </span>
-                            ))}
-                          </div>
-                          <div className="text-xs text-gray-400 mt-2">
-                            Implementation: {feature.implementation}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          )}
 
           {activeTab === 'capabilities' && (
             <motion.div
@@ -540,6 +493,8 @@ if (!product) {
             </div>
           </div>
         </motion.div>
+
+        
       </div>
     </div>
   );
