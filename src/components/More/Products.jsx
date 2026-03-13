@@ -8,6 +8,7 @@ import ProductHeader from '../product/ProductHeader';
 import AIFeatures from "../product/AIFeatures";
 import { FaBars } from 'react-icons/fa';
 
+
 function Products() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState('1');
@@ -119,12 +120,18 @@ function Products() {
   </span>
 </h2>
 
-<p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
+<p className="text-gray-600 text-lg leading-relaxed max-w-1xl mx-auto">
   Discover the advanced AI technologies and intelligent systems
   that automate logistics operations, optimize yard efficiency,
   and provide real-time visibility across the logistics ecosystem.
 </p>
 
+{/* Down Arrow Circle */}
+<div className="mt-10 flex justify-center">
+  <div className="w-12 h-12 flex items-center justify-center rounded-full border border-cyan-500 text-cyan-500 bg-cyan-50 shadow-sm animate-bounce">
+    ↓
+  </div>
+</div>
     </div>
 
   </div>

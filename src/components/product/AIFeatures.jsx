@@ -494,95 +494,95 @@ const AIFeatures = () => {
         </motion.div>
       </section>
 
-      <section className="py-28 relative bg-white text-gray-900 overflow-visible">
-        <AnimatedShapes />
+      <section className="relative py-28 overflow-hidden">
+  {/* Parallax Background */}
+  <div className="absolute inset-0 bg-white bg-fixed"></div>
+  <AnimatedShapes />
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+    {/* ---------- AI Processing Pipeline ---------- */}
+    <div className="text-center mb-24 relative">
+      <motion.h2
+        className="text-4xl md:text-5xl font-extrabold text-center mb-4 
+        bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
+        bg-clip-text text-transparent tracking-wide"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        AI Processing Pipeline
+      </motion.h2>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-24 relative">
-            <motion.h2
-              className="text-4xl md:text-5xl font-extrabold text-center mb-4 
-                       bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
-                       bg-clip-text text-transparent tracking-wide"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              AI Processing Pipeline
-            </motion.h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">
-              A step-by-step cognitive journey transforming raw logistics data
-              into intelligent operational decisions.
-            </p>
+      <p className="text-gray-500 max-w-2xl mx-auto">
+        A step-by-step cognitive journey transforming raw logistics data
+        into intelligent operational decisions.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8 mb-32">
+      {steps.map((item, i) => (
+        <PipelineCard key={i} item={item} index={i} />
+      ))}
+    </div>
+
+    {/* ---------- Integrated AI Models ---------- */}
+    <div className="text-center mb-20 relative">
+      <motion.h2
+        className="text-3xl md:text-4xl font-extrabold 
+        bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
+        bg-clip-text text-transparent tracking-wide"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        Integrated AI Models & Optimization Engines
+      </motion.h2>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {aiModels.map((model, i) => (
+        <motion.div
+          key={i}
+          className={`relative bg-[#050B1A] border border-white/10 p-6 rounded-lg overflow-hidden group hover:bg-[#0a1525] transition-colors duration-300 ${glow}`}
+          initial={{ opacity: 0, scale: 0.9, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          whileHover={{
+            scale: 1.05,
+            y: -10,
+            borderColor: "rgba(34, 211, 238, 0.5)",
+          }}
+          transition={{
+            delay: i * 0.1,
+            duration: 0.5,
+            type: "spring",
+          }}
+          viewport={{ once: true }}
+        >
+          <div className="relative z-10">
+            <div className="text-cyan-400 font-bold text-lg mb-2">
+              {model.name}
+            </div>
+            <div className="text-xs text-purple-400 uppercase tracking-wider mb-2">
+              {model.type}
+            </div>
+            <div className="text-gray-400 text-sm">
+              {model.desc}
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {steps.map((item, i) => (
-              <PipelineCard key={i} item={item} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+          <motion.div
+            className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500"
+            initial={{ width: 0 }}
+            whileHover={{ width: "100%" }}
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
+      ))}
+    </div>
 
-      <section className="py-20 relative bg-gray-50 text-gray-900">
-        <AnimatedShapes />
-
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20 relative">
-            <motion.h2
-              className="text-3xl md:text-4xl font-extrabold 
-                       bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500
-                       bg-clip-text text-transparent tracking-wide"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              Integrated AI Models & Optimization Engines
-            </motion.h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {aiModels.map((model, i) => (
-              <motion.div
-                key={i}
-                className={`relative bg-[#050B1A] border border-white/10 p-6 rounded-lg overflow-hidden group hover:bg-[#0a1525] transition-colors duration-300 ${glow}`}
-                initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -10,
-                  borderColor: "rgba(34, 211, 238, 0.5)",
-                }}
-                transition={{
-                  delay: i * 0.1,
-                  duration: 0.5,
-                  type: "spring",
-                }}
-                viewport={{ once: true }}
-              >
-                <div className="relative z-10">
-                  <div className="text-cyan-400 font-bold text-lg mb-2 group-hover:text-cyan-300 transition-colors">
-                    {model.name}
-                  </div>
-                  <div className="text-xs text-purple-400 uppercase tracking-wider mb-2 group-hover:text-purple-300 transition-colors">
-                    {model.type}
-                  </div>
-                  <div className="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
-                    {model.desc}
-                  </div>
-                </div>
-
-                <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* ================= Document Analysis : Agentic RAG System ================= */}
 
@@ -829,7 +829,7 @@ const AIFeatures = () => {
         </div>
       </section>
 
-      <section className="py-24 relative bg-[#020617]">
+      {/* <section className="py-24 relative bg-[#020617]">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-30"></div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -853,7 +853,7 @@ const AIFeatures = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
