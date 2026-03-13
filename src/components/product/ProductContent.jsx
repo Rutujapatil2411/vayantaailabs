@@ -2,7 +2,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as Icons from 'react-icons/fa';
-import kalmarHero from "../../assets/product/k1.jpg";
+import k2 from "../../assets/product/k2.jpg";
+import k1 from "../../assets/product/k1.jpg";
+import k4 from "../../assets/product/k4.jpg";
+import k5 from "../../assets/product/k5.jpg";
+
+
+
 
 import { 
   FaBrain, 
@@ -195,27 +201,50 @@ if (!product) {
           className="relative mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900 border border-gray-800"
         >
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/10 to-transparent" />
-          <div className="relative p-8 md:p-12">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                {product.hero.title}
-                <span className="block text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mt-2">
-                  {product.hero.subtitle}
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8">
-                {product.hero.description}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-3 group">
-                  <span>Request Demo</span>
-                  <Icons.FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-                </button>
-                <button className="px-8 py-4 bg-gray-900/60 backdrop-blur-lg border border-gray-700 text-white font-bold rounded-xl hover:border-blue-500 transition-all duration-300">
-                  Watch Video
-                </button>
-              </div>
-            </div>
+        <div className="relative p-8 md:p-12">
+ <div
+  className={`grid gap-8 items-center ${
+    product.id === "ai-kalmar-yard-operations"
+      ? "md:grid-cols-2"
+      : "grid-cols-1"
+  }`}
+>
+  {/* LEFT CONTENT */}
+  <div>
+    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+      {product.hero.title}
+      <span className="block text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mt-2">
+        {product.hero.subtitle}
+      </span>
+    </h1>
+
+    <p className="text-lg md:text-xl text-gray-300 mb-8">
+      {product.hero.description}
+    </p>
+
+    <div className="flex flex-wrap gap-4">
+      <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-3 group">
+        <span>Request Demo</span>
+        <Icons.FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+      </button>
+
+      <button className="px-8 py-4 bg-gray-900/60 backdrop-blur-lg border border-gray-700 text-white font-bold rounded-xl hover:border-blue-500 transition-all duration-300">
+        Watch Video
+      </button>
+    </div>
+  </div>
+
+  {/* RIGHT IMAGE (only kalmar) */}
+  {product.id === "ai-kalmar-yard-operations" && (
+    <div className="hidden md:block">
+      <img
+        src={k2}
+        alt="Kalmar Operations"
+        className="w-full h-auto rounded-2xl shadow-2xl border border-gray-700"
+      />
+    </div>
+  )}
+</div>
           </div>
         </motion.div>
 
@@ -342,41 +371,61 @@ if (!product) {
           )}
 
 
-          {activeTab === 'capabilities' && (
-            <motion.div
-              key="capabilities"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="space-y-8"
-            >
-              <h2 className="text-2xl font-bold text-white mb-8">AI/ML/DL Capabilities</h2>
-              <div className="grid grid-cols-1 gap-6">
-                {product.aiCapabilities.map((capability, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700"
-                  >
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="text-2xl text-blue-300">{getIcon(capability.icon)}</div>
-                      <h3 className="text-xl font-bold text-white">{capability.title}</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {capability.items.map((item, i) => (
-                        <li key={i} className="flex items-start space-x-2 text-gray-300">
-                          <Icons.FaCircle className="text-xs text-blue-400 mt-1.5 flex-shrink-0" />
-                          <span className="text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
+         {activeTab === 'capabilities' && (
+  <motion.div
+    key="capabilities"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -20 }}
+    className="space-y-8"
+  >
+    <h2 className="text-2xl font-bold text-white mb-8">AI/ML/DL Capabilities</h2>
+    <div className="grid grid-cols-1 gap-6">
+      {product.aiCapabilities.map((capability, index) => {
+        // rotate images k5, k1, k4
+        const images = [k5, k4, k1];
+        const imgSrc = images[index % images.length];
+
+        return (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700 flex flex-col md:flex-row md:justify-between"
+          >
+            <div className="flex-1">
+              <div className="flex items-start space-x-4 mb-4">
+                <div className="text-2xl text-blue-300">{getIcon(capability.icon)}</div>
+                <h3 className="text-xl font-bold text-white">{capability.title}</h3>
               </div>
-            </motion.div>
-          )}
+
+              <ul className="space-y-3">
+                {capability.items.map((item, i) => (
+                  <li key={i} className="flex items-start space-x-2 text-gray-300">
+                    <Icons.FaCircle className="text-xs text-blue-400 mt-1.5 flex-shrink-0" />
+                    <span className="text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Single image per card for Kalmar product */}
+            {product.id === "ai-kalmar-yard-operations" && (
+              <div className="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
+                <img
+                  src={imgSrc}
+                  alt={capability.title}
+                  className="w-90 h-54 object-cover rounded-xl border border-gray-700 shadow-lg"
+                />
+              </div>
+            )}
+          </motion.div>
+        );
+      })}
+    </div>
+  </motion.div>
+)}
 
           {activeTab === 'specs' && (
             <motion.div
