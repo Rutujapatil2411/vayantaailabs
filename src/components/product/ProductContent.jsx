@@ -2,6 +2,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as Icons from 'react-icons/fa';
+import k2 from "../../assets/product/k2.jpg";
+import k1 from "../../assets/product/k1.jpg";
+import k4 from "../../assets/product/k4.png";
+import k5 from "../../assets/product/k5.jpg";
+
 import { 
   FaBrain, 
   FaRobot, 
@@ -187,35 +192,52 @@ if (!product) {
         </motion.div>
 
         {/* Product Hero */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900 border border-gray-800"
-        >
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/10 to-transparent" />
-          <div className="relative p-8 md:p-12">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                {product.hero.title}
-                <span className="block text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mt-2">
-                  {product.hero.subtitle}
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-gray-300 mb-8">
-                {product.hero.description}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-3 group">
-                  <span>Request Demo</span>
-                  <Icons.FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-                </button>
-                <button className="px-8 py-4 bg-gray-900/60 backdrop-blur-lg border border-gray-700 text-white font-bold rounded-xl hover:border-blue-500 transition-all duration-300">
-                  Watch Video
-                </button>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        {/* Product Hero */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="relative mb-12 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900 border border-gray-800"
+>
+  <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-500/10 to-transparent" />
+
+  <div className="relative p-8 md:p-12 grid md:grid-cols-2 gap-10 items-center">
+
+    {/* TEXT */}
+    <div>
+      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+        {product.hero.title}
+        <span className="block text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text mt-2">
+          {product.hero.subtitle}
+        </span>
+      </h1>
+
+      <p className="text-lg md:text-xl text-gray-300 mb-8">
+        {product.hero.description}
+      </p>
+
+      <div className="flex flex-wrap gap-4">
+        <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 flex items-center space-x-3 group">
+          <span>Request Demo</span>
+          <Icons.FaArrowRight className="group-hover:translate-x-2 transition-transform" />
+        </button>
+
+        <button className="px-8 py-4 bg-gray-900/60 backdrop-blur-lg border border-gray-700 text-white font-bold rounded-xl hover:border-blue-500 transition-all duration-300">
+          Watch Video
+        </button>
+      </div>
+    </div>
+
+    {/* IMAGE */}
+    <div className="relative">
+      <img
+        src={k2}
+        alt="Kalmar Reach Stacker"
+        className="rounded-xl shadow-2xl border border-gray-700"
+      />
+    </div>
+
+  </div>
+</motion.div>
 
         {/* Navigation Tabs */}
         <motion.div
@@ -350,28 +372,69 @@ if (!product) {
             >
               <h2 className="text-2xl font-bold text-white mb-8">AI/ML/DL Capabilities</h2>
               <div className="grid grid-cols-1 gap-6">
-                {product.aiCapabilities.map((capability, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700"
-                  >
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="text-2xl text-blue-300">{getIcon(capability.icon)}</div>
-                      <h3 className="text-xl font-bold text-white">{capability.title}</h3>
-                    </div>
-                    <ul className="space-y-3">
-                      {capability.items.map((item, i) => (
-                        <li key={i} className="flex items-start space-x-2 text-gray-300">
-                          <Icons.FaCircle className="text-xs text-blue-400 mt-1.5 flex-shrink-0" />
-                          <span className="text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
+                {product.aiCapabilities.map((capability, index) => {
+
+  const images = [k1, k4, k5];
+  const isSecond = index === 1;
+
+  return (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      className="p-6 rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700"
+    >
+
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+
+        {/* IMAGE LEFT (ONLY FOR 2ND CARD) */}
+        {isSecond && (
+          <div className="relative">
+            <img
+              src={images[index]}
+              alt={capability.title}
+              className="rounded-xl border border-gray-700 shadow-xl object-cover w-full h-[220px]"
+            />
+          </div>
+        )}
+
+        {/* TEXT */}
+<div className={`flex flex-col ${isSecond ? "ml-auto max-w-md" : ""}`}>            <div className="flex items-center space-x-4 mb-4">
+            <div className="text-2xl text-blue-300">
+              {getIcon(capability.icon)}
+            </div>
+            <h3 className="text-xl font-bold text-white">
+              {capability.title}
+            </h3>
+          </div>
+
+          <ul className="space-y-3">
+            {capability.items.map((item, i) => (
+              <li key={i} className="flex items-start space-x-2 text-gray-300">
+                <Icons.FaCircle className="text-xs text-blue-400 mt-1.5 flex-shrink-0" />
+                <span className="text-sm">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* IMAGE RIGHT (FOR OTHER CARDS) */}
+        {!isSecond && (
+          <div className="relative">
+            <img
+              src={images[index]}
+              alt={capability.title}
+              className="rounded-xl border border-gray-700 shadow-xl object-cover w-full h-[220px]"
+            />
+          </div>
+        )}
+
+      </div>
+
+    </motion.div>
+  );
+})}
               </div>
             </motion.div>
           )}
