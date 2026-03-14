@@ -494,7 +494,7 @@ const AIFeatures = () => {
         </motion.div>
       </section>
 
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative pt-10 pb-28 overflow-hidden">
   {/* Parallax Background */}
   <div className="absolute inset-0 bg-white bg-fixed"></div>
   <AnimatedShapes />
@@ -502,9 +502,9 @@ const AIFeatures = () => {
     {/* ---------- AI Processing Pipeline ---------- */}
     <div className="text-center mb-24 relative">
       <motion.h2
-        className="text-4xl md:text-5xl font-extrabold text-center mb-4 
-        bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
-        bg-clip-text text-transparent tracking-wide"
+       className="text-4xl md:text-5xl font-extrabold text-center mb-2 
+  bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 
+  bg-clip-text text-transparent tracking-wide leading-[1.2] pb-1"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -513,13 +513,14 @@ const AIFeatures = () => {
         AI Processing Pipeline
       </motion.h2>
 
-      <p className="text-gray-500 max-w-2xl mx-auto">
-        A step-by-step cognitive journey transforming raw logistics data
-        into intelligent operational decisions.
+      <p className="text-gray-500 max-w-2xl mx-auto mb-8">
+         A step-by-step cognitive journey transforming raw logistics data 
+  into intelligent insights and predictive intelligence 
+  enabling faster, smarter operational decisions.
       </p>
     </div>
 
-    <div className="grid md:grid-cols-3 gap-8 mb-32">
+    <div className="grid md:grid-cols-3 gap-8 mb-16">
       {steps.map((item, i) => (
         <PipelineCard key={i} item={item} index={i} />
       ))}
