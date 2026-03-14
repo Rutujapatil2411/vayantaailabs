@@ -17,7 +17,6 @@ import { useEffect } from "react";
 import KeyClients from "./KeyClients";
 
 import aiImage from "../../assets/img/ai.jpg";
-import team from "../../assets/img/team.jpg";
 import AI from "../../assets/img/ai1.jpg";
 import AI2 from "../../assets/img/ai2.jpg";
 import AI3 from "../../assets/img/ai3.jpg";
