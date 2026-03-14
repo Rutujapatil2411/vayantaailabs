@@ -153,13 +153,28 @@ const ContactSection2 = () => {
                 className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
               />
             </div>
-
+ <div className="grid md:grid-cols-2 gap-4">
             <input
               type="email"
               placeholder="Enter a valid email address"
               className="w-full px-4 py-3 border border-gray-300 bg-white  focus:outline-none focus:border-cyan-500"
             />
 
+            {/* Inquiry Type Dropdown */}
+<select
+  className="w-full px-4 py-3 border border-gray-300 bg-white focus:outline-none focus:border-cyan-500"
+  defaultValue=""
+>
+  <option value="" disabled>
+    Select Inquiry Type
+  </option>
+  <option value="career">Career</option>
+  <option value="product">Product Insights</option>
+  <option value="support">Technical Support</option>
+  <option value="business">Business Partnership</option>
+  <option value="general">General Inquiry</option>
+</select>
+</div>
             <textarea
               rows="4"
               placeholder="Enter your message"

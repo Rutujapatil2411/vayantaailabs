@@ -30,8 +30,8 @@ export const productsData = {
           
           // Hero Section
           hero: {
-            title: 'AI-Powered Smart Gate',
-            subtitle: '& Yard Management Enterprise System',
+            title: 'AI-Powered Smart Gate & Yard',
+            subtitle: ' Management Enterprise System',
             description: 'Transform your yard operations with cutting-edge AI, computer vision, and machine learning technologies that automate processes, predict bottlenecks, and optimize every movement.',
             image: 'smart-gate-hero.jpg',
             cta: 'Request Demo'

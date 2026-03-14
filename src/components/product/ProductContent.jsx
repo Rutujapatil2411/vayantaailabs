@@ -6,6 +6,12 @@ import k2 from "../../assets/product/k2.jpg";
 import k1 from "../../assets/product/k1.jpg";
 import k4 from "../../assets/product/k4.jpg";
 import k5 from "../../assets/product/k5.jpg";
+import p3 from "../../assets/product/p3.jpg";
+import p1 from "../../assets/product/p1.jpg";
+import p2 from "../../assets/product/p2.jpg";
+import p4 from "../../assets/product/p4.jpg";
+import p5 from "../../assets/product/p5.jpg";
+import p6 from "../../assets/product/p6.jpg";
 
 import {
   FaBrain,
@@ -224,7 +230,8 @@ function ProductContent({ product, activeCategory }) {
           <div className="relative p-8 md:p-12">
             <div
               className={`grid gap-8 items-center ${
-                product.id === "ai-kalmar-yard-operations"
+                product.id === "ai-kalmar-yard-operations" ||
+                product.id === "ai-smart-gate-enterprise"
                   ? "md:grid-cols-2"
                   : "grid-cols-1"
               }`}
@@ -254,13 +261,18 @@ function ProductContent({ product, activeCategory }) {
                 </div>
               </div>
 
-              {/* RIGHT IMAGE (only kalmar) */}
-              {product.id === "ai-kalmar-yard-operations" && (
+              {/* RIGHT IMAGE (Kalmar + Smart Gate) */}
+              {(product.id === "ai-kalmar-yard-operations" ||
+                product.id === "ai-smart-gate-enterprise") && (
                 <div className="hidden md:block">
                   <img
-                    src={k2}
-                    alt="Kalmar Operations"
-                    className="w-full h-auto rounded-2xl shadow-2xl border border-gray-700"
+                    src={product.id === "ai-smart-gate-enterprise" ? p3 : k2}
+                    alt="Product Visual"
+                    className={`w-full rounded-2xl shadow-2xl border border-gray-700 object-cover ${
+                      product.id === "ai-smart-gate-enterprise"
+                        ? "h-[380px]"
+                        : "h-auto"
+                    }`}
                   />
                 </div>
               )}
@@ -425,8 +437,14 @@ function ProductContent({ product, activeCategory }) {
               </h2>
               <div className="grid grid-cols-1 gap-6">
                 {product.aiCapabilities.map((capability, index) => {
-                  
-                  const images = [k5, k4, k1];
+                  const smartGateImages = [p2, p4, p1, p5, p6];
+                  const kalmarImages = [k5, k4, k1];
+
+                  const images =
+                    product.id === "ai-smart-gate-enterprise"
+                      ? smartGateImages
+                      : kalmarImages;
+
                   const imgSrc = images[index % images.length];
 
                   return (
@@ -460,8 +478,9 @@ function ProductContent({ product, activeCategory }) {
                         </ul>
                       </div>
 
-                      {/* Single image per card for Kalmar product */}
-                      {product.id === "ai-kalmar-yard-operations" && (
+                      {/* Single image per card for  product */}
+                      {(product.id === "ai-kalmar-yard-operations" ||
+                        product.id === "ai-smart-gate-enterprise") && (
                         <div className="mt-4 md:mt-0 md:ml-6 flex-shrink-0">
                           <img
                             src={imgSrc}
