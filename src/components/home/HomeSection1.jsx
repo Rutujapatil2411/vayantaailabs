@@ -185,7 +185,8 @@ const HomeSection1 = () => {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            preload="auto"
+            className="w-full h-full object-cover scale-110"
           
           >
             <source
@@ -195,10 +196,10 @@ const HomeSection1 = () => {
           </video>
 
           {/* Overlay for dark effect */}
-          <div className="absolute inset-0 bg-black/60"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900/40 mix-blend-overlay" />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-gradient-x opacity-30" />
+          <div className="absolute inset-0 bg-black/50"></div>
+          {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-900/40 mix-blend-overlay" /> */}
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900/60" /> */}
+          {/* <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent animate-gradient-x opacity-30" /> */}
         </motion.div>
 
         {/* Parallax Foreground Div with Fade Out */}
