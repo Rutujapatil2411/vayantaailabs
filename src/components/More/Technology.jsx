@@ -19,7 +19,7 @@ import t15 from "../../assets/Technology/t15.png";
 import t16 from "../../assets/Technology/t16.png";
 import t17 from "../../assets/Technology/t17.png";
 import t18 from "../../assets/Technology/t18.png";
-import ai1 from "../../assets/Technology/ai1.jpg";
+import ai1 from "../../assets/Technology/a4.jpg";
 import ml1 from "../../assets/Technology/ml1.jpg";
 import ai2 from "../../assets/Technology/ai2.jpg";
 import ml2 from "../../assets/Technology/ml2.jpg";
