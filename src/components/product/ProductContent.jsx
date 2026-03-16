@@ -12,7 +12,7 @@ import p2 from "../../assets/product/p2.jpg";
 import p4 from "../../assets/product/p4.jpg";
 import p5 from "../../assets/product/p5.jpg";
 import p6 from "../../assets/product/p6.jpg";
-
+import d1 from "../../assets/product/d1.jpeg";
 import {
   FaBrain,
   FaRobot,
@@ -231,7 +231,8 @@ function ProductContent({ product, activeCategory }) {
             <div
               className={`grid gap-8 items-center ${
                 product.id === "ai-kalmar-yard-operations" ||
-                product.id === "ai-smart-gate-enterprise"
+                 product.id === "ai-smart-gate-enterprise" ||
+    product.id === "ai-document-container-analysis"
                   ? "md:grid-cols-2"
                   : "grid-cols-1"
               }`}
@@ -263,16 +264,25 @@ function ProductContent({ product, activeCategory }) {
 
               {/* RIGHT IMAGE (Kalmar + Smart Gate) */}
               {(product.id === "ai-kalmar-yard-operations" ||
-                product.id === "ai-smart-gate-enterprise") && (
+ product.id === "ai-smart-gate-enterprise" ||
+ product.id === "ai-document-container-analysis") && (
                 <div className="hidden md:block">
                   <img
-                    src={product.id === "ai-smart-gate-enterprise" ? p3 : k2}
+                   src={
+  product.id === "ai-smart-gate-enterprise"
+    ? p3
+    : product.id === "ai-document-container-analysis"
+    ? d1
+    : k2
+}
                     alt="Product Visual"
-                    className={`w-full rounded-2xl shadow-2xl border border-gray-700 object-cover ${
-                      product.id === "ai-smart-gate-enterprise"
-                        ? "h-[380px]"
-                        : "h-auto"
-                    }`}
+                   className={`w-full rounded-2xl shadow-2xl border border-gray-700 object-center ${
+  product.id === "ai-smart-gate-enterprise"
+    ? "h-[400px]"
+    : product.id === "ai-document-container-analysis"
+    ? "h-[460px]"
+    : "h-auto"
+}`}
                   />
                 </div>
               )}
