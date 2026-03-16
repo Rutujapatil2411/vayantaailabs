@@ -241,7 +241,7 @@ const HomeSection1 = () => {
                 {/* Description - Left Aligned */}
                 <motion.p
                   variants={itemVariants}
-                  className="text-lg md:text-lg text-gray-200 mb-10 max-w-xl leading-relaxed"
+                  className="text-lg md:text-lg text-gray-200 mb-6 max-w-xl leading-relaxed"
                 >
                   Transform complex challenges into intelligent solutions with
                   cutting-edge AI research and scalable implementations that drive
@@ -253,7 +253,7 @@ const HomeSection1 = () => {
                 {/* Stats Bar */}
                 <motion.div
                   variants={itemVariants}
-                  className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl"
+                  className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mt-2"
                 >
                   {[
                     { number: "200+", label: "Projects" },
@@ -281,7 +281,7 @@ const HomeSection1 = () => {
           </section>
 
           {/* Logo Sliding Strip */}
-          <div className="mt-10 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
+          <div className="mt-6 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
             {/* Left Text */}
             <div className="flex flex-col justify-center mr-8 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-sm md:text-base font-medium">
