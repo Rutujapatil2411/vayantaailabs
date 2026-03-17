@@ -16,13 +16,13 @@ import { FaMicrochip } from "react-icons/fa";
 import { useEffect } from "react";
 import KeyClients from "./KeyClients";
 
-import aiImage from "../../assets/img/ai.jpg";
-import AI from "../../assets/img/ai1.jpg";
-import AI2 from "../../assets/img/ai2.jpg";
-import AI3 from "../../assets/img/ai3.jpg";
-import AI4 from "../../assets/img/ai4.jpg";
-import portBg from "../../assets/img/shipping.jpg";
-import worldMap from "../../assets/img/map2.png";
+import aiImage from "../../assets/img/ai.webp";
+import AI from "../../assets/img/ai1.webp";
+import AI2 from "../../assets/img/ai2.webp";
+import AI3 from "../../assets/img/ai3.webp";
+import AI4 from "../../assets/img/ai4.webp";
+import portBg from "../../assets/img/shipping.webp";
+import worldMap from "../../assets/img/map2.webp";
 
 import {
   FaGlobe,
