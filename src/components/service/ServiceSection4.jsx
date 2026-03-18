@@ -310,19 +310,7 @@ function ServiceSection4() {
           </motion.div>
         </div>
 
-        {/* Trusted By - Simplified */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-20 pt-12 border-t border-gray-200"
-        >
-          <p className="text-center text-gray-400 text-sm mb-8">Trusted by industry leaders</p>
-          <div className="flex flex-wrap justify-center gap-8 text-gray-400">
-            {["OpenAI", "DeepMind", "Anthropic", "Cohere", "Mistral AI"].map((company, i) => (
-              <span key={i} className="text-sm font-medium">{company}</span>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+         </div>
     </section>
   );
 }

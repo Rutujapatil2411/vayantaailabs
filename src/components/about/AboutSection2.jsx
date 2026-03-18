@@ -179,15 +179,13 @@ function AboutSection2() {
         </div>
 
         {/* Stats Bar */}
-        <motion.div
+       <motion.div
           variants={itemVariants}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100"
+          className="mt-20 grid grid-cols-2 gap-8 p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100"
         >
           {[
             { value: "50+", label: "AI Projects Delivered" },
-            { value: "98%", label: "Client Satisfaction" },
-            { value: "15+", label: "Research Publications" },
-            { value: "10+", label: "Industry Awards" }
+            { value: "98%", label: "Client Satisfaction" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
