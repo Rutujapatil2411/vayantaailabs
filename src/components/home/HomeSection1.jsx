@@ -124,7 +124,7 @@ const HomeSection1 = () => {
   const services = [
     {
       icon: <FaLightbulb className="text-3xl" />,
-      title: "AI STRATEGY CONSULTING",
+      title: "AI STRATEGY TRANSFORMATION",
       description:
         "Develop comprehensive AI adoption roadmaps tailored to your industry and business objectives.",
       gradient: "from-blue-600/30 to-cyan-600/20",
