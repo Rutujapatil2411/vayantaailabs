@@ -310,13 +310,13 @@ const HomeSection2 = () => {
     },
     {
       icon: <FaUsers className="text-3xl text-purple-500" />,
-      value: "120+",
+      value: "5+",
       label: "Growing Clients Portfolio",
       description: "Trusted by businesses worldwide",
     },
     {
       icon: <FaBox className="text-3xl text-green-500" />,
-      value: "10+",
+      value: "5+",
       label: "AI-Powered Yard Solutions",
       description: "Smart Gate & Yard Automation Systems",
     },

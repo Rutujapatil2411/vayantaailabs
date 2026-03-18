@@ -249,7 +249,7 @@ function ServiceSection1() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                   {[
                     {
-                      title: "AI Consulting",
+                      title: "AI Advisory",
                       description: "Strategic AI roadmap & implementation planning",
                       icon: <FaBrain />,
                       metric: "50+ Strategies",
