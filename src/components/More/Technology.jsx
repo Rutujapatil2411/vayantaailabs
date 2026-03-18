@@ -19,11 +19,6 @@ import t15 from "../../assets/Technology/t15.png";
 import t16 from "../../assets/Technology/t16.png";
 import t17 from "../../assets/Technology/t17.png";
 import t18 from "../../assets/Technology/t18.png";
-import ai1 from "../../assets/Technology/a4.jpg";
-import ml1 from "../../assets/Technology/ml1.jpg";
-import ai2 from "../../assets/Technology/ai2.jpg";
-import ml2 from "../../assets/Technology/ml2.jpg";
-
 import patternBg from "../../assets/Technology/techbg.png";
 
 const icons = [
@@ -47,7 +42,7 @@ const icons = [
   t15,
 ];
 
-const aiMlIcons = [ai1, ml1, ai2, ml2];
+
 
 const Technology = () => {
   const iconRows = [
@@ -160,19 +155,7 @@ const Technology = () => {
                             }
                         `}
                       >
-                        {/* <motion.img
-  src={icon}
-  alt={`tech-${rowIndex}-${i}`}
-  className="max-w-full max-h-full object-contain"
-  whileHover={{ 
-    scale: 1.15,
-    rotate: 360
-  }}
-  transition={{
-    rotate: { duration: 0.6, ease: "easeInOut" },
-    scale: { duration: 0.3 }
-  }}
-/> */}
+                       
                         <img
                           src={icon}
                           alt={`tech-${rowIndex}-${i}`}
@@ -187,38 +170,7 @@ const Technology = () => {
           </div>
         </motion.div>
 
-        <motion.div
-          className="w-full bg-white shadow-2xl rounded-sm overflow-hidden mt-10"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative w-full p-8 md:p-12 flex items-center justify-center">
-            <div
-              className="absolute inset-0 opacity-10 bg-center bg-cover pointer-events-none"
-              style={{
-                backgroundImage: `url(${patternBg})`,
-                backgroundSize: "contain",
-              }}
-            />
-
-            <div className="relative z-10 grid grid-cols-2 gap-12 w-full max-w-5xl">
-              {aiMlIcons.map((icon, i) => (
-                <motion.div
-                  key={`aiml-${i}`}
-                  className="flex justify-center items-center"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <img
-                    src={icon}
-                    alt={`aiml-${i}`}
-                    className="w-full h-32 md:h-48 object-cover rounded-none shadow-md"
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </div>
   );
