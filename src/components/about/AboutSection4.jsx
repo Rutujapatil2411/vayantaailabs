@@ -78,7 +78,7 @@ function AboutSection4() {
 
           {[
             {
-              year: "2020",
+              year: "2026",
               title: "Vyantra AI Labs Founded",
               description: "Started by AI researchers from top universities",
               icon: <FaRocket />,
@@ -86,7 +86,7 @@ function AboutSection4() {
               achievements: ["Team of 5", "Seed Funding"]
             },
             {
-              year: "2021",
+              year: "2026",
               title: "First Enterprise Deployment",
               description: "AI yard management system goes live at major port",
               icon: <FaCheckCircle />,
@@ -94,7 +94,7 @@ function AboutSection4() {
               achievements: ["98% Accuracy", "Port of Mumbai"]
             },
             {
-              year: "2022",
+              year: "2026",
               title: "Research Breakthrough",
               description: "Published 5 papers at top AI conferences",
               icon: <FaAward />,
@@ -102,15 +102,15 @@ function AboutSection4() {
               achievements: ["NeurIPS", "ICML", "CVPR"]
             },
             {
-              year: "2023",
-              title: "50+ Projects Delivered",
+              year: "2026",
+              title: "5 + Projects Delivered",
               description: "Serving clients across 15+ industries",
               icon: <FaUsers />,
               color: "from-orange-400 to-red-400",
               achievements: ["Logistics", "Ports", "Manufacturing"]
             },
             {
-              year: "2024",
+              year: "2026",
               title: "Global Expansion",
               description: "Opened offices in US, Europe, and Asia",
               icon: <FaGlobe />,

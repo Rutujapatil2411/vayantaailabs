@@ -5,6 +5,7 @@ import { FaSearchLocation } from "react-icons/fa";
 import { useParallax } from "react-scroll-parallax";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { FaShieldAlt, FaRocket } from "react-icons/fa";
 
 import {
   FaClipboardList,
@@ -327,14 +328,8 @@ const HomeSection2 = () => {
       description: "Industry expertise since 2009",
     },
     {
-      icon: <FaAward className="text-3xl text-red-500" />,
-      value: "3",
-      label: "ISO Certifications",
-      description: "Quality and security standards",
-    },
-    {
       icon: <FaChartLine className="text-3xl text-indigo-500" />,
-      value: "150+",
+      value: "20+",
       label: "Team Professionals",
       description: "Expert developers and consultants",
     },
@@ -385,28 +380,55 @@ const HomeSection2 = () => {
 
   // Why Choose Us data
   const whyChooseUs = [
-    {
-      icon: <FaCertificate className="text-2xl text-blue-500" />,
-      title: "ISO Certified",
-      description: "Quality management systems that ensure reliable delivery",
-    },
-    {
-      icon: <FaBrain className="text-2xl text-purple-500" />,
-      title: "Technology Expertise",
-      description: "Deep knowledge in AI, ML and computer vision technologies",
-    },
-    {
-      icon: <FaHandshake className="text-2xl text-green-500" />,
-      title: "Client-Centric Approach",
-      description: "Customized solutions tailored to your business needs",
-    },
-    {
-      icon: <FaIndustry className="text-2xl text-yellow-500" />,
-      title: "Domain Knowledge",
-      description:
-        "15+ years of logistics and supply chain industry experience",
-    },
-  ];
+  {
+    icon: <FaBrain className="text-2xl text-purple-500" />,
+    title: "Advanced AI & Computer Vision",
+    description:
+      "Built on cutting-edge AI, ML, and OCR technologies for real-time, high-accuracy automation in complex environments.",
+  },
+  {
+    icon: <FaIndustry className="text-2xl text-yellow-500" />,
+    title: "Deep Logistics Domain Expertise",
+    description:
+      "15+ years of experience in ports, CFS, ICDs, and logistics operations ensuring practical and scalable solutions.",
+  },
+  {
+    icon: <FaCogs className="text-2xl text-blue-500" />,
+    title: "End-to-End Automation",
+    description:
+      "From gate entry to yard exit, we automate complete workflows reducing manual intervention and errors.",
+  },
+  {
+    icon: <FaChartLine className="text-2xl text-green-500" />,
+    title: "Proven Efficiency Gains",
+    description:
+      "Achieve up to 60% faster gate processing and significant reduction in congestion and turnaround time.",
+  },
+  {
+    icon: <FaMapMarkedAlt className="text-2xl text-red-500" />,
+    title: "Real-Time Visibility",
+    description:
+      "Live tracking, yard heatmaps, and digital twin views for complete operational transparency.",
+  },
+  {
+    icon: <FaShieldAlt className="text-2xl text-indigo-500" />,
+    title: "Secure & Scalable Systems",
+    description:
+      "Enterprise-grade architecture designed for high performance, data security, and future scalability.",
+  },
+  {
+    icon: <FaHandshake className="text-2xl text-green-600" />,
+    title: "Client-Centric Approach",
+    description:
+      "Customized solutions tailored to your operational needs with continuous support and optimization.",
+  },
+  {
+    icon: <FaRocket className="text-2xl text-pink-500" />,
+    title: "Fast Deployment",
+    description:
+      "Quick implementation with minimal disruption to your existing operations and infrastructure.",
+  },
+];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -651,53 +673,60 @@ const HomeSection2 = () => {
           </motion.div>
 
           {/* Stats Grid */}
+          
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          
+            className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.04 }}
-                className="bg-white rounded-xl p-6 shadow-md 
-                     border border-gray-200 
-                     hover:border-cyan-400 
-                     hover:shadow-2xl 
-                     transition-all duration-300 
-                     relative overflow-hidden group"
-              >
-                {/* Gradient Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            {stats.map((stat, index) => {
+              
+              let gridPosition = "";
+              if (index === 0) gridPosition = "md:col-span-2 lg:col-span-2 lg:col-start-1";
+              if (index === 1) gridPosition = "md:col-span-2 lg:col-span-2 lg:col-start-3";
+              if (index === 2) gridPosition = "md:col-span-2 lg:col-span-2 lg:col-start-5";
+              if (index === 3) gridPosition = "md:col-span-2 lg:col-span-2 lg:col-start-2";
+              if (index === 4) gridPosition = "md:col-span-2 md:col-start-2 lg:col-span-2 lg:col-start-4";
 
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  <motion.div
-                    className="w-16 h-16 flex items-center justify-center 
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.04 }}
+                  className={`bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:border-cyan-400 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group ${gridPosition}`}
+                >
+                  {/* Gradient Hover Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    <motion.div
+                      className="w-16 h-16 flex items-center justify-center 
              rounded-full 
              bg-gradient-to-r from-cyan-400/10 to-purple-400/10
              border border-cyan-400/30
              shadow-md mb-4
              transition-all duration-500"
-                  >
-                    <div className="text-cyan-500 text-xl">{stat.icon}</div>
-                  </motion.div>
-                  <div className="text-3xl font-bold text-gray-900 mb-1">
-                    {stat.value}
-                  </div>
+                    >
+                      <div className="text-cyan-500 text-xl">{stat.icon}</div>
+                    </motion.div>
+                    <div className="text-3xl font-bold text-gray-900 mb-1">
+                      {stat.value}
+                    </div>
 
-                  <div className="text-lg font-semibold text-gray-800 mb-2">
-                    {stat.label}
-                  </div>
+                    <div className="text-lg font-semibold text-gray-800 mb-2">
+                      {stat.label}
+                    </div>
 
-                  <div className="text-sm text-gray-600">
-                    {stat.description}
+                    <div className="text-sm text-gray-600">
+                      {stat.description}
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>

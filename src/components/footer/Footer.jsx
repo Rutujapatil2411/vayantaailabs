@@ -138,13 +138,14 @@ function Footer() {
               <li className="flex items-start space-x-3">
                 <FaMapMarkerAlt className="text-blue-400 mt-1 flex-shrink-0" />
                 <span className="text-gray-300 text-sm">
-                  123 AI Innovation Drive<br />
-                  Silicon Valley, CA 94043
+                 Office No-321, XION, Hinjawadi,<br />
+                 Pune, Maharashtra-411057
+                  
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhone className="text-purple-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">+1 (800) 123-4567</span>
+                <span className="text-gray-300 text-sm">+91 2047312885</span>
               </li>
               <li className="flex items-center space-x-3">
                 <FaEnvelope className="text-cyan-400 flex-shrink-0" />
