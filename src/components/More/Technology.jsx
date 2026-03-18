@@ -22,27 +22,9 @@ import t18 from "../../assets/Technology/t18.png";
 import patternBg from "../../assets/Technology/techbg.png";
 
 const icons = [
-  t16,
-  t17,
-  t18,
-  t1,
-  t2,
-  t3,
-  t4,
-  t5,
-  t6,
-  t7,
-  t8,
-  t9,
-  t10,
-  t11,
-  t12,
-  t13,
-  t14,
-  t15,
+  t16, t17, t18, t1, t2, t3, t4, t5, t6,
+  t7, t8, t9, t10, t11, t12, t13, t14, t15,
 ];
-
-
 
 const Technology = () => {
   const iconRows = [
@@ -53,33 +35,38 @@ const Technology = () => {
   ];
 
   return (
-    <div className="w-full">
-      <div className="relative w-full h-[80vh] overflow-hidden  shadow-2xl mb-16">
-        <motion.div
-          className="absolute inset-0"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.4 }}
-        >
-          <div
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${techBg})`,
-              filter: "brightness(0.5) saturate(1.2)",
-            }}
-          />
+    <div className="relative w-full pb-12">
+      {/* =========================================================
+          MAIN CONSTANT BACKGROUND 
+          This single background covers the entire page behind everything
+      ========================================================= */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${techBg})`,
+            filter: "brightness(0.5) saturate(1.2)",
+            backgroundAttachment: "fixed", // Added fixed so it looks seamless while scrolling
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/50 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+      </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/50 to-black/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
-        </motion.div>
-
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center px-6"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="max-w-4xl text-center">
+      {/* =========================================================
+          PAGE CONTENT (Z-10 to stay above the background)
+      ========================================================= */}
+      <div className="relative z-10 w-full flex flex-col">
+        
+        {/* TOP SECTION: Driving Innovation */}
+        <div className="w-full h-[80vh] flex items-center justify-center px-6 mb-16">
+          <motion.div
+            className="max-w-4xl text-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               <span className="text-white">Driving Innovation Through</span>
               <br />
@@ -95,82 +82,84 @@ const Technology = () => {
               designed to accelerate transformation, enhance operational
               efficiency, and unlock sustainable growth.
             </p>
-          </div>
-        </motion.div>
-      </div>
+          </motion.div>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 pb-12">
-        <motion.div
-          className="text-center mb-8"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-3xl md:text-4xl tracking-wide">
-            Technological Expertise & Integrations
-          </h3>
-        </motion.div>
+        {/* BOTTOM SECTION: Icons */}
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold text-3xl md:text-4xl tracking-wide">
+              Technological Expertise & Integrations
+            </h3>
+          </motion.div>
 
-        <motion.div
-          className="w-full bg-white shadow-2xl rounded-sm overflow-hidden"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative w-full p-8 md:p-14 min-h-[400px] flex flex-col items-center justify-center">
-            <div
-              className="absolute inset-0 opacity-10 bg-center bg-cover pointer-events-none"
-              style={{
-                backgroundImage: `url(${patternBg})`,
-                backgroundSize: "contain",
-              }}
-            />
+          {/* =========================================================
+              ICON CONTAINER - KEPT EXACTLY AS IT WAS
+              White background, shadow-2xl, and patternBg inside are unchanged.
+          ========================================================= */}
+          <motion.div
+            className="w-full bg-white shadow-2xl rounded-sm overflow-hidden"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="relative w-full p-8 md:p-14 min-h-[400px] flex flex-col items-center justify-center">
+              <div
+                className="absolute inset-0 opacity-10 bg-center bg-cover pointer-events-none"
+                style={{
+                  backgroundImage: `url(${patternBg})`,
+                  backgroundSize: "contain",
+                }}
+              />
 
-            <div className="relative z-10 flex flex-col items-center gap-y-10 md:gap-y-14 w-full">
-              {iconRows.map((rowGroup, rowIndex) => (
-                <motion.div
-                  key={rowIndex}
-                  className="flex justify-center gap-x-12 md:gap-x-16 w-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
-                >
-                  {rowGroup.map((icon, i) => {
-                    const isZigZagOffset = i % 2 !== 0;
+              <div className="relative z-10 flex flex-col items-center gap-y-10 md:gap-y-14 w-full">
+                {iconRows.map((rowGroup, rowIndex) => (
+                  <motion.div
+                    key={rowIndex}
+                    className="flex justify-center gap-x-12 md:gap-x-16 w-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
+                  >
+                    {rowGroup.map((icon, i) => {
+                      const isZigZagOffset = i % 2 !== 0;
+                      const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
 
-                    const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
-
-                    return (
-                      <div
-                        key={`${rowIndex}-${i}`}
-                        className={`
-                            flex items-center justify-center transition-transform duration-300
-                            ${isZigZagOffset ? "translate-y-8" : ""}
-                            ${
-                              isLargerIcon
-                                ? "w-[150px] h-[100px] md:w-[180px] md:h-[120px]"
-                                : "w-[110px] h-[70px] md:w-[130px] md:h-[80px]"
-                            }
-                        `}
-                      >
-                       
-                        <img
-                          src={icon}
-                          alt={`tech-${rowIndex}-${i}`}
-                          className="max-w-full max-h-full object-contain"
-                        />
-                      </div>
-                    );
-                  })}
-                </motion.div>
-              ))}
+                      return (
+                        <div
+                          key={`${rowIndex}-${i}`}
+                          className={`
+                              flex items-center justify-center transition-transform duration-300
+                              ${isZigZagOffset ? "translate-y-8" : ""}
+                              ${
+                                isLargerIcon
+                                  ? "w-[150px] h-[100px] md:w-[180px] md:h-[120px]"
+                                  : "w-[110px] h-[70px] md:w-[130px] md:h-[80px]"
+                              }
+                          `}
+                        >
+                          <img
+                            src={icon}
+                            alt={`tech-${rowIndex}-${i}`}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      );
+                    })}
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        
       </div>
     </div>
   );
