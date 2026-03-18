@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import servBackground from '../../assets/img/ser1.webp';
+
 import { 
   FaBrain,
   FaMicrochip,
@@ -147,8 +149,12 @@ function ServiceSection4() {
     { value: "24/7", label: "Model Monitoring", icon: <FaCogs />, color: "orange" }
   ];
 
-  return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+ return (
+    <section 
+      className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: `url(${servBackground})` }}
+    >
+      
       {/* Clean background pattern */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-40 -left-20 w-96 h-96 bg-blue-100 rounded-full opacity-10 blur-3xl" />

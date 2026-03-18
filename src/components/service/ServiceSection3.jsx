@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import servBackground from '../../assets/img/ser1.webp';
+
 import { 
   FaShip, 
   FaTruck, 
@@ -111,7 +113,10 @@ function ServiceSection3() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+  <section 
+      className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: `url(${servBackground})` }}
+    >
       {/* Subtle background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-100 rounded-full opacity-20 blur-3xl" />
@@ -245,7 +250,7 @@ function ServiceSection3() {
           variants={itemVariants}
           className="mt-16 text-center"
         >
-          <p className="text-gray-400 text-sm">
+          <p className="text-black-400 text-sm">
             Each solution is customized to meet specific industry requirements and compliance standards
           </p>
         </motion.div>
