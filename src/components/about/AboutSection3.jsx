@@ -8,7 +8,7 @@ function AboutSection3() {
     { name: "Shivraj", role: "CEO & Founder", image: "" }, 
     { name: "Sanket", role: "Technical Lead", image: "" },
     { name: "Tukaram", role: "Sr. Developer", image: "" },
-    { name: "Mayur", role: " AI Developer", image: "" },
+    { name: "Mayur", role: "AI Developer", image: "" },
     { name: "Rushikesh", role: "UI Designer", image: "" }
   ];
 
@@ -42,11 +42,20 @@ function AboutSection3() {
               className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center w-full max-w-4xl group`}
             >
               {/* Text Card Area */}
-              <div className={`w-full md:w-[620px] ${index % 2 === 0 ? 'md:pr-28 md:pl-10' : 'md:pl-28 md:pr-10'} p-8 bg-gradient-to-r ${index % 2 === 0 ? 'from-cyan-500 to-cyan-600 text-left' : 'from-purple-500 to-purple-600 text-right'} text-white shadow-xl relative z-10 rounded-2xl`}>
+              <div className={`w-full md:w-[620px] ${index % 2 === 0 ? 'md:pr-28 md:pl-10' : 'md:pl-28 md:pr-10'} p-8 bg-gradient-to-r ${index % 2 === 0 ? 'from-cyan-500 to-cyan-600 text-left' : 'from-purple-500 to-purple-600 text-right'} text-white shadow-xl relative z-10 rounded-2xl transition-all duration-300 group-hover:shadow-2xl`}>
                 <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wide">{member.name}</h3>
                 <p className="text-cyan-100 font-medium mb-3 text-sm uppercase tracking-widest">{member.role}</p>
                 
-                <div className={`h-1 w-20 bg-white/30 rounded mb-4 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`} />
+                
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "5rem" }} 
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                  className={`h-1 bg-white/40 rounded mb-4 transition-all duration-300 
+                    group-hover:bg-white group-hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] 
+                    ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`} 
+                />
                 
                 <p className="text-sm text-white/90 mb-4 font-light leading-relaxed">
                   Innovative leader driving excellence and pushing the boundaries of technology.
@@ -59,16 +68,15 @@ function AboutSection3() {
                 </div>
               </div>
 
-              {/* Image Area - Circle with Image Placeholder */}
+              {/* Image Area */}
               <div className={`relative z-20 -mt-10 md:mt-0 ${index % 2 === 0 ? 'md:-ml-25' : 'md:-mr-25'}`}>
                 <div className="w-36 h-36 md:w-50 md:h-50 rounded-full border-[6px] border-white shadow-2xl overflow-hidden bg-gray-100 flex items-center justify-center">
                    <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-full h-full object-cover" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                    />
                 </div>
-                {/* Hover Effect Ring */}
                 <div className={`absolute inset-0 rounded-full border-2 ${index % 2 === 0 ? 'border-cyan-300' : 'border-purple-300'} scale-110 opacity-0 group-hover:opacity-100 transition-all duration-300`}></div>
               </div>
             </motion.div>
