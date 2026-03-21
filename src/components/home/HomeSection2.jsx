@@ -651,8 +651,7 @@ const HomeSection2 = () => {
 
       {/* Stats Section  */}
 
-      <section className="relative py-20 bg-gray-50 overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section className="relative py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100 overflow-hidden">        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: -30 }}
@@ -733,8 +732,7 @@ const HomeSection2 = () => {
 
       {/* Why Choose Us Section  */}
 
-      <section className="relative py-16 bg-white overflow-hidden">
-        <AnimatedShapes />
+<section className="relative py-16 bg-gradient-to-br from-purple-50 via-pink-50 to-violet-100 overflow-hidden">        <AnimatedShapes />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
