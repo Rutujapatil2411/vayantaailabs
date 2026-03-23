@@ -1,15 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import visionBg from "../../assets/bgImages/v1.png";
-import vmImg from "../../assets/img/vm.jpg"; 
-import visionSideImg from "../../assets/img/v6.webp"; 
+import vmImg from "../../assets/img/vm.jpg";
+import visionSideImg from "../../assets/img/v6.webp";
 import missionSideImg from "../../assets/img/m2.webp";
 
 const VisionMission = () => {
   return (
     <div className="w-full">
       <section className="relative min-h-[70vh] flex items-center justify-center px-6 overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ backgroundImage: `url(${vmImg})` }}
         />
@@ -50,7 +50,6 @@ const VisionMission = () => {
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-20">
           <div className="space-y-32">
-            
             {/* Our Vision Section */}
             <motion.div
               className="relative grid md:grid-cols-2 gap-20 items-center"
@@ -60,11 +59,14 @@ const VisionMission = () => {
               transition={{ duration: 0.8, type: "spring" }}
             >
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-cyan-400">Our Vision</h2>
+                <h2 className="text-3xl font-bold mb-6 text-cyan-400">
+                  Our Vision
+                </h2>
                 <p className="text-gray-300 leading-relaxed text-lg mb-8">
-                  To become a global leader in intelligent logistics technology by
-                  delivering scalable, secure, and AI-powered enterprise solutions
-                  across container yards, transportation, and supply chains.
+                  To become a global leader in intelligent logistics technology
+                  by delivering scalable, secure, and AI-powered enterprise
+                  solutions across container yards, transportation, and supply
+                  chains.
                 </p>
                 <motion.ul className="space-y-4 text-gray-400 text-sm">
                   {[
@@ -74,7 +76,11 @@ const VisionMission = () => {
                     "High-availability cloud and hybrid infrastructure",
                     "Continuous innovation in digital logistics ecosystems",
                   ].map((item, i) => (
-                    <motion.li key={i} className="flex items-start gap-3 cursor-pointer" whileHover={{ x: 8, color: "#22d3ee" }}>
+                    <motion.li
+                      key={i}
+                      className="flex items-start gap-3 cursor-pointer"
+                      whileHover={{ x: 8, color: "#22d3ee" }}
+                    >
                       <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span>
                       {item}
                     </motion.li>
@@ -82,21 +88,24 @@ const VisionMission = () => {
                 </motion.ul>
               </div>
 
-             
               <div className="relative flex justify-center items-center">
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 25,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute w-80 h-80 hidden md:block"
                 >
                   <div className="absolute inset-0 rounded-full border border-cyan-400/40"></div>
                   <div className="absolute inset-6 rounded-full border border-purple-400/40"></div>
                   <div className="absolute inset-12 rounded-full border border-cyan-400/40"></div>
                 </motion.div>
-                <img 
-                  src={visionSideImg} 
+                <img
+                  src={visionSideImg}
                   alt="Vision"
-                  className="w-120 h-80 object-contain z-10 relative drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]"
+                  className="w-140 h-120 object-contain z-10 relative drop-shadow-[0_0_20px_rgba(34,211,238,0.5)]"
                 />
               </div>
             </motion.div>
@@ -109,26 +118,31 @@ const VisionMission = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: "spring" }}
             >
-              
               <div className="relative flex justify-center items-center order-2 md:order-1">
                 <motion.div
                   animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute w-80 h-80 hidden md:block"
                 >
                   <div className="absolute inset-0 rounded-full border border-purple-400/40"></div>
                   <div className="absolute inset-6 rounded-full border border-cyan-400/40"></div>
                   <div className="absolute inset-12 rounded-full border border-purple-400/40"></div>
                 </motion.div>
-                <img 
-                  src={missionSideImg} 
+                <img
+                  src={missionSideImg}
                   alt="Mission"
-                  className="w-120 h-80 object-contain z-10 relative drop-shadow-[0_0_20px_rgba(168,85,247,0.5)]"
+                  className="w-120 h-120 object-contain z-10 relative drop-shadow-[0_0_20px_rgba(168,85,247,0.5)]"
                 />
               </div>
 
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold mb-6 text-cyan-400">Our Mission</h2>
+                <h2 className="text-3xl font-bold mb-6 text-cyan-400">
+                  Our Mission
+                </h2>
                 <p className="text-gray-300 leading-relaxed text-lg mb-8">
                   To empower enterprises with intelligent automation, predictive
                   analytics, and secure digital platforms that accelerate
@@ -142,7 +156,11 @@ const VisionMission = () => {
                     "Continuous employee upskilling and innovation culture",
                     "Measurable business impact through data intelligence",
                   ].map((item, i) => (
-                    <motion.li key={i} className="flex items-start gap-3 cursor-pointer" whileHover={{ x: 8, color: "#22d3ee" }}>
+                    <motion.li
+                      key={i}
+                      className="flex items-start gap-3 cursor-pointer"
+                      whileHover={{ x: 8, color: "#22d3ee" }}
+                    >
                       <span className="mt-2 h-2 w-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
                       {item}
                     </motion.li>
@@ -150,7 +168,6 @@ const VisionMission = () => {
                 </motion.ul>
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
