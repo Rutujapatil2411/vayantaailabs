@@ -267,16 +267,12 @@ function AboutSection4() {
             </div>
             <div className="hidden md:block w-1 h-4 bg-gray-700 rounded-full" />
             <div className="block md:hidden w-16 h-px bg-gray-700" />
-            <div className="flex items-center">
-              <FaAward className="text-purple-400 mr-2 text-sm md:text-base" />
-              <span className="font-semibold text-sm md:text-base">15+</span>
-              <span className="text-gray-400 ml-1 text-xs md:text-sm">research papers</span>
-            </div>
+            
             <div className="hidden md:block w-1 h-4 bg-gray-700 rounded-full" />
             <div className="block md:hidden w-16 h-px bg-gray-700" />
             <div className="flex items-center">
               <FaUsers className="text-blue-400 mr-2 text-sm md:text-base" />
-              <span className="font-semibold text-sm md:text-base">50+</span>
+              <span className="font-semibold text-sm md:text-base">5 +</span>
               <span className="text-gray-400 ml-1 text-xs md:text-sm">successful projects</span>
             </div>
           </div>

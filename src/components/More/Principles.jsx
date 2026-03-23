@@ -282,7 +282,6 @@ const Principles = () => {
                       className="w-20 h-20 mx-auto bg-white rounded-full shadow-md flex items-center justify-center mb-6 border border-cyan-100"
                       whileHover={{
                         scale: 1.1,
-                        rotate: 360,
                         transition: { duration: 0.8 },
                       }}
                     >

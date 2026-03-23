@@ -184,7 +184,7 @@ function AboutSection2() {
           className="mt-20 grid grid-cols-2 gap-8 p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100"
         >
           {[
-            { value: "50+", label: "AI Projects Delivered" },
+            { value: "5+", label: "AI Projects Delivered" },
             { value: "98%", label: "Client Satisfaction" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
