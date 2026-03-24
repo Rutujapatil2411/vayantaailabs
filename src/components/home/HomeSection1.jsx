@@ -29,7 +29,6 @@ import c23 from "../../assets/companies/c23.webp";
 import c24 from "../../assets/companies/c24.webp";
 import c25 from "../../assets/companies/c25.webp";
 import c26 from "../../assets/companies/c26.webp";
-import c27 from "../../assets/companies/c27.webp";
 import c28 from "../../assets/companies/c28.webp";
 import c29 from "../../assets/companies/c29.webp";
 import c30 from "../../assets/companies/c30.webp";
@@ -164,7 +163,7 @@ const HomeSection1 = () => {
     c2, c3, c4, c5, c6, c7, c8, c9, c10,
     c11, c12, c13, c14, c15, c16, c17,
     c18, c19, c20, c21, c22, c23,
-    c24, c25, c26, c27, c28, c29,
+    c24, c25, c26,  c28, c29,
     c30, c31, c32, c33, c34, c35,
     c36, c37, c38, c39, c40, c41
   ];
