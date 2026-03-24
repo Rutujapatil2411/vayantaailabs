@@ -26,7 +26,7 @@ function AboutSection4() {
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage: `linear-gradient(90deg, transparent 79px, #4299e1 79px, #4299e1 81px, transparent 81px),
-                             linear-gradient(transparent 79px, #4299e1 79px, #4299e1 81px, transparent 81px)`,
+                              linear-gradient(transparent 79px, #4299e1 79px, #4299e1 81px, transparent 81px)`,
             backgroundSize: '100px 100px'
           }}
         />
@@ -62,7 +62,7 @@ function AboutSection4() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto px-4"
           >
-            A legacy of 15 years in IT excellence combined with cutting-edge AI innovation.
+            A legacy of 15+ years in IT excellence combined with cutting-edge AI innovation.
           </motion.p>
         </div>
 
@@ -85,7 +85,7 @@ function AboutSection4() {
               description: "Completing 1 year of specialized AI research and Generative AI solutions for global enterprises.",
               icon: <FaRocket />,
               color: "from-blue-400 to-cyan-400",
-              achievements: ["GenAI Integration", "5+ AI Projects"]
+              achievements: ["GenAI Integration", "5+ AI Solutions"]
             },
             {
               year: "2025",
@@ -101,7 +101,7 @@ function AboutSection4() {
               description: "Rapportsoft achieves milestone of delivering mission-critical enterprise software across India.",
               icon: <FaChartLine />,
               color: "from-green-400 to-emerald-400",
-              achievements: ["Enterprise Scale", "100+ Clients"]
+              achievements: ["Enterprise Scale", "100+ Partners"]
             },
             {
               year: "2015",
@@ -114,7 +114,7 @@ function AboutSection4() {
             {
               year: "2011",
               title: "The Rapportsoft Foundation",
-              description: "Inception of Rapportsoft Solutions, focused on high-quality software engineering and client rapport.",
+              description: "Inception of Rapportsoft Solutions, focused on high-quality software engineering and partner rapport.",
               icon: <FaBuilding />,
               color: "from-indigo-400 to-purple-400",
               achievements: ["Founding Year", "Core IT Services"]
