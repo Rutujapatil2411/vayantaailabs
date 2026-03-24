@@ -203,13 +203,7 @@ const HomeSection1 = () => {
         </motion.div>
 
         {/* Parallax Foreground Div with Fade Out */}
-        <motion.div 
-          style={{ 
-            y: yText, 
-            opacity: opacityContent 
-          }} 
-          className="relative z-10"
-        >
+        <div className="relative z-10">
           {/* Hero Content */}
           <section className="min-h-[85vh] lg:min-h-[95vh] flex items-center pb-2">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -309,7 +303,7 @@ const HomeSection1 = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* --- SERVICES SECTION  --- */}
@@ -423,8 +417,7 @@ const HomeSection1 = () => {
           </motion.div>
         </div>
       </section>
-      <div className="absolute bottom-0 left-0 w-full h-32 
-bg-gradient-to-b from-transparent to-gray-900 z-20" />
+     
       
     </div>
   );

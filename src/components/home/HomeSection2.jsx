@@ -545,7 +545,7 @@ const HomeSection2 = () => {
 
   return (
 <div >
-       <section className="relative py-20 overflow-hidden bg-gray-900">
+        <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/50 to-purple-600/50 z-10"></div>
 
