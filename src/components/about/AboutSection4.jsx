@@ -8,7 +8,9 @@ import {
   FaAward,
   FaTrophy,
   FaStar,
-  FaGlobe
+  FaGlobe,
+  FaBuilding,
+  FaLightbulb
 } from 'react-icons/fa';
 
 function AboutSection4() {
@@ -60,7 +62,7 @@ function AboutSection4() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto px-4"
           >
-            Our path to becoming leaders in AI innovation
+            A legacy of 15 years in IT excellence combined with cutting-edge AI innovation.
           </motion.p>
         </div>
 
@@ -79,43 +81,43 @@ function AboutSection4() {
           {[
             {
               year: "2026",
-              title: "Vyantra AI Labs Founded",
-              description: "Started by AI researchers from top universities",
+              title: "Vyantra AI Labs: The Next Frontier",
+              description: "Completing 1 year of specialized AI research and Generative AI solutions for global enterprises.",
               icon: <FaRocket />,
               color: "from-blue-400 to-cyan-400",
-              achievements: ["Team of 5", "Seed Funding"]
+              achievements: ["GenAI Integration", "5+ AI Projects"]
             },
             {
-              year: "2026",
-              title: "First Enterprise Deployment",
-              description: "AI yard management system goes live at major port",
-              icon: <FaCheckCircle />,
-              color: "from-green-400 to-emerald-400",
-              achievements: ["98% Accuracy", "Port of Mumbai"]
-            },
-            {
-              year: "2026",
-              title: "Research Breakthrough",
-              description: "Published 5 papers at top AI conferences",
-              icon: <FaAward />,
+              year: "2025",
+              title: "Launch of Vyantra AI Labs",
+              description: "Strategic expansion into Artificial Intelligence, bridging Rapportsoft's experience with modern deep learning.",
+              icon: <FaLightbulb />,
               color: "from-purple-400 to-pink-400",
-              achievements: ["NeurIPS", "ICML", "CVPR"]
+              achievements: ["AI Research Wing", "Mumbai HQ"]
             },
             {
-              year: "2026",
-              title: "5 + Projects Delivered",
-              description: "Serving clients across 15+ industries",
-              icon: <FaUsers />,
-              color: "from-orange-400 to-red-400",
-              achievements: ["Logistics", "Ports", "Manufacturing"]
+              year: "2020",
+              title: "Digital Transformation Leaders",
+              description: "Rapportsoft achieves milestone of delivering mission-critical enterprise software across India.",
+              icon: <FaChartLine />,
+              color: "from-green-400 to-emerald-400",
+              achievements: ["Enterprise Scale", "100+ Clients"]
             },
             {
-              year: "2026",
-              title: "Global Expansion",
-              description: "Opened offices in US, Europe, and Asia",
+              year: "2015",
+              title: "Global Delivery Excellence",
+              description: "Expanded Rapportsoft operations to international markets, specializing in robust web & mobile ecosystems.",
               icon: <FaGlobe />,
+              color: "from-orange-400 to-red-400",
+              achievements: ["Global Presence", "Agile Masters"]
+            },
+            {
+              year: "2011",
+              title: "The Rapportsoft Foundation",
+              description: "Inception of Rapportsoft Solutions, focused on high-quality software engineering and client rapport.",
+              icon: <FaBuilding />,
               color: "from-indigo-400 to-purple-400",
-              achievements: ["3 Continents", "100+ Team"]
+              achievements: ["Founding Year", "Core IT Services"]
             }
           ].map((item, index) => (
             <motion.div
@@ -128,16 +130,13 @@ function AboutSection4() {
             >
               {/* Mobile Layout - Stacked */}
               <div className="md:hidden">
-                {/* Mobile Card */}
                 <div className="relative">
-                  {/* Year Badge - Top Center on Mobile */}
                   <div className="flex justify-center mb-4">
                     <div className={`px-4 py-1.5 rounded-full bg-gradient-to-r ${item.color} text-white text-sm font-bold shadow-lg`}>
                       {item.year}
                     </div>
                   </div>
 
-                  {/* Icon - Center on Mobile */}
                   <div className="flex justify-center mb-4">
                     <div className="relative">
                       <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${item.color} flex items-center justify-center text-white shadow-xl border border-white/10`}>
@@ -148,7 +147,6 @@ function AboutSection4() {
                     </div>
                   </div>
 
-                  {/* Content Card */}
                   <motion.div 
                     whileHover={{ y: -4 }}
                     className="group relative"
@@ -156,7 +154,6 @@ function AboutSection4() {
                     <div className={`absolute inset-0 bg-gradient-to-r ${item.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
                     
                     <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700/50 group-hover:border-blue-500/30 transition-all duration-300">
-                      {/* Corner accents */}
                       <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-400/30 rounded-tl-2xl" />
                       <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-purple-400/30 rounded-br-2xl" />
                       
@@ -188,7 +185,6 @@ function AboutSection4() {
                 <div className={`relative flex items-center ${
                   index % 2 === 0 ? 'justify-end' : ''
                 }`}>
-                  {/* Content */}
                   <div className={`w-5/12 ${
                     index % 2 === 0 ? 'text-right pr-8' : 'pl-8'
                   }`}>
@@ -229,7 +225,6 @@ function AboutSection4() {
                     </motion.div>
                   </div>
 
-                  {/* Center Icon */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 z-20">
                     <motion.div 
                       whileHover={{ scale: 1.1 }}
@@ -262,18 +257,16 @@ function AboutSection4() {
           <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 text-gray-200 bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-md px-6 md:px-8 py-4 md:py-4 rounded-2xl border border-gray-700/50 shadow-2xl">
             <div className="flex items-center">
               <FaTrophy className="text-yellow-400 mr-2 text-sm md:text-base" />
-              <span className="font-semibold text-sm md:text-base">5+ years</span>
-              <span className="text-gray-400 ml-1 text-xs md:text-sm">of innovation</span>
+              <span className="font-semibold text-sm md:text-base">16 Combined Years</span>
+              <span className="text-gray-400 ml-1 text-xs md:text-sm">of Expertise</span>
             </div>
             <div className="hidden md:block w-1 h-4 bg-gray-700 rounded-full" />
             <div className="block md:hidden w-16 h-px bg-gray-700" />
             
-            <div className="hidden md:block w-1 h-4 bg-gray-700 rounded-full" />
-            <div className="block md:hidden w-16 h-px bg-gray-700" />
             <div className="flex items-center">
-              <FaUsers className="text-blue-400 mr-2 text-sm md:text-base" />
-              <span className="font-semibold text-sm md:text-base">5 +</span>
-              <span className="text-gray-400 ml-1 text-xs md:text-sm">successful projects</span>
+              <FaBuilding className="text-blue-400 mr-2 text-sm md:text-base" />
+              <span className="font-semibold text-sm md:text-base">Rapportsoft + Vyantra</span>
+              <span className="text-gray-400 ml-1 text-xs md:text-sm">Collaboration</span>
             </div>
           </div>
         </motion.div>

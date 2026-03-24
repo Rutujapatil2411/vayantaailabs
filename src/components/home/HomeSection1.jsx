@@ -275,7 +275,7 @@ const HomeSection1 = () => {
           </section>
 
           {/* Logo Sliding Strip */}
-          <div className="mt-6 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
+          <div className="mt-6  mb-8 w-full flex items-center overflow-hidden relative px-6 sm:px-8 lg:px-12">
             {/* Left Text */}
             <div className="flex flex-col justify-center mr-8 leading-tight">
               <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-sm md:text-base font-medium">

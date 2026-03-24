@@ -33,19 +33,12 @@ const AboutSection3 = () => {
 
   return (
     <section className="relative w-full py-20 bg-[#f8fafc] overflow-hidden font-sans">
-     {/* Top Decorative Shape - Now using Purple-600 */}
-     {/* <div
-        className="absolute top-0 left-0 w-full h-64 bg-[#e0f7fa] opacity-60 transition-all"
-        style={{ borderRadius: "0 0 50% 50% / 0 0 20% 20%" }}
-      ></div> */}
+    
 <div
   className="absolute top-0 left-0 w-full h-64 bg-purple-600 opacity-20 transition-all"
   style={{ borderRadius: "0 0 50% 50% / 0 0 20% 20%" }}
 ></div>
-      {/* <div
-        className="absolute bottom-0 left-0 w-full h-40 bg-[#f3e5f5] opacity-50"
-        style={{ borderRadius: "50% 50% 0 0 / 20% 20% 0 0" }}
-      ></div> */}
+     
       <div
         className="absolute bottom-0 left-0 w-full h-40 bg-purple-600 opacity-20 transition-all"
         style={{ borderRadius: "50% 50% 0 0 / 20% 20% 0 0" }}
@@ -90,7 +83,7 @@ const AboutSection3 = () => {
                   <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl">
                     <img
                       src={member.image}
-                      alt={member.name}
+                      alt=""
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105 hover:scale-110"
                     />
                   </div>
@@ -127,13 +120,8 @@ const AboutSection3 = () => {
           </div>
 
           {/* Footer */}
-          <div className="mt-20 pt-8 border-t border-gray-100 text-center text-xs text-gray-500 tracking-widest uppercase">
-            <p className="font-bold text-gray-800 mb-1">123.456.7890</p>
-            <p>Office No-321, XION, Hinjawadi, Pune, Maharashtra, 411057</p>
-            <p className="mt-1 font-semibold text-[#00acc1]">
-              www.yourwebsite.com
-            </p>
-          </div>
+          {/* <div className="mt-10  pt-8 border-t border-gray-100 text-center text-xs text-gray-500 tracking-widest uppercase">
+          </div> */}
         </div>
       </div>
     </section>
