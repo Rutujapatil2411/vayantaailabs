@@ -97,7 +97,6 @@ function AboutSection4() {
        {/* --- COMPACT GLOWING LINE GRAPH --- */}
 <div className="relative h-[400px] w-full max-w-5xl mx-auto mt-8">
   
-  {/* Axis Lines */}
   {/* Vertical Axis (Y-Axis) */}
 <div className="absolute left-0 bottom-0 w-[3px] h-full bg-gradient-to-t from-[#22d3ee] via-[#22d3ee]/50 to-transparent z-0 shadow-[0_0_10px_rgba(34,211,238,0.5)]">      <span className="absolute -left-10 top-0 text-[10px] text-white font-bold uppercase rotate-[-90deg] origin-right">Growth</span>
   </div>
@@ -154,7 +153,7 @@ function AboutSection4() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 + (index * 0.2) }}
                 className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                /* We use item.x and item.y from your milestones array */
+                
                 style={{ left: `${item.x}%`, top: `${item.y}%` }}
               >
                 {/* Year Label */}
