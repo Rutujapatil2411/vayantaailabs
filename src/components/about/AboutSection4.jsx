@@ -16,6 +16,7 @@ function AboutSection4() {
   const milestones = [
     { 
       year: "2011", 
+      
       title: "The Rapportsoft Foundation", 
       description: "Inception of Rapportsoft Solutions, focused on high-quality software engineering and partner rapport.",
       icon: <FaBuilding />, 
@@ -157,9 +158,15 @@ function AboutSection4() {
                 style={{ left: `${item.x}%`, top: `${item.y}%` }}
               >
                 {/* Year Label */}
-                <div className={`absolute ${isLastMilestones ? '-top-10' : 'top-14'} left-1/2 -translate-x-1/2 text-white font-bold text-xs tracking-widest`}>
-                  {item.year}
-                </div>
+                {/* Year + Name Label */}
+<div className={`absolute ${isLastMilestones ? '-top-12' : 'top-14'} left-1/2 -translate-x-1/2 text-center`}>
+  <div className="text-white font-bold text-xs tracking-widest">
+    {item.year}
+  </div>
+  <div className="text-[10px] text-white font-semibold mt-0.5 whitespace-nowrap">
+    {index <= 2 ? "Rapportsoft" : "Vyantra AI Labs"}
+  </div>
+</div>
 
                 {/* Point Icon */}
                 <motion.div
