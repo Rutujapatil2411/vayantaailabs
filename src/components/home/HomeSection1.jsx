@@ -189,7 +189,7 @@ const HomeSection1 = () => {
           
           >
             <source
-              src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid6.mp4"
+              src="https://raw.githubusercontent.com/Rutujapatil2411/project-assets/main/vid6processed.mp4"
               type="video/mp4"
             />
           </video>

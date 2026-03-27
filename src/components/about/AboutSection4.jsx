@@ -157,7 +157,6 @@ function AboutSection4() {
                 
                 style={{ left: `${item.x}%`, top: `${item.y}%` }}
               >
-                {/* Year Label */}
                 {/* Year + Name Label */}
 <div className={`absolute ${isLastMilestones ? '-top-12' : 'top-14'} left-1/2 -translate-x-1/2 text-center`}>
   <div className="text-white font-bold text-xs tracking-widest">
