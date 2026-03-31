@@ -46,7 +46,7 @@ const Technology = () => {
           style={{
             backgroundImage: `url(${techBg})`,
             filter: "brightness(0.5) saturate(1.2)",
-            backgroundAttachment: "fixed", // Added fixed so it looks seamless while scrolling
+            backgroundAttachment: "fixed", 
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/50 to-black/80" />
@@ -120,41 +120,43 @@ const Technology = () => {
 
               <div className="relative z-10 flex flex-col items-center gap-y-10 md:gap-y-14 w-full">
                 {iconRows.map((rowGroup, rowIndex) => (
-                  <motion.div
-                    key={rowIndex}
-                    className="flex justify-center gap-x-12 md:gap-x-16 w-full"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
-                  >
-                    {rowGroup.map((icon, i) => {
-                      const isZigZagOffset = i % 2 !== 0;
-                      const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
+  <motion.div
+    key={rowIndex}
+    
+    className="flex flex-wrap md:flex-nowrap justify-center gap-y-10 gap-x-8 md:gap-x-16 w-full"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
+  >
+    {rowGroup.map((icon, i) => {
+      
+      const isZigZagOffset = i % 2 !== 0;
+      const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
 
-                      return (
-                        <div
-                          key={`${rowIndex}-${i}`}
-                          className={`
-                              flex items-center justify-center transition-transform duration-300
-                              ${isZigZagOffset ? "translate-y-8" : ""}
-                              ${
-                                isLargerIcon
-                                  ? "w-[150px] h-[100px] md:w-[180px] md:h-[120px]"
-                                  : "w-[110px] h-[70px] md:w-[130px] md:h-[80px]"
-                              }
-                          `}
-                        >
-                          <img
-                            src={icon}
-                            alt={`tech-${rowIndex}-${i}`}
-                            className="max-w-full max-h-full object-contain"
-                          />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                ))}
+      return (
+        <div
+          key={`${rowIndex}-${i}`}
+          className={`
+              flex items-center justify-center transition-transform duration-300
+              ${isZigZagOffset ? "md:translate-y-8" : ""} 
+              ${
+                isLargerIcon
+                  ? "w-[120px] h-[80px] md:w-[180px] md:h-[120px]"
+                  : "w-[80px] h-[50px] md:w-[130px] md:h-[80px]"
+              }
+          `}
+        >
+          <img
+            src={icon}
+            alt={`tech-${rowIndex}-${i}`}
+            className="max-w-full max-h-full object-contain"
+          />
+        </div>
+      );
+    })}
+  </motion.div>
+))}
               </div>
             </div>
           </motion.div>
