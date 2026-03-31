@@ -22,8 +22,24 @@ import t18 from "../../assets/Technology/t18.png";
 import patternBg from "../../assets/Technology/techbg.png";
 
 const icons = [
-  t16, t17, t18, t1, t2, t3, t4, t5, t6,
-  t7, t8, t9, t10, t11, t12, t13, t14, t15,
+  t16,
+  t17,
+  t18,
+  t1,
+  t2,
+  t3,
+  t4,
+  t5,
+  t6,
+  t7,
+  t8,
+  t9,
+  t10,
+  t11,
+  t12,
+  t13,
+  t14,
+  t15,
 ];
 
 const Technology = () => {
@@ -36,28 +52,20 @@ const Technology = () => {
 
   return (
     <div className="relative w-full pb-12">
-      {/* =========================================================
-          MAIN CONSTANT BACKGROUND 
-          This single background covers the entire page behind everything
-      ========================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div
           className="w-full h-full bg-cover bg-center"
           style={{
             backgroundImage: `url(${techBg})`,
             filter: "brightness(0.5) saturate(1.2)",
-            backgroundAttachment: "fixed", 
+            backgroundAttachment: "fixed",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-purple-900/50 to-black/80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
       </div>
 
-      {/* =========================================================
-          PAGE CONTENT (Z-10 to stay above the background)
-      ========================================================= */}
       <div className="relative z-10 w-full flex flex-col">
-        
         {/* TOP SECTION: Driving Innovation */}
         <div className="w-full h-[80vh] flex items-center justify-center px-6 mb-16">
           <motion.div
@@ -99,10 +107,6 @@ const Technology = () => {
             </h3>
           </motion.div>
 
-          {/* =========================================================
-              ICON CONTAINER - KEPT EXACTLY AS IT WAS
-              White background, shadow-2xl, and patternBg inside are unchanged.
-          ========================================================= */}
           <motion.div
             className="w-full bg-white shadow-2xl rounded-sm overflow-hidden"
             initial={{ opacity: 0, y: 40 }}
@@ -120,24 +124,23 @@ const Technology = () => {
 
               <div className="relative z-10 flex flex-col items-center gap-y-10 md:gap-y-14 w-full">
                 {iconRows.map((rowGroup, rowIndex) => (
-  <motion.div
-    key={rowIndex}
-    
-    className="flex flex-wrap md:flex-nowrap justify-center gap-y-10 gap-x-8 md:gap-x-16 w-full"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
-  >
-    {rowGroup.map((icon, i) => {
-      
-      const isZigZagOffset = i % 2 !== 0;
-      const isLargerIcon = rowIndex === 2 && (i === 0 || i === 1);
+                  <motion.div
+                    key={rowIndex}
+                    className="flex flex-wrap md:flex-nowrap justify-center gap-y-10 gap-x-8 md:gap-x-16 w-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: rowIndex * 0.1, duration: 0.4 }}
+                  >
+                    {rowGroup.map((icon, i) => {
+                      const isZigZagOffset = i % 2 !== 0;
+                      const isLargerIcon =
+                        rowIndex === 2 && (i === 0 || i === 1);
 
-      return (
-        <div
-          key={`${rowIndex}-${i}`}
-          className={`
+                      return (
+                        <div
+                          key={`${rowIndex}-${i}`}
+                          className={`
               flex items-center justify-center transition-transform duration-300
               ${isZigZagOffset ? "md:translate-y-8" : ""} 
               ${
@@ -146,22 +149,21 @@ const Technology = () => {
                   : "w-[80px] h-[50px] md:w-[130px] md:h-[80px]"
               }
           `}
-        >
-          <img
-            src={icon}
-            alt={`tech-${rowIndex}-${i}`}
-            className="max-w-full max-h-full object-contain"
-          />
-        </div>
-      );
-    })}
-  </motion.div>
-))}
+                        >
+                          <img
+                            src={icon}
+                            alt={`tech-${rowIndex}-${i}`}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </div>
+                      );
+                    })}
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
         </div>
-
       </div>
     </div>
   );
